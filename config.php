@@ -8,3 +8,7 @@
  */
 
 define('DEFAULT_CONTROLLER', 'welcome');
+define('DATABASE_HOSTANME', 'localhost');
+define('DATABASE_USERNAME', 'halo');
+define('DATABASE_PASSWORD', 'changeme');
+define('DATABASE_DATABASE', 'halo');
