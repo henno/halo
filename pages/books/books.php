@@ -6,8 +6,3 @@
  * Time: 22:34
  */
 
-class books {
-	function index(){
-
-	}
-}

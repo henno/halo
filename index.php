@@ -9,8 +9,8 @@
 require 'config.php';
 require 'classes/request.php';
 
-if (file_exists('pages/' . $request->controller . '.php')) {
-    require 'pages/' . $request->controller . '.php';
+if (file_exists('pages/' . $request->controller .'/'. $request->controller . '.php')) {
+    require 'pages/' . $request->controller . '/'. $request->controller .  '.php';
 } else {
     echo "The page '$request->controller' does not exist";
 }
