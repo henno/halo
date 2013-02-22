@@ -9,6 +9,7 @@
 require 'config.php';
 require 'classes/request.php';
 require 'lib/database_lib.php';
+require 'classes/auth.php';
 
 if (file_exists('pages/' . $request->controller .'/'. $request->controller . '.php')) {
     require 'pages/' . $request->controller . '/'. $request->controller .  '.php';
