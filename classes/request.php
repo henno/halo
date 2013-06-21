@@ -24,7 +24,7 @@ class Request // objekt
 				// läheb käima kui $path_info ei tagasta FALSE-i(juhul kui pole ühtegi / märki)
 				array_shift($path_info); // array_shift kustutab ära esimese liikme ja reastab liikmed uuesti(uus 0)
 				// $this viitab käesolevale klassile (Request)
-				$this->controller = isset($path_info[0]) ? array_shift($path_info) : 'welcome';
+				$this->controller = isset($path_info[0]) ? array_shift($path_info) : DEFAULT_CONTROLLER;
 				// array_shift võtab path_infost esimese liikme ära ja tagastab selle controllerisse
 				$this->action = isset($path_info[0]) && ! empty($path_info[0]) ? array_shift($path_info) : 'index';
 				$this->params = isset($path_info[0]) ? $path_info : NULL; // parameters
