@@ -32,7 +32,7 @@ function get_one($sql, $debug = FALSE)
     switch (substr($sql, 0, 6)) {
         case 'SELECT':
             $q = mysql_query($sql) or db_error_out();
-            return mysql_result($q, 0);
+            return mysql_num_rows($q) ? mysql_result($q, 0) : null;
         default:
             exit('get_one("' . $sql . '") failed because get_one expects SELECT statement.');
     }
