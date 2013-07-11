@@ -27,18 +27,6 @@
 		<?endforeach?>
 	<?endif?>
 
-	<style>
-		body {
-			padding-top: 60px;
-		}
-		body, html {
-			background: url('<?=BASE_URL?>assets/img/iostexture.png');
-			height: 100%;
-		}
-		table.table-bordered tr {
-			background-color: #f9f9f9;
-		}
-	</style>
 </head>
 <body>
 <div class="navbar navbar-inverse navbar-fixed-top">
@@ -52,7 +40,7 @@
 			<a class="brand" href="#">Projekti nimi</a>
 			<div class="nav-collapse collapse">
 				<ul class="nav">
-					<li class="active"><a href="<?=BASE_URL?>tests">Esimene leht</a></li>
+					<li class="active"><a href="<?=BASE_URL?>your_controller_name_here">Esimene leht</a></li>
 					<li><a href="#about">Info</a></li>
 					<li><a href="<?=BASE_URL?>auth/logout">Logi välja</a></li>
 				</ul>

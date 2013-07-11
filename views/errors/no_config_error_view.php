@@ -1,0 +1,1 @@
+Please make a copy of config.sample.php and name it config.php and configure it
