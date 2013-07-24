@@ -14,7 +14,8 @@ require 'modules/user.php';
 require 'modules/database.php';
 
 if (file_exists('controllers/'.$request->controller.'.php')) {
-	require 'controllers/'.$request->controller.'.php'; // kui olemas, võta kasutusele
+	$file_extension = '.php';
+	require 'controllers/'.$request->controller.$file_extension; // kui olemas, võta kasutusele
 	$controller = new $request->controller;
 	if (isset($controller->requires_auth)) {
 		$_user->require_auth();
