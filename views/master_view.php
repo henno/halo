@@ -48,7 +48,7 @@
 		</div>
 	</div>
 </div>
-<div>
+<div style="padding: 60px;">
 	<?php
 	require 'views/'.$request->controller.'_'.$request->action.'_view.php';
 	?>

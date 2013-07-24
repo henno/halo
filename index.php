@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 require 'functions.php';
 
 // Load config or bail out
@@ -9,18 +10,28 @@ if (file_exists('config.php')) {
 	error_out('no_config');
 }
 
+//
 require 'modules/Request.php';
-require 'modules/user.php';
 require 'modules/database.php';
 
 if (file_exists('controllers/'.$request->controller.'.php')) {
+
+	// Instantiate controller
 	$file_extension = '.php';
-	require 'controllers/'.$request->controller.$file_extension; // kui olemas, võta kasutusele
+	require 'controllers/'.$request->controller.$file_extension;
 	$controller = new $request->controller;
+
+	// Authenticate user, if controller requires it
 	if (isset($controller->requires_auth)) {
-		$_user->require_auth();
+		require 'modules/auth.php';
+		$auth->require_auth();
 	}
-	$controller->{$request->action}(); // sulud sest action on index() auth.php-s
+
+	// Run the action
+	$controller->{$request->action}();
+
 } else {
+
+	// The specified controller does not exist
 	echo "The page '{$request->controller}' does not exist";
 }
