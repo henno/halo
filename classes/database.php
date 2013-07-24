@@ -107,11 +107,7 @@ function db_error_out($sql = NULL)
 function insert($table, $data)
 {
 	if ($table and is_array($data) and ! empty($data)) {
-		$values = NULL;
-		foreach ($data as $field => $value) {
-			$values[] = "`$field`='".mysql_real_escape_string(trim($value))."'";
-		}
-		$values = implode(',', $values);
+		$values = implode(',', escape($data));
 		$sql = "INSERT INTO `{$table}` SET {$values} ON DUPLICATE KEY UPDATE {$values}";
 		$q = mysql_query($sql)or db_error_out();
 		$id = mysql_insert_id();
@@ -121,14 +117,11 @@ function insert($table, $data)
 	}
 }
 
-function update($table, $data, $where)
+function update($table, array $data, $where)
 {
 	if ($table and is_array($data) and ! empty($data)) {
-		$values = NULL;
-		foreach ($data as $field => $value) {
-			$values[] = "$field='".trim($value)."'";
-		}
-		$values = implode(',', $values);
+		$values = implode(',', escape($data));
+
 		if (isset($where)) {
 			$sql = "UPDATE `{$table}` SET {$values} WHERE {$where}";
 		} else {
@@ -139,4 +132,21 @@ function update($table, $data, $where)
 	} else {
 		return FALSE;
 	}
+}
+
+function escape(array $data)
+{
+	$values = array();
+	if (! empty($data)) {
+		foreach ($data as $field => $value) {
+			if ($value === NULL) {
+				$values[] = "`$field`=NULL";
+			} elseif (is_array($value) && isset($value['no_escape'])) {
+				$values[] = "`$field`=".mysql_real_escape_string($value['no_escape']);
+			} else {
+				$values[] = "`$field`='".mysql_real_escape_string($value)."'";
+			}
+		}
+	}
+	return $values;
 }
