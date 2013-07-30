@@ -12,8 +12,7 @@ class auth
 	{
 		if (isset($_SESSION['user_id'])) {
 			$this->logged_in = TRUE;
-		} else
-			$this->require_auth();
+		}
 	}
 
 	/**

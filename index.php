@@ -22,9 +22,10 @@ if (file_exists('controllers/'.$request->controller.'.php')) {
 	$controller = new $request->controller;
 
 	// Authenticate user, if controller requires it
+	require 'modules/auth.php';
 	if (isset($controller->requires_auth)) {
-		require 'modules/auth.php';
 		$auth->require_auth();
+
 	}
 
 	// Run the action

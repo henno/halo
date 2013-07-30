@@ -3,6 +3,7 @@
 class welcome {
 	function index(){
 		global $request;
-		require 'views/master_view.php';
+		global $auth;
+		require __DIR__ .'/../views/master_view.php';
 	}
 }
