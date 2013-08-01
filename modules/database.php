@@ -53,6 +53,13 @@ function get_all($sql)
 	return $result;
 }
 
+function get_first($sql)
+{
+	$q = mysql_query($sql) or db_error_out();
+	$first_row = mysql_fetch_assoc($q);
+	return empty($first_row) ? array() : $first_row;
+}
+
 function db_error_out($sql = NULL)
 {
 	$db_error = mysql_error();
