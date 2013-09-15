@@ -11,7 +11,7 @@ if (file_exists('config.php')) {
 }
 
 //
-require 'modules/Request.php';
+require 'modules/request.php';
 require 'modules/database.php';
 
 if (file_exists('controllers/'.$request->controller.'.php')) {
