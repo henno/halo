@@ -8,7 +8,7 @@ function error_out($error_file_name_or_msg)
 	if (!file_exists("views/errors/{$error_file_name_or_msg}_error_view.php")) {
 		$errors[] = $error_file_name_or_msg;
 	}
-	require('views/templates/error_template.php');
+	require('templates/error_template.php');
 	exit();
 }
 

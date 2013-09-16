@@ -18,8 +18,8 @@ class Application
 		ob_start();
 		session_start();
 
-		$this->load_config();
 		$this->load_common_functions();
+		$this->load_config();
 		$this->process_uri();
 		$this->handle_routing();
 
