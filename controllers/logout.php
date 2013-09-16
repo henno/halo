@@ -6,7 +6,7 @@
  * Time: 21:48
  */
 
-class logout {
+class logout extends Controller {
 	function index(){
 		session_destroy();
 		header('Location: '.BASE_URL);

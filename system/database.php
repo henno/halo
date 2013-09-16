@@ -1,4 +1,9 @@
 <?php
+/**
+ * Database functions
+ * Not included in class to shorten typing effort.
+ */
+
 connect_db();
 function connect_db()
 {
@@ -106,7 +111,7 @@ function db_error_out($sql = NULL)
 	}
 	else {
 		$errors[] = $output;
-		require 'views/errors/error_template.php';
+		require 'views/templates/error_template.php';
 	}
 	die();
 

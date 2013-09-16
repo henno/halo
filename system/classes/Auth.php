@@ -3,7 +3,7 @@
  * Class auth authenticates user and permits to check if the user has been logged in
  * Automatically loaded when the controller has $requires_auth property.
  */
-class auth
+class Auth
 {
 
 	public $logged_in = FALSE;
@@ -42,7 +42,7 @@ class auth
 		}
 
 		// Display the login form
-		require 'views/auth_view.php';
+		require 'templates/auth_template.php';
 
 		// Prevent loading the requested controller (not authenticated)
 		exit();

@@ -1,11 +1,7 @@
 <?php
 
-class admin {
-
-	public $requires_auth = true;
+class admin extends Controller {
 
 	function index(){
-		global $request;
-		require 'views/master_view.php';
 	}
 }

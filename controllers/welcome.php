@@ -1,7 +1,8 @@
 <?php
 
-class welcome {
+class welcome extends Controller{
+
 	function index(){
-		require __DIR__ .'/../views/master_view.php';
+		$this->users = get_all("SELECT * FROM user");
 	}
 }

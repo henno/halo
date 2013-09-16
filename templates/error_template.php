@@ -12,24 +12,19 @@
 <body>
 
 <div class="container">
-<br />
-<br />
-	<div class="alert alert-danger">
-		<? if (isset($errors)): ?>
-			<h3>Tekkisid järgnevad vead: </h3>
-			<li>
-				<? foreach ($errors as $error): ?>
-					<ul><?= $error ?></ul>
-				<? endforeach; ?>
-			</li>
-		<? elseif (isset($error_file_name)): ?>
-			<? require 'views/errors/'.$error_file_name.'_error_view.php' ?>
-		<?
-		else: ?>
-			Tundmatu viga!
-
-		<? endif; ?>
-	</div>
+	<br/>
+	<br/>
+	<? if (isset($errors)): ?>
+		<? foreach ($errors as $error): ?>
+			<div class="alert alert-danger">
+				<?= $error ?>
+			</div>
+		<? endforeach; ?>
+	<? elseif (isset($error_file_name_or_msg)): ?>
+		<? require 'views/errors/' . $error_file_name_or_msg . '_error_view.php' ?>
+	<? else: ?>
+		Tundmatu viga!
+	<? endif; ?>
 
 </div>
 <!-- /container -->
