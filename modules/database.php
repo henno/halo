@@ -1,22 +1,22 @@
 <?php
-
-connect_db(DATABASE_HOSTNAME, DATABASE_USERNAME, DATABASE_PASSWORD);
-
-function connect_db($host, $user, $pass)
+connect_db();
+function connect_db()
 {
-	@mysql_connect(DATABASE_HOSTNAME, DATABASE_USERNAME, DATABASE_PASSWORD) or error_out('db_connection_fail');
-	@mysql_select_db(DATABASE_DATABASE) or error_out('db_unknown_database');
-	mysql_query("SET NAMES utf8");
-	mysql_query("SET CHARACTER utf8");
+	global $db;
+	$db = new mysqli(DATABASE_HOSTNAME, DATABASE_USERNAME, DATABASE_PASSWORD);
+	mysqli_select_db($db, DATABASE_DATABASE) or db_error_out();
+	mysqli_query($db, "SET NAMES utf8");
+	mysqli_query($db, "SET CHARACTER utf8");
 
 }
 
 function q($sql, & $query_pointer = NULL, $debug = FALSE)
 {
+	global $db;
 	if ($debug) {
 		print "<pre>$sql</pre>";
 	}
-	$query_pointer = mysql_query($sql) or db_error_out();
+	$query_pointer = mysqli_query($db, $sql) or db_error_out();
 	switch (substr($sql, 0, 6)) {
 		case 'SELECT':
 			exit("q($sql): Please don't use q() for SELECTs, use get_one() or get_first() or get_all() instead.");
@@ -26,19 +26,21 @@ function q($sql, & $query_pointer = NULL, $debug = FALSE)
 		case 'UPDA':
 			exit("q($sql): Please don't use q() for UPDATEs, use update() instead.");
 		default:
-			return mysql_affected_rows();
+			return mysqli_affected_rows($db);
 	}
 }
 
 function get_one($sql, $debug = FALSE)
 {
+	global $db;
+
 	if ($debug) { // kui debug on TRUE
 		print "<pre>$sql</pre>";
 	}
 	switch (substr($sql, 0, 6)) {
 		case 'SELECT':
-			$q = mysql_query($sql) or db_error_out();
-			return mysql_num_rows($q) ? mysql_result($q, 0) : NULL;
+			$q = mysqli_query($db, $sql) or db_error_out();
+			return mysqli_num_rows($q) ? mysqli_fetch_row($q) : NULL;
 		default:
 			exit('get_one("'.$sql.'") failed because get_one expects SELECT statement.');
 	}
@@ -46,8 +48,9 @@ function get_one($sql, $debug = FALSE)
 
 function get_all($sql)
 {
-	$q = mysql_query($sql) or db_error_out();
-	while (($result[] = mysql_fetch_assoc($q)) || array_pop($result)) {
+	global $db;
+	$q = mysqli_query($db, $sql) or db_error_out();
+	while (($result[] = mysqli_fetch_assoc($q)) || array_pop($result)) {
 		;
 	}
 	return $result;
@@ -55,14 +58,16 @@ function get_all($sql)
 
 function get_first($sql)
 {
-	$q = mysql_query($sql) or db_error_out();
-	$first_row = mysql_fetch_assoc($q);
+	global $db;
+	$q = mysqli_query($db, $sql) or db_error_out();
+	$first_row = mysqli_fetch_assoc($q);
 	return empty($first_row) ? array() : $first_row;
 }
 
 function db_error_out($sql = NULL)
 {
-	$db_error = mysql_error();
+	global $db;
+	$db_error = mysqli_error($db);
 
 	if (strpos($db_error, 'You have an error in SQL syntax') !== FALSE) {
 		$db_error = '<b>Syntax error in</b><pre> '.substr($db_error, 135).'</pre>';
@@ -77,7 +82,8 @@ function db_error_out($sql = NULL)
 		foreach ($args as $arg) {
 			if (is_array($arg)) {
 				$args2[] = implode(',', $arg);
-			} else {
+			}
+			else {
 				$args2[] = $arg;
 			}
 		}
@@ -88,19 +94,19 @@ function db_error_out($sql = NULL)
 	if (! empty($function)) {
 		$s .= ", function <b>$function</b>( $args )";
 	}
-	$output = '
-            <table style="background-color:white; border:1px solid gray; border-radius:10px; padding:10px">
-                <tr><td style="font-weight: bold; background-color: red; color: white; width: 100%; padding: 5px">Database error:</td></tr>
-                <tr><td><pre style="text-align: left;">'.$sql.'</pre><br><b style="color: red">'.$db_error.'</b></td>
-                <tr><td style="height:2px">&nbsp;</td>
-                <tr><td>'.$s.'
-            </table>';
+
+	// Display <pre>SQL QUERY</pre> only if it is set
+	$sql = isset($sql) ? '<pre style="text-align: left;">'.$sql.'</pre><br/>' : '';
+
+	$output = '<h2><strong style="color: red">'.$db_error.'</strong></h2><br/>'.$sql.'<p>'.$s.'</p>';
 
 	if (isset($_GET['ajax'])) {
 		ob_end_clean();
 		echo strip_tags($output);
-	} else {
-		echo $output;
+	}
+	else {
+		$errors[] = $output;
+		require 'views/errors/error_template.php';
 	}
 	die();
 
@@ -113,45 +119,53 @@ function db_error_out($sql = NULL)
  */
 function insert($table, $data)
 {
+	global $db;
 	if ($table and is_array($data) and ! empty($data)) {
 		$values = implode(',', escape($data));
 		$sql = "INSERT INTO `{$table}` SET {$values} ON DUPLICATE KEY UPDATE {$values}";
-		$q = mysql_query($sql)or db_error_out();
-		$id = mysql_insert_id();
+		$q = mysqli_query($db, $sql)or db_error_out();
+		$id = mysqli_insert_id($db);
 		return ($id > 0) ? $id : FALSE;
-	} else {
+	}
+	else {
 		return FALSE;
 	}
 }
 
 function update($table, array $data, $where)
 {
+	global $db;
 	if ($table and is_array($data) and ! empty($data)) {
 		$values = implode(',', escape($data));
 
 		if (isset($where)) {
 			$sql = "UPDATE `{$table}` SET {$values} WHERE {$where}";
-		} else {
+		}
+		else {
 			$sql = "UPDATE `{$table}` SET {$values}";
 		}
-		$id = mysql_query($sql) or db_error_out();
+		$id = mysqli_query($db, $sql) or db_error_out();
 		return ($id > 0) ? $id : FALSE;
-	} else {
+	}
+	else {
 		return FALSE;
 	}
 }
 
 function escape(array $data)
 {
+	global $db;
 	$values = array();
 	if (! empty($data)) {
 		foreach ($data as $field => $value) {
 			if ($value === NULL) {
 				$values[] = "`$field`=NULL";
-			} elseif (is_array($value) && isset($value['no_escape'])) {
-				$values[] = "`$field`=".mysql_real_escape_string($value['no_escape']);
-			} else {
-				$values[] = "`$field`='".mysql_real_escape_string($value)."'";
+			}
+			elseif (is_array($value) && isset($value['no_escape'])) {
+				$values[] = "`$field`=".mysqli_real_escape_string($db, $value['no_escape']);
+			}
+			else {
+				$values[] = "`$field`='".mysqli_real_escape_string($db, $value)."'";
 			}
 		}
 	}

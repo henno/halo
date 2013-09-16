@@ -40,13 +40,15 @@
 			<a class="brand" href="#">Projekti nimi</a>
 			<div class="nav-collapse collapse">
 				<ul class="nav">
-					<li <?= $request->controller == 'apples'  ? 'class="active"'  : '' ?>><a href="<?= BASE_URL ?>apples">Apples</a></li>
-					<li <?= $request->controller == 'oranges' ? 'class="active"' : '' ?>><a href="<?= BASE_URL
+					<li <?= $this->controller == 'apples'  ? 'class="active"'  : '' ?>><a href="<?= BASE_URL
+						?>apples">Apples</a></li>
+					<li <?= $this->controller == 'oranges' ? 'class="active"' : '' ?>><a href="<?= BASE_URL
 						?>oranges">Oranges</a></li>
-				<? if($auth->logged_in):?>
+				<? if($this->auth->logged_in):?>
 					<li><a href="<?= BASE_URL ?>logout">Admin</a></li>
 				<?else:?>
-					<li <?= $request->controller == 'admin' ? 'class="active"' : '' ?>><a href="<?=BASE_URL?>admin">Admin</a></li>
+					<li <?= $this->controller == 'admin' ? 'class="active"' : '' ?>><a
+							href="<?=BASE_URL?>admin">Admin</a></li>
 				<?endif?>
 				</ul>
 			</div>
@@ -56,7 +58,7 @@
 </div>
 <div style="padding: 60px;">
 	<?php
-	require 'views/'.$request->controller.'_'.$request->action.'_view.php';
+	require 'views/'.$this->controller.'_'.$this->action.'_view.php';
 	?>
 </div>
 <!--[if lt IE 7]>

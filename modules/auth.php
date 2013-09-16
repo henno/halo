@@ -48,6 +48,3 @@ class auth
 		exit();
 	}
 }
-
-// Create the auth object
-$auth = new auth;

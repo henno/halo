@@ -37,5 +37,3 @@ class Request // objekt
 		// saab väärtuse kui $request->redirect(väärtus)
 	}
 }
-
-$request = new Request;
