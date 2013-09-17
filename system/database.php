@@ -45,9 +45,9 @@ function get_one($sql, $debug = FALSE)
 	switch (substr($sql, 0, 6)) {
 		case 'SELECT':
 			$q = mysqli_query($db, $sql) or db_error_out();
-			return mysqli_num_rows($q) ? mysqli_fetch_row($q) : NULL;
+			return mysqli_num_rows($q) ? mysqli_result($q, 0) : NULL;
 		default:
-			exit('get_one("'.$sql.'") failed because get_one expects SELECT statement.');
+			exit('get_one("' . $sql . '") failed because get_one expects SELECT statement.');
 	}
 }
 
@@ -75,7 +75,7 @@ function db_error_out($sql = NULL)
 	$db_error = mysqli_error($db);
 
 	if (strpos($db_error, 'You have an error in SQL syntax') !== FALSE) {
-		$db_error = '<b>Syntax error in</b><pre> '.substr($db_error, 135).'</pre>';
+		$db_error = '<b>Syntax error in</b><pre> ' . substr($db_error, 135) . '</pre>';
 
 	}
 	$backtrace = debug_backtrace();
@@ -83,33 +83,31 @@ function db_error_out($sql = NULL)
 	$line = $backtrace[1]['line'];
 	$function = isset($backtrace[2]['function']) ? $backtrace[2]['function'] : NULL;
 	$args = isset($backtrace[2]['args']) ? $backtrace[2]['args'] : NULL;
-	if (! empty($args)) {
+	if (!empty($args)) {
 		foreach ($args as $arg) {
 			if (is_array($arg)) {
 				$args2[] = implode(',', $arg);
-			}
-			else {
+			} else {
 				$args2[] = $arg;
 			}
 		}
 	}
 
-	$args = empty($args2) ? '' : '"'.implode('", "', $args2).'"';
+	$args = empty($args2) ? '' : '"' . implode('", "', $args2) . '"';
 	$s = "In file <b>$file</b>, line <b>$line</b>";
-	if (! empty($function)) {
+	if (!empty($function)) {
 		$s .= ", function <b>$function</b>( $args )";
 	}
 
 	// Display <pre>SQL QUERY</pre> only if it is set
-	$sql = isset($sql) ? '<pre style="text-align: left;">'.$sql.'</pre><br/>' : '';
+	$sql = isset($sql) ? '<pre style="text-align: left;">' . $sql . '</pre><br/>' : '';
 
-	$output = '<h2><strong style="color: red">'.$db_error.'</strong></h2><br/>'.$sql.'<p>'.$s.'</p>';
+	$output = '<h2><strong style="color: red">' . $db_error . '</strong></h2><br/>' . $sql . '<p>' . $s . '</p>';
 
 	if (isset($_GET['ajax'])) {
 		ob_end_clean();
 		echo strip_tags($output);
-	}
-	else {
+	} else {
 		$errors[] = $output;
 		require 'views/templates/error_template.php';
 	}
@@ -125,14 +123,13 @@ function db_error_out($sql = NULL)
 function insert($table, $data)
 {
 	global $db;
-	if ($table and is_array($data) and ! empty($data)) {
+	if ($table and is_array($data) and !empty($data)) {
 		$values = implode(',', escape($data));
 		$sql = "INSERT INTO `{$table}` SET {$values} ON DUPLICATE KEY UPDATE {$values}";
 		$q = mysqli_query($db, $sql)or db_error_out();
 		$id = mysqli_insert_id($db);
 		return ($id > 0) ? $id : FALSE;
-	}
-	else {
+	} else {
 		return FALSE;
 	}
 }
@@ -140,19 +137,17 @@ function insert($table, $data)
 function update($table, array $data, $where)
 {
 	global $db;
-	if ($table and is_array($data) and ! empty($data)) {
+	if ($table and is_array($data) and !empty($data)) {
 		$values = implode(',', escape($data));
 
 		if (isset($where)) {
 			$sql = "UPDATE `{$table}` SET {$values} WHERE {$where}";
-		}
-		else {
+		} else {
 			$sql = "UPDATE `{$table}` SET {$values}";
 		}
 		$id = mysqli_query($db, $sql) or db_error_out();
 		return ($id > 0) ? $id : FALSE;
-	}
-	else {
+	} else {
 		return FALSE;
 	}
 }
@@ -161,18 +156,23 @@ function escape(array $data)
 {
 	global $db;
 	$values = array();
-	if (! empty($data)) {
+	if (!empty($data)) {
 		foreach ($data as $field => $value) {
 			if ($value === NULL) {
 				$values[] = "`$field`=NULL";
-			}
-			elseif (is_array($value) && isset($value['no_escape'])) {
-				$values[] = "`$field`=".mysqli_real_escape_string($db, $value['no_escape']);
-			}
-			else {
-				$values[] = "`$field`='".mysqli_real_escape_string($db, $value)."'";
+			} elseif (is_array($value) && isset($value['no_escape'])) {
+				$values[] = "`$field`=" . mysqli_real_escape_string($db, $value['no_escape']);
+			} else {
+				$values[] = "`$field`='" . mysqli_real_escape_string($db, $value) . "'";
 			}
 		}
 	}
 	return $values;
+}
+
+function mysqli_result($res, $row, $field = 0)
+{
+	$res->data_seek($row);
+	$datarow = $res->fetch_array();
+	return $datarow[$field];
 }
