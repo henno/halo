@@ -8,7 +8,7 @@
 	<meta name="author" content="">
 	<link rel="shortcut icon" href="<?=ASSETS_URL?>ico/favicon.png">
 
-	<title>Fixed Top Navbar Example for Bootstrap</title>
+	<title><?=PROJECT_NAME?></title>
 
 	<!-- Bootstrap core CSS -->
 	<link href="<?=ASSETS_URL?>css/bootstrap-3.0.0.min.css" rel="stylesheet">
@@ -41,7 +41,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">Project name</a>
+			<a class="navbar-brand" href="#"><?=PROJECT_NAME?></a>
 		</div>
 		<div class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">
