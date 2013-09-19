@@ -15,7 +15,7 @@ function error_out($error_file_name_or_msg)
 function __autoload($className)
 {
 	(include 'system/classes/' . $className . '.php') or
-	(include 'classes' . $className . '.php') or
+	(include 'classes/' . $className . '.php') or
 	(error_out("Autoload of class $className failed."));
 	debug("Autoloaded " . $className);
 }
