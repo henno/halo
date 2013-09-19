@@ -45,7 +45,7 @@ function get_one($sql, $debug = FALSE)
 	switch (substr($sql, 0, 6)) {
 		case 'SELECT':
 			$q = mysqli_query($db, $sql) or db_error_out();
-			return mysqli_num_rows($q) ? mysqli_fetch_assoc($q, 0) : NULL;
+			return mysqli_num_rows($q) ? mysqli_fetch_assoc($q) : NULL;
 		default:
 			exit('get_one("' . $sql . '") failed because get_one expects SELECT statement.');
 	}
