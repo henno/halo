@@ -109,7 +109,7 @@ function db_error_out($sql = NULL)
 		echo strip_tags($output);
 	} else {
 		$errors[] = $output;
-		require 'views/templates/error_template.php';
+		require 'templates/error_template.php';
 	}
 	die();
 
