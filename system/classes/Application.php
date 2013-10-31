@@ -44,8 +44,14 @@ class Application
 		}
 
 		// Run the action
-		$controller->{$controller->action}();
-		$controller->render($controller->template);
+        if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+            $action_name = $controller->action . '_ajax';
+            $controller->$action_name();
+            exit();
+        }else{
+            $controller->{$controller->action}();
+            $controller->render($controller->template);
+        }
 
 	}
 
