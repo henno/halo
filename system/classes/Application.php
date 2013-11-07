@@ -39,7 +39,7 @@ class Application
 
 		// Authenticate user, if controller requires it
 
-		if (!$controller->auth->logged_in && !$controller->auth->logged_in) {
+		if ($controller->requires_auth && !$controller->auth->logged_in) {
 			$controller->auth->require_auth();
 		}
 
