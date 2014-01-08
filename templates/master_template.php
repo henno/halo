@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +10,7 @@
 	<title><?=PROJECT_NAME?></title>
 
 	<!-- Bootstrap core CSS -->
-	<link href="<?=ASSETS_URL?>css/bootstrap-3.0.0.min.css" rel="stylesheet">
+	<link href="<?=ASSETS_URL?>components/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
 
 	<!-- Custom styles for this template -->
 	<style>
@@ -24,8 +23,8 @@
 
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
-	<script src="<?=ASSETS_URL?>js/html5shiv.js"></script>
-	<script src="<?=ASSETS_URL?>js/respond.min.js"></script>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
 	<![endif]-->
 
 </head>
@@ -81,7 +80,7 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="<?=ASSETS_URL?>js/jquery-1.10.2.min.js"></script>
-<script src="<?=ASSETS_URL?>js/bootstrap-3.0.0.min.js"></script>
+<script src="<?=ASSETS_URL?>components/jquery/1.10.2/jquery-1.10.2.min.js"></script>
+<script src="<?=ASSETS_URL?>components/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 </body>
 </html>
