@@ -37,8 +37,14 @@ class Application
 		$controller->params = $this->params;
 		$controller->auth = $this->auth;
 
-		// Authenticate user, if controller requires it
+		// Check if the user has extended Controller
+		if(!isset($controller->requires_auth)){
+			$errors[] = 'You forgot the "<i>extends Controller</i>" part for the class <i>'.$controller->controller. '</i> in controllers/'.$controller->controller .'.php</i>. Fix it.';
+			require 'templates/error_template.php';
+			exit();
+		}
 
+		// Authenticate user, if controller requires it
 		if ($controller->requires_auth && !$controller->auth->logged_in) {
 			$controller->auth->require_auth();
 		}

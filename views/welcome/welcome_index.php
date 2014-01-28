@@ -46,7 +46,7 @@ server by jQuery and server's response will be written to the box below.
 
 
 
-<h4pushitu>Traditional POST submit example</h4>
+<h4>Traditional POST submit example</h4>
 <p>Here is an example how to use traditional POST to send data to the server. Click Post after filling the form. The server will invoke <code>post::index_post()</code> action (which is in <code>/controllers/posts.php</code> file) which just dumps $_POST to the screen.</p>
 <!-- Button for executing post -->
 <form method="post">
