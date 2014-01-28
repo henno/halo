@@ -9,6 +9,11 @@ function connect_db()
 {
 	global $db;
 	$db = new mysqli(DATABASE_HOSTNAME, DATABASE_USERNAME, DATABASE_PASSWORD);
+	if($connection_error = mysqli_connect_error() ){
+		$errors[] = 'There was an error trying to connect to database on '. DATABASE_HOSTNAME . ':<br>'.$connection_error;
+		require 'templates/error_template.php';
+		die();
+	}
 	mysqli_select_db($db, DATABASE_DATABASE) or db_error_out();
 	mysqli_query($db, "SET NAMES utf8");
 	mysqli_query($db, "SET CHARACTER utf8");
@@ -70,7 +75,7 @@ function get_first($sql)
 	return empty($first_row) ? array() : $first_row;
 }
 
-function db_error_out($sql = NULL)
+function db_error_out($error)
 {
 	global $db;
 	$db_error = mysqli_error($db);
