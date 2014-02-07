@@ -50,13 +50,13 @@ class Application
 		}
 
 		// Run the action
-        if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+        if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest' && method_exists($controller,$controller->action.'_ajax')) {
             $action_name = $controller->action . '_ajax';
             $controller->$action_name();
             exit();
         }else{
             // Check for and process POST ( executes $action_post() )
-            if (isset($_POST) && !empty($_POST)) {
+            if (isset($_POST) && !empty($_POST) && method_exists($controller,$controller->action.'_post')) {
                 $action_name = $controller->action . '_post';
                 $controller->$action_name();
             }
