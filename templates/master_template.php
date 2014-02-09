@@ -72,7 +72,8 @@
 <div class="container">
 
 	<!-- Main component for a primary marketing message or call to action -->
-    <?  require 'views/'. $controller . '/' .  $controller . '_' . $action . '.php'; ?>
+	<? if( !file_exists("views/$controller/{$controller}_$action.php")) error_out('The view <i>views/'. $controller . '/' .  $controller . '_' . $action . '.php</i> does not exist. Create that file.');?>
+    <?  @require "views/$controller/{$controller}_$action.php"; ?>
 
 </div> <!-- /container -->
 

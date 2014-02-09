@@ -28,7 +28,14 @@ class Application
 
 
 		// Instantiate controller
+
+		if (!file_exists("controllers/$this->controller.php"))
+			error_out("<b>Error:</b> File <i>controllers/{$this->controller}.php</i> does not exist.");
 		require "controllers/$this->controller.php";
+
+		if (!class_exists($this->controller, false))
+		error_out("<b>Error:</b>
+				File  <i>controllers/{$this->controller}.php</i> exists but class <i>{$this->controller}</i> does not. You probably copied the file but forgot to rename the class in the copy.");
 		$controller = new $this->controller;
 
 		// Make request and auth properties available to controller
@@ -38,8 +45,8 @@ class Application
 		$controller->auth = $this->auth;
 
 		// Check if the user has extended Controller
-		if(!isset($controller->requires_auth)){
-			$errors[] = 'You forgot the "<i>extends Controller</i>" part for the class <i>'.$controller->controller. '</i> in controllers/'.$controller->controller .'.php</i>. Fix it.';
+		if (!isset($controller->requires_auth)) {
+			$errors[] = 'You forgot the "<i>extends Controller</i>" part for the class <i>' . $controller->controller . '</i> in controllers/' . $controller->controller . '.php</i>. Fix it.';
 			require 'templates/error_template.php';
 			exit();
 		}
@@ -50,21 +57,31 @@ class Application
 		}
 
 		// Run the action
-        if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest' && method_exists($controller,$controller->action.'_ajax')) {
-            $action_name = $controller->action . '_ajax';
-            $controller->$action_name();
-            exit();
-        }else{
-            // Check for and process POST ( executes $action_post() )
-            if (isset($_POST) && !empty($_POST) && method_exists($controller,$controller->action.'_post')) {
-                $action_name = $controller->action . '_post';
-                $controller->$action_name();
-            }
+		if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest' && method_exists($controller, $controller->action . '_ajax')) {
+			$action_name = $controller->action . '_ajax';
+			$controller->$action_name();
+			exit();
+		} else {
+			// Check for and process POST ( executes $action_post() )
+			if (isset($_POST) && !empty($_POST) && method_exists($controller, $controller->action . '_post')) {
+				$action_name = $controller->action . '_post';
+				$controller->$action_name();
+			}
 
-            // Proceed with regular action processing ( executes $action() )
-            $controller->{$controller->action}();
-            $controller->render($controller->template);
-        }
+			// Proceed with regular action processing ( executes $action() )
+			if(!method_exists($controller, $controller->action))
+				error_out("<b>Error:</b>
+				The action <i>{$controller->controller}::{$controller->action}()</i> does not exist.
+				Open <i>controllers/{$controller->controller}.php</i> and add method <i>{$controller->action}()</i>");
+			$controller->{$controller->action}();
+			$controller->render($controller->template);
+		}
+
+	}
+
+	private function load_common_functions()
+	{
+		require 'system/functions.php';
 
 	}
 
@@ -83,12 +100,6 @@ class Application
 		}
 	}
 
-	private function load_common_functions()
-	{
-		require 'system/functions.php';
-
-	}
-
 	private function process_uri()
 	{
 		if (isset($_SERVER['PATH_INFO'])) {
@@ -101,14 +112,14 @@ class Application
 		}
 	}
 
-	private function init_db()
-	{
-		require 'system/database.php';
-	}
-
 	private function handle_routing()
 	{
 		//TODO: write here your own code if you want to manipulate controller, action
+	}
+
+	private function init_db()
+	{
+		require 'system/database.php';
 	}
 
 }
