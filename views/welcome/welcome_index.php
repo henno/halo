@@ -2,7 +2,7 @@
 <!-- Code for ajax -->
 <script type="text/javascript">
     function clickme() {
-        $.post("<?=BASE_URL?>welcome", $( "#ajax-form" ).serialize(), function (data) {
+        $.post("welcome", $( "#ajax-form" ).serialize(), function (data) {
             $(".result").html(data);
         });
     }

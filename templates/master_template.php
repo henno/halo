@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<base href="<?=BASE_URL?>">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<link rel="shortcut icon" href="<?=ASSETS_URL?>ico/favicon.png">
+	<link rel="shortcut icon" href="assets/ico/favicon.png">
 
 	<title><?=PROJECT_NAME?></title>
 
 	<!-- Bootstrap core CSS -->
-	<link href="<?=ASSETS_URL?>components/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+	<link href="assets/components/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
 
 	<!-- Custom styles for this template -->
 	<style>
@@ -81,7 +82,7 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="<?=ASSETS_URL?>components/jquery/1.10.2/jquery-1.10.2.min.js"></script>
-<script src="<?=ASSETS_URL?>components/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<script src="assets/components/jquery/1.10.2/jquery-1.10.2.min.js"></script>
+<script src="assets/components/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 </body>
 </html>
