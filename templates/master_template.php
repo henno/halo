@@ -18,7 +18,6 @@
 		body {
 			min-height: 2000px !important;
 			padding-top: 70px;
-			background: url(<?= ASSETS_URL ?>img/bg.jpg);
 		}
 	</style>
 

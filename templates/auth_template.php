@@ -6,7 +6,6 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
 	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
-	<link href="<?= ASSETS_URL ?>css/application.css" rel="stylesheet">
 	<style>
 		body {
 			padding-top: 50px;
@@ -51,10 +50,6 @@
 			margin-bottom: 10px;
 			border-top-left-radius: 0;
 			border-top-right-radius: 0;
-		}
-
-		body {
-			background: url(<?= ASSETS_URL ?>img/bg.jpg);
 		}
 
 		span.input-group-addon {
