@@ -8,9 +8,9 @@ connect_db();
 function connect_db()
 {
 	global $db;
-	$db = new mysqli(DATABASE_HOSTNAME, DATABASE_USERNAME, DATABASE_PASSWORD);
+	@$db = new mysqli(DATABASE_HOSTNAME, DATABASE_USERNAME, DATABASE_PASSWORD);
 	if($connection_error = mysqli_connect_error() ){
-		$errors[] = 'There was an error trying to connect to database on '. DATABASE_HOSTNAME . ':<br>'.$connection_error;
+		$errors[] = 'There was an error trying to connect to database at '. DATABASE_HOSTNAME . ':<br><b>'.$connection_error.'</b>';
 		require 'templates/error_template.php';
 		die();
 	}
