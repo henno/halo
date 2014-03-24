@@ -14,7 +14,18 @@ function connect_db()
 		require 'templates/error_template.php';
 		die();
 	}
-	mysqli_select_db($db, DATABASE_DATABASE) or db_error_out();
+	mysqli_select_db($db, DATABASE_DATABASE) or error_out('<b>Error:</b><i> '.mysqli_error($db).'</i><br>
+		This usually means that MySQL does not have a database called <b>' . DATABASE_DATABASE.'</b>.<br><br>
+		Create that database and import some structure into it from <b>doc/database.sql</b> file:<br>
+		<ol>
+		<li>Open database.sql</li>
+		<li>Copy all the SQL code</li>
+		<li>Go to phpMyAdmin</li>
+		<li>Create a database called <b>'.DATABASE_DATABASE.'</b></li>
+		<li>Open it and go to <b>SQL</b> tab</li>
+		<li>Paste the copied SQL code</li>
+		<li>Hit <b>Go</b></li>
+		</ol>');
 	mysqli_query($db, "SET NAMES utf8");
 	mysqli_query($db, "SET CHARACTER utf8");
 
@@ -75,7 +86,7 @@ function get_first($sql)
 	return empty($first_row) ? array() : $first_row;
 }
 
-function db_error_out($error)
+function db_error_out()
 {
 	global $db;
 	$db_error = mysqli_error($db);
@@ -85,8 +96,8 @@ function db_error_out($error)
 
 	}
 	$backtrace = debug_backtrace();
-	$file = $backtrace[1]['file'];
-	$line = $backtrace[1]['line'];
+	$file = $backtrace[0]['file'];
+	$line = $backtrace[0]['line'];
 	$function = isset($backtrace[2]['function']) ? $backtrace[2]['function'] : NULL;
 	$args = isset($backtrace[2]['args']) ? $backtrace[2]['args'] : NULL;
 	if (!empty($args)) {
