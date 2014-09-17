@@ -1,5 +1,5 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.2.2
+-- version 3.5.2.3
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
