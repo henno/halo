@@ -126,6 +126,13 @@ class Application
 	private function handle_routing()
 	{
 		//TODO: write here your own code if you want to manipulate controller, action
+
+        // Allow shorter URLs (users/view/3 becomes users/3)
+        if( is_numeric($this->action) ){
+            $this->params[0] = $this->action;
+            $this->action = 'view';
+        }
+
     }
 
 	private function init_db()
