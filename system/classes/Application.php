@@ -22,10 +22,10 @@ class Application
 		$this->set_base_url();
 		$this->load_config();
 		$this->process_uri();
+		$this->init_db();
 		$this->handle_routing();
 
 		$this->auth = new Auth;
-		$this->init_db();
 
 
 		// Instantiate controller
@@ -126,7 +126,7 @@ class Application
 	private function handle_routing()
 	{
 		//TODO: write here your own code if you want to manipulate controller, action
-	}
+    }
 
 	private function init_db()
 	{
