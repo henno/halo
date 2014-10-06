@@ -104,8 +104,8 @@ class Application
 
 
 		// Load config file or bail out
-		if (file_exists('config.php')) {
-			require 'config.php';
+		if (file_exists('config/config.php')) {
+			require 'config/config.php';
 		} else {
 			error_out('No config.php. Please make a copy of config.sample.php and name it config.php and configure it.');
 		}
