@@ -3,8 +3,9 @@ if (isset($_POST['module'])) {
 
     // Bootstrap mini-framework
     define('PROJECT_NAME', 'Halo');
-    require 'config.php';
-    require '../system/database.php';
+    define('DEFAULT_CONTROLLER', 'Halo');
+    require '../system/classes/Application.php';
+    $app = new Application;
 
     // Check if the module's table already exists in the database
     $module = substr($_POST['module'], -1) == 's' ? substr($_POST['module'], 0, -1) : $_POST['module'];
@@ -86,9 +87,8 @@ if (isset($_POST['module'])) {
 </head>
 
 <body>
-
 <div class="container">
-    <h1>Halo configuration page</h1>
+<h1>Halo configuration page</h1>
 
     <p class="help-block">
         This page allows you automatically create a new module which includes
@@ -98,6 +98,7 @@ if (isset($_POST['module'])) {
         <li>views (index, view, edit)</li>
     </ul>
     </p>
+    <h3>New module</h3>
     <p class="help-block">Please input new module name in plural, e.g. <i>users</i> (when applicable):</p>
     <!-- Main component for a primary marketing message or call to action -->
 
