@@ -69,6 +69,12 @@ class Application
                 $controller->$action_name();
             }
 
+            // Check for and process FILES ( executes $action_upload() )
+            if (isset($_FILES) && !empty($_FILES) && method_exists($controller, $controller->action . '_upload')) {
+                $action_name = $controller->action . '_upload';
+                $controller->$action_name();
+            }
+
             // Proceed with regular action processing ( executes $action() )
             if (!method_exists($controller, $controller->action))
                 error_out("<b>Error:</b>
