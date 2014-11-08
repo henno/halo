@@ -15,6 +15,7 @@ class Application
 
     function __construct()
     {
+        ob_start();
         session_start();
 
         $this->load_common_functions();
@@ -126,7 +127,11 @@ class Application
 
         // Allow shorter URLs (users/view/3 becomes users/3)
         if (is_numeric($this->action)) {
-            $this->params[0] = $this->action;
+
+            // Prepend the number in action to params array
+            array_unshift($this->params, $this->action);
+
+            // Overwrite action to view
             $this->action = 'view';
         }
 
