@@ -1,9 +1,9 @@
-<? if( !$auth->is_admin ):?>
+<? if (!$auth->is_admin): ?>
     <div class="alert alert-danger fade in">
         <button class="close" data-dismiss="alert">×</button>
         You are not an administrator.
     </div>
-<? exit(); endif; ?>
+    <? exit(); endif; ?>
 <h1>User '<?= $user['username'] ?>'</h1>
 <form id="form" method="post">
     <table class="table table-bordered">
@@ -30,12 +30,13 @@
 <div class="pull-right">
 
     <!-- CANCEL -->
-    <button class="btn btn-default" onclick="window.location.href = 'users/view/<?= $user['user_id'] ?>/<?= $user['username'] ?>'">
+    <button class="btn btn-default"
+            onclick="window.location.href = 'users/view/<?= $user['user_id'] ?>/<?= $user['username'] ?>'">
         Cancel
     </button>
 
     <!-- DELETE -->
-    <button class="btn btn-danger" onclick="delete_user(<?=$user['user_id']?>)">
+    <button class="btn btn-danger" onclick="delete_user(<?= $user['user_id'] ?>)">
         Delete
     </button>
 
@@ -48,11 +49,11 @@
 <!-- END BUTTONS -->
 
 <script>
-    function delete_user(user_id){
+    function delete_user(user_id) {
         $.post("users/delete", {user_id: <?=$user['user_id']?>}, function (data) {
-            if(data == '1'){
+            if (data == '1') {
                 window.location.href = 'users';
-            }else{
+            } else {
                 alert('Fail');
             }
         });

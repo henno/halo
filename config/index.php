@@ -37,13 +37,12 @@ if (isset($_POST['module'])) {
 
         // Create views directory
         $dirname = "../views/$module";
-        if (!is_dir($dirname))
-        {
+        if (!is_dir($dirname)) {
             mkdir($dirname, 0755);
         }
 
         // Create each view
-        foreach($views as $view){
+        foreach ($views as $view) {
             $content = file_get_contents("view_{$view}_template.php");
             $content = str_replace('module', $module, $content);
             $fp = fopen("../views/$module/{$module}_$view.php", "wb");
@@ -88,7 +87,7 @@ if (isset($_POST['module'])) {
 
 <body>
 <div class="container">
-<h1>Halo configuration page</h1>
+    <h1>Halo configuration page</h1>
 
     <p class="help-block">
         This page allows you automatically create a new module which includes
@@ -99,6 +98,7 @@ if (isset($_POST['module'])) {
     </ul>
     </p>
     <h3>New module</h3>
+
     <p class="help-block">Please input new module name in plural, e.g. <i>users</i> (when applicable):</p>
     <!-- Main component for a primary marketing message or call to action -->
 

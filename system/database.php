@@ -121,7 +121,7 @@ function db_error_out()
 
     // Generate stack trace
     $e = new Exception();
-    $trace = print_r(preg_replace('/#(\d+) \//', '#$1 ',str_replace(dirname(dirname(__FILE__)), '', $e->getTraceAsString())), 1);
+    $trace = print_r(preg_replace('/#(\d+) \//', '#$1 ', str_replace(dirname(dirname(__FILE__)), '', $e->getTraceAsString())), 1);
     $trace = nl2br(preg_replace('/(#1.*)\n/', "<b>$1</b>\n", $trace));
 
     $output = '<h2><strong style="color: red">' . $db_error . '</strong></h2><br/>' . $sql . '<p>' . $location . "</p><br><h2>Stack trace:</h2>$trace";

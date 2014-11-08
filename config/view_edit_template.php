@@ -1,4 +1,4 @@
-<? if( !$auth->is_admin ):?>
+<? if (!$auth->is_admin): ?>
     <div class="alert alert-danger fade in">
         <button class="close" data-dismiss="alert">×</button>
         You are not an administrator.
@@ -18,12 +18,13 @@
 <div class="pull-right">
 
     <!-- CANCEL -->
-    <button class="btn btn-default" onclick="window.location.href = 'modules/view/<?= $module['module_id'] ?>/<?= $module['modulename'] ?>'">
+    <button class="btn btn-default"
+            onclick="window.location.href = 'modules/view/<?= $module['module_id'] ?>/<?= $module['modulename'] ?>'">
         Cancel
     </button>
 
     <!-- DELETE -->
-    <button class="btn btn-danger" onclick="delete_module(<?=$module['module_id']?>)">
+    <button class="btn btn-danger" onclick="delete_module(<?= $module['module_id'] ?>)">
         Delete
     </button>
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Class auth authenticates user and permits to check if the user has been logged in
  * Automatically loaded when the controller has $requires_auth property.
@@ -18,7 +19,7 @@ class Auth
                                        WHERE user_id = '{$_SESSION['user_id']}'");
 
             // Dynamically add all user table fields as object properties to auth object
-            foreach($user as $user_attr => $value){
+            foreach ($user as $user_attr => $value) {
                 $this->$user_attr = $value;
             }
         }
@@ -45,7 +46,7 @@ class Auth
                                 WHERE username = '$username'
                                   AND password = '$password'
                                   AND  deleted = 0");
-            if (! empty($user['user_id'])) {
+            if (!empty($user['user_id'])) {
                 $_SESSION['user_id'] = $user['user_id'];
                 return true;
             } else {

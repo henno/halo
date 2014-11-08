@@ -1,7 +1,9 @@
 <?php
 
-class admin extends Controller {
+class admin extends Controller
+{
 
-	function index(){
-	}
+    function index()
+    {
+    }
 }
