@@ -108,9 +108,9 @@ class Application
     private function load_config()
     {
         // Load config file or bail out
-        try {
+        if (file_exists(dirname(__FILE__) . '/../../config/config.php')) {
             include dirname(__FILE__) . '/../../config/config.php';
-        } catch (Exception $e) {
+        } else {
             error_out('No config.php. Please make a copy of config.sample.php and name it config.php and configure it.');
         }
     }
