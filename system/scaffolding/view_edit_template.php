@@ -4,7 +4,7 @@
         You are not an administrator.
     </div>
     <? exit(); endif; ?>
-<h1>module '<?= $module['modulename'] ?>'</h1>
+<h1>module '<?= $module['module_name'] ?>'</h1>
 <form id="form" method="post">
     <table class="table table-bordered">
         <tr>
@@ -35,3 +35,15 @@
 
 </div>
 <!-- END BUTTONS -->
+
+<!-- JAVASCRIPT
+==============================================================================-->
+<script type="application/javascript">
+    function delete_module() {
+        $.post('<?=BASE_URL?>modules/delete', {module_id: <?= $module['module_id'] ?>}, function (response) {
+            if(response == 'Ok'){
+                window.location.href = '<?=BASE_URL?>modules';
+            }
+        })
+    }
+</script>

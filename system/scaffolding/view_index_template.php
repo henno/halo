@@ -2,7 +2,7 @@
 <ul class="list-group">
     <? foreach ($modules as $module): ?>
         <li class="list-group-item">
-            <a href="modules/view/<?= $module['module_id'] ?>/<?= $module['module_name'] ?>"><?= $module['module_name'] ?></a>
+            <a href="modules/<?= $module['module_id'] ?>/<?= $module['module_name'] ?>"><?= $module['module_name'] ?></a>
         </li>
     <? endforeach ?>
 </ul>
