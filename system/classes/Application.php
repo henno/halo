@@ -58,20 +58,20 @@ class Application
         }
 
         // Run the action
-        if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest' && method_exists($controller, $controller->action . '_ajax')) {
-            $action_name = $controller->action . '_ajax';
+        if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest' && method_exists($controller, 'AJAX_'.$controller->action)) {
+            $action_name = 'AJAX_'.$controller->action;
             $controller->$action_name();
             exit();
         } else {
             // Check for and process POST ( executes $action_post() )
-            if (isset($_POST) && !empty($_POST) && method_exists($controller, $controller->action . '_post')) {
-                $action_name = $controller->action . '_post';
+            if (isset($_POST) && !empty($_POST) && method_exists($controller, 'POST_'.$controller->action)) {
+                $action_name = 'POST_' . $controller->action;
                 $controller->$action_name();
             }
 
             // Check for and process FILES ( executes $action_upload() )
-            if (isset($_FILES) && !empty($_FILES) && method_exists($controller, $controller->action . '_upload')) {
-                $action_name = $controller->action . '_upload';
+            if (isset($_FILES) && !empty($_FILES) && method_exists($controller, 'UPLOAD_'.$controller->action)) {
+                $action_name = 'UPLOAD_'.$controller->action;
                 $controller->$action_name();
             }
 

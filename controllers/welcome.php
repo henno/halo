@@ -8,13 +8,13 @@ class welcome extends Controller
         $this->users = get_all("SELECT * FROM user");
     }
 
-    function index_ajax()
+    function AJAX_index()
     {
         echo "\$_POST:<br>";
         var_dump($_POST);
     }
 
-    function index_post()
+    function POST_index()
     {
         echo "\$_POST:<br>";
         var_dump($_POST);
