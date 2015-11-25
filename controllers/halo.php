@@ -1,6 +1,6 @@
 <?php
 
-class admin extends Controller
+class halo extends Controller
 {
 
     function index()
