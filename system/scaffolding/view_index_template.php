@@ -1,4 +1,4 @@
-<h3>module</h3>
+<h3>modules</h3>
 <ul class="list-group">
     <? foreach ($modules as $module): ?>
         <li class="list-group-item">
