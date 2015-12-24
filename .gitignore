@@ -1,4 +1,4 @@
-.idea/*
+/.idea/*
 /config.php
-system/logs/*.log
+/system/logs/*.log
 /vendor/*
