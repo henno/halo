@@ -1,4 +1,7 @@
-<?php
+<?php namespace Halo;
+
+// Init composer auto-loading
+require 'vendor/autoload.php';
 
 // Project constants
 define('PROJECT_NAME', 'halo');

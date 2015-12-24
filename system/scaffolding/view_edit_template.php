@@ -4,7 +4,7 @@
         You are not an administrator.
     </div>
     <? exit(); endif; ?>
-<h1>module '<?= $module['module_name'] ?>'</h1>
+<h1>Module '<?= $module['module_name'] ?>'</h1>
 <form id="form" method="post">
     <table class="table table-bordered">
         <tr>

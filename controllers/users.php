@@ -1,4 +1,4 @@
-<?php
+<?php namespace Halo;
 
 /**
  * Created by PhpStorm.

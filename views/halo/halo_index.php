@@ -4,7 +4,7 @@
     }
 </style>
 <div class="container">
-    <h1>Halo configuration page</h1>
+    <h1>Page-o-matic</h1>
 
     <p class="help-block">
         This page allows you automatically create a new page which includes
@@ -32,10 +32,10 @@
             <blockquote>chmod a+rwX -R controllers views</blockquote>
             </p></div>
     <? else: ?>
-        <h3>New page</h3>
+    <h3>Name</h3>
 
-        <p class="help-block">Please input new page name in singular (for database table and view/edit action variables)
-            and plural (for controller name and view names):</p>
+    <p class="help-block">Please input new page name in singular (for view/edit action variables)
+        and plural (for database table name, for controller name and for view names):</p>
 
         <form method="post">
 
@@ -48,10 +48,64 @@
                 <input type="text" class="form-control" placeholder="users" name="name_plural">
             </div>
             <p>
+                <!--
+
+                        <h3>Fields</h3>
+
+                        <p class="help-block">Speficy database fields. Empty display name means that the field won't be displayed in the view</p>
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th>Display name</th>
+                                    <th>Database field name</th>
+                                    <th>Database field type</th>
+                                    <th>Length</th>
+                                    <th>Primary?</th>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" name="field[1][name]"/></td>
+                                    <td><input type="text" name="field[1][database_name]" value="car_id"/></td>
+                                    <td><select name="field[1][database_type]" id="">
+                                            <option>TINYINT (1 byte)</option>
+                                            <option>SMALLINT (2 bytes)</option>
+                                            <option>MEDIUMINT (3 bytes)</option>
+                                            <option>INT (4 bytes)</option>
+                                            <option>BIGINT (5 bytes)</option>
+                                        </select></td>
+                                    <td><input type="text" name="field[1][length]"/></td>
+                                    <td><input type="checkbox" name="field[1][primary]"/></td>
+                                    <td><a href="#">Delete</a></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" name="field[2][name]" /></td>
+                                    <td><input type="text" name="field[2][database_name]" value="car_name"/></td>
+                                    <td><input type="text" name="field[2][type]" /></td>
+                                    <td><input type="text" name="field[2][length]"/></td>
+                                    <td><input type="checkbox" name="field[1][primary]"/></td>
+                                    <td><a href="#">Delete</a></td>
+                                </tr>
+                            </table>
+
+                            <div class="">
+                                <button class="btn btn-default">Add new field</button>
+                            </div>
+                        </form>
+
+                        <h3>View type</h3>
+
+                        <div class="radio">
+                            <label><input type="radio" name="optradio" checked>List</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="optradio">Table</label>
+                        </div>
+                -->
 
             <div class="">
                 <button class="btn btn-primary" type="submit">Add</button>
             </div>
-        </form>
     <? endif ?>
 </div>
+
+<script>
+    $('div').style('background-color: red');
+</script>

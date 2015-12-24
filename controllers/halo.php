@@ -1,4 +1,4 @@
-<?php
+<?php namespace Halo;
 
 class halo extends Controller
 {

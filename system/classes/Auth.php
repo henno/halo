@@ -1,4 +1,4 @@
-<?php
+<?php namespace Halo;
 
 /**
  * Class auth authenticates user and permits to check if the user has been logged in

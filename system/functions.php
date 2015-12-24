@@ -12,14 +12,6 @@ function error_out($error_file_name_or_msg)
     exit();
 }
 
-function __autoload($className)
-{
-    @(include dirname(__FILE__) . '/classes/' . $className . '.php') or
-    (include dirname(__FILE__) . '/../classes/' . $className . '.php') or
-    (error_out("Autoload of class $className failed."));
-    debug("Autoloaded " . $className);
-}
-
 /**
  * @param $text string Text to translate
  * @return string

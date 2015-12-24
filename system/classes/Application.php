@@ -1,4 +1,6 @@
-<?php
+<?php namespace Halo;
+
+use Halo;
 
 /**
  * Created by PhpStorm.
@@ -29,15 +31,16 @@ class Application
 
 
         // Instantiate controller
+        $controller_fqn = '\Halo\\' . $this->controller;
 
         if (!file_exists("controllers/$this->controller.php"))
             error_out("<b>Error:</b> File <i>controllers/{$this->controller}.php</i> does not exist.");
         require "controllers/$this->controller.php";
 
-        if (!class_exists($this->controller, false))
+        if (!class_exists($controller_fqn, 1))
             error_out("<b>Error:</b>
 				File  <i>controllers/{$this->controller}.php</i> exists but class <i>{$this->controller}</i> does not. You probably copied the file but forgot to rename the class in the copy.");
-        $controller = new $this->controller;
+        $controller = new $controller_fqn();
 
         // Make request and auth properties available to controller
         $controller->controller = $this->controller;
