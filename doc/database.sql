@@ -21,8 +21,8 @@ SET time_zone = "+00:00";
 -- Tabeli struktuur tabelile `user`
 --
 
-DROP TABLE IF EXISTS `user`;
-CREATE TABLE `user` (
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
   `user_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `username` varchar(25) NOT NULL,
   `is_admin` tinyint(4) NOT NULL DEFAULT '0',
@@ -38,6 +38,6 @@ CREATE TABLE `user` (
 -- Andmete tõmmistamine tabelile `user`
 --
 
-INSERT INTO `user` (`user_id`, `username`, `is_admin`, `password`, `active`, `email`, `deleted`) VALUES
-(1, 'demo', 0, 'demo', 1, '', 0);
+INSERT INTO `users` (`user_id`, `username`, `is_admin`, `password`, `active`, `email`, `deleted`) VALUES
+  (1, 'demo', 0, 'demo', 1, '', 0);
 SET FOREIGN_KEY_CHECKS=1;
