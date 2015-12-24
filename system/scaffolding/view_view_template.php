@@ -1,13 +1,13 @@
-<h1>Module '<?= $module['module_name'] ?>'</h1>
+<h1><? __("Module") ?> '<?= $module['module_name'] ?>'</h1>
 <table class="table table-bordered">
 
     <tr>
-        <th>Module ID</th>
+        <th><? __("Module") ?> ID</th>
         <td><?= $module['module_id'] ?></td>
     </tr>
 
     <tr>
-        <th>Module name</th>
+        <th><? __("Module") ?><? __("name") ?></th>
         <td><?= $module['module_name'] ?></td>
     </tr>
 
@@ -18,7 +18,7 @@
     <form action="modules/edit/<?= $module['module_id'] ?>">
         <div class="pull-right">
             <button class="btn btn-primary">
-                Edit
+                <? __("Edit") ?>
             </button>
         </div>
     </form>

@@ -1,4 +1,4 @@
-<h3>Modules</h3>
+<h3><? __("Modules") ?></h3>
 <ul class="list-group">
     <? foreach ($modules as $module): ?>
         <li class="list-group-item">
@@ -8,17 +8,17 @@
 </ul>
 
 <?php if ($auth->is_admin): ?>
-<h3>Add new module</h3>
+<h3><? __("Add new module") ?></h3>
 
 <form method="post" id="form">
     <form id="form" method="post">
         <table class="table table-bordered">
             <tr>
-                <th>Name</th>
+                <th><? __("Name") ?></th>
                 <td><input type="text" name="data[module_name]" placeholder=""/></td>
             </tr>
         </table>
 
-        <button class="btn btn-primary" type="submit">Add</button>
+        <button class="btn btn-primary" type="submit"><? __("Add") ?></button>
     </form>
     <?php endif; ?>
