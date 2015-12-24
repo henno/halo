@@ -5,7 +5,7 @@ class welcome extends Controller
 
     function index()
     {
-        $this->users = get_all("SELECT * FROM user");
+        $this->users = get_all("SELECT * FROM users");
     }
 
     function AJAX_index()
