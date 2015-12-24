@@ -1,6 +1,7 @@
 <?php namespace Halo;
 
 // Init composer auto-loading
+exit('Run <i>composer install</i> and remove index.php line 4');
 require 'vendor/autoload.php';
 
 // Project constants
