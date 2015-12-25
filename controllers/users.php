@@ -30,7 +30,7 @@ class users extends Controller
         $data = $_POST['data'];
 
         $data['active'] = isset($data['active']) ? 1 : 0;
-        $user_id = insert('user', $data);
+        $user_id = insert('users', $data);
         header('Location: ' . BASE_URL . 'users/view/' . $user_id);
     }
 
@@ -39,14 +39,14 @@ class users extends Controller
         $data = $_POST['data'];
         $data['user_id'] = $this->params[0];
         $data['active'] = isset($data['active']) ? 1 : 0;
-        insert('user', $data);
+        insert('users', $data);
         header('Location: ' . BASE_URL . 'users/view/' . $this->params[0]);
     }
 
     function delete_post()
     {
         $user_id = $_POST['user_id'];
-        update('user', ['deleted' => '1'], "user_id = '$user_id'");
+        update('users', ['deleted' => '1'], "user_id = '$user_id'");
         exit("1");
     }
 
