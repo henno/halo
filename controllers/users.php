@@ -12,7 +12,7 @@ class users extends Controller
 
     function index()
     {
-        $this->users = get_all("SELECT * FROM user WHERE deleted=0");
+        $this->users = get_all("SELECT * FROM users WHERE deleted=0");
 
     }
 
@@ -21,7 +21,7 @@ class users extends Controller
         $user_id = $this->params[0];
         if (empty($user_id))
             error_out('Check user ID in address bar');
-        $this->user = get_first("SELECT * FROM user WHERE user_id = '$user_id'");
+        $this->user = get_first("SELECT * FROM users WHERE user_id = '$user_id'");
 
     }
 
@@ -53,7 +53,7 @@ class users extends Controller
     function edit()
     {
         $user_id = $this->params[0];
-        $this->user = get_first("SELECT * FROM user WHERE user_id = '$user_id'");
+        $this->user = get_first("SELECT * FROM users WHERE user_id = '$user_id'");
     }
 
 } 
