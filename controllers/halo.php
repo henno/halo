@@ -31,8 +31,9 @@ class halo extends Controller
         } else {
 
             // SQL injection protection
-            $table_name_escaped = @mysql_real_escape_string($table_name);
-            $table_prefix_escaped = @mysql_real_escape_string($table_prefix);
+            global $db;
+            $table_name_escaped = mysqli_real_escape_string($db, $table_name);
+            $table_prefix_escaped = mysqli_real_escape_string($db, $table_prefix);
 
             // Add table to database
             q("CREATE TABLE `{$table_name_escaped}` (
