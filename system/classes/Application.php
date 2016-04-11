@@ -17,6 +17,8 @@ class Application
 
     function __construct()
     {
+        global $controller;
+        
         ob_start();
         session_start();
 
