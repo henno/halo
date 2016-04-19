@@ -14,16 +14,16 @@
         <li>views (index, view, edit)</li>
     </ul>
 
-    <? if (!$controllers_folder_is_writable): var_dump(is_writable('fafa')) ?>
+    <?php if (!$controllers_folder_is_writable): var_dump(is_writable('fafa')) ?>
         <div class="alert alert-warning">Controller folder is not writable!</div>
-    <? endif ?>
+    <?php endif ?>
 
-    <? if (!$views_folder_is_writable): ?>
+    <?php if (!$views_folder_is_writable): ?>
         <div class="alert alert-warning">View folder is not writable!</div>
-    <? endif ?>
+    <?php endif ?>
 
 
-    <? if (!($controllers_folder_is_writable && $views_folder_is_writable)): ?>
+    <?php if (!($controllers_folder_is_writable && $views_folder_is_writable)): ?>
         <div class="alert alert-danger">
             <p>Halo doesn't have permission to modify required folders. You can fix this by issuing the following
                 command in the project's root folder</p>
@@ -31,7 +31,7 @@
             <p>
             <blockquote>chmod a+rwX -R controllers views</blockquote>
             </p></div>
-    <? else: ?>
+    <?php else: ?>
     <h3>Name</h3>
 
     <p class="help-block">Please input new page name in singular (for view/edit action variables)
@@ -103,7 +103,7 @@
             <div class="">
                 <button class="btn btn-primary" type="submit">Add</button>
             </div>
-    <? endif ?>
+    <?php endif ?>
 </div>
 
 <script>

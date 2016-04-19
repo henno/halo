@@ -1,4 +1,4 @@
-<strong>Error!</strong> <? if ($error_type == 'connection_fail'): ?>
+<strong>Error!</strong> <?php if ($error_type == 'connection_fail'): ?>
 <?= mysql_error() ?>. Have you customized config.php yet? Are database host name,
 its username and password correct
 in config.php?

@@ -13,18 +13,18 @@
 <div class="container">
     <br/>
     <br/>
-    <? if (isset($errors)): ?>
-        <? foreach ($errors as $error): ?>
+    <?php if (isset($errors)): ?>
+        <?php foreach ($errors as $error): ?>
             <div class="alert alert-danger">
                 <?= $error ?>
             </div>
-        <? endforeach; ?>
-    <? elseif (isset($error_file_name_or_msg)): ?>
-        <? require 'views/errors/' . $error_file_name_or_msg . '_error_view.php' ?>
+        <?php endforeach; ?>
+    <?php elseif (isset($error_file_name_or_msg)): ?>
+        <?php require 'views/errors/' . $error_file_name_or_msg . '_error_view.php' ?>
     <?
     else: ?>
         Tundmatu viga!
-    <? endif; ?>
+    <?php endif; ?>
 
 </div>
 <!-- /container -->

@@ -72,17 +72,17 @@
 
     <form class="form-signin" method="post">
 
-        <? if (isset($errors)) {
+        <?php if (isset($errors)) {
             foreach ($errors as $error): ?>
                 <div class="alert alert-danger">
                     <?= $error ?>
                 </div>
-            <? endforeach;
+            <?php endforeach;
         } ?>
 
-        <h2 class="form-signin-heading"><? __('Please sign in') ?></h2>
+        <h2 class="form-signin-heading"><?= __('Please sign in') ?></h2>
 
-        <label for="user"><? __('Username') ?></label>
+        <label for="user"><?= __('Username') ?></label>
 
         <div class="input-group">
             <span class="input-group-addon"><i class="icon-user"></i></span>
@@ -91,7 +91,7 @@
 
         <br/>
 
-        <label for="pass"><? __('Password') ?></label>
+        <label for="pass"><?= __('Password') ?></label>
 
         <div class="input-group">
             <span class="input-group-addon"><i class="icon-key"></i></span>

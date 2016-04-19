@@ -1,9 +1,9 @@
-<? if (!$auth->is_admin): ?>
+<?php if (!$auth->is_admin): ?>
     <div class="alert alert-danger fade in">
         <button class="close" data-dismiss="alert">×</button>
         You are not an administrator.
     </div>
-    <? exit(); endif; ?>
+    <?php exit(); endif; ?>
 <h1>User '<?= $user['username'] ?>'</h1>
 <form id="form" method="post">
     <table class="table table-bordered">

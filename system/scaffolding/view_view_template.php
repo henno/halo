@@ -1,25 +1,25 @@
-<h1><? __("Module") ?> '<?= $module['module_name'] ?>'</h1>
+<h1><?= __("Module") ?> '<?= $module['module_name'] ?>'</h1>
 <table class="table table-bordered">
 
     <tr>
-        <th><? __("Module") ?> ID</th>
+        <th><?= __("Module") ?> ID</th>
         <td><?= $module['module_id'] ?></td>
     </tr>
 
     <tr>
-        <th><? __("Module") ?><? __("name") ?></th>
+        <th><?= __("Module") ?><?= __("name") ?></th>
         <td><?= $module['module_name'] ?></td>
     </tr>
 
 </table>
 
 <!-- EDIT BUTTON -->
-<? if ($auth->is_admin): ?>
+<?php if ($auth->is_admin): ?>
     <form action="modules/edit/<?= $module['module_id'] ?>">
         <div class="pull-right">
             <button class="btn btn-primary">
-                <? __("Edit") ?>
+                <?= __("Edit") ?>
             </button>
         </div>
     </form>
-<? endif; ?>
+<?php endif; ?>

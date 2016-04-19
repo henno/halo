@@ -36,7 +36,7 @@ function get_translation_strings($lang, $controller, $action)
  * @param string $lang Which language to translate into
  * @return null
  */
-function __($text, $return = false, $global = false)
+function __($text, $global = false)
 {
     global $translations;
     global $controller;
@@ -99,19 +99,8 @@ function __($text, $return = false, $global = false)
         $translation = $text;
     }
 
-
-    if ($return) {
-        return $translation;
-    }
-
-
-    // Else echo the translation
-    echo $translation;
-
-
-    // And return nothing
-    return null;
-
+    return $translation;
+    
 }
 
 function debug($msg)
