@@ -1,8 +1,11 @@
 <?php namespace Halo;
 
 // Init composer auto-loading
-die('Run composer install and remove line ' . __LINE__ . ' from index.php.');
-require 'vendor/autoload.php';
+if (!@include_once("vendor/autoload.php")) {
+
+    exit('Run composer install');
+
+}
 
 // Project constants
 define('PROJECT_NAME', 'halo');
