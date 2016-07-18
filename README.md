@@ -15,7 +15,7 @@ There is no documentation other than the source code itself. Just start reading 
 Installation
 ------
 
-Go make your new git project, get the zip, unpack it and try to run it. You'll get some errors. Just do what it suggests. Basically you should copy config.sample.php to config.php and configure it. After that you should set up your MySQL database (sorry, no other databases support ATM).
+git clone Go make your new git project, get the zip, unpack it and try to run it. You'll get some errors. Just do what it suggests. Basically you should copy config.sample.php to config.php and configure it. After that you should set up your MySQL database (sorry, no other databases support ATM).
 
 Reporting bugs
 ------
