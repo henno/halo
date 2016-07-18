@@ -1,6 +1,7 @@
 <?php namespace Halo;
 
 // Init composer auto-loading
+die('Run composer install and remove line ' . __LINE__ . ' from index.php.');
 require 'vendor/autoload.php';
 
 // Project constants
