@@ -37,8 +37,8 @@ class Auth
 
         // Authenticate by POST data
         if (isset($_POST['username'])) {
-            $username = $_POST['username'];
-            $password = $_POST['password'];
+            $username = addslashes($_POST['username']);
+            $password = addslashes($_POST['password']);
             $user = get_first("SELECT user_id, is_admin FROM users
                                 WHERE username = '$username'
                                   AND password = '$password'
