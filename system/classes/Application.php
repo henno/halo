@@ -127,7 +127,7 @@ class Application
         } elseif (!empty($_SERVER['REQUEST_URI'])) {
             // in case there's /index.php in beginning of REQUEST_URI, remove it
             // in case there's / in the beginning remove that as well
-            $path_info = preg_replace(array('/\/index.php\//', '/\//'), '', $_SERVER['REQUEST_URI'], 1);
+            $path_info = preg_replace(array('/\/index.php/', '/\//'), '', $_SERVER['REQUEST_URI'], 1);
         } else {
             die('horrible death - or in other words - there\'s no PATH_INFO or REQUEST_URI available');
         }
