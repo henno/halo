@@ -7,6 +7,8 @@ class Controller
 
     function render($template)
     {
+        global $supported_languages;
+
         // Make controller variables available to view
         extract(get_object_vars($this));
 
