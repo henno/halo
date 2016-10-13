@@ -25,6 +25,7 @@ class Application
         $this->load_common_functions();
         $this->set_base_url();
         $this->load_config();
+        $this->set_language();
         $this->process_uri();
         $this->init_db();
         $this->handle_routing();
@@ -152,5 +153,42 @@ class Application
     {
         require dirname(__FILE__) . '/../database.php';
     }
+
+    private function set_language()
+    {
+
+        global $supported_languages;
+
+        // Extract supported languages
+        $supported_languages = array_map('trim', explode('|', WEBSITE_LANGUAGES));
+
+
+        // Set default language (defaults to 'en', if no supported languages are given
+        $default_language = isset($supported_languages[0]) ? $supported_languages[0] : 'en';
+
+
+        // Check GET
+        if (isset($_GET['language']) && in_array($_GET['language'], $supported_languages)) {
+
+            if (is_array($_GET['language'])) {
+                trigger_error('Possible hacking attempt');
+            }
+
+            $_SESSION['language'] = substr($_GET['language'], 0, 2);
+            setcookie("language", $_SESSION['language'], time() + 3600 * 24 * 30);
+
+            // Else check COOKIE
+        } elseif (!empty($_COOKIE["language"]) && in_array($_COOKIE['language'], $supported_languages)) {
+
+            $_SESSION['language'] = substr($_COOKIE['language'], 0, 2);
+
+        } // First visit, set default langauge
+        else if (!isset($_SESSION['language'])) {
+            $_SESSION['language'] = $default_language;
+        }
+
+        // Else leave $_SESSION['language'] unchanged
+    }
+
 
 }

@@ -9,6 +9,7 @@ if (!@include_once("vendor/autoload.php")) {
 
 // Project constants
 define('PROJECT_NAME', 'halo');
+define('PROJECT_NATIVE_LANGUAGE', 'en');
 define('DEFAULT_CONTROLLER', 'welcome');
 define('DEBUG', false);
 
