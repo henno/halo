@@ -123,13 +123,21 @@ class Application
 
     private function process_uri()
     {
-        if (isset($_SERVER['PATH_INFO'])) {
-            if ($path_info = explode('/', $_SERVER['PATH_INFO'])) {
-                array_shift($path_info);
-                $this->controller = isset($path_info[0]) ? array_shift($path_info) : DEFAULT_CONTROLLER;
-                $this->action = isset($path_info[0]) && !empty($path_info[0]) ? array_shift($path_info) : 'index';
-                $this->params = isset($path_info[0]) ? $path_info : array();
-            }
+        if (isset($_SERVER['PATH_INFO']) && $_SERVER['PATH_INFO'] != '/') {
+            $path_info = $_SERVER['PATH_INFO'];
+        } elseif (!empty($_SERVER['REQUEST_URI'])) {
+            // in case there's /index.php in beginning of REQUEST_URI, remove it
+            // in case there's / in the beginning remove that as well
+            $path_info = preg_replace(array('/\/index.php/', '/\//'), '', $_SERVER['REQUEST_URI'], 1);
+        } else {
+            die('horrible death - or in other words - there\'s no PATH_INFO or REQUEST_URI available');
+        }
+
+        // make sure $path_info is not empty string, otherwise controller will be set to empty string as well
+        if (!empty($path_info) && $path_info = explode('/', $path_info)) {
+            $this->controller = isset($path_info[0]) ? array_shift($path_info) : DEFAULT_CONTROLLER;
+            $this->action = isset($path_info[0]) && !empty($path_info[0]) ? array_shift($path_info) : 'index';
+            $this->params = isset($path_info[0]) ? $path_info : array();
         }
     }
 
