@@ -1,22 +1,26 @@
-RewriteEngine On
+<IfModule mod_rewrite.c>
 
-RewriteRule ^(classes) - [F,L]
+    <IfModule mod_negotiation.c>
+        Options -MultiViews
+    </IfModule>
 
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteEngine On
 
-RewriteRule .* index.php/$0 [PT,L]
+    # Rewrite www to use non-www.
+    RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+    RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
 
-# Enable <? ?>
-php_value short_open_tag 1
+    # Handle Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
 
-# enable PHP error logging
-php_flag  log_errors on
-php_value error_log  system/logs/PHP_errors.log
+    # Forbid classes and doc folders
+    RewriteRule ^(classes|doc\b) - [F,L]
 
-# prevent access to PHP error log
-<Files PHP_errors.log>
- Order allow,deny
- Deny from all
- Satisfy All
-</Files>
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+
+</IfModule>

@@ -1,17 +1,35 @@
-<?
+<?php
+
 /**
  * Display a fancy error page and quit.
- * @param $error_file_name_or_msg string The view file of the specific error (in views/errors folder, without _error_view.php suffix)
+ * @param $error_msg string Error message to show
+ * @param int $code HTTP RESPONSE CODE. Default is 500 (Internal server error)
  */
-function error_out($error_file_name_or_msg)
+function error_out($error_msg, $code = 500)
 {
-    if (!file_exists("views/errors/{$error_file_name_or_msg}_error_view.php")) {
-        $errors[] = $error_file_name_or_msg;
-    }
-    require dirname(__FILE__) . '/../templates/error_template.php';
+
+    // Return HTTP RESPONSE CODE to browser
+    header($_SERVER["SERVER_PROTOCOL"] . " $code Something went wrong", true, $code);
+
+
+    // Set error message
+    $errors[] = $error_msg;
+
+
+    // Show pretty error, too, to humans
+    require __DIR__ . '/../templates/error_template.php';
+
+
+    // Stop execution
     exit();
 }
 
+/**
+ * Loads given controller/action, and global, translations to memory
+ * @param $lang string Language to load
+ * @param $controller string Controller to load translations for
+ * @param $action string Action to load translations for
+ */
 function get_translation_strings($lang, $controller, $action)
 {
     global $translations;
@@ -26,15 +44,12 @@ function get_translation_strings($lang, $controller, $action)
 }
 
 /**
- * @param $text string Text to translate
- * @return string
+ * Translates the text into currently selected language
+ * @param $text string The text to be translated
+ * @param bool $global Set to false if you want to let the user translate this string differently on different sub-pages.
+ * @return string Translated text
  */
-/**
- * @param string $text Text to be translated
- * @param bool $global Is this a global string that should be available everywhere (for main menu, etc)
- * @return null
- */
-function __($text, $global = false)
+function __($text, $global = true)
 {
     global $translations;
     global $controller;
@@ -65,7 +80,7 @@ function __($text, $global = false)
 
 
     // Safe way to query translation
-    $translation = isset($translations[$text]) ? $translations[$text] : null;
+    $translation = isset($translations[$text]) ? $translations[$text] : '';
     // Insert new translation stub into DB when text wasn't empty but a matching translation didn't exist in the DB
     if ($text !== null && $translation == null) {
 
@@ -85,14 +100,4 @@ function __($text, $global = false)
 
     return $translation;
 
-}
-
-function debug($msg)
-{
-    if (defined(DEBUG) and DEBUG == true) {
-        echo "<br>\n";
-        $file = debug_backtrace()[0]['file'];
-        $line = debug_backtrace()[0]['line'];
-        echo "[" . $file . ":" . $line . "] <b>" . $msg . "</b>";
-    }
 }

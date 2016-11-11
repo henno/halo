@@ -72,6 +72,8 @@
 
     <form class="form-signin" method="post">
 
+        <h2 class="form-signin-heading"><?= __('Please sign in') ?></h2>
+
         <?php if (isset($errors)) {
             foreach ($errors as $error): ?>
                 <div class="alert alert-danger">
@@ -80,13 +82,12 @@
             <?php endforeach;
         } ?>
 
-        <h2 class="form-signin-heading"><?= __('Please sign in') ?></h2>
 
         <label for="user"><?= __('Username') ?></label>
 
         <div class="input-group">
             <span class="input-group-addon"><i class="icon-user"></i></span>
-            <input id="user" name="username" type="text" class="form-control" placeholder="jaan" autofocus>
+            <input id="user" name="email" type="text" class="form-control" placeholder="email" autofocus>
         </div>
 
         <br/>
@@ -100,7 +101,7 @@
 
         <br/>
 
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit"><?= __('Sign in') ?></button>
     </form>
 
 </div>

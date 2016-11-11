@@ -19,8 +19,8 @@
 <p>For example, to To have the URL localhost/halo/<span class="label label-primary">posts/view/3</span> working:</p>
 <ol>
     <li>Create new file <code>/controllers/<i>posts</i>.php</code></li>
-    <li>In that file create <code>class posts</code> (lower case letters) which <code>extends Controller</code> (upper
-        case letters)
+    <li>In that file create <code>class posts</code> (lower case letters) which <code>extends Controller</code>
+        (capitalized)
     </li>
     <li>Create <code>function index()</code> within that class. This is the default action which will be called when no
         action is specified (e.g. just /posts). There you can set all the variables your view will need.
