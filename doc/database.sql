@@ -20,7 +20,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `translation`
 --
 
-CREATE TABLE `translation` (
+CREATE TABLE `translations` (
   `translation_id` int(10) UNSIGNED NOT NULL,
   `phrase` varchar(255) NOT NULL,
   `language` char(3) NOT NULL,
@@ -33,7 +33,7 @@ CREATE TABLE `translation` (
 -- Dumping data for table `translation`
 --
 
-INSERT INTO `translation` (`translation_id`, `phrase`, `language`, `translation`, `controller`, `action`) VALUES
+INSERT INTO `translations` (`translation_id`, `phrase`, `language`, `translation`, `controller`, `action`) VALUES
   (1, 'Action', 'ee', '{untranslated}', 'global', 'global');
 
 -- --------------------------------------------------------
@@ -66,7 +66,7 @@ INSERT INTO `users` (`user_id`, `username`, `is_admin`, `password`, `active`, `e
 --
 -- Indexes for table `translation`
 --
-ALTER TABLE `translation`
+ALTER TABLE `translations`
 ADD PRIMARY KEY (`translation_id`),
 ADD UNIQUE KEY `language_phrase_controller_action_index` (`language`,`phrase`,`controller`,`action`);
 
@@ -84,7 +84,7 @@ ADD UNIQUE KEY `UNIQUE` (`username`);
 --
 -- AUTO_INCREMENT for table `translation`
 --
-ALTER TABLE `translation`
+ALTER TABLE `translations`
 MODIFY `translation_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `users`
