@@ -27,7 +27,7 @@ CREATE TABLE `translations` (
   `translation` varchar(255) DEFAULT NULL,
   `controller` varchar(15) NOT NULL,
   `action` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `translation`
@@ -50,7 +50,7 @@ CREATE TABLE `users` (
   `active` tinyint(3) UNSIGNED NOT NULL DEFAULT '0',
   `email` varchar(255) NOT NULL,
   `deleted` tinyint(1) UNSIGNED NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
