@@ -22,6 +22,20 @@ class Auth
         }
     }
 
+    /**
+     * Dynamically add all user table fields as object properties to auth object
+     * @param $user
+     */
+    public
+    function load_user_data($user)
+    {
+
+
+        foreach ($user as $user_attr => $value) {
+            $this->$user_attr = $value;
+        }
+        $this->logged_in = TRUE;
+    }
 
     /**
      * Verifies if the user is logged in and authenticates if not and POST contains username, else displays the login form
@@ -41,7 +55,7 @@ class Auth
         // Not all credentials were provided
         if (!(isset($_POST['email']) && isset($_POST['password']))) {
 
-            $this->show_login([__("Wrong username or password")]);
+            $this->show_login();
 
         }
 
@@ -75,27 +89,10 @@ class Auth
 
     }
 
-
-    /**
-     * Dynamically add all user table fields as object properties to auth object
-     * @param $user
-     */
-    public
-    function load_user_data($user)
-    {
-
-
-        foreach ($user as $user_attr => $value) {
-            $this->$user_attr = $value;
-        }
-        $this->logged_in = TRUE;
-    }
-
-
     /**
      * @param $errors
      */
-    protected function show_login($errors)
+    protected function show_login($errors = null)
     {
         // Display the login form
         require 'templates/auth_template.php';
