@@ -1,20 +1,7 @@
--- phpMyAdmin SQL Dump
--- version 4.6.0-dev
--- http://www.phpmyadmin.net
---
--- Host: localhost
--- Generation Time: Apr 11, 2016 at 01:35 PM
--- Server version: 5.6.28-0ubuntu0.14.04.1-log
--- PHP Version: 5.5.9-1ubuntu4.14
+
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
-
---
--- Database: `broneerimiskeskkond`
---
-
--- --------------------------------------------------------
 
 --
 -- Table structure for table `translation`
@@ -22,9 +9,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `translations` (
   `translation_id` int(10) UNSIGNED NOT NULL,
-  `phrase` varchar(255) NOT NULL,
+  `phrase` varchar(191) NOT NULL,
   `language` char(3) NOT NULL,
-  `translation` varchar(255) DEFAULT NULL,
+  `translation` varchar(191) DEFAULT NULL,
   `controller` varchar(15) NOT NULL,
   `action` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -46,9 +33,9 @@ CREATE TABLE `users` (
   `user_id` int(10) UNSIGNED NOT NULL,
   `username` varchar(25) NOT NULL,
   `is_admin` tinyint(4) NOT NULL DEFAULT '0',
-  `password` varchar(255) NOT NULL,
+  `password` varchar(191) NOT NULL,
   `active` tinyint(3) UNSIGNED NOT NULL DEFAULT '0',
-  `email` varchar(255) NOT NULL,
+  `email` varchar(191) NOT NULL,
   `deleted` tinyint(1) UNSIGNED NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
