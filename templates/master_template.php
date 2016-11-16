@@ -21,6 +21,10 @@
         }
     </style>
 
+
+    <!-- jQuery -->
+    <script src="vendor/components/jquery/jquery.min.js"></script>
+
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -82,7 +86,6 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="vendor/components/jquery/jquery.min.js"></script>
 <script src="vendor/components/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>

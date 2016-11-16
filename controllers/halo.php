@@ -122,4 +122,8 @@ class halo extends Controller
         return $haystack;
     }
 
+    function generate_password_hash(){
+        exit( password_hash($_POST['password'], PASSWORD_DEFAULT) );
+    }
+
 }

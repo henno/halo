@@ -31,10 +31,9 @@ INSERT INTO `translations` (`translation_id`, `phrase`, `language`, `translation
 
 CREATE TABLE `users` (
   `user_id` int(10) UNSIGNED NOT NULL,
-  `username` varchar(25) NOT NULL,
+  `user_name` varchar(25) NOT NULL,
   `is_admin` tinyint(4) NOT NULL DEFAULT '0',
   `password` varchar(191) NOT NULL,
-  `active` tinyint(3) UNSIGNED NOT NULL DEFAULT '0',
   `email` varchar(191) NOT NULL,
   `deleted` tinyint(1) UNSIGNED NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -43,8 +42,8 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `username`, `is_admin`, `password`, `active`, `email`, `deleted`) VALUES
-  (1, 'demo', 0, 'demo', 1, '', 0);
+INSERT INTO `users` (`user_id`, `user_name`, `is_admin`, `password`, `email`, `deleted`) VALUES
+  (1, 'demo', 0, '$2y$10$vTje.ndUFKHyuotY99iYkO.2aHJUgOsy2x0RMXP1UmrTe6CQsKbtm', 'demo@example.com', 0);
 
 --
 -- Indexes for dumped tables
@@ -62,7 +61,7 @@ ADD UNIQUE KEY `language_phrase_controller_action_index` (`language`,`phrase`,`c
 --
 ALTER TABLE `users`
 ADD PRIMARY KEY (`user_id`),
-ADD UNIQUE KEY `UNIQUE` (`username`);
+ADD UNIQUE KEY `UNIQUE` (user_name);
 
 --
 -- AUTO_INCREMENT for dumped tables
