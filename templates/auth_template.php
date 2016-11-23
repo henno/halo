@@ -5,8 +5,11 @@
     <title><?= PROJECT_NAME ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
-    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="vendor/components/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/components/bootstrap/css/bootstrap-theme.min.css">
+    <script src="vendor/components/jquery/jquery.min.js"></script>
+    <script src="vendor/components/bootstrap/js/bootstrap.min.js"></script>
+
     <style>
         body {
             padding-top: 50px;
