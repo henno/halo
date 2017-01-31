@@ -147,10 +147,8 @@ class Application
         $ssl = (!empty($s['HTTPS']) && $s['HTTPS'] == 'on') ? true : false;
         $sp = strtolower($s['SERVER_PROTOCOL']);
         $protocol = substr($sp, 0, strpos($sp, '/')) . (($ssl) ? 's' : '');
-        $port = $s['SERVER_PORT'];
-        $port = ((!$ssl && $port == '80') || ($ssl && $port == '443')) ? '' : ':' . $port;
         $host = isset($s['HTTP_X_FORWARDED_HOST']) ? $s['HTTP_X_FORWARDED_HOST'] : isset($s['HTTP_HOST']) ? $s['HTTP_HOST'] : $s['SERVER_NAME'];
-        $uri = $protocol . '://' . $host . $port . dirname($_SERVER['SCRIPT_NAME']);
+        $uri = $protocol . '://' . $host . dirname($_SERVER['SCRIPT_NAME']);
         define('BASE_URL', rtrim($uri, '/') . '/');
     }
 
