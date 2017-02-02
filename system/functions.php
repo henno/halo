@@ -33,7 +33,7 @@ function error_out($error_msg, $code = 500)
 function get_translation_strings($lang, $controller, $action)
 {
     global $translations;
-    $translations_raw = get_all("SELECT controller,`action`,phrase,translation FROM translations WHERE language='$lang' AND (controller='{$controller}' and action = '{$action}') OR (action='global'  and controller = 'global')");
+    $translations_raw = get_all("SELECT controller,`action`,phrase,translation FROM translations WHERE language='$lang' AND ((controller='{$controller}' and action = '{$action}') OR (action='global'  and controller = 'global'))");
 
     foreach ($translations_raw as $item) {
         // Uncomment this line if the same phrase need to be translated differently on different pages
