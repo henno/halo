@@ -15,8 +15,8 @@ class Auth
         if (isset($_SESSION['user_id'])) {
             $this->logged_in = TRUE;
             $user = get_first("SELECT *
-                               FROM users
-                               WHERE user_id = '{$_SESSION['user_id']}'");
+                                    FROM users
+                                    WHERE user_id = '{$_SESSION['user_id']}'");
             $this->load_user_data($user);
 
         }

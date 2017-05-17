@@ -32,12 +32,7 @@ $cfg['FORCE_HTTPS'] = false;
  * Whether the site is in production mode. When site is not in production mode, all emails are redirected to developer
  * email.
  */
-$cfg['PRODUCTION_ENVIRONMENT'] = false;
-
-/**
- * When site is not in production mode, all emails will be forwarded to this address
- */
-$cfg['DEVELOPER_EMAIL'] = 'put your email here';
+$cfg['PRODUCTION_ENVIRONMENT'] = true;
 
 /**
  * Your app's FB credential. Needed for Facebook login support. You need to create an app on developers.facebook.com
@@ -65,3 +60,5 @@ $cfg['SMTP_FROM'] = 'put your site email here';
 $cfg['SMTP_PORT'] = '1025';
 $cfg['SMTP_ENCRYPTION'] = 'none';
 $cfg['SMTP_DEBUG'] = 0;
+$cfg['SMTP_FROM_ADDRESS'] = 'changeme@example.com';
+$cfg['SMTP_FROM_NAME'] = 'Change Me';

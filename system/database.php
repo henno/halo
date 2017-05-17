@@ -15,7 +15,7 @@ function connect_db()
         require 'templates/error_template.php';
         die();
     }
-    mysqli_select_db($db, $cfg['DATABASE_DATABASE']) or error_out('<b>Error:</b><i> ' . mysqli_error($db) . '</i><br>
+    mysqli_select_db($db, $cfg['DATABASE_DATABASE']) or trigger_error('<b>Error:</b><i> ' . mysqli_error($db) . '</i><br>
 		This usually means that MySQL does not have a database called <b>' . $cfg['DATABASE_DATABASE'] . '</b>.<br><br>
 		Create that database and import some structure into it from <b>doc/database.sql</b> file:<br>
 		<ol>
@@ -26,7 +26,7 @@ function connect_db()
 		<li>Open it and go to <b>SQL</b> tab</li>
 		<li>Paste the copied SQL code</li>
 		<li>Hit <b>Go</b></li>
-		</ol>', 500);
+		</ol>');
 
     // Switch to utf8
     if (!$db->set_charset("utf8")) {
@@ -94,7 +94,6 @@ function db_error_out($sql = null)
 {
     global $db;
 
-    header($_SERVER["SERVER_PROTOCOL"] . " 500 Internal server error", true, 500);
 
     define('PREG_DELIMITER', '/');
 
@@ -124,7 +123,8 @@ function db_error_out($sql = null)
         }
     }
 
-    $args = empty($args2) ? '' : addslashes('"' . implode('", "', $args2) . '"');
+
+    $args = empty($args2) ? '' : ('<pre>' . implode('", "', $args2) . '</pre>');
 
     // Fault highlight
     preg_match("/check the manual that corresponds to your MySQL server version for the right syntax to use near '([^']+)'./", $db_error, $output_array);
@@ -139,30 +139,13 @@ function db_error_out($sql = null)
     }
 
 
-    $location = "<b>$file</b><br><b>$line</b>: ";
-    if (!empty($function)) {
-
-        $args = str_replace("SELECT", '<br>SELECT', $args);
-        $args = str_replace("\n", '<br>', $args);
-        $args = str_replace("\t", '&nbsp;', $args);
-
-
-        $code = "$function(<span style=\" font-family: monospace; ;padding:0; margin:0\">$args</span>)";
-        $location .= "<span class=\"line-number-position\">&#x200b;<span class=\"line-number\">$code";
-
-    }
-
-
 
     // Generate stack trace
     $e = new Exception();
     $trace = print_r(preg_replace('/#(\d+) \//', '#$1 ', str_replace(dirname(dirname(__FILE__)), '', $e->getTraceAsString())), 1);
     $trace = nl2br(preg_replace('/(#1.*)\n/', "<b>$1</b>\n", $trace));
 
-    $output = '<h1>Database error</h1>' .
-        '<p>' . $db_error . '</p>' .
-        '<p><h3>Location</h3> ' . $location . '<br>' .
-        '<p><h3>Stack trace</h3>' . $trace . '</p>';
+    $output =  "$args $db_error" ;
 
 
     if (isset($_GET['ajax'])) {
@@ -170,8 +153,8 @@ function db_error_out($sql = null)
         echo strip_tags($output);
 
     } else {
-        $errors[] = $output;
-        require 'templates/error_template.php';
+        $error_msg = $output;
+        system_error($output, $file, $line);
     }
 
     die();

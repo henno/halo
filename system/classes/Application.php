@@ -38,12 +38,12 @@ class Application
         $controller_fqn = '\Halo\\' . $this->controller;
 
         if (!file_exists("controllers/$this->controller.php"))
-            error_out("<b>Error:</b> File <i>controllers/{$this->controller}.php</i> does not exist.", 404);
+            system_error("File <code data-clipboard-text='controllers/{$this->controller}.php'>controllers/{$this->controller}.php</code> does not exist.", __FILE__, __LINE__);
         require "controllers/$this->controller.php";
 
         if (!class_exists($controller_fqn, 1))
-            error_out("<b>Error:</b>
-				File  <i>controllers/{$this->controller}.php</i> exists but class <i>{$this->controller}</i> does not. You probably copied the file but forgot to rename the class in the copy.", 500);
+            trigger_error("<b>Error:</b>
+				File  <i>controllers/{$this->controller}.php</i> exists but class <i>{$this->controller}</i> does not. You probably copied the file but forgot to rename the class in the copy.");
         $controller = new $controller_fqn();
 
         // Make request and auth properties available to controller
@@ -92,9 +92,9 @@ class Application
 
             // Proceed with regular action processing ( executes $action() )
             if (!method_exists($controller, $controller->action))
-                error_out("<b>Error:</b>
+                trigger_error("<b>Error:</b>
 				The action <i>{$controller->controller}::{$controller->action}()</i> does not exist.
-				Open <i>controllers/{$controller->controller}.php</i> and add method <i>{$controller->action}()</i>", 404);
+				Open <i>controllers/{$controller->controller}.php</i> and add method <i>{$controller->action}()</i>");
 
             // Save current url, in case the action redirects to login
             $this->save_current_url_to_session($controller);
