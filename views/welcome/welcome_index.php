@@ -1,12 +1,5 @@
 <h1>Welcome!</h1>
-<!-- Code for ajax -->
-<script type="text/javascript">
-    function clickme() {
-        $.post("welcome", $("#ajax-form").serialize(), function (data) {
-            $(".result").html(data);
-        });
-    }
-</script>
+
 
 
 <p>This is the welcome controller's default view file. It is located at <code>/views/welcome/welcome_index.php</code>.
@@ -16,7 +9,9 @@
 <p>Below are some examples how to use Halo</p>
 
 <h3>Adding pages</h3>
-<p>For example, to To have the URL localhost/halo/<span class="label label-primary">posts/view/3</span> working:</p>
+<p>For example, to To have the URL localhost/halo/<span class="label label-primary">posts/view/3</span> working, visit
+    <a href="halo">Halo admin</a> and create a subpage there, or do it manually:</p>
+
 <ol>
     <li>Create new file <code>/controllers/<i>posts</i>.php</code></li>
     <li>In that file create <code>class posts</code> (lower case letters) which <code>extends Controller</code>
@@ -36,7 +31,7 @@
     </li>
     <li>Create new folder <code>/views/posts</code></li>
     <li>Create new file <code>/views/posts/posts_view</code></li>
-    <li>Place content to that file. You could <code>&lt;?var_dump($post)?></code> for starters.</li>
+    <li>Place content to that file. You could <code>&lt;?php var_dump($post)?></code> for starters.</li>
 </ol>
 
 <h3>Sending data to server</h3>
@@ -63,3 +58,11 @@ server by jQuery and server's response will be written to the box below.
     <input type="submit" value="Post"/>
 </form>
 
+<!-- Code for ajax -->
+<script type="text/javascript">
+    function clickme() {
+        ajax("welcome", $("#ajax-form").serialize(), function (json) {
+            $(".result").html(json.data);
+        });
+    }
+</script>

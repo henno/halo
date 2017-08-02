@@ -28,7 +28,7 @@
     <?php else: ?>
 
 
-        Tundmatu viga!
+        Unknown error!
 
 
     <?php endif; ?>

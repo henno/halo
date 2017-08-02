@@ -1,4 +1,4 @@
-<?php namespace Halo;
+<?php namespace App;
 
 /**
  * Created by PhpStorm.
@@ -35,7 +35,7 @@ class Application
 
 
         // Instantiate controller
-        $controller_fqn = '\Halo\\' . $this->controller;
+        $controller_fqn = '\App\\' . $this->controller;
 
         if (!file_exists("controllers/$this->controller.php"))
             error_out("<b>Error:</b> File <i>controllers/{$this->controller}.php</i> does not exist.", 404);

@@ -101,3 +101,14 @@ function __($text, $global = true)
     return $translation;
 
 }
+
+function stop($code, $data = false)
+{
+    $response['status'] = $code;
+
+    if ($data) {
+        $response['data'] = $data;
+    }
+
+    exit(json_encode($response));
+}

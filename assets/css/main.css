@@ -1,0 +1,9 @@
+/* Show a 'hand' mouse pointer on clickable rows */
+table.clickable-rows tr:hover {
+    cursor: pointer;
+    background: rgba(176, 191, 175, 0.13);
+}
+
+.table-nonfluid {
+    width: auto !important;
+}

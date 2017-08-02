@@ -1,24 +1,33 @@
-<h3><?= __("Modules") ?></h3>
-<ul class="list-group">
-    <?php foreach ($modules as $module): ?>
-        <li class="list-group-item">
-            <a href="modules/<?= $module['module_id'] ?>/<?= $module['module_name'] ?>"><?= $module['module_name'] ?></a>
-        </li>
-    <?php endforeach ?>
-</ul>
+<div class="row">
 
-<?php if ($auth->is_admin): ?>
-<h3><?= __("Add new module") ?></h3>
+    <h1>Modules</h1>
 
-<form method="post" id="form">
-    <form id="form" method="post">
-        <table class="table table-bordered">
+    <div class="table-responsive">
+
+        <table class="table table-striped table-bordered clickable-rows">
+
+            <thead>
+
             <tr>
-                <th><?= __("Name") ?></th>
-                <td><input type="text" name="data[module_name]" placeholder=""/></td>
+                <th>ID</th>
+                <th><?= __('Module Name') ?></th>
             </tr>
+
+            </thead>
+
+            <tbody>
+
+            <?php foreach ($modules as $module): ?>
+                <tr data-href="modules/<?= $module['module_id'] ?>">
+                    <td><?= $module['module_id'] ?></td>
+                    <td><?= $module['module_name'] ?></td>
+                </tr>
+            <?php endforeach; ?>
+
+            </tbody>
+
         </table>
 
-        <button class="btn btn-primary" type="submit"><?= __("Add") ?></button>
-    </form>
-    <?php endif; ?>
+    </div>
+
+</div>

@@ -1,4 +1,4 @@
-<?php namespace Halo;
+<?php namespace App;
 
 class Controller
 {

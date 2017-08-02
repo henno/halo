@@ -1,10 +1,14 @@
 {
   "require": {
-    "components/bootstrap": "^3.3"
+    "components/bootstrap": "^3.3",
+    "components/jqueryui": "^1.12"
   },
   "autoload": {
     "psr-4": {
-      "Halo\\": "system/classes"
+      "App\\": [
+        "system/classes/",
+        "classes/App"
+      ]
     }
   }
 }

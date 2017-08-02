@@ -1,4 +1,4 @@
-<?php namespace Halo;
+<?php namespace App;
 
 class halo extends Controller
 {
@@ -60,7 +60,7 @@ class halo extends Controller
             chmod($controller_file, 0666);
 
             /** Add views **/
-            $views = ['index', 'view', 'edit'];
+            $views = ['index', 'view'];
 
             // Create views directory
             $dirname = "views/$name_plural";

@@ -1,4 +1,4 @@
-<?php namespace Halo;
+<?php namespace App;
 
 // Init composer auto-loading
 if (!@include_once("vendor/autoload.php")) {
@@ -19,7 +19,7 @@ if (file_exists('config.php')) {
 
 // Project constants
 define('PROJECT_NAME', 'halo');
-define('PROJECT_NATIVE_LANGUAGE', 'en');
+define('PROJECT_NATIVE_LANGUAGE', 'klingong');
 define('DEFAULT_CONTROLLER', 'welcome');
 
 // Load app

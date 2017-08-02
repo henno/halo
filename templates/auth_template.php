@@ -87,11 +87,11 @@
         } ?>
 
 
-        <label for="user"><?= __('Username') ?></label>
+        <label for="user"><?= __('Email') ?></label>
 
         <div class="input-group">
             <span class="input-group-addon"><i class="icon-user"></i></span>
-            <input id="user" name="email" type="text" class="form-control" placeholder="email" autofocus>
+            <input id="user" name="email" type="text" class="form-control" placeholder="demo@example.com" autofocus>
         </div>
 
         <br/>
