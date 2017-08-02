@@ -1,4 +1,6 @@
-<?php namespace Halo;
+<?php
+
+ob_start();
 
 // Init config
 $cfg = [];
@@ -13,15 +15,12 @@ if (file_exists('config.php')) {
     error_out('No config.php. Please make a copy of config.sample.php and name it config.php and configure it.', 500);
 }
 
-// Set every warning to be an , so that we can catch it
-set_error_handler(function ($err_no, $err_str, $err_file, $err_line, array $err_context) use ($cfg) {
 
+function halo_error_handler($err_no, $err_str, $err_file, $err_line, array $err_context){
+    system_error($err_str, $err_file,$err_line);
+}
 
-    // Show error
-    system_error($err_str, $err_file, $err_line);
-
-});
-
+set_error_handler("halo_error_handler", E_ALL);
 
 // Init composer auto-loading
 
@@ -41,4 +40,4 @@ define('DEFAULT_CONTROLLER', 'welcome');
 
 // Load app
 require 'system/classes/Application.php';
-$app = new Application;
+$app = new \Halo\Application;

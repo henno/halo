@@ -77,6 +77,9 @@
             padding: 4px;
             margin-bottom: 10px !important;
         }
+        pre pre {
+            margin-left: 100px !important;
+        }
     </style>
 </head>
 

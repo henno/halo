@@ -32,6 +32,7 @@ function error_out($error_msg = 'An error occurred', $code = 500, $friendly_erro
 
 
     // Show pretty error, too, to humans
+    if (!defined('BASE_URL')) define('BASE_URL', 'test');
     require __DIR__ . '/../templates/error_template.php';
 
 
@@ -39,36 +40,54 @@ function error_out($error_msg = 'An error occurred', $code = 500, $friendly_erro
     exit();
 }
 
-function system_error($err_str, $err_file, $err_line)
+function system_error($err_str, $err_file = null, $err_line = null)
 {
 
     global $cfg;
 
 
-    $err_file = str_replace(__DIR__, '', $err_file);
+    if ($err_file === null) {
+        $debug_backtrace = debug_backtrace();
+        $err_file = $debug_backtrace[0]['file'];
+        $err_line = $debug_backtrace[0]['line'];
+    }
+
+    $err_file = str_replace(dirname(__DIR__), '', $err_file);
 
     // Clear screen
-    ob_clean();
-
-
-    // Test if xdebug is enabled
-    if (false && function_exists('xdebug_print_function_stack')) {
-
+    ob_start();
+    if (function_exists('xdebug_print_function_stack')) {
         xdebug_print_function_stack();
-        $stack = ob_get_clean();
-
     } else {
-
-        $stack = stringify_array(generateCallTrace(), 'STACK');
+        echo "To see the function stack, enable PHP's <a href='https://xdebug.org/wizard.php'>Xdebug extension</a> with xdebug.collect_params=4";
     }
+    $stack = ob_get_contents();
+    ob_end_clean();
+
+    // Make files clickable (for copying)
+    $stack = preg_replace('#\.\.\.(.*)\.php<b>:</b>(\d+)#', '<code data-clipboard-text="$1.php:$2">$1.php:$2</code>', $stack);
+
+
+    // Remove unwanted rows
+    $unwanted_rows = [
+        'halo_error_handler',
+        'Xdebug: user triggered in',
+        'xdebug_print_function_stack',
+        'trigger_error',
+        'system_error',
+        '{main}'
+    ];
+    $unwanted_rows = implode('|', $unwanted_rows);
+    $stack = preg_replace("#<tr>.*($unwanted_rows).*</tr>#", '', $stack);
+
 
 
     // Prep env data
     $ip = $_SERVER['REMOTE_ADDR'];
-    $post = stringify_array($_POST, 'POST');
-    $files = stringify_array($_FILES, 'FILES');
-    $cookies = stringify_array($_COOKIE, 'COOKIE');
-    $session = stringify_array($_SESSION, 'SESSION');
+    $post = stringify_array('_GET');
+    $files = stringify_array('_FILES');
+    $cookies = stringify_array('_COOKIE');
+    $session = stringify_array('_SESSION');
     $protocol = empty($_SERVER['HTTPS']) ? 'http://' : 'https://';
     $host = empty($_SERVER['HTTP_HOST']) ? 'example.com' : $_SERVER['HTTP_HOST'];
     $request_uri = empty($_SERVER['REQUEST_URI']) ? '' : $_SERVER['REQUEST_URI'];
@@ -85,7 +104,7 @@ function system_error($err_str, $err_file, $err_line)
         email($cfg['DEVELOPER_EMAIL'], "[ERROR] $full_url", "$err_str\nURL: $full_url\nLOCATION: $err_file:$err_line\nUSER IP: $ip\n$post$session$files$cookies", false);
 
     }
-    error_out("$err_str at <code id='elx' data-clipboard-target='#elx'>$err_file:$err_line</code><br><strong><br>Environment:</strong><pre>$post$session$files$cookies$stack</pre>");
+    error_out("$err_str <br>at <code id='elx' data-clipboard-target='#elx'>$err_file:$err_line</code><br><strong><br>Environment:</strong><pre>$post$session$files$cookies</pre>$stack");
 
 }
 
@@ -215,75 +234,41 @@ function log_error($error_msg)
 
 }
 
-function stringify_array($arr, $prefix)
+function stringify_array($arr_name, $arr = null)
 {
-    return empty($arr) ? '' : $prefix . ":\n" . preg_replace(
+    if($arr === null){
+
+        if($arr_name == '_GET')
+            $arr = $_GET;
+
+        elseif($arr_name == '_POST'){
+            $arr = $_POST;
+
+        }elseif($arr_name == '_FILES'){
+            $arr = $_FILES;
+
+        }elseif($arr_name == '_COOKIE'){
+            $arr = $_COOKIE;
+
+        }elseif ($arr_name == '_SESSION'){
+            $arr = $_SESSION;
+        }
+
+    }
+
+    // Return nothing when named array does not exist nor it is passed by value
+    if (empty($arr))
+        return '';
+
+    $result = "\n$arr_name:" .json_encode($arr, JSON_PRETTY_PRINT);
+    $result = stripslashes($result);
+    //$result = preg_replace('/\\\n/', "\n", $result);
+    //$result = preg_replace('/\\\\"/', "\"", $result);
+    return $result;
+
+    return $arr_name . ":\n" . preg_replace(
             '/Array\s+\(\s+(.*)\s*\)\s*/msiU',
             '$1',
             print_r($arr, true));
 
-}
-
-function generateCallTrace()
-{
-
-    $trace = debug_backtrace();
-    $trace = array_reverse($trace);
-    $basedir = preg_quote(dirname(__DIR__) . DIRECTORY_SEPARATOR, '/');
-    //array_shift($trace); // remove {main}
-    //array_pop($trace); // remove call to this method
-
-    foreach ($trace as $call) {
-        var_dump($call);
-
-
-        array_map(function ($value) {
-            if( is_array($value))
-            {
-                $value = json_encode($value, JSON_PRETTY_PRINT);
-            }else{
-                $value = substr($value, 0, 10);
-            }
-            return $value;
-        }, $call['args']);
-
-        $args = htmlentities(implode(', ', $call['args']));
-
-        $file = preg_replace("/$basedir/i", '', $call['file']) . ':' . $call['line'];
-        $func = $call['function'];
-        $class = isset($call['class']) ? "$call[class]->" : '';
-        var_dump("$class$func($args) at $file");
-    }
-    print_r($trace);
-
-
-    // Remove root directory
-
-
-    // reverse array to make steps line up chronologically
-
-
-    $length = count($trace);
-    $result = array();
-
-    $result[] = '<table id="stack"><tr><th>#</th><th>Function/method</th><th>Called from</th></tr>';
-    for ($i = 0; $i < $length; $i++) {
-
-
-        $call = '<tr>';
-        $call .= '<td>' . ($i + 1) . '.</td>';
-        $call .= preg_replace("/.*$basedir([^(]+)\((\d+)\): (.*)/i", "<td>$3</td><td><code id='el" . $i . "' data-clipboard-target='#el" . $i . "'>$1:$2</code></td>", htmlentities($trace[$i]));
-        $call .= '</tr>';
-        $call .= $i == $length - 1 ? '</table>' : '';
-
-        // Skip db_error_out() and system_error();
-        if (!preg_match('/db_error_out|system_error/', $trace[$i])) {
-            $result[] = $call;
-
-        }
-
-
-    }
-
-    return "\t" . implode("\n\t", $result);
 }

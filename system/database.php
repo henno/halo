@@ -15,7 +15,7 @@ function connect_db()
         require 'templates/error_template.php';
         die();
     }
-    mysqli_select_db($db, $cfg['DATABASE_DATABASE']) or trigger_error('<b>Error:</b><i> ' . mysqli_error($db) . '</i><br>
+    mysqli_select_db($db, $cfg['DATABASE_DATABASE']) or system_error('<b>Error:</b><i> ' . mysqli_error($db) . '</i><br>
 		This usually means that MySQL does not have a database called <b>' . $cfg['DATABASE_DATABASE'] . '</b>.<br><br>
 		Create that database and import some structure into it from <b>doc/database.sql</b> file:<br>
 		<ol>

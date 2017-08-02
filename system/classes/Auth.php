@@ -81,11 +81,9 @@ class Auth
         $_SESSION['user_id'] = $user['user_id'];
 
 
-        // Load $this->auth with users table's field values
-        $this->load_user_data($user);
-
-
-        return true;
+        // Reload page to turn POST request into GET request
+        header('Refresh: 0');
+        exit();
 
     }
 

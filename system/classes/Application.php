@@ -42,7 +42,7 @@ class Application
         require "controllers/$this->controller.php";
 
         if (!class_exists($controller_fqn, 1))
-            trigger_error("<b>Error:</b>
+            trigger_error("
 				File  <i>controllers/{$this->controller}.php</i> exists but class <i>{$this->controller}</i> does not. You probably copied the file but forgot to rename the class in the copy.");
         $controller = new $controller_fqn();
 
@@ -92,8 +92,7 @@ class Application
 
             // Proceed with regular action processing ( executes $action() )
             if (!method_exists($controller, $controller->action))
-                trigger_error("<b>Error:</b>
-				The action <i>{$controller->controller}::{$controller->action}()</i> does not exist.
+                trigger_error("The action <i>{$controller->controller}::{$controller->action}()</i> does not exist.
 				Open <i>controllers/{$controller->controller}.php</i> and add method <i>{$controller->action}()</i>");
 
             // Save current url, in case the action redirects to login
