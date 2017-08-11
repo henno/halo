@@ -29,12 +29,6 @@ $cfg['WEBSITE_LANGUAGES'] = 'en|et';
 $cfg['FORCE_HTTPS'] = false;
 
 /**
- * Whether the site is in production mode. When site is not in production mode, all emails are redirected to developer
- * email.
- */
-$cfg['PRODUCTION_ENVIRONMENT'] = false;
-
-/**
  * When site is not in production mode, all emails will be forwarded to this address
  */
 $cfg['DEVELOPER_EMAIL'] = 'put your email here';

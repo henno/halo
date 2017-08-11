@@ -212,8 +212,7 @@ class Application
     private function save_current_url_to_session($controller)
     {
         // In case the user is not logged in but this controller needs auth, redirect user back to this controller after login
-        if (!($controller->controller == 'steps' && $controller->action == 'topics')
-            && $controller->action != 'your_data'
+        if ($controller->action != 'your_data'
             && $controller->controller != 'login_google'
             && $controller->controller != 'login'
         ) {

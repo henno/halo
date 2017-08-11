@@ -2,6 +2,13 @@
 
 class halo extends Controller
 {
+    function __construct()
+    {
+        $hostname = $_SERVER['HTTP_HOST'];
+        if( $hostname !== 'localhost' && substr($hostname , -4) !== '.dev'){
+            error_out('This page is only allowed in development', 403);
+        }
+    }
 
     function index()
     {
