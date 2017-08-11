@@ -15,7 +15,7 @@ class halo extends Controller
         try {
             $this->controllers_folder_is_writable = is_writable('controllers') ? true : false;
             $this->views_folder_is_writable = is_writable('views') ? true : false;
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             echo 'Caught exception: ', $e->getMessage(), "\n";
         }
     }
