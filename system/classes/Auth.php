@@ -15,8 +15,8 @@ class Auth
         if (isset($_SESSION['user_id'])) {
             $this->logged_in = TRUE;
             $user = get_first("SELECT *
-                               FROM users
-                               WHERE user_id = '{$_SESSION['user_id']}'");
+                               FROM user
+                               WHERE id = '{$_SESSION['user_id']}'");
             $this->load_user_data($user);
 
         }
@@ -31,6 +31,7 @@ class Auth
     {
 
 
+        var_dump($user);
         foreach ($user as $user_attr => $value) {
             $this->$user_attr = $value;
         }
@@ -66,7 +67,7 @@ class Auth
 
         // Attempt to retrieve user data from database
         $user = get_first("SELECT * 
-                           FROM users
+                           FROM user
                            WHERE email = '$email'
                            AND deleted = 0");
 

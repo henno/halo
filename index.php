@@ -1,5 +1,10 @@
 <?php namespace App;
 
+// TODO: andmebaas nii ümber teha, et get_all konstrueeriks ise multidimensionaalse massiivi, vastavalt väljanimedele:
+//       kui väljanime sees on kaks alakriipsu (foo__bar), siis tuleb tulemuses $result['foo']['bar'].
+// TODO: get_all päringu tulemuses esimene number on primary key
+
+
 // Init composer auto-loading
 if (!@include_once("vendor/autoload.php")) {
 

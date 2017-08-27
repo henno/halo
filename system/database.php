@@ -1,234 +1,136 @@
 <?php
 /**
  * Database functions
- * Not included in class to shorten typing effort.
  */
 
-connect_db();
-function connect_db()
+
+require 'classes/rb.php';
+global $cfg;
+
+R::setAutoResolve(TRUE);
+R::setup("mysql:host=$cfg[DATABASE_HOSTNAME];dbname=$cfg[DATABASE_DATABASE]", $cfg['DATABASE_USERNAME'], $cfg['DATABASE_PASSWORD']);
+// R::exec("SET sql_mode = ''"); // Disable strict GROUP BY check
+
+R::freeze(FALSE);
+
+//R::fancyDebug( TRUE );
+
+class db
 {
-    global $db;
-    global $cfg;
-    @$db = new mysqli($cfg['DATABASE_HOSTNAME'], $cfg['DATABASE_USERNAME'], $cfg['DATABASE_PASSWORD']);
-    if ($connection_error = mysqli_connect_error()) {
-        $errors[] = 'There was an error trying to connect to database at ' . $cfg['DATABASE_HOSTNAME'] . ':<br><b>' . $connection_error . '</b>';
-        require 'templates/error_template.php';
-        die();
-    }
-    mysqli_select_db($db, $cfg['DATABASE_DATABASE']) or error_out('<b>Error:</b><i> ' . mysqli_error($db) . '</i><br>
-		This usually means that MySQL does not have a database called <b>' . $cfg['DATABASE_DATABASE'] . '</b>.<br><br>
-		Create that database and import some structure into it from <b>doc/database.sql</b> file:<br>
-		<ol>
-		<li>Open database.sql</li>
-		<li>Copy all the SQL code</li>  
-		<li>Go to phpMyAdmin</li>
-		<li>Create a database called <b>' . $cfg['DATABASE_DATABASE'] . '</b></li>
-		<li>Open it and go to <b>SQL</b> tab</li>
-		<li>Paste the copied SQL code</li>
-		<li>Hit <b>Go</b></li>
-		</ol>', 500);
 
-    // Switch to utf8
-    if (!$db->set_charset("utf8")) {
-        trigger_error(sprintf("Error loading character set utf8: %s\n", $db->error));
-        exit();
+    private $instance = null;
+
+    function __construct($cfg)
+    {
+        $host = $cfg['DATABASE_HOSTNAME'];
+        $db = $cfg['DATABASE_DATABASE'];
+        $user = $cfg['DATABASE_USERNAME'];
+        $pass = $cfg['DATABASE_PASSWORD'];
+        $charset = 'utf8';
+
+        $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+        $opt = [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+            PDO::ATTR_EMULATE_PREPARES => false,
+        ];
+        $this->instance = new PDO($dsn, $user, $pass, $opt);
     }
 
+    /**
+     * @param $sql
+     * @param String[] ...$bindings
+     * @return mixed
+     */
+    function query($sql, Array $bindings)
+    {
 
-
-}
-
-function q($sql, & $query_pointer = NULL, $debug = FALSE)
-{
-    global $db;
-    if ($debug) {
-        print "<pre>$sql</pre>";
-    }
-    $query_pointer = mysqli_query($db, $sql) or db_error_out();
-    switch (substr($sql, 0, 6)) {
-        case 'SELECT':
-            exit("q($sql): Please don't use q() for SELECTs, use get_one() or get_first() or get_all() instead.");
-        case 'UPDA':
-            exit("q($sql): Please don't use q() for UPDATEs, use update() instead.");
-        default:
-            return mysqli_affected_rows($db);
-    }
-}
-
-function get_one($sql, $debug = FALSE)
-{
-    global $db;
-
-    if ($debug) { // kui debug on TRUE
-        print "<pre>$sql</pre>";
-    }
-    switch (substr($sql, 0, 6)) {
-        case 'SELECT':
-            $q = mysqli_query($db, $sql) or db_error_out();
-            $result = mysqli_fetch_array($q);
-            return empty($result) ? NULL : $result[0];
-        default:
-            exit('get_one("' . $sql . '") failed because get_one expects SELECT statement.');
-    }
-}
-
-function get_all($sql)
-{
-    global $db;
-    $q = mysqli_query($db, $sql) or db_error_out();
-    while (($result[] = mysqli_fetch_assoc($q)) || array_pop($result)) {
-        ;
-    }
-    return $result;
-}
-
-function get_first($sql)
-{
-    global $db;
-    $q = mysqli_query($db, $sql) or db_error_out();
-    $first_row = mysqli_fetch_assoc($q);
-    return empty($first_row) ? array() : $first_row;
-}
-
-function db_error_out($sql = null)
-{
-    global $db;
-
-    header($_SERVER["SERVER_PROTOCOL"] . " 500 Internal server error", true, 500);
-
-    define('PREG_DELIMITER', '/');
-
-    $db_error = mysqli_error($db);
-
-    if (strpos($db_error, 'You have an error in SQL syntax') !== FALSE) {
-        $db_error = '<b>Syntax error in</b><pre> ' . substr($db_error, 135) . '</pre>';
-
-    }
-
-
-    $backtrace = debug_backtrace();
-
-    $file = $backtrace[1]['file'];
-    $file = str_replace(dirname(__DIR__), '', $file);
-
-    $line = $backtrace[1]['line'];
-    $function = isset($backtrace[1]['function']) ? $backtrace[1]['function'] : NULL;
-    $args = isset($backtrace[1]['args']) ? $backtrace[1]['args'] : NULL;
-    if (!empty($args)) {
-        foreach ($args as $arg) {
-            if (is_array($arg)) {
-                $args2[] = implode(',', $arg);
-            } else {
-                $args2[] = $arg;
-            }
+        foreach ($bindings as $binding) {
+            $sql = preg_replace('/\?/', $binding, $sql, 1);
         }
-    }
 
-    $args = empty($args2) ? '' : addslashes('"' . implode('", "', $args2) . '"');
+        return $this->instance->query($sql);
 
-    // Fault highlight
-    preg_match("/check the manual that corresponds to your MySQL server version for the right syntax to use near '([^']+)'./", $db_error, $output_array);
-    if (!empty($output_array[1])) {
-        $fault = $output_array[1];
-        $fault_quoted = preg_quote($fault);
-
-
-        $args = preg_replace(PREG_DELIMITER . "(\w*\s*)$fault_quoted" . PREG_DELIMITER, "<span class='fault'>\\1$fault</span>", $args);
-
-        $args = stripslashes($args);
-    }
-
-
-    $location = "<b>$file</b><br><b>$line</b>: ";
-    if (!empty($function)) {
-
-        $args = str_replace("SELECT", '<br>SELECT', $args);
-        $args = str_replace("\n", '<br>', $args);
-        $args = str_replace("\t", '&nbsp;', $args);
-
-
-        $code = "$function(<span style=\" font-family: monospace; ;padding:0; margin:0\">$args</span>)";
-        $location .= "<span class=\"line-number-position\">&#x200b;<span class=\"line-number\">$code";
 
     }
 
+    /**
+     * Perform SQL query and return results as an Redbean object
+     * @param $sql String query to be executed
+     * @param String[] $bindings Bound parameters
+     * @return array
+     * @throws Exception
+     */
+    function get_first($sql, Array $bindings)
+    {
 
+        // Extract table name from $sql;
+        if (preg_match_all("/FROM\s+`*([a-zA-Z0-9_]+)`*\b/is", $sql, $matches) === false) {
+            throw new \Exception("Incorrect SELECT query $sql");
+        };
 
-    // Generate stack trace
-    $e = new Exception();
-    $trace = print_r(preg_replace('/#(\d+) \//', '#$1 ', str_replace(dirname(dirname(__FILE__)), '', $e->getTraceAsString())), 1);
-    $trace = nl2br(preg_replace('/(#1.*)\n/', "<b>$1</b>\n", $trace));
+        //
+        $table_name = $matches[1][0];
 
-    $output = '<h1>Database error</h1>' .
-        '<p>' . $db_error . '</p>' .
-        '<p><h3>Location</h3> ' . $location . '<br>' .
-        '<p><h3>Stack trace</h3>' . $trace . '</p>';
+        //var_dump($sql);
+        try {
+            $rows = \R::getAll($sql, $bindings);
 
+        } catch (\Exception $exception) {
+            $error = $exception->getMessage();
+            require 'templates/error_template.php';
+            exit();
+        }
+        //var_dump($rows);
 
-    if (isset($_GET['ajax'])) {
-        ob_end_clean();
-        echo strip_tags($output);
+        return \R::convertToBeans($table_name, $rows);
 
-    } else {
-        $errors[] = $output;
-        require 'templates/error_template.php';
     }
-
-    die();
 
 }
 
-/**
- * @param $table string The name of the table to be inserted into.
- * @param $data array Array of data. For example: array('field1' => 'mystring', 'field2' => 3);
- * @return bool|int Returns the ID of the inserted row or FALSE when fails.
+global $db;
+$db = new db($cfg);
+var_dump($db);
+$order = get("SELECT * FROM `order`");
+
+foreach ($order as $item) {
+    var_dump($item->orderer->name);
+}
+
+
+function get($sql, String ...$bindings)
+{
+    global $db;
+    return $db->get_first($sql, $bindings);
+}
+
+
+/*
+ * $result[0]['order_id'] = 1
+ * $result[0]['user']['name'] = 'Demo User'
+ * $order->user->name
  */
-function insert($table, $data)
-{
-    global $db;
-    if ($table and is_array($data) and !empty($data)) {
-        $values = implode(',', escape($data));
-        $sql = "INSERT INTO `{$table}` SET {$values} ON DUPLICATE KEY UPDATE {$values}";
-        $q = mysqli_query($db, $sql) or db_error_out();
-        $id = mysqli_insert_id($db);
-        return ($id > 0) ? $id : FALSE;
-    } else {
-        return FALSE;
-    }
-}
+exit();
 
-function update($table, array $data, $where)
-{
-    global $db;
-    if ($table and is_array($data) and !empty($data)) {
-        $values = implode(',', escape($data));
+/*
 
-        if (isset($where)) {
-            $sql = "UPDATE `{$table}` SET {$values} WHERE {$where}";
-        } else {
-            $sql = "UPDATE `{$table}` SET {$values}";
-        }
-        $id = mysqli_query($db, $sql) or db_error_out();
-        return ($id > 0) ? $id : FALSE;
-    } else {
-        return FALSE;
-    }
-}
+Return all records as an object:
+$order->id == 1
+$order->createdAt == '2017-08-15 11:22:33'
+$order->user_id = 1
 
-function escape(array $data)
-{
-    global $db;
-    $values = array();
-    if (!empty($data)) {
-        foreach ($data as $field => $value) {
-            if ($value === NULL) {
-                $values[] = "`$field`=NULL";
-            } elseif (is_array($value) && isset($value['no_escape'])) {
-                $values[] = "`$field`=" . mysqli_real_escape_string($db, $value['no_escape']);
-            } else {
-                $values[] = "`$field`='" . mysqli_real_escape_string($db, $value) . "'";
-            }
-        }
-    }
-    return $values;
-}
+When accessing a nonexistent field like $order->user, a magic __get method will be invoked and determining that this
+field does not exist, it is tested whether a field with the same name but _id appended exists (a foreign key) and if
+it does, a db query is performed (SELECT * FROM X WHERE id = Y, where X is the accessed field's name and Y is the value
+of the field with the same name but _id appended in the first object) and query result is converted to object and a copy
+of it is kept in a $this->cache[tag][key] where tag is a table name and key is what was in where.
+
+
+When a field name with _id appended exists but a table with field name does not exist, foreign key constraints for
+parent table are looked at if they contain an FK for accessed field name with _id appended to it, foreign table is
+queried with that id in WHERE and result is again stored in cache and returned as an object
+
+
+
+ */

@@ -2,10 +2,13 @@
 
 class halo extends Controller
 {
+    public $controllers_folder_is_writable;
+    public $views_folder_is_writable;
+
     function __construct()
     {
         $hostname = $_SERVER['HTTP_HOST'];
-        if( $hostname !== 'localhost' && substr($hostname , -4) !== '.dev'){
+        if ($hostname !== 'localhost' && substr($hostname, -4) !== '.dev') {
             error_out('This page is only allowed in development', 403);
         }
     }
@@ -106,7 +109,7 @@ class halo extends Controller
     private function replace_preserving_case($needle, $replacement, $haystack)
     {
         if (preg_match_all("/$needle/i", $haystack, $matches) !== FALSE) {
-            foreach($matches[0] as $match){
+            foreach ($matches[0] as $match) {
 
                 // Lowercase
                 if ($match == strtolower($match)) {
@@ -129,8 +132,48 @@ class halo extends Controller
         return $haystack;
     }
 
-    function generate_password_hash(){
-        exit( password_hash($_POST['password'], PASSWORD_DEFAULT) );
+    function generate_password_hash()
+    {
+        exit(password_hash($_POST['password'], PASSWORD_DEFAULT));
+    }
+
+    /**
+     *
+     */
+    function AJAX_create_database()
+    {
+        // Create a user
+        $user = \R::dispense('user');
+        $user->name = 'Demo User';
+        $user->email = 'demo@example.com';
+        $user->is_admin = true;
+        $user->deleted = 0;
+
+        // Create an order
+        $order = \R::dispense('order');
+
+        // Create order statuses
+        $orderStatuses = \R::dispense('orderStatus', 2);
+        $orderStatuses[0]->name = 'Unconfirmed';
+        $orderStatuses[1]->name = 'Confirmed';
+        \R::storeAll($orderStatuses);
+
+        // Set some order properties
+        $order->createdAt = date('Y-m-d H:i:s');
+        $order->orderStatus = $orderStatuses[0];
+
+        // Associate the user with the order
+        $order->user = $user;
+
+        // Create two products
+        $products = \R::dispense('product', 2);
+        $products[0]->name = "Product 1";
+        $products[1]->name = "Product 2";
+
+        // Add products to the order
+        $order->sharedProductList = $products;
+
+        \R::store($order);
     }
 
 }

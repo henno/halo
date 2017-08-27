@@ -99,7 +99,7 @@ class Application
             // Save current url, in case the action redirects to login
             $this->save_current_url_to_session($controller);
 
-            $controller->{$controller->action}();
+            $controller->{$controller->action}($this->params);
             $controller->render($controller->template);
         }
 
