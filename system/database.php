@@ -42,7 +42,7 @@ class db
      * @param String[] ...$bindings
      * @return mixed
      */
-    function query($sql, Array $bindings)
+    function query($sql, Array $bindings = [])
     {
 
         foreach ($bindings as $binding) {
@@ -64,34 +64,41 @@ class db
     function get_first($sql, Array $bindings)
     {
 
-        // Extract table name from $sql;
-        if (preg_match_all("/FROM\s+`*([a-zA-Z0-9_]+)`*\b/is", $sql, $matches) === false) {
-            throw new \Exception("Incorrect SELECT query $sql");
-        };
+        $result = [];
+       $sql = "SELECT
+                  orders.created_at created_at,
+                  products.id       products__id,
+                  products.name     products__name,
+                  categories.id     products__category__id,
+                  categories.name   products__category__name
+                FROM order_rows
+                  LEFT JOIN orders ON (orders.id = order_id)
+                  LEFT JOIN products ON (products.id = product_id)
+                  LEFT JOIN categories ON (categories.id = products.category_id)";
+       $result = $this->query($sql);
+       var_dump($result);
+       while($row = $result->fetch){
 
-        //
-        $table_name = $matches[1][0];
-
-        //var_dump($sql);
-        try {
-            $rows = \R::getAll($sql, $bindings);
-
-        } catch (\Exception $exception) {
-            $error = $exception->getMessage();
-            require 'templates/error_template.php';
-            exit();
-        }
-        //var_dump($rows);
-
-        return \R::convertToBeans($table_name, $rows);
-
+       var_dump($row);
+       }
+       return $result;
     }
 
 }
 
+function build_result($result){
+    $fields = array_keys($result);
+    foreach ($fields as $field_name) {
+
+        while(strpos($field_name, '__')!== FALSE){
+            $name = substr($field_name, 0 , strpos($field_name, '__'));
+            $result[$name];
+        }
+    }
+}
 global $db;
 $db = new db($cfg);
-var_dump($db);
+
 $order = get("SELECT * FROM `order`");
 
 foreach ($order as $item) {
