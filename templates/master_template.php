@@ -103,6 +103,6 @@
 <script src="vendor/components/bootstrap/js/bootstrap.min.js"></script>
 <script src="vendor/components/jqueryui/jquery-ui.min.js"></script>
 <script src="assets/js/main.js"></script>
+<?php require 'system/error_translations.php' ?>
 </body>
 </html>
-<?php require 'system/error_translations.php' ?>

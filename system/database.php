@@ -4,21 +4,10 @@
  */
 
 
-require 'classes/rb.php';
-global $cfg;
-
-R::setAutoResolve(TRUE);
-R::setup("mysql:host=$cfg[DATABASE_HOSTNAME];dbname=$cfg[DATABASE_DATABASE]", $cfg['DATABASE_USERNAME'], $cfg['DATABASE_PASSWORD']);
-// R::exec("SET sql_mode = ''"); // Disable strict GROUP BY check
-
-R::freeze(FALSE);
-
-//R::fancyDebug( TRUE );
-
-class db
+class DB
 {
 
-    private $instance = null;
+    private $PDO = null;
 
     function __construct($cfg)
     {
@@ -34,7 +23,7 @@ class db
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
             PDO::ATTR_EMULATE_PREPARES => false,
         ];
-        $this->instance = new PDO($dsn, $user, $pass, $opt);
+        $this->PDO = new PDO($dsn, $user, $pass, $opt);
     }
 
     /**
@@ -46,11 +35,26 @@ class db
     {
 
         foreach ($bindings as $binding) {
+            $binding = addslashes($binding);
             $sql = preg_replace('/\?/', $binding, $sql, 1);
         }
 
-        return $this->instance->query($sql);
+        return $this->PDO->query($sql);
 
+        /*
+
+        $stmt = $db->prepare("SELECT
+                                  products.id       product_id,
+                                  orders.created_at created_at,
+                                  products.id       products___product_id__id,
+                                  products.name     products___product_id__name,
+                                  categories.id     products___product_id__category__id,
+                                  categories.name   products___product_id__category__name
+                                FROM order_rows
+                                  LEFT JOIN orders ON (orders.id = order_id)
+                                  LEFT JOIN products ON (products.id = product_id)
+                                  LEFT JOIN categories ON (categories.id = products.category_id)");
+        $stmt->execute();*/
 
     }
 
@@ -65,7 +69,7 @@ class db
     {
 
         $result = [];
-       $sql = "SELECT
+        $sql = "SELECT
                   orders.created_at created_at,
                   products.id       products__id,
                   products.name     products__name,
@@ -75,29 +79,19 @@ class db
                   LEFT JOIN orders ON (orders.id = order_id)
                   LEFT JOIN products ON (products.id = product_id)
                   LEFT JOIN categories ON (categories.id = products.category_id)";
-       $result = $this->query($sql);
-       var_dump($result);
-       while($row = $result->fetch){
+        $result = $this->query($sql, $bindings);
+        var_dump($result);
+        while ($row = $result->fetch) {
 
-       var_dump($row);
-       }
-       return $result;
-    }
-
-}
-
-function build_result($result){
-    $fields = array_keys($result);
-    foreach ($fields as $field_name) {
-
-        while(strpos($field_name, '__')!== FALSE){
-            $name = substr($field_name, 0 , strpos($field_name, '__'));
-            $result[$name];
+            var_dump($row);
         }
+        return $result;
     }
+
 }
+
 global $db;
-$db = new db($cfg);
+$db = new DB($cfg);
 
 $order = get("SELECT * FROM `order`");
 

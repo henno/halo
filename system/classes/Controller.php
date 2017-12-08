@@ -5,6 +5,12 @@ class Controller
     public $template = 'master';
     public $requires_auth = true;
 
+    function __construct()
+    {
+     
+        $this->db = new DB();
+    }
+
     function render($template)
     {
         global $supported_languages;
