@@ -1,0 +1,6236 @@
+
+[2017-05-16 12:31:18] Error: File controllers/controller.php does not exist.
+URL: http://localhost/halo/controller/action/param1?get1=val1&get2=val2
+LOCATION: /system/classes/Application.php:41
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 12:32:16] Array to string conversion
+URL: http://localhost/halo/
+LOCATION: /templates/master_template.php:75
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 12:33:15] Array to string conversion
+URL: http://localhost/halo/
+LOCATION: /templates/master_template.php:75
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 12:34:00] Array to string conversion
+URL: http://localhost/halo/
+LOCATION: /templates/master_template.php:75
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 12:34:37] Array to string conversion
+URL: http://localhost/halo/
+LOCATION: /templates/master_template.php:75
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 12:37:53] Error: File controllers/assets.php does not exist.
+URL: http://localhost/halo/assets/ico/favicon.png
+LOCATION: /system/classes/Application.php:41
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 12:37:53] Message could not be sent. SMTP connect() failed. https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting
+
+[2017-05-16 12:38:01] Array to string conversion
+URL: http://localhost/halo/
+LOCATION: /templates/master_template.php:75
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 12:39:09] Array to string conversion
+URL: http://localhost/halo/
+LOCATION: /templates/master_template.php:75
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 12:39:25] Message could not be sent. SMTP connect() failed. https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting
+
+[2017-05-16 12:40:25] Array to string conversion
+URL: http://localhost/halo/
+LOCATION: /templates/master_template.php:75
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 12:40:30] Message could not be sent. SMTP connect() failed. https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting
+
+[2017-05-16 12:42:35] Array to string conversion
+URL: http://localhost/halo/
+LOCATION: /templates/master_template.php:75
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 12:42:36] Message could not be sent. SMTP connect() failed. https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting
+
+[2017-05-16 12:43:34] Array to string conversion
+URL: http://localhost/halo/
+LOCATION: /templates/master_template.php:75
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 12:43:34] Message could not be sent. SMTP connect() failed. https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting
+
+[2017-05-16 12:43:40] Array to string conversion
+URL: http://localhost/halo/
+LOCATION: /templates/master_template.php:75
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 12:43:40] Message could not be sent. SMTP connect() failed. https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting
+
+[2017-05-16 12:43:54] Array to string conversion
+URL: http://localhost/halo/
+LOCATION: /templates/master_template.php:75
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 12:44:55] Array to string conversion
+URL: http://localhost/halo/
+LOCATION: /templates/master_template.php:75
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 12:46:06] Array to string conversion
+URL: http://localhost/halo/
+LOCATION: /templates/master_template.php:75
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 12:46:56] Array to string conversion
+URL: http://localhost/halo/
+LOCATION: /templates/master_template.php:75
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 12:47:22] Array to string conversion
+URL: http://localhost/halo/
+LOCATION: /templates/master_template.php:75
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 12:50:09] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 12:50:37] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 12:51:33] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 12:51:54] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 12:51:59] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 12:52:12] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 12:53:06] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 12:54:11] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 12:54:46] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 12:54:51] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 12:55:28] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 12:57:29] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 12:57:31] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 12:57:32] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 12:58:38] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 12:59:55] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 14:10:06] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 14:10:37] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 14:13:53] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 14:14:41] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 14:15:30] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 14:19:18] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 14:19:41] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 14:47:26] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 14:48:25] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 14:49:20] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 14:49:31] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 14:50:19] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 14:50:39] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 14:51:10] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 14:51:51] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 14:52:06] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 14:52:35] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 14:56:43] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 14:57:05] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 14:59:47] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 14:59:51] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 15:00:00] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 15:01:12] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 15:01:15] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 15:01:32] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 15:05:25] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 15:07:08] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 15:07:18] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 15:07:37] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 15:08:14] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 15:08:35] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 15:09:03] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 15:10:40] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 15:11:18] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 15:11:48] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 15:24:06] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 15:24:22] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 15:28:08] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 15:29:08] Undefined index: blaa
+URL: http://localhost/halo/assets/clippy.svg
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 15:29:08] Undefined index: blaa
+URL: http://localhost/halo/assets/clippy.svg
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 15:32:11] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 15:33:13] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 15:40:03] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 15:42:17] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 15:42:44] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 15:43:12] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 15:43:21] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 15:44:02] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 15:44:27] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 15:46:33] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 15:46:50] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 15:47:31] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 15:48:22] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 15:48:29] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 16:22:49] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 16:23:21] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 16:23:50] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 16:24:45] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 16:26:02] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 16:26:29] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 16:26:42] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 16:28:12] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 16:28:58] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 16:30:04] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 16:30:09] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 16:30:13] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 16:30:18] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 16:32:29] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 16:32:36] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 16:33:12] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 16:33:39] Undefined index: blaa
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:15
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 16:35:18] Undefined variable: error_msg
+URL: http://localhost/halo/
+LOCATION: /templates/error_template.php:84
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 16:36:53] Undefined variable: error_msg
+URL: http://localhost/halo/
+LOCATION: /templates/error_template.php:84
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 16:36:55] Undefined variable: error_msg
+URL: http://localhost/halo/
+LOCATION: /templates/error_template.php:84
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 16:48:59] Database errorTable 'halo.user' doesn't existLocation /controllers/welcome.php8: &#x200b;get_all(\"SELECT * FROM user\")Stack trace#0 system/database.php(78): db_error_out()
+#1 controllers/welcome.php(8): get_all('SELECT * FROM u...')
+#2 system/classes/Application.php(102): Halo\welcome->index()
+#3 index.php(44): Halo\Application->__construct()
+#4 {main}
+URL: http://localhost/halo/
+LOCATION: /controllers/welcome.php:8
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 16:51:54] Table 'halo.user' doesn't exist&#x200b;get_all(\"SELECT * FROM user\")
+URL: http://localhost/halo/
+LOCATION: /controllers/welcome.php:8
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 16:52:47] Table 'halo.user' doesn't existget_all(\"SELECT * FROM user\")
+URL: http://localhost/halo/
+LOCATION: /controllers/welcome.php:8
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 16:53:01] Table 'halo.user' doesn't existget_all(\"SELECT * FROM user\")
+URL: http://localhost/halo/
+LOCATION: /controllers/welcome.php:8
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 16:53:26] Table 'halo.user' doesn't exist get_all(\"SELECT * FROM user\")
+URL: http://localhost/halo/
+LOCATION: /controllers/welcome.php:8
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 16:53:32] Table 'halo.user' doesn't exist
+get_all(\"SELECT * FROM user\")
+URL: http://localhost/halo/
+LOCATION: /controllers/welcome.php:8
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 16:53:33] Table 'halo.user' doesn't exist
+get_all(\"SELECT * FROM user\")
+URL: http://localhost/halo/
+LOCATION: /controllers/welcome.php:8
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 16:53:35] Table 'halo.user' doesn't existget_all(\"SELECT * FROM user\")
+URL: http://localhost/halo/
+LOCATION: /controllers/welcome.php:8
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 16:54:07] Table 'halo.user' doesn't existget_all(\"SELECT * FROM user\")
+URL: http://localhost/halo/
+LOCATION: /controllers/welcome.php:8
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 16:55:55] Table 'halo.user' doesn't existget_all(\"SELECT * FROM user\")
+URL: http://localhost/halo/
+LOCATION: /controllers/welcome.php:8
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 16:56:07] Table 'halo.user' doesn't existget_all(\"SELECT * FROM user\")
+URL: http://localhost/halo/
+LOCATION: /controllers/welcome.php:8
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 16:56:17] Table 'halo.user' doesn't existget_all(\"SELECT * FROM user\")
+URL: http://localhost/halo/
+LOCATION: /controllers/welcome.php:8
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 16:56:26] Table 'halo.user' doesn't existget_all(\"SELECT * FROM user\")
+URL: http://localhost/halo/
+LOCATION: /controllers/welcome.php:8
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 16:56:30] Table 'halo.user' doesn't existget_all(\"SELECT * FROM user\")
+URL: http://localhost/halo/
+LOCATION: /controllers/welcome.php:8
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 16:56:32] Table 'halo.user' doesn't existget_all(\"SELECT * FROM user\")
+URL: http://localhost/halo/
+LOCATION: /controllers/welcome.php:8
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 16:56:36] Table 'halo.user' doesn't existget_all(\"SELECT * FROM user\")
+URL: http://localhost/halo/
+LOCATION: /controllers/welcome.php:8
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 16:56:50] Table 'halo.user' doesn't existget_all(\"SELECT * FROM user\")
+URL: http://localhost/halo/
+LOCATION: /controllers/welcome.php:8
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 16:56:51] Table 'halo.user' doesn't existget_all(\"SELECT * FROM user\")
+URL: http://localhost/halo/
+LOCATION: /controllers/welcome.php:8
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 16:56:52] Table 'halo.user' doesn't existget_all(\"SELECT * FROM user\")
+URL: http://localhost/halo/
+LOCATION: /controllers/welcome.php:8
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 16:56:54] Table 'halo.user' doesn't existget_all(\"SELECT * FROM user\")
+URL: http://localhost/halo/
+LOCATION: /controllers/welcome.php:8
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 16:56:59] Table 'halo.user' doesn't existget_all(\"SELECT * FROM user\")
+URL: http://localhost/halo/
+LOCATION: /controllers/welcome.php:8
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 16:57:00] Table 'halo.user' doesn't existget_all(\"SELECT * FROM user\")
+URL: http://localhost/halo/
+LOCATION: /controllers/welcome.php:8
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 16:58:13] Table 'halo.user' doesn't existget_all(\"SELECT * FROM user\")
+URL: http://localhost/halo/
+LOCATION: /controllers/welcome.php:8
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 16:58:47] Table 'halo.user' doesn't existget_all(\"SELECT * FROM user\")
+URL: http://localhost/halo/
+LOCATION: /controllers/welcome.php:8
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 16:58:49] Table 'halo.user' doesn't existget_all(\"SELECT * FROM user\")
+URL: http://localhost/halo/
+LOCATION: /controllers/welcome.php:8
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 16:59:00] Table 'halo.user' doesn't existget_all(\"SELECT * FROM user\")
+URL: http://localhost/halo/
+LOCATION: /controllers/welcome.php:8
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 16:59:01] Table 'halo.user' doesn't existget_all(\"SELECT * FROM user\")
+URL: http://localhost/halo/
+LOCATION: /controllers/welcome.php:8
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 16:59:15] Table 'halo.user' doesn't existget_all("SELECT * FROM user")
+URL: http://localhost/halo/
+LOCATION: /controllers/welcome.php:8
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 16:59:40] Table 'halo.user' doesn't existget_all("SELECT * FROM user")
+URL: http://localhost/halo/
+LOCATION: /controllers/welcome.php:8
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 16:59:54] Table 'halo.user' doesn't existget_all(SELECT * FROM user)
+URL: http://localhost/halo/
+LOCATION: /controllers/welcome.php:8
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 17:00:18] Table 'halo.user' doesn't existSELECT * FROM user
+URL: http://localhost/halo/
+LOCATION: /controllers/welcome.php:8
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 17:00:56] Table 'halo.user' doesn't existSELECT * FROM user
+URL: http://localhost/halo/
+LOCATION: /controllers/welcome.php:8
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 17:01:11] SELECT * FROM userTable 'halo.user' doesn't exist
+URL: http://localhost/halo/
+LOCATION: /controllers/welcome.php:8
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 17:01:54] SELECT * FROM user Table 'halo.user' doesn't exist
+URL: http://localhost/halo/
+LOCATION: /controllers/welcome.php:8
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 17:02:03] SELECT * FROM user Table 'halo.user' doesn't exist
+URL: http://localhost/halo/
+LOCATION: /controllers/welcome.php:8
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 17:02:19] SELECT * FROM user Table 'halo.user' doesn't exist
+URL: http://localhost/halo/
+LOCATION: /controllers/welcome.php:8
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 17:07:03] SELECT * FROM user Table 'halo.user' doesn't exist
+URL: http://localhost/halo/
+LOCATION: /controllers/welcome.php:8
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 17:09:03] Invalid error type specified
+URL: http://localhost/halo/halo
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => halo/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 17:09:47] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/halo
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => halo/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 17:11:14] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/halo
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => halo/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 17:12:13] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/halo
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => halo/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 17:13:43] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/halos
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => halo/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 17:13:51] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/halos
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => halo/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 17:13:57] Error: File controllers/halos.php does not exist.
+URL: http://localhost/halo/halos
+LOCATION: /classes/Application.php:41
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => halo/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 17:14:15] File controllers/halos.php does not exist.
+URL: http://localhost/halo/halos
+LOCATION: /classes/Application.php:41
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => halo/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 17:14:32] File controllers/halos.php does not exist.
+URL: http://localhost/halo/halos
+LOCATION: /classes/Application.php:41
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => halo/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 17:15:23] File controllers/halos.php does not exist.
+URL: http://localhost/halo/halos
+LOCATION: /classes/Application.php:41
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => halo/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 17:16:04] File controllers/halos.php does not exist.
+URL: http://localhost/halo/halos
+LOCATION: /classes/Application.php:41
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => halo/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 18:23:34] File controllers/halos.php does not exist.
+URL: http://localhost/halo/halos
+LOCATION: /classes/Application.php:41
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => halo/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 18:23:54] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 21:56:17] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 21:57:15] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 21:59:06] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 21:59:14] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 22:01:02] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 22:03:38] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 22:03:40] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 22:04:04] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 22:05:19] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 22:05:36] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 22:09:50] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 22:12:53] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 22:13:16] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 22:18:15] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 22:18:27] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 22:19:44] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 22:20:09] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 22:20:45] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 22:22:23] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 22:23:00] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 22:23:38] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 22:24:23] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 22:24:36] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 22:25:37] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 22:26:52] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 22:28:02] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 22:37:30] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 22:38:15] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-16 22:39:36] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:12:13] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:12:17] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:17:25] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:17:53] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:18:20] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:20:16] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:21:35] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:21:40] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:22:32] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:23:14] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:23:36] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:23:43] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:25:08] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:25:30] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:26:52] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:26:59] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:27:47] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:28:04] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:28:11] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:28:19] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:28:44] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:28:54] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:29:07] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:29:14] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:29:20] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:29:21] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:29:24] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:29:39] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:30:07] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:30:08] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:30:16] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:30:26] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:30:29] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:30:32] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:30:47] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:35:32] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:35:36] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:36:24] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:37:11] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:38:57] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:39:40] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:41:10] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:41:27] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:42:35] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:46:39] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:46:51] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:47:21] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:50:27] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:51:17] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:51:32] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:51:45] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:51:57] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:52:11] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:52:14] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:53:48] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:54:35] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:54:39] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:54:39] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:54:40] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:54:40] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:54:48] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:54:53] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:55:54] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:57:22] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 09:59:47] SELECT *
+                                    FROM users
+                                    WHERE user_id = '1' No database selected
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:19
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 10:00:02] SELECT *
+                                    FROM users
+                                    WHERE user_id = '1' No database selected
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:19
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 10:01:07] SELECT *
+                                    FROM users
+                                    WHERE user_id = '1' No database selected
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:19
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 10:06:48] SELECT *
+                                    FROM users
+                                    WHERE user_id = '1' No database selected
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:19
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 10:08:37] SELECT *
+                                    FROM users
+                                    WHERE user_id = '1' No database selected
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:19
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 10:10:18] SELECT *
+                                    FROM users
+                                    WHERE user_id = '1' No database selected
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:19
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 10:13:52] SELECT *
+                                    FROM users
+                                    WHERE user_id = '1' No database selected
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:19
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 10:16:42] SELECT *
+                                    FROM users
+                                    WHERE user_id = '1' No database selected
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:19
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 10:17:38] SELECT *
+                                    FROM users
+                                    WHERE user_id = '1' No database selected
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:19
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 10:19:01] SELECT *
+                                    FROM users
+                                    WHERE user_id = '1' No database selected
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:19
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 10:20:43] SELECT *
+                                    FROM users
+                                    WHERE user_id = '1' No database selected
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:19
+USER IP: ::1
+SESSION:
+    [language] => en
+    [redirect] => welcome/index
+    [user_id] => 1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 10:21:05] set_error_handler() expects the argument (error_handler) to be a valid callback
+URL: http://localhost/halo/
+LOCATION: /Users/henno/Sites/halo/index.php:29
+USER IP: ::1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 10:21:06] set_error_handler() expects the argument (error_handler) to be a valid callback
+URL: http://localhost/halo/%3Cbr%20/vendor/components/bootstrap/css/bootstrap.min.css
+LOCATION: /Users/henno/Sites/halo/index.php:29
+USER IP: ::1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 10:21:06] set_error_handler() expects the argument (error_handler) to be a valid callback
+URL: http://localhost/halo/%3Cbr%20/vendor/components/bootstrap/js/bootstrap.min.js
+LOCATION: /Users/henno/Sites/halo/index.php:29
+USER IP: ::1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 10:21:06] set_error_handler() expects the argument (error_handler) to be a valid callback
+URL: http://localhost/halo/%3Cbr%20/assets/js/clipboard.min.js
+LOCATION: /Users/henno/Sites/halo/index.php:29
+USER IP: ::1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 10:21:06] set_error_handler() expects the argument (error_handler) to be a valid callback
+URL: http://localhost/halo/%3Cbr%20/vendor/components/jquery/jquery.min.js
+LOCATION: /Users/henno/Sites/halo/index.php:29
+USER IP: ::1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 10:21:21] set_error_handler() expects the argument (error_handler) to be a valid callback
+URL: http://localhost/halo/
+LOCATION: /Users/henno/Sites/halo/index.php:29
+USER IP: ::1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 10:21:21] set_error_handler() expects the argument (error_handler) to be a valid callback
+URL: http://localhost/halo/%3Cbr%20/vendor/components/bootstrap/css/bootstrap.min.css
+LOCATION: /Users/henno/Sites/halo/index.php:29
+USER IP: ::1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 10:21:21] set_error_handler() expects the argument (error_handler) to be a valid callback
+URL: http://localhost/halo/%3Cbr%20/assets/js/clipboard.min.js
+LOCATION: /Users/henno/Sites/halo/index.php:29
+USER IP: ::1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 10:21:21] set_error_handler() expects the argument (error_handler) to be a valid callback
+URL: http://localhost/halo/%3Cbr%20/vendor/components/jquery/jquery.min.js
+LOCATION: /Users/henno/Sites/halo/index.php:29
+USER IP: ::1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 10:21:21] set_error_handler() expects the argument (error_handler) to be a valid callback
+URL: http://localhost/halo/%3Cbr%20/vendor/components/bootstrap/js/bootstrap.min.js
+LOCATION: /Users/henno/Sites/halo/index.php:29
+USER IP: ::1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 10:22:42] set_error_handler() expects the argument (error_handler) to be a valid callback
+URL: http://localhost/halo/
+LOCATION: /Users/henno/Sites/halo/index.php:29
+USER IP: ::1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 10:22:42] set_error_handler() expects the argument (error_handler) to be a valid callback
+URL: http://localhost/halo/%3Cbr%20/vendor/components/bootstrap/css/bootstrap.min.css
+LOCATION: /Users/henno/Sites/halo/index.php:29
+USER IP: ::1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 10:22:42] set_error_handler() expects the argument (error_handler) to be a valid callback
+URL: http://localhost/halo/%3Cbr%20/assets/js/clipboard.min.js
+LOCATION: /Users/henno/Sites/halo/index.php:29
+USER IP: ::1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 10:22:42] set_error_handler() expects the argument (error_handler) to be a valid callback
+URL: http://localhost/halo/%3Cbr%20/vendor/components/jquery/jquery.min.js
+LOCATION: /Users/henno/Sites/halo/index.php:29
+USER IP: ::1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 10:22:42] set_error_handler() expects the argument (error_handler) to be a valid callback
+URL: http://localhost/halo/%3Cbr%20/vendor/components/bootstrap/js/bootstrap.min.js
+LOCATION: /Users/henno/Sites/halo/index.php:29
+USER IP: ::1
+COOKIE:
+    [PHPSESSID] => 696dc97081b182c1b948de65470177af
+
+
+[2017-05-17 10:24:19] set_error_handler() expects the argument (error_handler) to be a valid callback
+URL: http://localhost/halo/
+LOCATION: /Users/henno/Sites/halo/index.php:29
+USER IP: ::1
+
+
+[2017-05-17 10:24:20] set_error_handler() expects the argument (error_handler) to be a valid callback
+URL: http://localhost/halo/%3Cbr%20/vendor/components/bootstrap/css/bootstrap.min.css
+LOCATION: /Users/henno/Sites/halo/index.php:29
+USER IP: ::1
+
+
+[2017-05-17 10:24:20] set_error_handler() expects the argument (error_handler) to be a valid callback
+URL: http://localhost/halo/%3Cbr%20/assets/js/clipboard.min.js
+LOCATION: /Users/henno/Sites/halo/index.php:29
+USER IP: ::1
+
+
+[2017-05-17 10:24:20] set_error_handler() expects the argument (error_handler) to be a valid callback
+URL: http://localhost/halo/%3Cbr%20/vendor/components/jquery/jquery.min.js
+LOCATION: /Users/henno/Sites/halo/index.php:29
+USER IP: ::1
+
+
+[2017-05-17 10:24:20] set_error_handler() expects the argument (error_handler) to be a valid callback
+URL: http://localhost/halo/%3Cbr%20/vendor/components/bootstrap/js/bootstrap.min.js
+LOCATION: /Users/henno/Sites/halo/index.php:29
+USER IP: ::1
+
+
+[2017-05-17 10:32:15] set_error_handler() expects the argument (error_handler) to be a valid callback
+URL: http://localhost/halo/
+LOCATION: /Users/henno/Sites/halo/index.php:29
+USER IP: ::1
+
+
+[2017-05-17 10:32:15] set_error_handler() expects the argument (error_handler) to be a valid callback
+URL: http://localhost/halo/%3Cbr%20/vendor/components/bootstrap/css/bootstrap.min.css
+LOCATION: /Users/henno/Sites/halo/index.php:29
+USER IP: ::1
+
+
+[2017-05-17 10:32:15] set_error_handler() expects the argument (error_handler) to be a valid callback
+URL: http://localhost/halo/%3Cbr%20/assets/js/clipboard.min.js
+LOCATION: /Users/henno/Sites/halo/index.php:29
+USER IP: ::1
+
+
+[2017-05-17 10:32:15] set_error_handler() expects the argument (error_handler) to be a valid callback
+URL: http://localhost/halo/%3Cbr%20/vendor/components/jquery/jquery.min.js
+LOCATION: /Users/henno/Sites/halo/index.php:29
+USER IP: ::1
+
+
+[2017-05-17 10:32:15] set_error_handler() expects the argument (error_handler) to be a valid callback
+URL: http://localhost/halo/%3Cbr%20/vendor/components/bootstrap/js/bootstrap.min.js
+LOCATION: /Users/henno/Sites/halo/index.php:29
+USER IP: ::1
+
+
+[2017-05-17 10:34:02] set_error_handler() expects the argument (error_handler) to be a valid callback
+URL: http://localhost/halo/
+LOCATION: /Users/henno/Sites/halo/index.php:29
+USER IP: ::1
+
+
+[2017-05-17 10:34:02] set_error_handler() expects the argument (error_handler) to be a valid callback
+URL: http://localhost/halo/%3Cbr%20/vendor/components/bootstrap/css/bootstrap.min.css
+LOCATION: /Users/henno/Sites/halo/index.php:29
+USER IP: ::1
+
+
+[2017-05-17 10:34:02] set_error_handler() expects the argument (error_handler) to be a valid callback
+URL: http://localhost/halo/%3Cbr%20/assets/js/clipboard.min.js
+LOCATION: /Users/henno/Sites/halo/index.php:29
+USER IP: ::1
+
+
+[2017-05-17 10:34:02] set_error_handler() expects the argument (error_handler) to be a valid callback
+URL: http://localhost/halo/%3Cbr%20/vendor/components/jquery/jquery.min.js
+LOCATION: /Users/henno/Sites/halo/index.php:29
+USER IP: ::1
+
+
+[2017-05-17 10:34:02] set_error_handler() expects the argument (error_handler) to be a valid callback
+URL: http://localhost/halo/%3Cbr%20/vendor/components/bootstrap/js/bootstrap.min.js
+LOCATION: /Users/henno/Sites/halo/index.php:29
+USER IP: ::1
+
+
+[2017-05-17 10:35:26] set_error_handler() expects the argument (error_handler) to be a valid callback
+URL: http://localhost/halo/
+LOCATION: /Users/henno/Sites/halo/index.php:29
+USER IP: ::1
+
+
+[2017-05-17 10:36:02] set_error_handler() expects the argument (error_handler) to be a valid callback
+URL: http://localhost/halo/
+LOCATION: /Users/henno/Sites/halo/index.php:31
+USER IP: ::1
+
+
+[2017-05-17 10:37:11] 1024
+URL: http://localhost/halo/
+LOCATION: Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		:/Users/henno/Sites/halo/system/database.php
+USER IP: ::1
+
+
+[2017-05-17 10:37:18] 1024
+URL: http://localhost/halo/
+LOCATION: Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		:/Users/henno/Sites/halo/system/database.php
+USER IP: ::1
+
+
+[2017-05-17 10:39:55] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:/Users/henno/Sites/halo/system/database.php
+USER IP: ::1
+
+
+[2017-05-17 10:40:22] SELECT *
+                                    FROM users
+                                    WHERE user_id = '1' No database selected
+URL: http://localhost/halo/
+LOCATION: /system/classes/Auth.php:19
+USER IP: ::1
+
+
+[2017-05-17 10:40:30] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:/Users/henno/Sites/halo/system/database.php
+USER IP: ::1
+
+
+[2017-05-17 10:44:32] Illegal string offset 'file'
+URL: http://localhost/halo/
+LOCATION: /functions.php:/Users/henno/Sites/halo/system/functions.php
+USER IP: ::1
+
+
+[2017-05-17 10:45:12] Illegal string offset 'file'
+URL: http://localhost/halo/
+LOCATION: /functions.php:/Users/henno/Sites/halo/system/functions.php
+USER IP: ::1
+
+
+[2017-05-17 10:45:29] Illegal string offset 'file'
+URL: http://localhost/halo/
+LOCATION: /functions.php:/Users/henno/Sites/halo/system/functions.php
+USER IP: ::1
+
+
+[2017-05-17 10:49:03] Missing argument 2 for system_error(), called in /Users/henno/Sites/halo/system/database.php on line 29 and defined
+URL: http://localhost/halo/
+LOCATION: /functions.php:/Users/henno/Sites/halo/system/functions.php
+USER IP: ::1
+
+
+[2017-05-17 10:51:42] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /database.php:29
+USER IP: ::1
+
+
+[2017-05-17 10:52:09] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 10:53:48] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 10:53:49] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 10:54:00] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 10:54:30] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 10:54:38] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 10:54:52] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 10:54:56] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 10:54:57] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 10:55:01] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 10:55:03] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 10:55:19] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 10:55:32] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 10:56:37] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 10:56:38] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 10:57:26] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 10:58:13] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 10:58:38] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 10:58:56] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 10:58:57] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 10:59:23] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 11:01:07] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 11:01:54] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 11:02:10] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/as
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 11:02:14] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 11:02:25] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 11:02:49] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 11:02:57] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 11:03:04] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 11:03:09] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 11:03:59] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 11:04:04] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 11:04:13] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 11:04:15] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 11:04:21] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 11:05:33] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 11:05:47] Array to string conversion
+URL: http://localhost/halo/
+LOCATION: /system/functions.php:/Users/henno/Sites/halo/system/functions.php
+USER IP: ::1
+
+
+[2017-05-17 11:05:56] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 11:06:05] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 11:06:34] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 11:06:42] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 11:07:03] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 11:07:52] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 11:07:53] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 11:07:59] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 11:08:07] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 11:10:22] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 11:10:50] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 11:12:14] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/?a=b
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 11:12:21] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/?a=b&c=d
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 11:12:42] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/?a=b&c=d
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 11:12:43] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/?a=b&c=d
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 11:13:04] Undefined variable: _POST
+URL: http://localhost/halo/?a=b&c=d
+LOCATION: xdebug://debug-eval:xdebug://debug-eval
+USER IP: ::1
+
+
+[2017-05-17 11:13:23] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/?a=b&c=d
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 11:13:42] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/?a=b&c=d
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 11:14:01] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/?a=b&c=d
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 11:14:03] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/?a=b&c=d
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 11:18:16] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/?a=b&c=d
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+
+[2017-05-17 11:21:26] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/?a=b&c=d
+LOCATION: /system/database.php:29
+USER IP: ::1
+{
+    "a": "b",
+    "c": "d"
+}{
+    "language": "en",
+    "redirect": "welcome\/index",
+    "user_id": "1"
+}{
+    "PHPSESSID": "696dc97081b182c1b948de65470177af"
+}
+
+[2017-05-17 11:21:53] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/?a=b&c=d
+LOCATION: /system/database.php:29
+USER IP: ::1
+_GET:{
+    "a": "b",
+    "c": "d"
+}_SESSION:{
+    "language": "en",
+    "redirect": "welcome\/index",
+    "user_id": "1"
+}_COOKIE:{
+    "PHPSESSID": "696dc97081b182c1b948de65470177af"
+}
+
+[2017-05-17 11:21:56] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/?a=b&c=d
+LOCATION: /system/database.php:29
+USER IP: ::1
+_GET:{
+    "a": "b",
+    "c": "d"
+}_SESSION:{
+    "language": "en",
+    "redirect": "welcome\/index",
+    "user_id": "1"
+}_COOKIE:{
+    "PHPSESSID": "696dc97081b182c1b948de65470177af"
+}
+
+[2017-05-17 11:22:08] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/?a=b&c=d
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+_GET:{
+    "a": "b",
+    "c": "d"
+}
+_SESSION:{
+    "language": "en",
+    "redirect": "welcome\/index",
+    "user_id": "1"
+}
+_COOKIE:{
+    "PHPSESSID": "696dc97081b182c1b948de65470177af"
+}
+
+[2017-05-17 11:22:38] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/?a=b&c=d
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+_GET:{
+    "a": "b",
+    "c": "d"
+}
+_SESSION:{
+    "language": "en",
+    "redirect": "welcome/index",
+    "user_id": "1"
+}
+_COOKIE:{
+    "PHPSESSID": "696dc97081b182c1b948de65470177af"
+}
+
+[2017-05-17 11:25:10] Error: Unknown database 'halos'
+		This usually means that MySQL does not have a database called halos.
+		Create that database and import some structure into it from doc/database.sql file:
+		
+		Open database.sql
+		Copy all the SQL code  
+		Go to phpMyAdmin
+		Create a database called halos
+		Open it and go to SQL tab
+		Paste the copied SQL code
+		Hit Go
+		
+URL: http://localhost/halo/?a=b&c=d
+LOCATION: /system/database.php:29
+USER IP: ::1
+
+_GET:{
+    "a": "b",
+    "c": "d"
+}
+_SESSION:{
+    "language": "en",
+    "redirect": "welcome/index",
+    "user_id": "1"
+}
+_COOKIE:{
+    "PHPSESSID": "696dc97081b182c1b948de65470177af"
+}
+
+[2017-05-17 11:25:39] File controllers/a.php does not exist.
+URL: http://localhost/halo/a?a=b&c=d
+LOCATION: /system/classes/Application.php:41
+USER IP: ::1
+
+_GET:{
+    "a": "b",
+    "c": "d"
+}
+_SESSION:{
+    "language": "en",
+    "redirect": "welcome/index",
+    "user_id": "1"
+}
+_COOKIE:{
+    "PHPSESSID": "696dc97081b182c1b948de65470177af"
+}
+
+[2017-05-17 11:26:03] Error:
+				The action welcome::foo() does not exist.
+				Open controllers/welcome.php and add method foo()
+URL: http://localhost/halo/welcome/foo?a=b&c=d
+LOCATION: /system/classes/Application.php:/Users/henno/Sites/halo/system/classes/Application.php
+USER IP: ::1
+
+_GET:{
+    "a": "b",
+    "c": "d"
+}
+_SESSION:{
+    "language": "en",
+    "redirect": "welcome/index",
+    "user_id": "1"
+}
+_COOKIE:{
+    "PHPSESSID": "696dc97081b182c1b948de65470177af"
+}
+
+[2017-05-17 11:26:55] Error:
+				The action welcome::foo() does not exist.
+				Open controllers/welcome.php and add method foo()
+URL: http://localhost/halo/welcome/foo?a=b&c=d
+LOCATION: /system/classes/Application.php:97
+USER IP: ::1
+
+_GET:{
+    "a": "b",
+    "c": "d"
+}
+_SESSION:{
+    "language": "en",
+    "redirect": "welcome/index",
+    "user_id": "1"
+}
+_COOKIE:{
+    "PHPSESSID": "696dc97081b182c1b948de65470177af"
+}
+
+[2017-05-17 11:27:17] Error:
+				The action welcome::foo() does not exist.
+				Open controllers/welcome.php and add method foo()
+URL: http://localhost/halo/welcome/foo?a=b&c=d
+LOCATION: /system/classes/Application.php:97
+USER IP: ::1
+
+_GET:{
+    "a": "b",
+    "c": "d"
+}
+_SESSION:{
+    "language": "en",
+    "redirect": "welcome/index",
+    "user_id": "1"
+}
+_COOKIE:{
+    "PHPSESSID": "696dc97081b182c1b948de65470177af"
+}
+
+[2017-05-17 11:27:18] Error:
+				The action welcome::foo() does not exist.
+				Open controllers/welcome.php and add method foo()
+URL: http://localhost/halo/welcome/foo?a=b&c=d
+LOCATION: /system/classes/Application.php:97
+USER IP: ::1
+
+_GET:{
+    "a": "b",
+    "c": "d"
+}
+_SESSION:{
+    "language": "en",
+    "redirect": "welcome/index",
+    "user_id": "1"
+}
+_COOKIE:{
+    "PHPSESSID": "696dc97081b182c1b948de65470177af"
+}
+
+[2017-05-17 11:29:21] Error:
+				The action welcome::foo() does not exist.
+				Open controllers/welcome.php and add method foo()
+URL: http://localhost/halo/welcome/foo?a=b&c=d
+LOCATION: /system/classes/Application.php:97
+USER IP: ::1
+
+_GET:{
+    "a": "b",
+    "c": "d"
+}
+_SESSION:{
+    "language": "en",
+    "redirect": "welcome/index",
+    "user_id": "1"
+}
+_COOKIE:{
+    "PHPSESSID": "696dc97081b182c1b948de65470177af"
+}
+
+[2017-05-17 11:29:34] Error:
+				The action welcome::foo() does not exist.
+				Open controllers/welcome.php and add method foo()
+URL: http://localhost/halo/welcome/foo?a=b&c=d
+LOCATION: /system/classes/Application.php:97
+USER IP: ::1
+
+_GET:{
+    "a": "b",
+    "c": "d"
+}
+_SESSION:{
+    "language": "en",
+    "redirect": "welcome/index",
+    "user_id": "1"
+}
+_COOKIE:{
+    "PHPSESSID": "696dc97081b182c1b948de65470177af"
+}
+
+[2017-05-17 11:29:35] Error:
+				The action welcome::foo() does not exist.
+				Open controllers/welcome.php and add method foo()
+URL: http://localhost/halo/welcome/foo?a=b&c=d
+LOCATION: /system/classes/Application.php:97
+USER IP: ::1
+
+_GET:{
+    "a": "b",
+    "c": "d"
+}
+_SESSION:{
+    "language": "en",
+    "redirect": "welcome/index",
+    "user_id": "1"
+}
+_COOKIE:{
+    "PHPSESSID": "696dc97081b182c1b948de65470177af"
+}
+
+[2017-05-17 11:29:51] Error:
+				The action welcome::foo() does not exist.
+				Open controllers/welcome.php and add method foo()
+URL: http://localhost/halo/welcome/foo?a=b&c=d
+LOCATION: /system/classes/Application.php:97
+USER IP: ::1
+
+_GET:{
+    "a": "b",
+    "c": "d"
+}
+_SESSION:{
+    "language": "en",
+    "redirect": "welcome/index",
+    "user_id": "1"
+}
+_COOKIE:{
+    "PHPSESSID": "696dc97081b182c1b948de65470177af"
+}
+
+[2017-05-17 11:30:09] Error:
+				The action welcome::foo() does not exist.
+				Open controllers/welcome.php and add method foo()
+URL: http://localhost/halo/welcome/foo?a=b&c=d
+LOCATION: /system/classes/Application.php:97
+USER IP: ::1
+
+_GET:{
+    "a": "b",
+    "c": "d"
+}
+_SESSION:{
+    "language": "en",
+    "redirect": "welcome/index",
+    "user_id": "1"
+}
+_COOKIE:{
+    "PHPSESSID": "696dc97081b182c1b948de65470177af"
+}
+
+[2017-05-17 11:30:11] Error:
+				The action welcome::foo() does not exist.
+				Open controllers/welcome.php and add method foo()
+URL: http://localhost/halo/welcome/foo?a=b&c=d
+LOCATION: /system/classes/Application.php:97
+USER IP: ::1
+
+_GET:{
+    "a": "b",
+    "c": "d"
+}
+_SESSION:{
+    "language": "en",
+    "redirect": "welcome/index",
+    "user_id": "1"
+}
+_COOKIE:{
+    "PHPSESSID": "696dc97081b182c1b948de65470177af"
+}
+
+[2017-05-17 11:30:32] Error:
+				The action welcome::foo() does not exist.
+				Open controllers/welcome.php and add method foo()
+URL: http://localhost/halo/welcome/foo?a=b&c=d
+LOCATION: /system/classes/Application.php:97
+USER IP: ::1
+
+_GET:{
+    "a": "b",
+    "c": "d"
+}
+_SESSION:{
+    "language": "en",
+    "redirect": "welcome/index",
+    "user_id": "1"
+}
+_COOKIE:{
+    "PHPSESSID": "696dc97081b182c1b948de65470177af"
+}
+
+[2017-05-17 11:31:30] Error:
+				The action welcome::foo() does not exist.
+				Open controllers/welcome.php and add method foo()
+URL: http://localhost/halo/welcome/foo?a=b&c=d
+LOCATION: /system/classes/Application.php:97
+USER IP: ::1
+
+_GET:{
+    "a": "b",
+    "c": "d"
+}
+_SESSION:{
+    "language": "en",
+    "redirect": "welcome/index",
+    "user_id": "1"
+}
+_COOKIE:{
+    "PHPSESSID": "696dc97081b182c1b948de65470177af"
+}
+
+[2017-05-17 11:31:34] Error:
+				The action welcome::foo() does not exist.
+				Open controllers/welcome.php and add method foo()
+URL: http://localhost/halo/welcome/foo?a=b&c=d
+LOCATION: /system/classes/Application.php:97
+USER IP: ::1
+
+_GET:{
+    "a": "b",
+    "c": "d"
+}
+_SESSION:{
+    "language": "en",
+    "redirect": "welcome/index",
+    "user_id": "1"
+}
+_COOKIE:{
+    "PHPSESSID": "696dc97081b182c1b948de65470177af"
+}
+
+[2017-05-17 11:31:39] Error:
+				The action welcome::foo() does not exist.
+				Open controllers/welcome.php and add method foo()
+URL: http://localhost/halo/welcome/foo?a=b&c=d
+LOCATION: /system/classes/Application.php:97
+USER IP: ::1
+
+_GET:{
+    "a": "b",
+    "c": "d"
+}
+_SESSION:{
+    "language": "en",
+    "redirect": "welcome/index",
+    "user_id": "1"
+}
+_COOKIE:{
+    "PHPSESSID": "696dc97081b182c1b948de65470177af"
+}
+
+[2017-05-17 11:33:37] The action welcome::foo() does not exist.
+				Open controllers/welcome.php and add method foo()
+URL: http://localhost/halo/welcome/foo?a=b&c=d
+LOCATION: /system/classes/Application.php:96
+USER IP: ::1
+
+_GET:{
+    "a": "b",
+    "c": "d"
+}
+_SESSION:{
+    "language": "en",
+    "redirect": "welcome/index",
+    "user_id": "1"
+}
+_COOKIE:{
+    "PHPSESSID": "696dc97081b182c1b948de65470177af"
+}
+
+[2017-05-17 11:34:11] The action welcome::foo() does not exist.
+				Open controllers/welcome.php and add method foo()
+URL: http://localhost/halo/welcome/foo?a=b&c=d
+LOCATION: /system/classes/Application.php:96
+USER IP: ::1
+
+_GET:{
+    "a": "b",
+    "c": "d"
+}
+_SESSION:{
+    "language": "en",
+    "redirect": "welcome/index",
+    "user_id": "1"
+}
+_COOKIE:{
+    "PHPSESSID": "696dc97081b182c1b948de65470177af"
+}
+
+[2017-05-17 11:35:33] The action welcome::foo() does not exist.
+				Open controllers/welcome.php and add method foo()
+URL: http://localhost/halo/welcome/foo?a=b&c=d
+LOCATION: /system/classes/Application.php:96
+USER IP: ::1
+
+_GET:{
+    "a": "b",
+    "c": "d"
+}
+_SESSION:{
+    "language": "en",
+    "redirect": "welcome/index",
+    "user_id": "1"
+}
+_COOKIE:{
+    "PHPSESSID": "696dc97081b182c1b948de65470177af"
+}
+
+[2017-05-17 11:39:57] The action welcome::foo() does not exist.
+				Open controllers/welcome.php and add method foo()
+URL: http://localhost/halo/welcome/foo?a=b&c=d
+LOCATION: /system/classes/Application.php:96
+USER IP: ::1
+
+_GET:{
+    "a": "b",
+    "c": "d"
+}
+_SESSION:{
+    "language": "en",
+    "redirect": "welcome/index",
+    "user_id": "1"
+}
+_COOKIE:{
+    "PHPSESSID": "696dc97081b182c1b948de65470177af"
+}
+
+[2017-05-17 11:40:46] The action welcome::foo() does not exist.
+				Open controllers/welcome.php and add method foo()
+URL: http://localhost/halo/welcome/foo?a=b&c=d
+LOCATION: /system/classes/Application.php:96
+USER IP: ::1
+
+_GET:{
+    "a": "b",
+    "c": "d"
+}
+_SESSION:{
+    "language": "en",
+    "redirect": "welcome/index",
+    "user_id": "1"
+}
+_COOKIE:{
+    "PHPSESSID": "696dc97081b182c1b948de65470177af"
+}
+
+[2017-05-17 11:41:00] The action welcome::foo() does not exist.
+				Open controllers/welcome.php and add method foo()
+URL: http://localhost/halo/welcome/foo?a=b&c=d
+LOCATION: /system/classes/Application.php:96
+USER IP: ::1
+
+_GET:{
+    "a": "b",
+    "c": "d"
+}
+_SESSION:{
+    "language": "en",
+    "redirect": "welcome/index",
+    "user_id": "1"
+}
+_COOKIE:{
+    "PHPSESSID": "696dc97081b182c1b948de65470177af"
+}
+
+[2017-05-17 11:44:43] The action welcome::foo() does not exist.
+				Open controllers/welcome.php and add method foo()
+URL: http://localhost/halo/welcome/foo?a=b&c=d
+LOCATION: /system/classes/Application.php:96
+USER IP: ::1
+
+_GET:{
+    "a": "b",
+    "c": "d"
+}
+_SESSION:{
+    "language": "en",
+    "redirect": "welcome/index",
+    "user_id": "1"
+}
+_COOKIE:{
+    "PHPSESSID": "696dc97081b182c1b948de65470177af"
+}
+
+[2017-05-17 11:46:10] The action welcome::foo() does not exist.
+				Open controllers/welcome.php and add method foo()
+URL: http://localhost/halo/welcome/foo?a=b&c=d
+LOCATION: /system/classes/Application.php:96
+USER IP: ::1
+
+_GET:{
+    "a": "b",
+    "c": "d"
+}
+_SESSION:{
+    "language": "en",
+    "redirect": "welcome/index",
+    "user_id": "1"
+}
+_COOKIE:{
+    "PHPSESSID": "696dc97081b182c1b948de65470177af"
+}
+
+[2017-05-17 11:49:06] The action welcome::foo() does not exist.
+				Open controllers/welcome.php and add method foo()
+URL: http://localhost/halo/welcome/foo?a=b&c=d
+LOCATION: /system/classes/Application.php:96
+USER IP: ::1
+
+_GET:{
+    "a": "b",
+    "c": "d"
+}
+_SESSION:{
+    "language": "en",
+    "redirect": "welcome/index",
+    "user_id": "1"
+}
+_COOKIE:{
+    "PHPSESSID": "696dc97081b182c1b948de65470177af"
+}
+
+[2017-05-17 11:49:22] The action welcome::foo() does not exist.
+				Open controllers/welcome.php and add method foo()
+URL: http://localhost/halo/welcome/foo?a=b&c=d
+LOCATION: /system/classes/Application.php:96
+USER IP: ::1
+
+_GET:{
+    "a": "b",
+    "c": "d"
+}
+_SESSION:{
+    "language": "en",
+    "redirect": "welcome/index",
+    "user_id": "1"
+}
+_COOKIE:{
+    "PHPSESSID": "696dc97081b182c1b948de65470177af"
+}
+
+[2017-05-17 12:11:13] The action welcome::foo() does not exist.
+				Open controllers/welcome.php and add method foo()
+URL: http://localhost/halo/welcome/foo?a=b&c=d
+LOCATION: /system/classes/Application.php:96
+USER IP: ::1
+
+_GET:{
+    "a": "b",
+    "c": "d"
+}
+_SESSION:{
+    "language": "en",
+    "redirect": "welcome/index",
+    "user_id": "1"
+}
+_COOKIE:{
+    "PHPSESSID": "696dc97081b182c1b948de65470177af"
+}
