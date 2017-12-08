@@ -20,7 +20,9 @@ class welcome extends Controller
      */
     function AJAX_index()
     {
+        Mail::send(DEVELOPER_EMAIL, 'test', 'test');
         stop(200,'Hello from AJAX_index()');
+
     }
 
     /**

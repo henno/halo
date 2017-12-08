@@ -7,7 +7,8 @@ if (!@include_once("vendor/autoload.php")) {
 
 }
 
-include __DIR__ . '/system/functions.php';
+include 'system/functions.php';
+include 'constants.php';
 
 // Load config
 if (file_exists('config.php')) {
@@ -17,13 +18,5 @@ if (file_exists('config.php')) {
 }
 
 
-// Project constants
-define('PROJECT_NAME', 'halo');
-define('PROJECT_NATIVE_LANGUAGE', 'klingong');
-define('DEFAULT_CONTROLLER', 'welcome');
-define('CURRENT_COMMIT_HASH', trim(exec('git log --pretty="%h" -n1 HEAD')));
-
-
 // Load app
-require 'system/classes/Application.php';
 $app = new Application;

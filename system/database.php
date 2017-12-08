@@ -9,20 +9,20 @@ function connect_db()
 {
     global $db;
     global $cfg;
-    @$db = new mysqli($cfg['DATABASE_HOSTNAME'], $cfg['DATABASE_USERNAME'], $cfg['DATABASE_PASSWORD']);
+    @$db = new mysqli(DATABASE_HOSTNAME, DATABASE_USERNAME, DATABASE_PASSWORD);
     if ($connection_error = mysqli_connect_error()) {
-        $errors[] = 'There was an error trying to connect to database at ' . $cfg['DATABASE_HOSTNAME'] . ':<br><b>' . $connection_error . '</b>';
+        $errors[] = 'There was an error trying to connect to database at ' . DATABASE_HOSTNAME . ':<br><b>' . $connection_error . '</b>';
         require 'templates/error_template.php';
         die();
     }
-    mysqli_select_db($db, $cfg['DATABASE_DATABASE']) or error_out('<b>Error:</b><i> ' . mysqli_error($db) . '</i><br>
-		This usually means that MySQL does not have a database called <b>' . $cfg['DATABASE_DATABASE'] . '</b>.<br><br>
+    mysqli_select_db($db, DATABASE_DATABASE) or error_out('<b>Error:</b><i> ' . mysqli_error($db) . '</i><br>
+		This usually means that MySQL does not have a database called <b>' . DATABASE_DATABASE . '</b>.<br><br>
 		Create that database and import some structure into it from <b>doc/database.sql</b> file:<br>
 		<ol>
 		<li>Open database.sql</li>
 		<li>Copy all the SQL code</li>  
 		<li>Go to phpMyAdmin</li>
-		<li>Create a database called <b>' . $cfg['DATABASE_DATABASE'] . '</b></li>
+		<li>Create a database called <b>' . DATABASE_DATABASE . '</b></li>
 		<li>Open it and go to <b>SQL</b> tab</li>
 		<li>Paste the copied SQL code</li>
 		<li>Hit <b>Go</b></li>

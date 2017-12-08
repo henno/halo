@@ -56,12 +56,6 @@ function __($text, $global = true)
 
     $active_language = $_SESSION['language'];
 
-
-    // Don't translate native language
-    if ($active_language == PROJECT_NATIVE_LANGUAGE) {
-        return $text;
-    }
-
     // Controller should be always available, unless we aren't called from a view
     if (!isset($controller->controller)) {
         $global = true;

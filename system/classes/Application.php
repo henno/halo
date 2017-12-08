@@ -15,12 +15,14 @@ class Application
 
     function __construct()
     {
-        global $controller, $cfg;
+        global $controller;
+
 
         $this->set_base_url();
+        $this->define_current_commit_hash();
 
         // Redirect to HTTPS
-        if ($cfg['FORCE_HTTPS'] && $this->https_is_off()) {
+        if (FORCE_HTTPS && $this->https_is_off()) {
             $this->redirect_to_https();
         }
 
@@ -37,13 +39,16 @@ class Application
         // Instantiate controller
         $controller_fqn = '\App\\' . $this->controller;
 
-        if (!file_exists("controllers/$this->controller.php"))
+        if (!file_exists("controllers/$this->controller.php")) {
             error_out("<b>Error:</b> File <i>controllers/{$this->controller}.php</i> does not exist.", 404);
+        }
         require "controllers/$this->controller.php";
 
-        if (!class_exists($controller_fqn, 1))
+        if (!class_exists($controller_fqn, 1)) {
             error_out("<b>Error:</b>
-				File  <i>controllers/{$this->controller}.php</i> exists but class <i>{$this->controller}</i> does not. You probably copied the file but forgot to rename the class in the copy.", 500);
+				File  <i>controllers/{$this->controller}.php</i> exists but class <i>{$this->controller}</i> does not. You probably copied the file but forgot to rename the class in the copy.",
+                500);
+        }
         $controller = new $controller_fqn();
 
         // Make request and auth properties available to controller
@@ -66,7 +71,9 @@ class Application
         // Authenticate user, if controller requires it
         if ($controller->requires_auth && !$controller->auth->logged_in) {
 
-            if (!$is_ajax_request) $this->save_current_url_to_session($controller);
+            if (!$is_ajax_request) {
+                $this->save_current_url_to_session($controller);
+            }
 
             $controller->auth->require_auth();
         }
@@ -91,10 +98,12 @@ class Application
             }
 
             // Proceed with regular action processing ( executes $action() )
-            if (!method_exists($controller, $controller->action))
+            if (!method_exists($controller, $controller->action)) {
                 error_out("<b>Error:</b>
 				The action <i>{$controller->controller}::{$controller->action}()</i> does not exist.
-				Open <i>controllers/{$controller->controller}.php</i> and add method <i>{$controller->action}()</i>", 404);
+				Open <i>controllers/{$controller->controller}.php</i> and add method <i>{$controller->action}()</i>",
+                    404);
+            }
 
             // Save current url, in case the action redirects to login
             $this->save_current_url_to_session($controller);
@@ -111,7 +120,7 @@ class Application
         global $supported_languages, $cfg;
 
         // Extract supported languages
-        $supported_languages = array_map('trim', explode('|', $cfg['WEBSITE_LANGUAGES']));
+        $supported_languages = array_map('trim', explode('|', WEBSITE_LANGUAGES));
 
 
         // Set default language (defaults to 'en', if no supported languages are given
@@ -134,8 +143,10 @@ class Application
             $_SESSION['language'] = substr($_COOKIE['language'], 0, 2);
 
         } // First visit, set default langauge
-        else if (!isset($_SESSION['language'])) {
-            $_SESSION['language'] = $default_language;
+        else {
+            if (!isset($_SESSION['language'])) {
+                $_SESSION['language'] = $default_language;
+            }
         }
 
         // Else leave $_SESSION['language'] unchanged
@@ -230,6 +241,12 @@ class Application
     private function https_is_off()
     {
         return empty($_SERVER['HTTPS']);
+    }
+
+    private function define_current_commit_hash()
+    {
+        // Define current commit hash
+        define('COMMIT_HASH', trim(exec('git log --pretty="%h" -n1 HEAD')));
     }
 
 }

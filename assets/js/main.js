@@ -26,53 +26,63 @@ function ajax(url, options, callback_or_redirect_url, error_callback) {
         .done(function (response) {
             var json = tryToParseJSON(response);
 
+            // Properly hide loading modal if it's open
+            close_modal($("#loading-modal"));
+
             if (json === false) {
-                console.log(response);
-                alert(SERVER_ERROR_UNKNOWN_FORMAT);
+
+                // Send error report
+                $.post('email/send_error_report', {
+                    javascript_received_json_payload_that_caused_the_error: response
+                });
+
+                show_error_modal(response);
+
                 return false;
-            }
 
-            else if (json.status === 401) {
-
-                // Display modal
-                $("#mdlLogin").modal();
-                console.log('Need to log in.');
+            } else if (json.status === 401) {
 
                 if (typeof error_callback === 'function') {
+
                     error_callback(json);
                 }
 
-            }
-
-
-            else if (json.status === 403) {
+            } else if (json.status === 403) {
 
                 alert(SERVER_ERROR_FORBIDDEN);
 
-                console.log('Unauthorized');
-
                 if (typeof error_callback === 'function') {
                     error_callback(json);
                 }
 
 
-            }
+            } else if (json.status === 500) {
 
-            else if (json.status !== 200) {
+                alert(SERVER_ERROR_OTHER);
 
+                // Send error report
+                $.post('email/send_error_report', {
+                    javascript_received_json_payload_that_caused_the_error: json
+                });
 
                 if (typeof error_callback === 'function') {
-
                     error_callback(json);
-
-                }
-                else {
-                    alert(SERVER_ERROR_OTHER + ': ' + response);
+                } else {
+                    show_error_modal(response);
                 }
 
+                return false;
 
-            }
-            else {
+
+            } else if (json.status !== 200) {
+
+                if (typeof error_callback === 'function') {
+                    error_callback(json);
+                } else {
+                    show_error_modal(response);
+                }
+
+            } else {
 
                 if (typeof callback_or_redirect_url === 'function') {
                     callback_or_redirect_url(json);
@@ -81,14 +91,28 @@ function ajax(url, options, callback_or_redirect_url, error_callback) {
                 if (typeof callback_or_redirect_url === 'string') {
                     location.href = callback_or_redirect_url;
                 }
+
             }
 
         });
+
 }
 
 $('table.clickable-rows tr').on('click', function () {
     window.location = $(this).data('href');
 });
+
+function close_modal(modal) {
+    modal.modal('hide');
+    $('body').removeClass('modal-open');
+    $('.modal-backdrop').remove();
+}
+
+function show_error_modal(error) {
+    var error_modal = $("#error-modal");
+    $(".error-modal-body").html(error);
+    error_modal.modal('show');
+}
 
 /* Tooltipify the entire DOM */
 $(document).tooltip();
