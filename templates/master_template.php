@@ -11,13 +11,13 @@
     <title><?= PROJECT_NAME ?></title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/components/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/components/bootstrap/css/bootstrap.min.css?<?=CURRENT_COMMIT_HASH?>" rel="stylesheet">
 
     <!-- jQuery UI core CSS -->
-    <link href="vendor/components/jqueryui/themes/base/jquery-ui.min.css" rel="stylesheet">
+    <link href="vendor/components/jqueryui/themes/base/jquery-ui.min.css?<?=CURRENT_COMMIT_HASH?>" rel="stylesheet">
 
     <!-- Site core CSS -->
-    <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/main.css?<?=CURRENT_COMMIT_HASH?>" rel="stylesheet">
 
     <style>
         body {
@@ -27,12 +27,12 @@
 
 
     <!-- jQuery -->
-    <script src="vendor/components/jquery/jquery.min.js"></script>
+    <script src="vendor/components/jquery/jquery.min.js?<?=CURRENT_COMMIT_HASH?>"></script>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js?<?=CURRENT_COMMIT_HASH?>"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js?<?=CURRENT_COMMIT_HASH?>"></script>
     <![endif]-->
 
 
@@ -100,9 +100,9 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="vendor/components/bootstrap/js/bootstrap.min.js"></script>
-<script src="vendor/components/jqueryui/jquery-ui.min.js"></script>
-<script src="assets/js/main.js"></script>
+<script src="vendor/components/bootstrap/js/bootstrap.min.js?<?=CURRENT_COMMIT_HASH?>"></script>
+<script src="vendor/components/jqueryui/jquery-ui.min.js?<?=CURRENT_COMMIT_HASH?>"></script>
+<script src="assets/js/main.js?<?=CURRENT_COMMIT_HASH?>"></script>
 </body>
 </html>
 <?php require 'system/error_translations.php' ?>

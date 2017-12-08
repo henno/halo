@@ -5,10 +5,10 @@
     <title><?= PROJECT_NAME ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link rel="stylesheet" href="vendor/components/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="vendor/components/bootstrap/css/bootstrap-theme.min.css">
-    <script src="vendor/components/jquery/jquery.min.js"></script>
-    <script src="vendor/components/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="vendor/components/bootstrap/css/bootstrap.min.css?<?=CURRENT_COMMIT_HASH?>">
+    <link rel="stylesheet" href="vendor/components/bootstrap/css/bootstrap-theme.min.css?<?=CURRENT_COMMIT_HASH?>">
+    <script src="vendor/components/jquery/jquery.min.js?<?=CURRENT_COMMIT_HASH?>"></script>
+    <script src="vendor/components/bootstrap/js/bootstrap.min.js?<?=CURRENT_COMMIT_HASH?>"></script>
 
     <style>
         body {

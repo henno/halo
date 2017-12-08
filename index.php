@@ -21,6 +21,8 @@ if (file_exists('config.php')) {
 define('PROJECT_NAME', 'halo');
 define('PROJECT_NATIVE_LANGUAGE', 'klingong');
 define('DEFAULT_CONTROLLER', 'welcome');
+define('CURRENT_COMMIT_HASH', trim(exec('git log --pretty="%h" -n1 HEAD')));
+
 
 // Load app
 require 'system/classes/Application.php';
