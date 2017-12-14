@@ -7,3 +7,7 @@ table.clickable-rows tr:hover {
 .table-nonfluid {
     width: auto !important;
 }
+
+a {
+    cursor: pointer;
+}

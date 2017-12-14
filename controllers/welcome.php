@@ -22,7 +22,7 @@ class welcome extends Controller
     {
 
 
-        stop(200,'Everything is awesome');
+        stop(201,'Everything is awesome');
     }
 
     /**
@@ -35,10 +35,11 @@ class welcome extends Controller
         Mail::send(DEVELOPER_EMAIL, 'test', 'test');
 
         echo "This text comes from the server and will be shown only in development environment for debugging purposes. ";
-        echo "Here is a nice server side exception for you to debug:";
+        echo "Here is a nice exception for you to debug:";
 
         // Generate error for testing
         throw new \Exception('This is a test');
+
 
     }
 

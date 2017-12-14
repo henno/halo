@@ -1,4 +1,5 @@
 const RELOAD = 33;
+var error_modal = $("#error-modal");
 
 function tryToParseJSON(jsonString) {
     try {
@@ -21,15 +22,14 @@ function tryToParseJSON(jsonString) {
 
 function ajax(url, options, callback_or_redirect_url, error_callback) {
 
+    
+
     $.post(url, options)
         .fail(function (jqXHR, textStatus, errorThrown) {
             console.log('Xhr error: ', jqXHR, textStatus, errorThrown);
         })
         .done(function (response) {
             var json = tryToParseJSON(response);
-
-            // Properly hide loading modal if it's open
-            close_modal($("#loading-modal"));
 
             if (json === false) {
 
@@ -51,37 +51,42 @@ function ajax(url, options, callback_or_redirect_url, error_callback) {
 
             } else if (json.status === 403) {
 
-                alert(SERVER_ERROR_FORBIDDEN);
 
                 if (typeof error_callback === 'function') {
+
                     error_callback(json);
+                }
+                else {
+
+                    $(".error-modal-body").html(SERVER_ERROR_FORBIDDEN);
+
+                    error_modal.modal('show');
                 }
 
 
             } else if (json.status === 500) {
-
-                alert(SERVER_ERROR_OTHER);
 
                 // Send error report
                 $.post('email/send_error_report', {
                     javascript_received_json_payload_that_caused_the_error: json
                 });
 
+
                 if (typeof error_callback === 'function') {
                     error_callback(json);
                 } else {
-                    show_error_modal(response);
+                    show_error_modal(json.data);
                 }
 
                 return false;
 
 
-            } else if (json.status !== 200) {
+            } else if (json.status.toString()[0] !== '2') {
 
                 if (typeof error_callback === 'function') {
                     error_callback(json);
                 } else {
-                    show_error_modal(response);
+                    show_error_modal(json.data);
                 }
 
             } else {
@@ -108,14 +113,8 @@ $('table.clickable-rows tr').on('click', function () {
     window.location = $(this).data('href');
 });
 
-function close_modal(modal) {
-    modal.modal('hide');
-    $('body').removeClass('modal-open');
-    $('.modal-backdrop').remove();
-}
 
 function show_error_modal(error) {
-    var error_modal = $("#error-modal");
     $(".error-modal-body").html(window.location.hostname === 'localhost' || window.location.hostname.slice(-4) === '.dev' ? error : SERVER_ERROR_OTHER);
     error_modal.modal('show');
 }

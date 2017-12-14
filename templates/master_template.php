@@ -58,7 +58,7 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sample dropdown <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#"><? __('Action', 0, 1) ?></a></li>
+                        <li><a href="#"><? __('Action') ?></a></li>
                         <li><a href="#">Another action</a></li>
                         <li><a href="#">Something else here</a></li>
                         <li class="divider"></li>
@@ -92,36 +92,11 @@
     <!-- Main component for a primary marketing message or call to action -->
     <?php if (!file_exists("views/$controller/{$controller}_$action.php")) error_out('The view <i>views/' . $controller . '/' . $controller . '_' . $action . '.php</i> does not exist. Create that file.'); ?>
     <?php @require "views/$controller/{$controller}_$action.php"; ?>
-
+    
 </div>
 <!-- /container -->
 
-<div class="modal fade" id="loading-modal" data-backdrop="static" data-keyboard="false">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header text-center">
-                <h4 class="modal-title"><?= __( 'Loading' ) ?>...</h4>
-            </div>
-            <div class="modal-body">
-                <img src="assets/img/loader.gif" alt="loading" style="margin: auto;">
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
-<div class="modal fade" id="error-modal">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title"><?= __('Oops...') ?></h4>
-            </div>
-            <div class="modal-body error-modal-body"></div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal"><?= __('Close') ?></button>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+<?php require 'templates/partials/error_modal.php'; ?>
 
 
 <!-- Bootstrap core JavaScript

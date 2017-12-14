@@ -1,7 +1,6 @@
 <h1>Welcome!</h1>
 
 
-
 <p>This is the welcome controller's default view file. It is located at <code>/views/welcome/welcome_index.php</code>.
 </p>
 
@@ -40,8 +39,8 @@ Fill the name field below and click <i>submit form using ajax</i>.
 <form id="ajax-form">
     Your name: <input type="text" placeholder="Write something here" name="name"/><br/>
 </form>
-<a href="#" onclick="success()">Submit form using ajax (success)</a><br/>
-<a href="#" onclick="error()">Submit form using ajax (error)</a><br/>
+<a onclick="success()">Submit form using ajax (success)</a><br/>
+<a onclick="error()">Submit form using ajax (error)</a><br/>
 
 The form containing the name field will be submitted to the
 server by jQuery and server's response will be written to the box below.
@@ -65,7 +64,9 @@ server by jQuery and server's response will be written to the box below.
         ajax("welcome/success", $("#ajax-form").serialize(), function (json) {
             $(".result").html(json.data);
         });
-    }function error() {
+    }
+
+    function error() {
         ajax("welcome/error", $("#ajax-form").serialize(), function (json) {
             $(".result").html(json.data);
         });
