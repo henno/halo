@@ -18,10 +18,27 @@ class welcome extends Controller
     /**
      * This function will only be ran in case of an AJAX request. No view will be attempted to load after this function.
      */
-    function AJAX_index()
+    function AJAX_success()
     {
+
+
+        stop(200,'Everything is awesome');
+    }
+
+    /**
+     * This function will only be ran in case of an AJAX request. No view will be attempted to load after this function.
+     */
+    function AJAX_error()
+    {
+
+        // Test sending emails
         Mail::send(DEVELOPER_EMAIL, 'test', 'test');
-        stop(200,'Hello from AJAX_index()');
+
+        echo "This text comes from the server and will be shown only in development environment for debugging purposes. ";
+        echo "Here is a nice server side exception for you to debug:";
+
+        // Generate error for testing
+        throw new \Exception('This is a test');
 
     }
 

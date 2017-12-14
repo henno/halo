@@ -1,3 +1,5 @@
+const RELOAD = 33;
+
 function tryToParseJSON(jsonString) {
     try {
         var o = JSON.parse(jsonString);
@@ -88,8 +90,12 @@ function ajax(url, options, callback_or_redirect_url, error_callback) {
                     callback_or_redirect_url(json);
                 }
 
-                if (typeof callback_or_redirect_url === 'string') {
+                else if (typeof callback_or_redirect_url === 'string') {
                     location.href = callback_or_redirect_url;
+                }
+
+                else if (callback_or_redirect_url === RELOAD) {
+                    location.reload();
                 }
 
             }
@@ -110,7 +116,7 @@ function close_modal(modal) {
 
 function show_error_modal(error) {
     var error_modal = $("#error-modal");
-    $(".error-modal-body").html(error);
+    $(".error-modal-body").html(window.location.hostname === 'localhost' || window.location.hostname.slice(-4) === '.dev' ? error : SERVER_ERROR_OTHER);
     error_modal.modal('show');
 }
 
