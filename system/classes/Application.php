@@ -26,6 +26,7 @@ class Application
             $this->redirect_to_https();
         }
 
+        session_name(PROJECT_SESSION_ID);
         session_start();
         ob_start();
 

@@ -6,6 +6,7 @@
 
 // Project constants
 define('PROJECT_NAME', 'halo');
+define('PROJECT_SESSION_ID', 'SESSID_HALO'); // For separating sessions of multiple Halo projects running on same server
 define('DEFAULT_CONTROLLER', 'welcome');
 define('DEVELOPER_EMAIL', 'dev@example.com'); // Where to send errors
 define('FACEBOOK_APP_ID', '1000000000000001'); // For FB login
