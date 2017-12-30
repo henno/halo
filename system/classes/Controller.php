@@ -1,5 +1,10 @@
 <?php namespace App;
 
+/**
+ * @property Auth auth
+ * @property mixed params
+ */
+
 class Controller
 {
     public $template = 'master';
