@@ -1,5 +1,6 @@
 <?php namespace App;
 
+// set to the user defined error handler
 // Init composer auto-loading
 if (!@include_once("vendor/autoload.php")) {
 
@@ -10,6 +11,10 @@ if (!@include_once("vendor/autoload.php")) {
 include 'system/functions.php';
 include 'constants.php';
 
+set_error_handler("halo_error_handler", E_ALL);
+
+
+
 // Load config
 if (file_exists('config.php')) {
     include 'config.php';
@@ -19,4 +24,10 @@ if (file_exists('config.php')) {
 
 
 // Load app
-$app = new Application;
+try{
+
+    $app = new Application;
+} catch (\Exception $e){
+    die('a');
+}
+

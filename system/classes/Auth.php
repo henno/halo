@@ -16,7 +16,7 @@ class Auth
             $this->logged_in = TRUE;
             $user = get_first("SELECT *
                                FROM users
-                               WHERE user_id = '{$_SESSION['user_id']}'");
+                               WHERE user_id = ?", $_SESSION['user_id']);
             $this->load_user_data($user);
 
         }
@@ -60,15 +60,11 @@ class Auth
         }
 
 
-        // Prevent SQL injection
-        $email = mysqli_escape_string($db, $_POST['email']);
-
-
         // Attempt to retrieve user data from database
         $user = get_first("SELECT * 
                            FROM users
-                           WHERE email = '$email'
-                           AND deleted = 0");
+                           WHERE email = ?
+                           AND deleted = 0", $_POST['email']);
 
 
         // No such user or wrong password

@@ -12,7 +12,14 @@ class welcome extends Controller
     function index()
     {
 
-        $this->users = get_all("SELECT * FROM users");
+//        $this->users = get_all("SELECT *
+//                                     FROM products
+//                                     LEFT JOIN	categories ON (products.category_id = categories.id)");
+
+        debug_next_query();
+
+
+        get_all('SELECT * FROM products WHERE category_id = ?', 'null');
     }
 
     /**
@@ -22,7 +29,7 @@ class welcome extends Controller
     {
 
 
-        stop(201,'Everything is awesome');
+        stop(201, 'Everything is awesome');
     }
 
     /**
