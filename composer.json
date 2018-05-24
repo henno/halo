@@ -1,7 +1,6 @@
 {
   "require": {
-    "components/bootstrap": "^3.3",
-    "components/jqueryui": "^1.12",
+    "components/bootstrap": "^4.0",
     "phpmailer/phpmailer": "^6.0"
   },
   "autoload": {
