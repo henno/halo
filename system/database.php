@@ -35,7 +35,6 @@ function connect_db()
     }
 
 
-
 }
 
 function q($sql, & $query_pointer = NULL, $debug = FALSE)
@@ -113,18 +112,24 @@ function db_error_out($sql = null)
 
     $line = $backtrace[1]['line'];
     $function = isset($backtrace[1]['function']) ? $backtrace[1]['function'] : NULL;
-    $args = isset($backtrace[1]['args']) ? $backtrace[1]['args'] : NULL;
-    if (!empty($args)) {
-        foreach ($args as $arg) {
-            if (is_array($arg)) {
-                $args2[] = implode(',', $arg);
-            } else {
-                $args2[] = $arg;
-            }
-        }
-    }
 
-    $args = empty($args2) ? '' : addslashes('"' . implode('", "', $args2) . '"');
+    // Get arguments
+    $args = isset($backtrace[1]['args']) ? $backtrace[1]['args'] : NULL;
+
+    // Protect the next statement failing with "Malformed UTF-8 characters, possibly incorrectly encoded" error when $args contains binary
+    array_walk_recursive($args, function (&$item) {
+
+        // Truncate item to 1000 bytes if it is longer
+        if (strlen($item) > 1000) $item = mb_substr($item, 0, 1000);
+
+
+        $item = mb_convert_encoding($item, 'UTF-8', 'UTF-8');
+
+        $item = preg_replace('/[\x00-\x1F\x7F-\xFF]/', '.', $item);
+    });
+
+    // Serialize arguments
+    $args = json_encode($args, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 
     // Fault highlight
     preg_match("/check the manual that corresponds to your MySQL server version for the right syntax to use near '([^']+)'./", $db_error, $output_array);
@@ -151,7 +156,6 @@ function db_error_out($sql = null)
         $location .= "<span class=\"line-number-position\">&#x200b;<span class=\"line-number\">$code";
 
     }
-
 
 
     // Generate stack trace
@@ -203,7 +207,7 @@ function update($table, array $data, $where)
     if ($table and is_array($data) and !empty($data)) {
         $values = implode(',', escape($data));
 
-        if (isset($where)) {
+        if (!empty($where)) {
             $sql = "UPDATE `{$table}` SET {$values} WHERE {$where}";
         } else {
             $sql = "UPDATE `{$table}` SET {$values}";
