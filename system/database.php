@@ -187,13 +187,14 @@ function db_error_out($sql = null)
  * @param $data array Array of data. For example: array('field1' => 'mystring', 'field2' => 3);
  * @return bool|int Returns the ID of the inserted row or FALSE when fails.
  */
-function insert($table, $data)
+function insert($table, $data = [])
 {
     global $db;
-    if ($table and is_array($data) and !empty($data)) {
+    if ($table and is_array($data)) {
         $values = implode(',', escape($data));
-        $sql = "INSERT INTO `{$table}` SET {$values} ON DUPLICATE KEY UPDATE {$values}";
-        $q = mysqli_query($db, $sql) or db_error_out();
+        $values = $values ? "SET {$values} ON DUPLICATE KEY UPDATE {$values}":'() VALUES()';
+        $sql = "INSERT INTO `{$table}` $values";
+        $q = mysqli_query($db, $sql) or db_error_out($sql);
         $id = mysqli_insert_id($db);
         return ($id > 0) ? $id : FALSE;
     } else {
