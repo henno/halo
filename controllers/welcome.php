@@ -42,13 +42,4 @@ class welcome extends Controller
 
 
     }
-
-    /**
-     * This function will only be ran in case of POST request
-     */
-    function POST_index()
-    {
-        echo "\$_POST:<br>";
-        var_dump($_POST);
-    }
 }
