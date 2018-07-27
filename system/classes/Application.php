@@ -84,7 +84,7 @@ class Application
         if ($is_ajax_request && method_exists($controller, 'AJAX_' . $controller->action)) {
             $action_name = 'AJAX_' . $controller->action;
             $controller->$action_name();
-            exit();
+            stop(200);
         } else {
             // Check for and process POST ( executes $action_post() )
             if (isset($_POST) && !empty($_POST) && method_exists($controller, 'POST_' . $controller->action)) {
