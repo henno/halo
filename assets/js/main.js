@@ -94,7 +94,7 @@ $('table.clickable-rows tr').on('click', function () {
 
 
 function show_error_modal(error) {
-    $(".error-modal-body").html(window.location.hostname === 'localhost' || window.location.hostname.slice(-4) === '.dev' ? error : SERVER_ERROR_OTHER);
+    $(".error-modal-body").html(error);
     error_modal.modal('show');
 }
 
