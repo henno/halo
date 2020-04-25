@@ -9,6 +9,7 @@ class Controller
 {
     public $template = 'master';
     public $requires_auth = true;
+    public $requires_admin = false;
 
     function render($template)
     {

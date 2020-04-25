@@ -78,7 +78,7 @@ class Auth
 
 
         // User has provided correct login data if we are here
-        $_SESSION['user_id'] = $user['user_id'];
+        User::login($_SESSION['user_id']);
 
 
         // Load $this->auth with users table's field values

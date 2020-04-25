@@ -79,6 +79,14 @@ class Application
             $controller->auth->require_auth();
         }
 
+        // Check if user is admin, if controller requires it
+        if ($controller->requires_admin && !$controller->auth->is_admin && !isset($_SESSION['real_user_id'])) {
+            $errors[] = __('Access denied');
+            require 'templates/error_template.php';
+            exit();
+        }
+
+
 
         // Run the action
         if ($is_ajax_request && method_exists($controller, 'AJAX_' . $controller->action)) {

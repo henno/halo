@@ -61,7 +61,7 @@ function get_one($sql, $debug = FALSE)
     if ($debug) { // kui debug on TRUE
         print "<pre>$sql</pre>";
     }
-    switch (substr($sql, 0, 6)) {
+    switch (substr(trim($sql), 0, 6)) {
         case 'SELECT':
             $q = mysqli_query($db, $sql) or db_error_out();
             $result = mysqli_fetch_array($q);
