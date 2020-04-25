@@ -42,27 +42,6 @@ function ajax(url, options, callback_or_redirect_url, error_callback) {
 
                 return false;
 
-            } else if (json.status === 401) {
-
-                if (typeof error_callback === 'function') {
-
-                    error_callback(json);
-                }
-
-            } else if (json.status === 403) {
-
-
-                if (typeof error_callback === 'function') {
-
-                    error_callback(json);
-                }
-                else {
-
-                    $(".error-modal-body").html(SERVER_ERROR_FORBIDDEN);
-
-                    error_modal.modal('show');
-                }
-
 
             } else if (json.status === 500) {
 
