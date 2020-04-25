@@ -6,9 +6,10 @@ if (!@include_once("vendor/autoload.php")) {
     exit('Run composer install');
 
 }
-
 include 'system/functions.php';
 include 'constants.php';
+
+date_default_timezone_set(DEFAULT_TIMEZONE);
 
 // Load config
 if (file_exists('config.php')) {

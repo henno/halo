@@ -16,5 +16,6 @@ define('GOOGLE_CLIENT_ID', '1000000000000-ffffffffffffffffffffffffffffffff.apps.
 define('GOOGLE_CLIENT_SECRET', 'sssssssssssssssss-ss_SSS');
 define('GOOGLE_REDIRECT_URI', 'login_google/callback'); // For G login
 define('WEBSITE_LANGUAGES', 'et'); // Languages this website supports. The first one is the default
+define('DEFAULT_TIMEZONE', 'Europe/Tallinn');
 
 define('ACTIVITY_LOGIN',1);
