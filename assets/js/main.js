@@ -97,6 +97,3 @@ function show_error_modal(error) {
     $(".error-modal-body").html(error);
     error_modal.modal('show');
 }
-
-/* Tooltipify the entire DOM */
-$(document).tooltip();
