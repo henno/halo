@@ -1,3 +1,8 @@
+<style>
+    .result:empty {
+        display: none;
+    }
+</style>
 <h1>Welcome!</h1>
 
 
@@ -34,29 +39,20 @@
 </ol>
 
 <h3>Sending data to server</h3>
-<h4>jQuery $.post (Ajax) submit example</h4>
+<h4>Ajax example</h4>
 Fill the name field below and click <i>submit form using ajax</i>.
 <form id="ajax-form">
-    Your name: <input type="text" placeholder="Write something here" name="name"/><br/>
+    Your name: <input type="text" placeholder="Write something here" name="name"/>
+    <a class="btn btn-success" onclick="success()">Submit form using ajax (success)</a>
+    <a class="btn btn-danger" onclick="error()">Submit form using ajax (error)</a><br/>
+
 </form>
-<a onclick="success()">Submit form using ajax (success)</a><br/>
-<a onclick="error()">Submit form using ajax (error)</a><br/>
 
 The form containing the name field will be submitted to the
 server by jQuery and server's response will be written to the box below.
 
-<div class="well result"></div>
+<div class="alert alert-warning result"></div>
 
-
-<h4>Traditional POST submit example</h4>
-<p>Here is an example how to use traditional POST to send data to the server. Click Post after filling the form. The
-    server will invoke <code>post::post_index()</code> action (which is in <code>/controllers/posts.php</code> file)
-    which just dumps $_POST to the screen.</p>
-<!-- Button for executing post -->
-<form method="post">
-    <input type="text" name="foobar"/>
-    <input type="submit" value="Post"/>
-</form>
 
 <!-- Code for ajax -->
 <script type="text/javascript">

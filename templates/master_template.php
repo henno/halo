@@ -38,49 +38,36 @@
 <body>
 
 <!-- Fixed navbar -->
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#"><?= PROJECT_NAME ?></a>
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li <?= $controller == 'welcome' ? 'class="active"' : '' ?>><a href="#">Home</a></li>
-                <li <?= $controller == 'halo' ? 'class="active"' : '' ?>><a href="halo">Halo admin</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sample dropdown <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#"><? __('Action') ?></a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li class="divider"></li>
-                        <li class="dropdown-header">Nav header</li>
-                        <li><a href="#">Separated link</a></li>
-                        <li><a href="#">One more separated link</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?= $_SESSION['language'] ?> <b
-                                class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <?php foreach ($supported_languages as $language): ?>
-                            <li><a href="<?= $controller ?>?language=<?= $language ?>"
-                                   class="<?= $language == $_SESSION['language'] ? 'active' : '' ?>"><?= $language ?></a>
-                            </li>
-                        <?php endforeach ?>
-                    </ul>
-                </li>
-                <li><a href="settings"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a></li>
-                <li title="<?=__('Log out')?> <?= $auth->name ?>"><a href="logout"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></a></li>
-        </div>
-        <!--/.nav-collapse -->
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#"><?= PROJECT_NAME?></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link <?= $controller == 'welcome' ? 'class="active"' : '' ?>" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link <?= $controller == 'halo' ? 'class="active"' : '' ?>" href="halo">Admin</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown01">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+        </form>
     </div>
 </nav>
 
