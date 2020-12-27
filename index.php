@@ -12,10 +12,10 @@ include 'constants.php';
 date_default_timezone_set(DEFAULT_TIMEZONE);
 
 // Load config
-if (file_exists('config.php')) {
-    include 'config.php';
-} else {
-    error_out('No config.php. Please make a copy of config.sample.php and name it config.php and configure it.', 500);
+if (!include('config.php')) {
+    $errors[] = 'No config.php. Please make a copy of config.sample.php and name it config.php and configure it.';
+    require 'templates/error_template.php';
+    exit();
 }
 
 
