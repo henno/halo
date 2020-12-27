@@ -4,31 +4,8 @@ class activities extends Controller
 {
     private static $activities = [
 
-        'abort' => 1,
-        'canplay' => 2,
-        'canplaythrough' => 3,
-        'durationchange' => 4,
-        'emptied' => 5,
-        'ended' => 6,
-        'error' => 7,
-        'loadeddata' => 8,
-        'loadedmetadata' => 9,
-        'loadstart' => 10,
-        'pause' => 11,
-        'play' => 12,
-        'playing' => 13,
-        'progress' => 14,
-        'ratechange' => 15,
-        'seeked' => 16,
-        'seeking' => 17,
-        'stalled' => 18,
-        'suspend' => 19,
-        'timeupdate' => 20,
-        'volumechange' => 21,
-        'waiting' => 22,
-        'login' => 99,
-        'leave' => 100,
-        'logout' => 101,
+        'login' => 1,
+        'logout' => 2,
     ];
 
     function index()

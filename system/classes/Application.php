@@ -17,7 +17,6 @@ class Application
     {
         global $controller;
 
-
         $this->set_base_url();
         $this->define_current_commit_hash();
 
@@ -35,7 +34,6 @@ class Application
         $this->init_db();
         $this->handle_routing();
         $this->auth = new Auth();
-
 
         // Instantiate controller
         $controller_fqn = '\App\\' . $this->controller;
@@ -68,7 +66,6 @@ class Application
         // Check ajaxness
         $is_ajax_request = !empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest';
 
-
         // Authenticate user, if controller requires it
         if ($controller->requires_auth && !$controller->auth->logged_in) {
 
@@ -86,14 +83,13 @@ class Application
             exit();
         }
 
-
-
         // Run the action
         if ($is_ajax_request && method_exists($controller, 'AJAX_' . $controller->action)) {
             $action_name = 'AJAX_' . $controller->action;
             $controller->$action_name();
             stop(200);
         } else {
+
             // Check for and process POST ( executes $action_post() )
             if (isset($_POST) && !empty($_POST) && method_exists($controller, 'POST_' . $controller->action)) {
                 $action_name = 'POST_' . $controller->action;
