@@ -50,7 +50,7 @@
                 <a class="nav-link <?= $controller == 'welcome' ? 'class="active"' : '' ?>" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link <?= $controller == 'halo' ? 'class="active"' : '' ?>" href="halo">Admin</a>
+                <a class="nav-link <?= $controller == 'admin' ? 'class="active"' : '' ?>" href="admin">Admin</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>

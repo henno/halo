@@ -50,6 +50,9 @@
             <li class="nav-item <?=$action=='logs'?'active':''?>">
                 <a class="nav-link" href="admin/logs"><?= __('Logs') ?> <?=$action=='logs'?'<span class="sr-only">(current)</span>':''?></a>
             </li>
+            <li class="nav-item <?=$controller=='halo'?'active':''?>">
+                <a class="nav-link" href="halo"><?= __('Halo') ?> <?=$action=='halo'?'<span class="sr-only">(current)</span>':''?></a>
+            </li>
 
         </ul>
         <ul class="navbar-nav my-2 my-lg-0">
