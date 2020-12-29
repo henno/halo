@@ -33,12 +33,12 @@ function error_out($error_msg, $code = 500)
 function get_translation_strings($lang, $controller, $action)
 {
     global $translations;
-    $translations_raw = get_all("SELECT controller,`action`,phrase,translation FROM translations WHERE language='$lang' AND ((controller='{$controller}' and action = '{$action}') OR (action='global'  and controller = 'global'))");
+    $translations_raw = get_all("SELECT translationController,translationAction,translationPhrase,translation FROM translations WHERE translationLanguage='$lang' AND ((translationController='{$controller}' and translationAction = '{$action}') OR (translationAction='global'  and translationController = 'global'))");
 
     foreach ($translations_raw as $item) {
         // Uncomment this line if the same phrase need to be translated differently on different pages
-        //$translations[$item['controller'] . $item['action'] . $item['phrase']] = $item['translation'];
-        $translations[$item['phrase']] = $item['translation'];
+        //$translations[$item['translationController'] . $item['translationAction'] . $item['translationPhrase']] = $item['translation'];
+        $translations[$item['translationPhrase']] = $item['translation'];
 
     }
 }
@@ -80,7 +80,7 @@ function __($text, $global = true)
 
 
         // Insert new stub
-        insert('translations', ['phrase' => $text, 'translation' => '{untranslated}', 'language' => $active_language, 'controller' => $c, 'action' => $a]);
+        insert('translations', ['translationPhrase' => $text, 'translation' => '{untranslated}', 'translationLanguage' => $active_language, 'translationController' => $c, 'translationAction' => $a]);
 
 
         // Set translation to input text when stub didn't exist

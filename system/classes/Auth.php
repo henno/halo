@@ -12,11 +12,11 @@ class Auth
 
     function __construct()
     {
-        if (isset($_SESSION['user_id'])) {
+        if (isset($_SESSION['userId'])) {
             $this->logged_in = TRUE;
             $user = get_first("SELECT *
                                FROM users
-                               WHERE user_id = '{$_SESSION['user_id']}'");
+                               WHERE userId = '{$_SESSION['userId']}'");
             $this->load_user_data($user);
 
         }
@@ -53,7 +53,7 @@ class Auth
 
 
         // Not all credentials were provided
-        if (!(isset($_POST['email']) && isset($_POST['password']))) {
+        if (!(isset($_POST['userEmail']) && isset($_POST['userPassword']))) {
 
             $this->show_login();
 
@@ -61,24 +61,24 @@ class Auth
 
 
         // Prevent SQL injection
-        $email = mysqli_escape_string($db, $_POST['email']);
+        $email = mysqli_escape_string($db, $_POST['userEmail']);
 
 
         // Attempt to retrieve user data from database
         $user = get_first("SELECT * 
                            FROM users
-                           WHERE email = '$email'
-                           AND deleted = 0");
+                           WHERE userEmail = '$email'
+                           AND userDeleted = 0");
 
 
         // No such user or wrong password
-        if (empty($user['user_id']) || !password_verify($_POST['password'], $user['password'])) {
+        if (empty($user['userId']) || !password_verify($_POST['userPassword'], $user['userPassword'])) {
             $this->show_login([__("Wrong username or password")]);
         }
 
 
         // User has provided correct login data if we are here
-        User::login($user['user_id']);
+        User::login($user['userId']);
 
 
         // Load $this->auth with users table's field values

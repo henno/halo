@@ -91,7 +91,7 @@
 
         <div class="input-group">
             <span class="input-group-addon"><i class="icon-user"></i></span>
-            <input id="user" name="email" type="text" class="form-control" placeholder="demo@example.com" autofocus>
+            <input id="user" name="userEmail" type="text" class="form-control" placeholder="demo@example.com" autofocus>
         </div>
 
         <br/>
@@ -100,7 +100,7 @@
 
         <div class="input-group">
             <span class="input-group-addon"><i class="icon-key"></i></span>
-            <input id="pass" name="password" type="password" class="form-control" placeholder="******">
+            <input id="pass" name="userPassword" type="password" class="form-control" placeholder="******">
         </div>
 
         <br/>

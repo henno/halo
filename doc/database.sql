@@ -23,10 +23,10 @@ DROP TABLE IF EXISTS `activities`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `activities` (
-  `activity_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Autocreated',
-  `activity_name` varchar(50) NOT NULL COMMENT 'Autocreated',
-  `activity_description` varchar(191) NOT NULL,
-  PRIMARY KEY (`activity_id`)
+  `activityId` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Autocreated',
+  `activityName` varchar(50) NOT NULL COMMENT 'Autocreated',
+  `activityDescription` varchar(191) NOT NULL,
+  PRIMARY KEY (`activityId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -41,28 +41,29 @@ INSERT INTO `activities` VALUES (1,'login','logged in'),(2,'logout','logged out'
 UNLOCK TABLES;
 
 --
--- Table structure for table `activity_log`
+-- Table structure for table `activityLog`
 --
 
-DROP TABLE IF EXISTS `activity_log`;
+DROP TABLE IF EXISTS `activityLog`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `activity_log` (
-  `activity_log_timestamp` datetime NOT NULL,
-  `activity_log_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Autocreated',
-  `user_id` int(10) unsigned NOT NULL,
-  `activity_id` int(10) unsigned NOT NULL COMMENT 'Autocreated',
-  PRIMARY KEY (`activity_log_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE `activityLog` (
+  `activityLogTimestamp` datetime NOT NULL,
+  `activityLogId` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Autocreated',
+  `userId` int(10) unsigned NOT NULL,
+  `activityId` int(10) unsigned NOT NULL COMMENT 'Autocreated',
+  PRIMARY KEY (`activityLogId`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `activity_log`
+-- Dumping data for table `activityLog`
 --
 
-LOCK TABLES `activity_log` WRITE;
-/*!40000 ALTER TABLE `activity_log` DISABLE KEYS */;
-/*!40000 ALTER TABLE `activity_log` ENABLE KEYS */;
+LOCK TABLES `activityLog` WRITE;
+/*!40000 ALTER TABLE `activityLog` DISABLE KEYS */;
+INSERT INTO `activityLog` VALUES ('2020-12-29 20:32:27',1,1,1);
+/*!40000 ALTER TABLE `activityLog` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -73,14 +74,14 @@ DROP TABLE IF EXISTS `translations`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `translations` (
-  `translation_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `phrase` varbinary(765) NOT NULL,
-  `language` char(3) NOT NULL,
+  `translationId` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `translationPhrase` varbinary(765) NOT NULL,
+  `translationLanguage` char(3) NOT NULL,
   `translation` varchar(191) DEFAULT NULL,
-  `controller` varchar(15) NOT NULL,
-  `action` varchar(20) NOT NULL,
-  PRIMARY KEY (`translation_id`),
-  UNIQUE KEY `language_phrase_controller_action_index` (`language`,`phrase`,`controller`,`action`)
+  `translationController` varchar(15) NOT NULL,
+  `translationAction` varchar(20) NOT NULL,
+  PRIMARY KEY (`translationId`),
+  UNIQUE KEY `language_phrase_controller_action_index` (`translationLanguage`,`translationPhrase`,`translationController`,`translationAction`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -101,13 +102,13 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
-  `user_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `is_admin` tinyint(4) NOT NULL DEFAULT '0',
-  `password` varchar(191) NOT NULL,
-  `email` varchar(191) NOT NULL,
-  `deleted` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `name` varchar(191) NOT NULL,
-  PRIMARY KEY (`user_id`)
+  `userId` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `userIsAdmin` tinyint(4) NOT NULL DEFAULT '0',
+  `userPassword` varchar(191) NOT NULL,
+  `userEmail` varchar(191) NOT NULL,
+  `userDeleted` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `userName` varchar(191) NOT NULL,
+  PRIMARY KEY (`userId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -130,4 +131,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-27 20:49:18
+-- Dump completed on 2020-12-29 20:38:04

@@ -10,7 +10,7 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
  */
 class User
 {
-    static function register($email, $password, $is_admin = false)
+    static function register($email, $password, $isAdmin = false)
     {
 
 
@@ -19,11 +19,11 @@ class User
 
 
         // Insert user into database
-        $user_id = insert('users', ['email' => $email, 'password' => $password]);
+        $userId = insert('users', ['email' => $email, 'password' => $password]);
 
 
         // Return new user's ID
-        return $user_id;
+        return $userId;
     }
 
     public static function get($criteria)
@@ -32,8 +32,8 @@ class User
         return get_all("
             SELECT * 
             FROM users
-            WHERE deleted=0 $criteria 
-            ORDER BY name");
+            WHERE userDeleted=0 $criteria 
+            ORDER BY userName");
     }
 
     public static function import($filename, $filename_tmp)
@@ -73,9 +73,9 @@ class User
         return $existing_users;
     }
 
-    public static function login($user_id)
+    public static function login($userId)
     {
-        Activity::create(ACTIVITY_LOGIN, $user_id);
-        $_SESSION['user_id'] = $user_id;
+        Activity::create(ACTIVITY_LOGIN, $userId);
+        $_SESSION['userId'] = $userId;
     }
 }

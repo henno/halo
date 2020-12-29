@@ -23,10 +23,10 @@
         <th><?= __('Activity') ?></th>
     </tr>
     <?php foreach ($log as $row): ?>
-        <tr class="<?=$row['activity_name']?>">
-            <td><?=$row['activity_log_timestamp']?></td>
+        <tr class="<?=$row['activityName']?>">
+            <td><?=$row['activityLogTimestamp']?></td>
             <td><?=$row['name']?></td>
-            <td><?=__($row['activity_description'])?></td>
+            <td><?=__($row['activityDescription'])?></td>
         </tr>
     <?php endforeach ?>
 </table>

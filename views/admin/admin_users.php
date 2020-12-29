@@ -80,13 +80,13 @@
             <th></th>
         </tr>
         <?php foreach ($users as $user): ?>
-            <tr data-user_id="<?= $user['user_id'] ?>" data-county_id="<?= $user['county_id'] ?>">
-                <td><?= $user['name'] ?></td>
+            <tr data-userId="<?= $user['userId'] ?>" data-county_id="<?= $user['county_id'] ?>">
+                <td><?= $user['userName'] ?></td>
                 <?php if (!$selected_county_id): ?><td><?= $user['county_name'] ?></td><?php endif ?>
                 <td>
                     <a class="edit" data-toggle="modal" data-target=".modal"
-                       href="users/edit/<?= $user['user_id'] ?>"><i class="fa fa-pencil-square-o"></i></a>&nbsp;
-                    <a class="delete" href="users/delete/<?= $user['user_id'] ?>"><i class="fa fa-trash-o"></i></a>
+                       href="users/edit/<?= $user['userId'] ?>"><i class="fa fa-pencil-square-o"></i></a>&nbsp;
+                    <a class="delete" href="users/delete/<?= $user['userId'] ?>"><i class="fa fa-trash-o"></i></a>
                 </td>
             </tr>
         <?php endforeach ?>
@@ -147,7 +147,7 @@
         //Send delete command to server, if user confirms
         if (confirm('<?=__('Are you sure?');?>')) {
             ajax('admin/delete_user', {
-                user_id: selectedUserTr.data('user_id')
+                userId: selectedUserTr.data('userId')
             }, RELOAD)
         }
 
@@ -156,7 +156,7 @@
     $('.btn-save').click(function () {
         ajax('admin/edit_user', {
             name: $('#input-participant-new-name').val(),
-            user_id: selectedUserTr.data('user_id'),
+            userId: selectedUserTr.data('userId'),
             county_id: $('#county-id').val()
         }, RELOAD)
     });

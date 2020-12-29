@@ -15,22 +15,22 @@ class activities extends Controller
 
     function view()
     {
-        $activity_id = $this->getId();
-        $this->activity = get_first("SELECT * FROM activities WHERE activity_id = '{$activity_id}'");
+        $activityId = $this->getId();
+        $this->activity = get_first("SELECT * FROM activities WHERE activityId = '{$activityId}'");
     }
 
     function AJAX_create()
     {
-        $activity_id = (int)self::$activities[$this->params[0]];
+        $activityId = (int)self::$activities[$this->params[0]];
 
         // Validate activity
-        if ($activity_id == 0) {
+        if ($activityId == 0) {
             stop('Invalid activity');
         }
 
         // Only log video cursor position change once per minute
-        if ($activity_id == ACTIVITY_VIDEO_PROGRESS || $activity_id == ACTIVITY_VIDEO_TIMEUPDATE) {
-            $time = Activity::getUserLatestActivityTime($this->auth->user_id, $activity_id);
+        if ($activityId == ACTIVITY_VIDEO_PROGRESS || $activityId == ACTIVITY_VIDEO_TIMEUPDATE) {
+            $time = Activity::getUserLatestActivityTime($this->auth->userId, $activityId);
             if (substr($time, 0, 16) == date('Y-m-d H:i')) {
                 return;
             }

@@ -77,7 +77,7 @@ class Application
         }
 
         // Check if user is admin, if controller requires it
-        if ($controller->requires_admin && !$controller->auth->is_admin && !isset($_SESSION['real_user_id'])) {
+        if ($controller->requires_admin && !$controller->auth->userIsAdmin && !isset($_SESSION['real_userId'])) {
             $errors[] = __('Access denied');
             require 'templates/error_template.php';
             exit();
