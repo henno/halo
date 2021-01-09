@@ -11,7 +11,7 @@
     <title><?= PROJECT_NAME ?></title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/components/bootstrap/css/bootstrap.min.css?<?= COMMIT_HASH ?>" rel="stylesheet">
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css?<?= COMMIT_HASH ?>" rel="stylesheet">
 
     <!-- Site core CSS -->
     <link href="assets/css/main.css?<?=COMMIT_HASH?>" rel="stylesheet">
@@ -24,7 +24,7 @@
 
 
     <!-- jQuery -->
-    <script src="vendor/components/jquery/jquery.min.js?<?=COMMIT_HASH?>"></script>
+    <script src="node_modules/jquery/dist/jquery.min.js?<?=COMMIT_HASH?>"></script>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -86,7 +86,7 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="vendor/components/bootstrap/js/bootstrap.min.js?<?=COMMIT_HASH?>"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js?<?=COMMIT_HASH?>"></script>
 <script src="assets/js/main.js?<?=COMMIT_HASH?>"></script>
 </body>
 </html>

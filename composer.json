@@ -1,6 +1,5 @@
 {
   "require": {
-    "components/bootstrap": "^4.0",
     "phpmailer/phpmailer": "^6.0"
   },
   "autoload": {
