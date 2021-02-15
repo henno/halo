@@ -6,15 +6,16 @@
     }
 
     .input-box-place {
-        padding-bottom: -1px!important;
-        margin-bottom: -1px!important;
+        padding-bottom: -1px !important;
+        margin-bottom: -1px !important;
     }
+
     .form-group {
         padding: 1px;
         margin: 1px;
     }
 
-    #input-new-participant-name {
+    #userName {
         width: 100%;
     }
 
@@ -22,188 +23,188 @@
         width: 100%;
     }
 
-    .input-group-append{
+    .input-group-append {
         width: 100%;
-        padding: 1px!important;
-        margin: 1px!important;
+        padding: 1px !important;
+        margin: 1px !important;
     }
-
-    body > div.container > div.input-group.mb-3.new-event-div > div > div:nth-child(1) > div.col-sm-12.col-md-11.my-0.px-md-0.input-box-place{
-        margin-top: 2px!important;
-    }
-    body > div.container > div.input-group.mb-3.new-event-div > div > div:nth-child(1) > div.col-sm-12.col-md-1.px-md-0{
-        padding: 1px!important;
-    }
-
 
 </style>
 
 <br>
-<?php if (!empty($selected_county_id)): ?>
-    <div class="input-group mb-3 new-event-div">
-        <div class="container">
+<div class="input-group mb-3">
+    <div class="container">
+        <form id="new-user-form">
             <div class="row">
-                <div class="col-sm-12 col-md-11 my-0 px-md-0 input-box-place">
-                    <input type="text" class="form-control" id="input-new-participant-name"
-                           placeholder="<?= __("New participant's name") ?>" aria-label="New participant's name"
-                           aria-describedby="basic-addon2">
+                <div class="col-sm-3 col-md-3 m-0 p-1">
+                    <input type="text" class="form-control" name="userName"
+
+                           aria-label="New user's name">
                 </div>
-                <div class="col-sm-12 col-md-1 px-md-0">
-                    <div class="input-group-append justify-content-center d-md-table mx-auto form-group">
-                        <button class="btn btn-success" id="btn-add"><?= __('Add') ?></button>
-                    </div>
+                <div class="col-sm-3 col-md-3  m-0 p-1">
+                    <input type="email" class="form-control" name="userEmail"
+
+                           aria-label="New user's email">
+                </div>
+                <div class="col-sm-4 col-md-3  m-0 p-1">
+                    <input type="password" class="form-control" name="userPassword"
+
+                           aria-label="New user's password">
+                </div>
+                <div class="col-sm-2  col-md-3 m-0 p-1">
+                    <button class="btn btn-success" id="btn-add"><?= __('Add') ?></button>
                 </div>
             </div>
-            <div class="row ">
-                <div class="col-sm-12 col-md-6 px-md-2 text-muted">
-                    <sup><?= __('Name') ?></sup>
-                </div>
-                <div class="col-sm-12 col-md-6 px-md-0 text-center text-muted">
-                    <sup></sup>
-                </div>
+        </form>
+        <div class="row">
+            <div class="col-sm-3 col-md-3 text-muted">
+                <sup><?= __('Name') ?></sup>
+            </div>
+            <div class="col-sm-3 col-md-3  text-muted">
+                <sup><?= __('Email') ?></sup>
+            </div>
+            <div class="col-sm-4 col-md-3  text-muted">
+                <sup><?= __('Password') ?></sup>
+            </div>
+            <div class="col-sm-2 col-md-3 text-muted">
+                <sup></sup>
             </div>
         </div>
     </div>
-    <form class="form-import float-right" name="import" method="post" action="admin/import_upload"
-          enctype="multipart/form-data">
-        <input type="button" class="btn btn-success btn-import" value="<?= __('Import') ?>"/>
-        <input type="file" name="xlsxFile" class="file-import"
-               accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"/>
-        <input type="hidden" name="county_id" value="<?= $selected_county_id ?>"/>
-    </form>
-<?php endif ?>
+</div>
+
 <?php if (!empty($users)): ?>
     <table class="table table table-nonfluid table-bordered table-hover table-users bordered">
         <tr>
-            <th><?= __('User') ?></th>
-            <?php if (!$selected_county_id): ?><th><?= __('County') ?></th><?php endif ?>
+            <?php foreach ($users[0] as $field => $value): ?>
+                <th><?= __(substr($field, 4)) ?></th>
+            <?php endforeach ?>
             <th></th>
         </tr>
         <?php foreach ($users as $user): ?>
-            <tr data-userId="<?= $user['userId'] ?>" data-county_id="<?= $user['county_id'] ?>">
-                <td><?= $user['userName'] ?></td>
-                <?php if (!$selected_county_id): ?><td><?= $user['county_name'] ?></td><?php endif ?>
+            <tr data-userid="<?= $user['userId'] ?>">
+                <?php foreach ($user as $field => $value): ?>
+                    <td><?= $value ?></td>
+                <?php endforeach ?>
                 <td>
                     <a class="edit" data-toggle="modal" data-target=".modal"
                        href="users/edit/<?= $user['userId'] ?>"><i class="fa fa-pencil-square-o"></i></a>&nbsp;
-                    <a class="delete" href="users/delete/<?= $user['userId'] ?>"><i class="fa fa-trash-o"></i></a>
+                    <a class="delete" href="users/delete/<?= $user['userId'] ?>"><i
+                                class="fa fa-trash-o"></i></a>
                 </td>
             </tr>
         <?php endforeach ?>
     </table>
 <?php endif ?>
+
 <div class="modal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title"><?= __('Edit name') ?></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <h5 class="modal-title"><?= __('Edit user') ?></h5>
+                <button type="button" class="close"
+                        data-dismiss="modal"
+                        aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <div class="form-group">
-                    <label class="mr-sm-2" for="input-participant-new-name"><?= __('Name') ?></label>
-                    <input value="" type="text" class="form-control" id="input-participant-new-name"
-                           placeholder="<?= __("Participant's new name") ?>" aria-label="New participant's name"
-                           aria-describedby="basic-addon2">
-                </div>
+                <form id="edit-user-form">
+                    <input type="hidden" name="userId"/>
+                    <div class="form-group">
+                        <label class="mr-sm-2" for="input-user-name"><?= __('Name') ?></label>
+                        <input value="" type="text"
+                               name="userName"
+                               class="form-control"
+                               placeholder="<?= __("User's new name") ?>"
+                               aria-label="user name">
+                    </div>
+                    <div class="form-group">
+                        <label class="mr-sm-2" for="input-user-name"><?= __('Email') ?></label>
+                        <input value="" type="text"
+                               name="userEmail"
+                               class="form-control"
+                               placeholder="<?= __("User's new email") ?>"
+                               aria-label="user email">
+                    </div>
+                    <div class="form-group">
+                        <label class="mr-sm-2" for="input-user-name"><?= __('Password') ?></label>
+                        <input value="" type="text"
+                               name="userPassword"
+                               class="form-control"
+                               placeholder="<?= __("User's new password (leave empty for unchanged)") ?>"
+                               aria-label="user password">
+                    </div>
+                    <div class="form-group">
+                        <label class="mr-sm-2" for="input-user-name"><?= __('Admin') ?></label>
+                        <input value="" type="text"
+                               name="userIsAdmin"
+                               class="form-control"
+                               placeholder="<?= __("Set to 1 if user must be admin") ?>"
+                               aria-label="user is admin">
+                    </div>
+                </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary btn-save"><?= __('Save changes') ?></button>
+                <button type="button"
+                        class="btn btn-primary btn-save"><?= __('Save changes') ?></button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal"><?= __('Close') ?></button>
             </div>
         </div>
     </div>
 </div>
 <script>
-    var selectedUserTr;
 
     $('#btn-add').click(function () {
-        ajax('admin/new_user', {
-            county_id: <?= empty($selected_county_id) ? 0 : $selected_county_id ?>,
-            name: $('#input-new-participant-name').val()
-        }, RELOAD)
+        ajax('admin/addUser', $('#new-user-form').serialize(), RELOAD)
     });
 
     $('.edit').click(function (e) {
-        selectedUserTr = $(this).closest('tr')
+
         // Prevent from navigating away from the page
         e.preventDefault()
 
-        // Fill modal text field with selected participant name
-        $('#input-participant-new-name').val(selectedUserTr.find('td:nth-child(1)').html())
+        // Get selected user's ID
+        let userId = $(this).closest('tr').data('userid');
 
-        // Set modal dropdown value to selected user's county
-        $('#county-id').val(selectedUserTr.data('county_id'))
+        // Store selected user's ID into form for the back-end
+        $('#edit-user-form [name="userId"]').val(userId)
+
+        // Clear password from previous value
+        $('#edit-userPassword').val('')
+
+        // Get selected user's data from database
+        ajax('admin/getUser', {
+            userId
+        }, function (res) {
+
+            // Fill modal fields with data from database
+            Object.keys(res.data).forEach(function (field) {
+                $(`#edit-user-form [name="${field}"]`).val(res.data[field])
+            })
+
+        })
 
     });
 
     $('.delete').click(function (e) {
-        selectedUserTr = $(this).closest('tr')
+
         // Prevent from navigating away from the page
         e.preventDefault()
 
         //Send delete command to server, if user confirms
         if (confirm('<?=__('Are you sure?');?>')) {
-            ajax('admin/delete_user', {
-                userId: selectedUserTr.data('userId')
+            ajax('admin/deleteUser', {
+                userId: $(this).closest('tr').data('userid')
             }, RELOAD)
         }
 
     });
 
     $('.btn-save').click(function () {
-        ajax('admin/edit_user', {
-            name: $('#input-participant-new-name').val(),
-            userId: selectedUserTr.data('userId'),
-            county_id: $('#county-id').val()
-        }, RELOAD)
-    });
 
-    $('.btn-import').on('click', function (e) {
-        $(this.parentNode).find('.file-import').click();
-    });
-
-    $('.file-import').on('change', function (e) {
-        $(this.parentNode).submit();
-    });
-
-    $('.form-import').on('submit', function (e) {
-        e.preventDefault();
-        $.ajax({
-            type: 'POST',
-            url: 'admin/import_users',
-            data: new FormData(this),
-            dataType: 'json',
-            contentType: false,
-            cache: false,
-            processData: false,
-            success: function (response) { //console.log(response);
-                alert(response.data)
-                location.reload()
-            },
-            error: function (jqXHR, exception) {
-                var msg = '';
-                if (jqXHR.status === 0) {
-                    msg = 'Not connect.\n Verify Network.';
-                } else if (jqXHR.status == 404) {
-                    msg = 'Requested page not found. [404]';
-                } else if (jqXHR.status == 500) {
-                    msg = 'Internal Server Error [500].';
-                } else if (exception === 'parsererror') {
-                    msg = 'Requested JSON parse failed.';
-                } else if (exception === 'timeout') {
-                    msg = 'Time out error.';
-                } else if (exception === 'abort') {
-                    msg = 'Ajax request aborted.';
-                } else {
-                    msg = 'Uncaught Error.\n' + jqXHR.responseText;
-                }
-                $('#post').html(msg);
-            },
-
-        });
+        // Send modal contents to back-end and reload the page to update user's table on the screen
+        ajax('admin/editUser', $('#edit-user-form').serialize(), RELOAD)
     });
 
 

@@ -12,8 +12,7 @@ function tryToParseJSON(jsonString) {
         if (o && typeof o === "object") {
             return o;
         }
-    }
-    catch (e) {
+    } catch (e) {
     }
 
     return false;
@@ -22,11 +21,11 @@ function tryToParseJSON(jsonString) {
 
 function ajax(url, options, callback_or_redirect_url, error_callback) {
 
-    
 
     $.post(url, options)
         .fail(function (jqXHR, textStatus, errorThrown) {
             console.log('Xhr error: ', jqXHR, textStatus, errorThrown);
+            show_error_modal(jqXHR.responseText, errorThrown);
         })
         .done(function (response) {
             var json = tryToParseJSON(response);
@@ -72,13 +71,9 @@ function ajax(url, options, callback_or_redirect_url, error_callback) {
 
                 if (typeof callback_or_redirect_url === 'function') {
                     callback_or_redirect_url(json);
-                }
-
-                else if (typeof callback_or_redirect_url === 'string') {
+                } else if (typeof callback_or_redirect_url === 'string') {
                     location.href = callback_or_redirect_url;
-                }
-
-                else if (callback_or_redirect_url === RELOAD) {
+                } else if (callback_or_redirect_url === RELOAD) {
                     location.reload();
                 }
 
@@ -93,7 +88,10 @@ $('table.clickable-rows tr').on('click', function () {
 });
 
 
-function show_error_modal(error) {
+function show_error_modal(error, title = false) {
     $(".error-modal-body").html(error);
+    if (title) {
+        $(".error-modal-title").html(title);
+    }
     error_modal.modal('show');
 }

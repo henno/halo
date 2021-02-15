@@ -24,13 +24,13 @@ class Activity
         return get_one("SELECT MAX(activityLogTimestamp) FROM activityLog WHERE userId = $userId and activityId = $activityId ORDER BY activityLogId");
     }
 
-    public static function logs($criteria)
+    public static function logs($criteria = null)
     {
-        $criteria = $criteria ? 'WHERE ' . implode("AND", $criteria) : '';
+        $where = SQL::getWhere($criteria);
         return get_all("
             SELECT *, DATE_FORMAT(activityLogTimestamp, '%Y-%m-%d %H:%i') activityLogTimestamp 
             FROM activityLog JOIN users USING (userId) JOIN activities USING (activityId)
-            $criteria");
+            $where");
     }
 
 }

@@ -220,18 +220,38 @@ function update($table, array $data, $where)
     }
 }
 
-function escape(array $data)
+function escape(array $data): array
 {
-    global $db;
     $values = array();
+    $IN_regex = '/IN\s*\(/i'; // IN(foo, bar)
+
     if (!empty($data)) {
+
+        // Loop over all members of $data
         foreach ($data as $field => $value) {
-            if ($value === NULL) {
+
+            // Escape field names containing database name
+            $field = str_replace('.', '`.`', $field);
+
+            // Skip escaping if field is numeric (user must escape)
+            if(is_numeric($field)){
+                $values[] = $value;
+            }
+            // If value is supposed to be NULL
+            elseif ($value === NULL) {
                 $values[] = "`$field`=NULL";
+
+                // If value is array and has a member called no_escape then skip this member
             } elseif (is_array($value) && isset($value['no_escape'])) {
-                $values[] = "`$field`=" . mysqli_real_escape_string($db, $value['no_escape']);
+                $values[] = "`$field`=" . addslashes($value['no_escape']);
+
+                // If value begins with IN(, do not escape
+            } elseif (preg_match($IN_regex, $value)) {
+                $values[] = "`$field` " . $value;
+
+                // All other cases
             } else {
-                $values[] = "`$field`='" . mysqli_real_escape_string($db, $value) . "'";
+                $values[] = "`$field`='" . addslashes($value) . "'";
             }
         }
     }

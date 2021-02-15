@@ -1,7 +1,5 @@
 <?php namespace App;
 
-use PhpOffice\PhpSpreadsheet\IOFactory;
-
 /**
  * Created by PhpStorm.
  * User: henno
@@ -10,67 +8,31 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
  */
 class User
 {
-    static function register($email, $password, $isAdmin = false)
+    static function register($userName, $userEmail, $userPassword, $userIsAdmin = 0)
     {
-
+        // Get data to be inserted from function argument list
+        $data = get_defined_vars();
 
         // Hash the password
-        $password = password_hash($password, PASSWORD_DEFAULT);
-
+        $data['userPassword'] = password_hash($userPassword, PASSWORD_DEFAULT);
 
         // Insert user into database
-        $userId = insert('users', ['email' => $email, 'password' => $password]);
-
+        $userId = insert('users', $data);
 
         // Return new user's ID
         return $userId;
     }
 
-    public static function get($criteria)
+    public static function get($criteria = null, $orderBy = null)
     {
+        
         $criteria = $criteria ? 'AND ' . implode("AND", $criteria) : '';
+        $orderBy = $orderBy ? $orderBy : 'userName';
         return get_all("
-            SELECT * 
+            SELECT userId, userName, userEmail, userIsAdmin 
             FROM users
             WHERE userDeleted=0 $criteria 
-            ORDER BY userName");
-    }
-
-    public static function import($filename, $filename_tmp)
-    {
-        $existing_users = [];
-        $ext = pathinfo($filename)['extension'];
-        if ($ext != "xlsx") {
-            echo "Error: Please Upload only CSV File";
-        }
-        $reader = IOFactory::createReader('Xlsx');
-        $reader->setReadDataOnly(true);
-        $worksheets = $reader->listWorksheetInfo($filename_tmp);
-
-        foreach ($worksheets as $worksheet) {
-
-            $sheetName = $worksheet['worksheetName'];
-            $reader->setLoadSheetsOnly($sheetName);
-            $spreadsheet = $reader->load($filename_tmp);
-            $worksheet = $spreadsheet->getActiveSheet();
-            $names = $worksheet->toArray();
-            if ($names[0][0] != 'First name') {
-                stop(400, __('Invalid .xlsx file'));
-            }
-            foreach (array_slice($names, 1) as $name) {
-                $name = "$name[0] $name[1]";
-                if (empty($name)) {
-                    continue;
-                }
-                insert('users', [
-                    'name' => $name,
-                ]);
-            }
-
-            // Skip the rest of the sheets
-            break;
-        }
-        return $existing_users;
+            ORDER BY $orderBy");
     }
 
     public static function login($userId)
@@ -78,4 +40,34 @@ class User
         Activity::create(ACTIVITY_LOGIN, $userId);
         $_SESSION['userId'] = $userId;
     }
+
+    public static function edit(int $userId, array $data)
+    {
+        if(!is_numeric($userId) || $userId < 0){
+            throw new \Exception('Invalid userId');
+        }
+
+        update('users', $data, "userId = $userId");
+    }
+
+    public static function delete(int $userId)
+    {
+        global $db;
+
+        if(!is_numeric($userId) || $userId < 0){
+            throw new \Exception('Invalid userId');
+        }
+
+        // Attempt to delete user from the database (works if user does not have related records in other tables)
+        $result = mysqli_query($db, "DELETE FROM users WHERE userId = $userId");
+
+        // If removing user did not work due to foreign key constraints then mark the user as deleted
+        if(!$result){
+            update('users', [
+                'userDeleted' => 1
+            ], "userId=$userId");
+        }
+
+    }
+
 }
