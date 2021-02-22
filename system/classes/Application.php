@@ -29,9 +29,10 @@ class Application
         session_start();
         ob_start();
 
+        $this->init_db();
         $this->set_language();
         $this->process_uri();
-        $this->init_db();
+        $this->update_settings();
         $this->handle_routing();
         $this->auth = new Auth();
 
@@ -122,10 +123,10 @@ class Application
     private function set_language()
     {
 
-        global $supported_languages, $cfg;
+        global $supported_languages;
 
         // Extract supported languages
-        $supported_languages = array_map('trim', explode('|', WEBSITE_LANGUAGES));
+        $supported_languages = Translation::languageCodesInUse(false);
 
 
         // Set default language (defaults to 'en', if no supported languages are given
@@ -139,7 +140,7 @@ class Application
                 trigger_error('Possible hacking attempt');
             }
 
-            $_SESSION['language'] = substr($_GET['language'], 0, 2);
+            $_SESSION['language'] = substr($_GET['language'], 0, 3);
             setcookie("language", $_SESSION['language'], time() + 3600 * 24 * 30);
 
             // Else check COOKIE
@@ -151,6 +152,13 @@ class Application
         else {
             if (!isset($_SESSION['language'])) {
                 $_SESSION['language'] = $default_language;
+            }
+        }
+
+        // If language is set to a non-existing one but there's at least one existing language, switch to that language
+        if(!in_array($_SESSION['language'], $supported_languages)) {
+            if(isset($supported_languages[0])){
+                $_SESSION['language']=$supported_languages[0];
             }
         }
 
@@ -253,5 +261,31 @@ class Application
         // Define current commit hash
         define('COMMIT_HASH', trim(exec('git log --pretty="%h" -n1 HEAD')));
     }
+
+    private function update_settings()
+    {
+        $lastProjectVersion = Setting::get('projectVersion');
+
+        // If previous version was different, analyze translations and create a new deployment
+        if (COMMIT_HASH !== $lastProjectVersion) {
+
+            $root = dirname(__DIR__, 2);
+
+            Translation::checkCodeForNewPhrases([
+                "$root/classes",
+                "$root/controllers",
+                "$root/system",
+                "$root/templates",
+                "$root/views"]);
+
+            Deployment::create();
+
+            Setting::set('projectVersion', COMMIT_HASH);
+            Setting::set('translationUpdateLastRun', date('Y-m-d H:i:s'));
+
+        }
+
+    }
+
 
 }

@@ -1,5 +1,7 @@
 <?php
 
+use App\Translation;
+
 /**
  * Display a fancy error page and quit.
  * @param $error_msg string Error message to show
@@ -30,69 +32,79 @@ function error_out($error_msg, $code = 500)
  * @param $controller string Controller to load translations for
  * @param $action string Action to load translations for
  */
-function get_translation_strings($lang, $controller, $action)
+function get_translation_strings($lang)
 {
     global $translations;
-    $translations_raw = get_all("SELECT translationController,translationAction,translationPhrase,translation FROM translations WHERE translationLanguage='$lang' AND ((translationController='{$controller}' and translationAction = '{$action}') OR (translationAction='global'  and translationController = 'global'))");
+    $lang = ucfirst($lang);
+
+    // Handle case when current language has been just deleted from the DB
+    $translationColumn = !in_array($_SESSION['language'], Translation::languageCodesInUse(false))
+        ? "NULL AS translationIn$lang" : "translationIn$lang";
+
+    $translations_raw = get_all("
+        SELECT translationPhrase, $translationColumn 
+        FROM translations");
 
     foreach ($translations_raw as $item) {
-        // Uncomment this line if the same phrase need to be translated differently on different pages
-        //$translations[$item['translationController'] . $item['translationAction'] . $item['translationPhrase']] = $item['translation'];
-        $translations[$item['translationPhrase']] = $item['translation'];
-
+        $translations[$item['translationPhrase']] = $item["translationIn$lang"] === NULL ? $item['translationPhrase']
+            : $item["translationIn$lang"];
     }
 }
 
 /**
  * Translates the text into currently selected language
- * @param $text string The text to be translated
- * @param bool $global Set to false if you want to let the user translate this string differently on different sub-pages.
+ * @param $translationPhrase string The text to be translated
+ * @param bool $dynamic Prevent the phrase from being removed during deployment if it doesn't exist in code
  * @return string Translated text
  */
-function __($text, $global = true)
+function __(string $translationPhrase, bool $dynamic = false)
 {
     global $translations;
-    global $controller;
 
-    $active_language = $_SESSION['language'];
-
-    // Controller should be always available, unless we aren't called from a view
-    if (!isset($controller->controller)) {
-        $global = true;
+    // We don't want such things ending up in db
+    if ($translationPhrase === '') {
+        return '';
     }
 
-    // Set translations scope
-    $c = $global ? 'global' : $controller->controller;
-    $a = $global ? 'global' : $controller->action;
-    $page_controller = $controller->controller;
-    $page_action = $controller->action;
+    // Convert the first letter of the language code to upper case
+    $lang = ucfirst($_SESSION['language']);
 
-    // Load translations only the first time (per request)
-    if (empty($translations) && $active_language) {
-        get_translation_strings($active_language, $page_controller, $page_action);
+    // return the original string if there was no language
+    if (!$lang) {
+        return $translationPhrase;
     }
 
+    // Load translations (only the first time)
+    if (empty($translations)) {
 
-    // Safe way to query translation
-    $translation = isset($translations[$text]) ? $translations[$text] : '';
-    // Insert new translation stub into DB when text wasn't empty but a matching translation didn't exist in the DB
-    if ($text !== null && $translation == null) {
-
-
-        // Insert new stub
-        insert('translations', ['translationPhrase' => $text, 'translation' => '{untranslated}', 'translationLanguage' => $active_language, 'translationController' => $c, 'translationAction' => $a]);
-
-
-        // Set translation to input text when stub didn't exist
-        $translation = $text;
-
-    } else if ($translation == '{untranslated}') {
-
-        // Set translation to input text when stub existed but was not yet translated
-        $translation = $text;
+        // Return original string if the language does not exist (any more)
+        if (!in_array($lang, Translation::languageCodesInUse(true))) {
+            return $translationPhrase;
+        }
+        get_translation_strings($lang);
     }
 
-    return $translation;
+    // Db does not store more than 765 bytes
+    $translationPhrase = substr($translationPhrase, 0, 765);
+
+    // Return the translation if it's there
+    if (isset($translations[$translationPhrase])) {
+
+        // Return original string if untranslated
+        if ($translations[$translationPhrase] === NULL)
+            return $translationPhrase;
+
+        // Else return translated string
+        return $translations[$translationPhrase];
+    }
+
+    // Right, so we don't have this in our db yet
+
+    // Insert new stub
+    Translation::add($translationPhrase, $dynamic);
+
+    // And return the original string
+    return $translationPhrase;
 
 }
 

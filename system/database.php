@@ -11,6 +11,8 @@ function connect_db()
     global $cfg;
     @$db = new mysqli(DATABASE_HOSTNAME, DATABASE_USERNAME, DATABASE_PASSWORD);
     if ($connection_error = mysqli_connect_error()) {
+        header($_SERVER['SERVER_PROTOCOL'] . ' 500 Internal Server Error', true, 500);
+
         $errors[] = 'There was an error trying to connect to database at ' . DATABASE_HOSTNAME . ':<br><b>' . $connection_error . '</b>';
         require 'templates/error_template.php';
         die();
@@ -89,7 +91,26 @@ function get_first($sql)
     return empty($first_row) ? array() : $first_row;
 }
 
-function db_error_out($sql = null)
+function get_col($sql)
+{
+    global $db;
+    $result = [];
+
+    $col = preg_replace('/^SELECT\s+(.*)\s+FROM.*/i', '$1', $sql);
+
+    // Check that there is just a single column selected
+    if(strpos($col, ',') !== false){
+        db_error_out($sql,'get_col() requires that exactly one column is selected');
+    }
+
+    $q = mysqli_query($db, $sql) or db_error_out();
+    while (($row = mysqli_fetch_assoc($q)) ) {
+        $result[] = $row[$col];
+    }
+    return $result;
+}
+
+function db_error_out($sql = null, $db_error = null)
 {
     global $db;
 
@@ -97,7 +118,7 @@ function db_error_out($sql = null)
 
     define('PREG_DELIMITER', '/');
 
-    $db_error = mysqli_error($db);
+    $db_error = $db_error ? $db_error : mysqli_error($db);
 
     if (strpos($db_error, 'You have an error in SQL syntax') !== FALSE) {
         $db_error = '<b>Syntax error in</b><pre> ' . substr($db_error, 135) . '</pre>';
@@ -185,14 +206,16 @@ function db_error_out($sql = null)
 /**
  * @param $table string The name of the table to be inserted into.
  * @param $data array Array of data. For example: array('field1' => 'mystring', 'field2' => 3);
+ * @param bool $onDuplicateKeyUpdate Whether or not to add ON DUPLICATE KEY UPDATE part.
  * @return bool|int Returns the ID of the inserted row or FALSE when fails.
  */
-function insert($table, $data = [])
+function insert($table, $data = [], $onDuplicateKeyUpdate = false)
 {
     global $db;
     if ($table and is_array($data)) {
         $values = implode(',', escape($data));
-        $values = $values ? "SET {$values} ON DUPLICATE KEY UPDATE {$values}":'() VALUES()';
+        $onDuplicateKeyUpdate = $onDuplicateKeyUpdate ? "ON DUPLICATE KEY UPDATE {$values}" : '';
+        $values = $values ? "SET {$values} " . $onDuplicateKeyUpdate : '() VALUES()';
         $sql = "INSERT INTO `{$table}` $values";
         $q = mysqli_query($db, $sql) or db_error_out($sql);
         $id = mysqli_insert_id($db);

@@ -53,13 +53,12 @@
             <li class="nav-item <?=$controller=='halo'?'active':''?>">
                 <a class="nav-link" href="halo"><?= __('Halo') ?> <?=$action=='halo'?'<span class="sr-only">(current)</span>':''?></a>
             </li>
-
-        </ul>
-        <ul class="navbar-nav my-2 my-lg-0">
-            <li class="nav-item">
-                <a class="nav-link" href="logout"><?= __('Logout') ?></a>
+            <li class="nav-item <?= $action == 'translations' ? 'active' : '' ?>">
+                <a class="nav-link" href="admin/translations"><?= __('Translations') ?> <?= $action == 'translations' ? '<span class="sr-only">(current)</span>' : '' ?></a>
             </li>
         </ul>
+
+        <?php require 'templates/partials/main_menu_right_side.php'?>
     </div>
 </nav>
 
