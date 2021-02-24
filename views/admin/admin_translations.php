@@ -157,7 +157,7 @@
                 <div class="input-group-append">
                     <button class="btn btn-secondary" type="button" data-toggle="modal" role="button"
                             data-target="#add-language-modal">
-                        <i class="fa fa-language" aria-hidden="true"></i> <?= __('Langugages') ?>
+                        <i class="fa fa-language" aria-hidden="true"></i> <?= __('Languages') ?>
                     </button>
                 </div>
             </div>
