@@ -5,6 +5,8 @@ use Stichoza\GoogleTranslate\GoogleTranslate;
 class Translation
 {
     static $languageCodesInUse = [];
+    static $languageCodeMinLength = 2;
+    static $languageCodeMaxLength = 3;
 
     /**
      * @param bool $capitalize

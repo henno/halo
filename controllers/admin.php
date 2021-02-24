@@ -37,7 +37,9 @@ class admin extends Controller
     public function AJAX_translationAddLanguage()
     {
 
-        if (empty($_POST['languageCode']) || strlen($_POST['languageCode']) > 3 || strlen($_POST['languageCode']) < 2) {
+        if (empty($_POST['languageCode'])
+            || strlen($_POST['languageCode']) > Translation::$languageCodeMaxLength
+            || strlen($_POST['languageCode']) < Translation::$languageCodeMinLength) {
             stop(400, 'Invalid languageCode');
         }
 
@@ -50,7 +52,9 @@ class admin extends Controller
     public function AJAX_translationDeleteLanguage()
     {
 
-        if (empty($_POST['languageCode']) || strlen($_POST['languageCode']) != 2) {
+        if (empty($_POST['languageCode'])
+            || strlen($_POST['languageCode']) > Translation::$languageCodeMaxLength
+            || strlen($_POST['languageCode']) < Translation::$languageCodeMinLength) {
             stop(400, 'Invalid languageCode');
         }
 
@@ -61,7 +65,9 @@ class admin extends Controller
 
     public function AJAX_translateRemainingStrings()
     {
-        if (empty($_POST['languageCode']) || strlen($_POST['languageCode']) > 3 || strlen($_POST['languageCode']) < 2) {
+        if (empty($_POST['languageCode'])
+            || strlen($_POST['languageCode']) > Translation::$languageCodeMaxLength
+            || strlen($_POST['languageCode']) < Translation::$languageCodeMinLength) {
             stop(400, 'Invalid languageCode');
         }
         Translation::googleTranslateMissingTranslations($_POST['languageCode']);
