@@ -269,8 +269,13 @@ class Translation
         }
 
         // Translate payload
-        $googleTranslated = explode("\n|\n",
-            GoogleTranslate::trans(implode("\n|\n", $payload), $language, 'en'));
+        $googleTranslated = GoogleTranslate::trans(implode("\n|\n", $payload), $language, 'et');
+
+        // Fix broken separators (occurs in Bosnian language)
+        $googleTranslated = preg_replace('/(\n\|. \|\n)/', "\n|\n", $googleTranslated);
+
+        // Convert translated strings back to array
+        $googleTranslated = explode("\n|\n", $googleTranslated);
 
         // Loop over translated array
         for ($n = 0; $n < count($googleTranslated); $n++) {
