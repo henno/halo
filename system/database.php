@@ -246,7 +246,7 @@ function update($table, array $data, $where)
 function escape(array $data): array
 {
     $values = array();
-    $IN_regex = '/IN\s*\(/i'; // IN(foo, bar)
+    $IN_regex = '/^\s*IN\s*\(/i'; // IN(foo, bar)
 
     if (!empty($data)) {
 
