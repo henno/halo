@@ -1,18 +1,24 @@
 <?php namespace App;
 
+use ErrorException;
+use Exception;
+use FilesystemIterator;
+use RecursiveCallbackFilterIterator;
+use RecursiveDirectoryIterator;
+use RecursiveIteratorIterator;
 use Stichoza\GoogleTranslate\GoogleTranslate;
 
 class Translation
 {
-    static $languageCodesInUse = [];
-    static $languageCodeMinLength = 2;
-    static $languageCodeMaxLength = 3;
+    public static $languageCodesInUse = [];
+    public static $languageCodeMinLength = 2;
+    public static $languageCodeMaxLength = 3;
 
     /**
      * @param bool $capitalize
      * @return array
      */
-    static function languageCodesInUse(bool $capitalize): array
+    public static function languageCodesInUse(bool $capitalize): array
     {
 
         // Serve from cache, if possible
@@ -30,7 +36,7 @@ class Translation
         return $capitalize ? self::$languageCodesInUse : array_map('strtolower', self::$languageCodesInUse);
     }
 
-    static function get($criteria = null)
+    public static function get($criteria = null)
     {
         $where = SQL::getWhere($criteria);
         $translations = get_all("SELECT * FROM translations $where ORDER BY translationPhrase");
@@ -38,7 +44,7 @@ class Translation
         return $translations;
     }
 
-    static function checkCodeForNewPhrases($dirs)
+    public static function checkCodeForNewPhrases($dirs)
     {
         global $translations;
 
@@ -61,6 +67,8 @@ class Translation
 
             // Avoid issues with quotes in phrases by adding slashes before quotes
             foreach ($current_phrases as &$phrase) {
+
+                $phrase = trim($phrase);
 
                 if (strlen($phrase) > 765) {
 
@@ -86,14 +94,14 @@ class Translation
                     $translations[$phrase] = $phrase;
 
                     // Add the phrase to INSERT INTO translations
-                    $valuesToInsert[] = "'$escapedPhrase'";
+                    $valuesToInsert[$phrase] = "'$escapedPhrase'";
 
                     // Add the phrase to phrases to be translated
-                    $phrasesToGoogleTranslate[] = $phrase;
+                    $phrasesToGoogleTranslate[$phrase] = $phrase;
 
                 } else {
                     // Add the phrase to UPDATE translations
-                    $valuesToUpdate[] = $escapedPhrase;
+                    $valuesToUpdate[$phrase] = $escapedPhrase;
                 }
             }
 
@@ -126,14 +134,16 @@ class Translation
             foreach ($languages as $language) {
                 self::googleTranslateMissingTranslations($language);
             }
+
+            self::deleteUnusedDynamicTranslations();
         }
     }
 
-    static function getFilesFromPath($path, $file_types = ['php', 'js']): array
+    public static function getFilesFromPath($path, $file_types = ['php', 'js']): array
     {
         $result = array();
-        $directory = new \RecursiveDirectoryIterator($path, \FilesystemIterator::FOLLOW_SYMLINKS);
-        $filter = new \RecursiveCallbackFilterIterator($directory, function ($current, $key, $iterator) use ($file_types) {
+        $directory = new RecursiveDirectoryIterator($path, FilesystemIterator::FOLLOW_SYMLINKS);
+        $filter = new RecursiveCallbackFilterIterator($directory, function ($current, $key, $iterator) use ($file_types) {
 
             // Skip hidden files and directories.
             if ($current->getFilename()[0] === '.' || $current->getFilename()[0] === '..') {
@@ -152,7 +162,7 @@ class Translation
             }
         });
 
-        $files = new \RecursiveIteratorIterator($filter);
+        $files = new RecursiveIteratorIterator($filter);
 
         foreach ($files as $file) {
             $result[] = $file->getPathname();
@@ -165,8 +175,7 @@ class Translation
      * @param array $files Files to search
      * @return array Found phrases
      */
-    private
-    static function findPhrases(array $files): array
+    private static function findPhrases(array $files): array
     {
         $phrases = [];
 
@@ -174,10 +183,11 @@ class Translation
 
             // Find __( 'xxx' ) and __( "xxx" );
             preg_match_all(
-                "/__\(\"(?:[^\"\\\]|\\.)*\"\)|__\('(?:[^'\\\]|\\.)*'\)/",
-                //"/__\(\"(?:[^\"\\\]|\\.)*\"\)|__\('(?:[^'\\\]|\\.)*'\)/",
+                '/__\("(?:[^\'\\\]|\\\\.)+"\)|__\(\'(?:[^\'\\\]|\\\\.)+\'\)/U',
                 file_get_contents($file),
                 $matches);
+
+            $matches = self::removeEscapesFromQuotes($matches);
 
             $phrases = array_merge($phrases, $matches[0]);
 
@@ -193,49 +203,63 @@ class Translation
         return $phrases;
     }
 
-    public
-    static function add(string $translationPhrase, $dynamic)
+    public static function add(string $translationPhrase, $dynamicSource)
     {
         global $translations;
 
-        insert('translations', [
+        $data = [
             'translationPhrase' => $translationPhrase,
-            'translationState' => $dynamic ? 'dynamic' : 'existsInCode'
-        ]);
+            'translationState' => $dynamicSource ? 'dynamic' : 'existsInCode'
+        ];
 
-        // Prevent gaps in translations.translationId due to auto_increment increasing with ON DUPLICATE KEY UPDATE..
+        if ($dynamicSource) {
+            $data['translationSource'] = $dynamicSource;
+        }
+
+        insert('translations', $data);
+
+        // Prevent gaps in translations.translation_id due to auto_increment increasing with ON DUPLICATE KEY UPDATE..
         $translations[$translationPhrase] = $translationPhrase;
     }
 
-    public
-    static function deleteLanguage($language)
+    public static function deleteLanguage($language)
     {
         if (empty($language) || strlen($language) != 2) {
-            throw new \Exception('Invalid language');
+            throw new Exception('Invalid language');
         }
         q("ALTER TABLE translations DROP COLUMN translationIn$language");
     }
 
-    public
-    static function addLanguage($language)
+    public static function addLanguage($language)
     {
         if (empty($language) || strlen($language) != 2) {
-            throw new \Exception('Invalid language');
+            throw new Exception('Invalid language');
         }
 
         // Re-format language
         $language = ucfirst(strtolower($language));
 
-        q("ALTER TABLE translations ADD COLUMN translationIn$language varbinary(765)");
+        q("ALTER TABLE translations ADD COLUMN translationIn$language VARCHAR(765) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL");
+    }
+
+    /**
+     * @param $matches
+     * @return mixed
+     */
+    private static function removeEscapesFromQuotes($matches)
+    {
+        for ($n = 0; $n < count($matches[0]); $n++) {
+            $matches[0][$n] = str_replace("\\'", "'", $matches[0][$n]);
+        }
+        return $matches;
     }
 
     /**
      * Translates max 5000 characters
-     * @param array $languages
-     * @param array $googleTranslated
+     * @param $language
+     * @throws ErrorException
      */
-    public
-    static function googleTranslateMissingTranslations($language): void
+    public static function googleTranslateMissingTranslations($language): void
     {
 
         // No language given
@@ -269,7 +293,7 @@ class Translation
         }
 
         // Translate payload
-        $googleTranslated = GoogleTranslate::trans(implode("\n|\n", $payload), $language, 'et');
+        $googleTranslated = GoogleTranslate::trans(implode("\n|\n", $payload), $language, DEFAULT_LANGUAGE);
 
         // Fix broken separators (occurs in Bosnian language)
         $googleTranslated = preg_replace('/(\n\|. \|\n)/', "\n|\n", $googleTranslated);
@@ -289,8 +313,7 @@ class Translation
 
     }
 
-    public
-    static function getUntranslated(array $languages)
+    public static function getUntranslated(array $languages)
     {
         // Capitalize first letter of each array member
         $languages = array_map('ucfirst', $languages);
@@ -301,8 +324,7 @@ class Translation
         return self::get($criteria);
     }
 
-    public
-    static function getStatistics($languages = [])
+    public static function getStatistics($languages = [])
     {
         $result = [];
         $sums = '';
@@ -323,14 +345,8 @@ class Translation
         return $result;
     }
 
-    private
-    static function googleTranslate($textArray, $destinationLanguage)
-    {
-        $googleTranslated = GoogleTranslate::trans(implode("\n|\n", $textArray), strtolower($destinationLanguage), 'en');
-        return explode("\n|\n", $googleTranslated);
-    }
 
-    static function getLanguages($criteria): array
+    public static function getLanguages($criteria): array
     {
 
         $languages = [];
@@ -344,10 +360,50 @@ class Translation
         return $languages;
     }
 
-    static function getLanguagesByCode($languageCodes, $inverted = false)
+    public static function getLanguagesByCode($languageCodes, $inverted = false)
     {
         $not = $inverted ? 'NOT' : '';
         return Translation::getLanguages([
             "translationLanguageCode $not IN('" . implode("','", $languageCodes) . "')"]);
+    }
+
+    public static function deleteUnusedDynamicTranslations(): void
+    {
+        $dynamicTranslations = get_all("SELECT * FROM translations WHERE translationState='dynamic'");
+
+        foreach ($dynamicTranslations as $dynamicTranslation) {
+
+            // Skip iteration if translation_source is not in required format
+            if (substr_count($dynamicTranslation['translationSource'], '.') != 1) {
+                continue;
+            }
+
+            // Skip iteration if unable to extract table and column
+            $source = explode('.', $dynamicTranslation['translationSource']);
+            if (!is_array($source) || count($source) != 2) {
+                continue;
+            }
+
+            list($table, $column) = $source;
+
+            // Make sure specified table and column actually exist
+            if (q("show tables like '$table'") != 1 || q("show columns from $table like '$column'") != 1) {
+                continue;
+            }
+
+            $values = get_col("SELECT $column FROM $table");
+
+            // Delete the translation if it's no longer in the database
+            if (!in_array($dynamicTranslation['translationPhrase'], $values)) {
+                q("DELETE FROM translations WHERE translationId = '$dynamicTranslation[translationId]'");
+            }
+        }
+    }
+
+    public static function isValidLanguageCode($languageCode): bool
+    {
+        return !(empty($languageCode)
+            || strlen($languageCode) > Translation::$languageCodeMaxLength
+            || strlen($languageCode) < Translation::$languageCodeMinLength);
     }
 }

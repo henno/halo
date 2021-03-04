@@ -1,6 +1,8 @@
 <?php namespace App;
 
 use DateTime;
+use HTMLPurifier;
+use HTMLPurifier_Config;
 
 class admin extends Controller
 {
@@ -27,20 +29,23 @@ class admin extends Controller
         if (empty($_POST['translationId']) || !is_numeric($_POST['translationId']) || $_POST['translationId'] <= 0) {
             stop(400, 'Invalid translationId');
         }
-        if (empty($_POST['data'])) {
-            stop(400, 'Invalid data');
+        if (!Translation::isValidLanguageCode($_POST['languageCode'])) {
+            stop(400, "Invalid languageCode");
+        }
+        if ($this->htmlIsValid($_POST['translation'])) {
+            stop(400, "Invalid HTML");
         }
 
-        update('translations', $_POST['data'], "translationId = $_POST[translationId]");
+        update('translations', [
+            "translationIn$_POST[languageCode]" => $_POST['translation']
+        ], "translationId = $_POST[translationId]");
     }
 
     public function AJAX_translationAddLanguage()
     {
 
-        if (empty($_POST['languageCode'])
-            || strlen($_POST['languageCode']) > Translation::$languageCodeMaxLength
-            || strlen($_POST['languageCode']) < Translation::$languageCodeMinLength) {
-            stop(400, 'Invalid languageCode');
+        if (!Translation::isValidLanguageCode($_POST['languageCode'])) {
+            stop(400, "Invalid languageCode");
         }
 
         /** @noinspection PhpUnhandledExceptionInspection */
@@ -52,10 +57,8 @@ class admin extends Controller
     public function AJAX_translationDeleteLanguage()
     {
 
-        if (empty($_POST['languageCode'])
-            || strlen($_POST['languageCode']) > Translation::$languageCodeMaxLength
-            || strlen($_POST['languageCode']) < Translation::$languageCodeMinLength) {
-            stop(400, 'Invalid languageCode');
+        if (!Translation::isValidLanguageCode($_POST['languageCode'])) {
+            stop(400, "Invalid languageCode");
         }
 
         /** @noinspection PhpUnhandledExceptionInspection */
@@ -65,10 +68,8 @@ class admin extends Controller
 
     public function AJAX_translateRemainingStrings()
     {
-        if (empty($_POST['languageCode'])
-            || strlen($_POST['languageCode']) > Translation::$languageCodeMaxLength
-            || strlen($_POST['languageCode']) < Translation::$languageCodeMinLength) {
-            stop(400, 'Invalid languageCode');
+        if (!Translation::isValidLanguageCode($_POST['languageCode'])) {
+            stop(400, "Invalid languageCode");
         }
         Translation::googleTranslateMissingTranslations($_POST['languageCode']);
         $stats = Translation::getStatistics([$_POST['languageCode']]);
@@ -154,6 +155,18 @@ class admin extends Controller
         }
 
         stop(200, get_first("SELECT userIsAdmin,userEmail,userName FROM users WHERE userId = $_POST[userId]"));
+    }
+
+    public function htmlIsValid($html): bool
+    {
+
+        $config = HTMLPurifier_Config::createDefault();
+        $config->set('Core.Encoding', 'UTF-8');
+        $purifier = new HTMLPurifier($config);
+        $pure_html = $purifier->purify($html);
+
+        return !!strcmp($html, $pure_html);
+
     }
 
 }

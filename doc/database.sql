@@ -149,8 +149,9 @@ DROP TABLE IF EXISTS `translations`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `translations` (
   `translationId` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `translationPhrase` varbinary(765) NOT NULL,
+  `translationPhrase` varchar(765) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
   `translationState` varchar(255) NOT NULL DEFAULT 'existsInCode',
+  `TranslationSource` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`translationId`),
   UNIQUE KEY `translations_translationPhrase_uindex` (`translationPhrase`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

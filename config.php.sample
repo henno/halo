@@ -20,3 +20,9 @@ define('SMTP_DKIM_PRIVATE_KEY', '.certs/dkim_private_key.pem');
 define('SMTP_DKIM_SELECTOR', 'example');
 define('SMTP_DKIM_PASSPHRASE', '');
 define('SMTP_DKIM_IDENTITY', SMTP_FROM);
+
+// Make sure timestamps are correct
+date_default_timezone_set('Europe/Tallinn');
+
+// In which language you have translatable phrases in the code
+define('DEFAULT_LANGUAGE', 'en');

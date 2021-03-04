@@ -1,5 +1,6 @@
 <?php
 
+use App\Request;
 use App\Translation;
 
 /**
@@ -17,6 +18,9 @@ function error_out($error_msg, $code = 500)
     // Set error message
     $errors[] = $error_msg;
 
+    if (Request::isAjax()) {
+        stop(400, $error_msg);
+    }
 
     // Show pretty error, too, to humans
     require __DIR__ . '/../templates/error_template.php';
@@ -26,16 +30,9 @@ function error_out($error_msg, $code = 500)
     exit();
 }
 
-/**
- * Loads given controller/action, and global, translations to memory
- * @param $lang string Language to load
- * @param $controller string Controller to load translations for
- * @param $action string Action to load translations for
- */
 function get_translation_strings($lang)
 {
     global $translations;
-    $lang = ucfirst($lang);
 
     // Handle case when current language has been just deleted from the DB
     $translationColumn = !in_array($_SESSION['language'], Translation::languageCodesInUse(false))
@@ -54,12 +51,14 @@ function get_translation_strings($lang)
 /**
  * Translates the text into currently selected language
  * @param $translationPhrase string The text to be translated
- * @param bool $dynamic Prevent the phrase from being removed during deployment if it doesn't exist in code
+ * @param null $dynamic_source
  * @return string Translated text
  */
-function __(string $translationPhrase, bool $dynamic = false)
+function __(string $translationPhrase, $dynamic_source = null): ?string
 {
     global $translations;
+
+    $translationPhrase = trim($translationPhrase);
 
     // We don't want such things ending up in db
     if ($translationPhrase === '') {
@@ -101,10 +100,10 @@ function __(string $translationPhrase, bool $dynamic = false)
     // Right, so we don't have this in our db yet
 
     // Insert new stub
-    Translation::add($translationPhrase, $dynamic);
+    Translation::add($translationPhrase, $dynamic_source);
 
     // And return the original string
-    return $translationPhrase;
+    return nl2br($translationPhrase);
 
 }
 
@@ -115,6 +114,9 @@ function stop($code, $data = false)
     if ($data) {
         $response['data'] = $data;
     }
+
+    // Change HTTP status code
+    http_response_code($code);
 
     exit(json_encode($response));
 }

@@ -26,7 +26,7 @@
         <tr class="<?=$row['activityName']?>">
             <td><?=$row['activityLogTimestamp']?></td>
             <td><?=$row['name']?></td>
-            <td><?=__($row['activityDescription'])?></td>
+            <td><?=__($row['activityDescription'], "activities.activityDescription")?></td>
         </tr>
     <?php endforeach ?>
 </table>

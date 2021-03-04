@@ -2,20 +2,17 @@
 /* @var $ */
 $(function () {
     $("td.editable").dblclick(function () {
-        let lang = $(this).data('lang');
-        let originalContent = $(this).text();
+        let languageCode = $(this).data('lang');
+        let originalContent = $(this).html();
         let translationId = $(this).parents('tr').data('id');
-        let newContent = prompt("Enter new content for:", originalContent);
+        let translation = prompt("Enter new content for:", originalContent);
         let cell = $(this)
-        let payload = {}
-        payload['translationId'] = translationId
-        payload['data'] = {}
-        payload['data']['translationIn' + lang] = newContent
 
-        if (newContent != null) {
+        if (translation != null) {
 
             // Send value to back-end
-            ajax('admin/translationEdit', payload, function (res) {
+            ajax('admin/translationEdit', {translationId, languageCode, translation}, function (res) {
+                cell.removeClass('alert-danger');
                 cell.addClass('alert-success');
             }, function (res) {
                 if (typeof res !== 'undefined') {
@@ -25,7 +22,7 @@ $(function () {
             });
 
             // Write value to table
-            $(this).text(newContent)
+            $(this).html(translation)
         }
     });
 });

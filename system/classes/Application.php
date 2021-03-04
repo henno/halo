@@ -64,13 +64,10 @@ class Application
             exit();
         }
 
-        // Check ajaxness
-        $is_ajax_request = !empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest';
-
         // Authenticate user, if controller requires it
         if ($controller->requires_auth && !$controller->auth->logged_in) {
 
-            if (!$is_ajax_request) {
+            if (!(Request::isAjax())) {
                 $this->save_current_url_to_session($controller);
             }
 
@@ -85,7 +82,7 @@ class Application
         }
 
         // Run the action
-        if ($is_ajax_request && method_exists($controller, 'AJAX_' . $controller->action)) {
+        if (Request::isAjax() && method_exists($controller, 'AJAX_' . $controller->action)) {
             $action_name = 'AJAX_' . $controller->action;
             $controller->$action_name();
             stop(200);
@@ -130,7 +127,7 @@ class Application
 
 
         // Set default language (defaults to 'en', if no supported languages are given
-        $default_language = isset($supported_languages[0]) ? $supported_languages[0] : 'en';
+        $default_language = isset($supported_languages[0]) ? $supported_languages[0] : DEFAULT_LANGUAGE;
 
 
         // Check GET
@@ -148,7 +145,7 @@ class Application
 
             $_SESSION['language'] = substr($_COOKIE['language'], 0, 2);
 
-        } // First visit, set default langauge
+        } // First visit, set default language
         else {
             if (!isset($_SESSION['language'])) {
                 $_SESSION['language'] = $default_language;

@@ -26,15 +26,27 @@ function ajax(url, options, callback_or_redirect_url, error_callback) {
         .fail(function (jqXHR, textStatus, errorThrown) {
             console.log('Xhr error: ', jqXHR, textStatus, errorThrown);
 
-            if (typeof error_callback === 'function') {
-                error_callback(jqXHR.responseText);
+            let error;
+            let json = tryToParseJSON(jqXHR.responseText);
+            if (json === false) {
+                error = jqXHR.responseText;
             } else {
-                show_error_modal(jqXHR.responseText, errorThrown);
+                if (typeof json.data === 'undefined') {
+                    error = `<pre>${JSON.stringify(json, null, 2)}</pre>`;
+                } else {
+                    error = json.data;
+                }
+            }
+
+            if (typeof error_callback === 'function') {
+                error_callback(error);
+            } else {
+                show_error_modal(error, errorThrown);
             }
 
         })
         .done(function (response) {
-            var json = tryToParseJSON(response);
+            let json = tryToParseJSON(response);
 
             if (json === false) {
 
