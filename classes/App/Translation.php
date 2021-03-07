@@ -298,6 +298,9 @@ class Translation
         // Fix broken separators (occurs in Bosnian language)
         $googleTranslated = preg_replace('/(\n\|. \|\n)/', "\n|\n", $googleTranslated);
 
+        // Fix broken separators (occurs in Corsican language)
+        $googleTranslated = preg_replace('/(\nŒ œ\n)/', "\n|\n", $googleTranslated);
+
         // Convert translated strings back to array
         $googleTranslated = explode("\n|\n", $googleTranslated);
 
