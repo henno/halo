@@ -6,7 +6,7 @@
  * Date: 29/10/16
  * Time: 22:24
  */
-class User
+class User extends Model
 {
     static function register($userName, $userEmail, $userPassword, $userIsAdmin = 0)
     {
@@ -23,17 +23,6 @@ class User
         return $userId;
     }
 
-    public static function get($criteria = null, $orderBy = null)
-    {
-        
-        $criteria = $criteria ? 'AND ' . implode("AND", $criteria) : '';
-        $orderBy = $orderBy ? $orderBy : 'userName';
-        return get_all("
-            SELECT userId, userName, userEmail, userIsAdmin 
-            FROM users
-            WHERE userDeleted=0 $criteria 
-            ORDER BY $orderBy");
-    }
 
     public static function login($userId)
     {
@@ -59,7 +48,7 @@ class User
         }
 
         // Attempt to delete user from the database (works if user does not have related records in other tables)
-        $result = mysqli_query($db, "DELETE FROM users WHERE userId = $userId");
+        $result = mysqli_query($db, "DELETE FROM user WHERE userId = $userId");
 
         // If removing user did not work due to foreign key constraints then mark the user as deleted
         if(!$result){

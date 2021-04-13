@@ -32,6 +32,10 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js?<?=COMMIT_HASH?>"></script>
     <![endif]-->
 
+    <script>
+        import LogRocket from 'logrocket';
+        LogRocket.init('hmefpa/halo');
+    </script>
 
 </head>
 

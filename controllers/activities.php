@@ -10,13 +10,13 @@ class activities extends Controller
 
     function index()
     {
-        $this->activities = get_all("SELECT * FROM activities");
+        $this->activities = Activity::getAll();
     }
 
     function view()
     {
         $activityId = $this->getId();
-        $this->activity = get_first("SELECT * FROM activities WHERE activityId = '{$activityId}'");
+        $this->activity = get_first("SELECT * FROM activity WHERE activityId = '{$activityId}'");
     }
 
     function AJAX_create()

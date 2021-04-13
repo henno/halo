@@ -1,7 +1,7 @@
 <?php namespace App;
 
 
-class Activity
+class Activity extends Model
 {
 
     public static function create($activityId, $userId = 0)
@@ -29,7 +29,7 @@ class Activity
         $where = SQL::getWhere($criteria);
         return get_all("
             SELECT *, DATE_FORMAT(activityLogTimestamp, '%Y-%m-%d %H:%i') activityLogTimestamp 
-            FROM activityLog JOIN users USING (userId) JOIN activities USING (activityId)
+            FROM activityLog JOIN user USING (userId) JOIN activity USING (activityId)
             $where");
     }
 

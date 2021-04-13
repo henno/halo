@@ -16,13 +16,13 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `activities`
+-- Table structure for table `activity`
 --
 
-DROP TABLE IF EXISTS `activities`;
+DROP TABLE IF EXISTS `activity`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `activities` (
+CREATE TABLE `activity` (
   `activityId` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Autocreated',
   `activityName` varchar(50) NOT NULL COMMENT 'Autocreated',
   `activityDescription` varchar(191) NOT NULL,
@@ -31,13 +31,13 @@ CREATE TABLE `activities` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `activities`
+-- Dumping data for table `activity`
 --
 
-LOCK TABLES `activities` WRITE;
-/*!40000 ALTER TABLE `activities` DISABLE KEYS */;
-INSERT INTO `activities` VALUES (1,'login','logged in'),(2,'logout','logged out');
-/*!40000 ALTER TABLE `activities` ENABLE KEYS */;
+LOCK TABLES `activity` WRITE;
+/*!40000 ALTER TABLE `activity` DISABLE KEYS */;
+INSERT INTO `activity` VALUES (1,'login','logged in'),(2,'logout','logged out');
+/*!40000 ALTER TABLE `activity` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -53,7 +53,7 @@ CREATE TABLE `activityLog` (
   `userId` int(10) unsigned NOT NULL,
   `activityId` int(10) unsigned NOT NULL COMMENT 'Autocreated',
   PRIMARY KEY (`activityLogId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -62,17 +62,18 @@ CREATE TABLE `activityLog` (
 
 LOCK TABLES `activityLog` WRITE;
 /*!40000 ALTER TABLE `activityLog` DISABLE KEYS */;
+INSERT INTO `activityLog` VALUES ('2021-03-19 19:07:47',1,1,1);
 /*!40000 ALTER TABLE `activityLog` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `deployments`
+-- Table structure for table `deployment`
 --
 
-DROP TABLE IF EXISTS `deployments`;
+DROP TABLE IF EXISTS `deployment`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `deployments` (
+CREATE TABLE `deployment` (
   `deploymentId` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `deploymentCommitDate` datetime NOT NULL,
   `deploymentDate` datetime NOT NULL,
@@ -80,16 +81,17 @@ CREATE TABLE `deployments` (
   `deploymentCommitAuthor` varchar(255) DEFAULT NULL,
   `deploymentCommitSha` varchar(256) NOT NULL,
   PRIMARY KEY (`deploymentId`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `deployments`
+-- Dumping data for table `deployment`
 --
 
-LOCK TABLES `deployments` WRITE;
-/*!40000 ALTER TABLE `deployments` DISABLE KEYS */;
-/*!40000 ALTER TABLE `deployments` ENABLE KEYS */;
+LOCK TABLES `deployment` WRITE;
+/*!40000 ALTER TABLE `deployment` DISABLE KEYS */;
+INSERT INTO `deployment` VALUES (2,'2021-03-07 16:58:33','2021-03-19 19:07:36','Fix Corsican language','Henno Täht','4fe454d');
+/*!40000 ALTER TABLE `deployment` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -112,7 +114,7 @@ CREATE TABLE `settings` (
 
 LOCK TABLES `settings` WRITE;
 /*!40000 ALTER TABLE `settings` DISABLE KEYS */;
-INSERT INTO `settings` VALUES ('projectVersion','0'),('translationUpdateLastRun','2021-02-22 00:00:00');
+INSERT INTO `settings` VALUES ('projectVersion','4fe454d'),('translationUpdateLastRun','2021-03-19 19:07:36');
 /*!40000 ALTER TABLE `settings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -154,7 +156,7 @@ CREATE TABLE `translations` (
   `TranslationSource` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`translationId`),
   UNIQUE KEY `translations_translationPhrase_uindex` (`translationPhrase`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -163,17 +165,18 @@ CREATE TABLE `translations` (
 
 LOCK TABLES `translations` WRITE;
 /*!40000 ALTER TABLE `translations` DISABLE KEYS */;
+INSERT INTO `translations` VALUES (1,'Invalid username','existsInCode',NULL),(2,'Invalid password','existsInCode',NULL),(3,'User already exists','existsInCode',NULL),(4,'You cannot delete yourself','existsInCode',NULL),(5,'Server returned response in an unexpected format','existsInCode',NULL),(6,'Forbidden','existsInCode',NULL),(7,'Server returned an error. Please try again later','existsInCode',NULL),(8,'Module Name','existsInCode',NULL),(9,'Access denied','existsInCode',NULL),(10,'Wrong username or password','existsInCode',NULL),(11,'Please sign in','existsInCode',NULL),(12,'Email','existsInCode',NULL),(13,'Password','existsInCode',NULL),(14,'Sign in','existsInCode',NULL),(15,'Users','existsInCode',NULL),(16,'Logs','existsInCode',NULL),(17,'Halo','existsInCode',NULL),(18,'Translations','existsInCode',NULL),(19,'Admin','existsInCode',NULL),(20,'Disabled','existsInCode',NULL),(21,'Action','existsInCode',NULL),(22,'Another action','existsInCode',NULL),(23,'Something else here','existsInCode',NULL),(24,'Logout','existsInCode',NULL),(25,'Oops...','existsInCode',NULL),(26,'Close','existsInCode',NULL),(27,'Time','existsInCode',NULL),(28,'User','existsInCode',NULL),(29,'Activity','existsInCode',NULL),(30,'Add','existsInCode',NULL),(31,'Name','existsInCode',NULL),(32,'Edit user','existsInCode',NULL),(33,'Set to 1 if user must be admin','existsInCode',NULL),(34,'Save changes','existsInCode',NULL),(35,'Are you sure?','existsInCode',NULL),(36,'Phrase','existsInCode',NULL),(37,'Untranslated','existsInCode',NULL),(38,'Search','existsInCode',NULL),(39,'Languages','existsInCode',NULL),(40,'Select language','existsInCode',NULL),(41,'Google translates < 5000 chars at a time','existsInCode',NULL),(42,'Select language first','existsInCode',NULL),(43,'Are you really sure you want to remove the language %%% and destroy its translations?','existsInCode',NULL);
 /*!40000 ALTER TABLE `translations` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `users`
+-- Table structure for table `user`
 --
 
-DROP TABLE IF EXISTS `users`;
+DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `users` (
+CREATE TABLE `user` (
   `userId` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `userName` varchar(191) NOT NULL,
   `userEmail` varchar(191) NOT NULL,
@@ -185,13 +188,13 @@ CREATE TABLE `users` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `users`
+-- Dumping data for table `user`
 --
 
-LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Demo User','demo@example.com',1,'$2y$10$vTje.ndUFKHyuotY99iYkO.2aHJUgOsy2x0RMXP1UmrTe6CQsKbtm',0);
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES (1,'Demo User','demo@example.com',1,'$2y$10$vTje.ndUFKHyuotY99iYkO.2aHJUgOsy2x0RMXP1UmrTe6CQsKbtm',0);
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -203,4 +206,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-02-24 22:34:07
+-- Dump completed on 2021-04-13 11:09:57

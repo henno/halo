@@ -3,8 +3,7 @@
 
 class SQL
 {
-
-    static function getWhere($criteria, $id_field = null): string
+    public static function getWhere($criteria, $id_field = null): string
     {
         $where = '';
         if (!empty($criteria)) {
