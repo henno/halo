@@ -8,7 +8,6 @@ connect_db();
 function connect_db()
 {
     global $db;
-    global $cfg;
     @$db = new mysqli(DATABASE_HOSTNAME, DATABASE_USERNAME, DATABASE_PASSWORD);
     if ($connection_error = mysqli_connect_error()) {
         header($_SERVER['SERVER_PROTOCOL'] . ' 500 Internal Server Error', true, 500);
