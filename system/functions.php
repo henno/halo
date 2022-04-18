@@ -2,6 +2,10 @@
 
 use App\Request;
 use App\Translation;
+use Sentry\State\Scope;
+use function Sentry\captureException;
+use function Sentry\captureLastError;
+use function Sentry\configureScope;
 
 /**
  * Display a fancy error page and quit.
@@ -119,4 +123,53 @@ function stop($code, $data = false)
     http_response_code($code);
 
     exit(json_encode($response));
+}
+
+function send_error_report($exception)
+{
+
+    // Get user data from session
+    $auth = empty($_SESSION['user_id']) ? null : get_first("select * from users where user_id = $_SESSION[user_id]");
+
+    // Add user data to Sentry
+    configureScope(function (Scope $scope) use ($auth): void {
+        if (!empty($_SESSION['user_id'])) {
+            $scope->setUser([
+                'auth' => $auth ?? null,
+                'session' => $_SESSION ?? null,
+                'email' => $auth['email'] ?? null,
+            ]);
+        }
+    });
+    // Send error data to Sentry
+    $eventCode = captureException($exception);
+
+    captureLastError();
+
+    return $eventCode;
+}
+
+function convertWarningsToExceptions(): void
+{
+    // Convert warnings to exceptions
+    set_error_handler(function ($severity, $message, $file, $line) {
+
+        if (!(error_reporting() & $severity)) {
+
+            // This error code is not included in error_reporting
+            return;
+        }
+
+        throw new ErrorException($message, 0, $severity, $file, $line);
+
+    });
+}
+
+function handleProductionError(\Exception $exception){
+    $eventCode = send_error_report($exception);
+    echo "An error occurred.";
+    echo " To make it faster for us to fix this error, please send us a description of what happened";
+    if($eventCode){
+        echo " and this event id: <b>" .  $eventCode . "</b>";
+    }
 }

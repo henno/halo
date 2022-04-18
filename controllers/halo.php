@@ -126,7 +126,7 @@ class halo extends Controller
     }
 
     function generate_password_hash(){
-        exit( password_hash($_POST['userPassword'], PASSWORD_DEFAULT) );
+        exit( password_hash($_POST['password'], PASSWORD_DEFAULT) );
     }
 
 }

@@ -4,30 +4,28 @@
  * Not included in class to shorten typing effort.
  */
 
+use App\Backtrace;
+use App\DatabaseException;
+use App\Request;
+use App\Response;
+use Spatie\Backtrace\Backtrace as SpatieBacktrace;
+
 connect_db();
 function connect_db()
 {
     global $db;
-    @$db = new mysqli(DATABASE_HOSTNAME, DATABASE_USERNAME, DATABASE_PASSWORD);
-    if ($connection_error = mysqli_connect_error()) {
+
+    try {
+        $db = new mysqli(DATABASE_HOSTNAME, DATABASE_USERNAME, DATABASE_PASSWORD, DATABASE_DATABASE);
+    } catch (Exception $e) {
+        $connection_error = mysqli_connect_error();
         header($_SERVER['SERVER_PROTOCOL'] . ' 500 Internal Server Error', true, 500);
 
         $errors[] = 'There was an error trying to connect to database at ' . DATABASE_HOSTNAME . ':<br><b>' . $connection_error . '</b>';
         require 'templates/error_template.php';
         die();
     }
-    mysqli_select_db($db, DATABASE_DATABASE) or error_out('<b>Error:</b><i> ' . mysqli_error($db) . '</i><br>
-		This usually means that MySQL does not have a database called <b>' . DATABASE_DATABASE . '</b>.<br><br>
-		Create that database and import some structure into it from <b>doc/database.sql</b> file:<br>
-		<ol>
-		<li>Open database.sql</li>
-		<li>Copy all the SQL code</li>  
-		<li>Go to phpMyAdmin</li>
-		<li>Create a database called <b>' . DATABASE_DATABASE . '</b></li>
-		<li>Open it and go to <b>SQL</b> tab</li>
-		<li>Paste the copied SQL code</li>
-		<li>Hit <b>Go</b></li>
-		</ol>', 500);
+
 
     // Switch to utf8
     if (!$db->set_charset("utf8")) {
@@ -35,36 +33,36 @@ function connect_db()
         exit();
     }
 
+    // MySQL 5.7 compatibility
+    //q("SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''))");
+    //q("SET sql_mode=(SELECT REPLACE(@@sql_mode,'STRICT_TRANS_TABLES',''))");
+
 
 }
 
-function q($sql, & $query_pointer = NULL, $debug = FALSE)
+function q($sql, &$query_pointer = NULL, $debug = FALSE)
 {
     global $db;
     if ($debug) {
         print "<pre>$sql</pre>";
     }
-    $query_pointer = mysqli_query($db, $sql) or db_error_out();
-    switch (substr($sql, 0, 6)) {
-        case 'SELECT':
-            exit("q($sql): Please don't use q() for SELECTs, use get_one() or get_first() or get_all() instead.");
-        case 'UPDA':
-            exit("q($sql): Please don't use q() for UPDATEs, use update() instead.");
-        default:
-            return mysqli_affected_rows($db);
-    }
+    $query_pointer = mysqli_query($db, $sql) or db_error_out($sql);
+
+    return mysqli_affected_rows($db);
 }
 
 function get_one($sql, $debug = FALSE)
 {
     global $db;
 
+    $sql = trim($sql);
+
     if ($debug) { // kui debug on TRUE
         print "<pre>$sql</pre>";
     }
-    switch (substr(trim($sql), 0, 6)) {
+    switch (substr($sql, 0, 6)) {
         case 'SELECT':
-            $q = mysqli_query($db, $sql) or db_error_out();
+            $q = mysqli_query($db, $sql) or db_error_out($sql);
             $result = mysqli_fetch_array($q);
             return empty($result) ? NULL : $result[0];
         default:
@@ -75,7 +73,7 @@ function get_one($sql, $debug = FALSE)
 function get_all($sql)
 {
     global $db;
-    $q = mysqli_query($db, $sql) or db_error_out();
+    $q = mysqli_query($db, $sql) or db_error_out($sql);
     while (($result[] = mysqli_fetch_assoc($q)) || array_pop($result)) {
         ;
     }
@@ -85,7 +83,7 @@ function get_all($sql)
 function get_first($sql)
 {
     global $db;
-    $q = mysqli_query($db, $sql) or db_error_out();
+    $q = mysqli_query($db, $sql) or db_error_out($sql);
     $first_row = mysqli_fetch_assoc($q);
     return empty($first_row) ? array() : $first_row;
 }
@@ -109,21 +107,22 @@ function get_col($sql)
     return $result;
 }
 
-function db_error_out($sql = null, $db_error = null)
+function db_error_out($sql = null)
 {
     global $db;
 
-    header($_SERVER["SERVER_PROTOCOL"] . " 500 Internal server error", true, 500);
+    if (!empty($_SERVER["SERVER_PROTOCOL"])) {
+        header($_SERVER["SERVER_PROTOCOL"] . " 500 Internal server error", true, 500);
+    }
 
-    define('PREG_DELIMITER', '/');
+    $PREG_DELIMITER = '/';
 
-    $db_error = $db_error ? $db_error : mysqli_error($db);
+    $db_error = mysqli_error($db);
 
     if (strpos($db_error, 'You have an error in SQL syntax') !== FALSE) {
         $db_error = '<b>Syntax error in</b><pre> ' . substr($db_error, 135) . '</pre>';
 
     }
-
 
     $backtrace = debug_backtrace();
 
@@ -132,8 +131,6 @@ function db_error_out($sql = null, $db_error = null)
 
     $line = $backtrace[1]['line'];
     $function = isset($backtrace[1]['function']) ? $backtrace[1]['function'] : NULL;
-
-    // Get arguments
     $args = isset($backtrace[1]['args']) ? $backtrace[1]['args'] : NULL;
 
     // Protect the next statement failing with "Malformed UTF-8 characters, possibly incorrectly encoded" error when $args contains binary
@@ -148,134 +145,173 @@ function db_error_out($sql = null, $db_error = null)
         $item = preg_replace('/[\x00-\x1F\x7F-\xFF]/', '.', $item);
     });
 
-    // Serialize arguments
-    $args = json_encode($args, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+    if (!empty($args)) {
+        foreach ($args as $arg) {
+            if (is_array($arg)) {
+                $args2[] = implode(',', $arg);
+            } else {
+                $args2[] = $arg;
+            }
+        }
+    }
+
+    $args = empty($args2) ? '' : addslashes('"' . implode('", "', $args2) . '"');
 
     // Fault highlight
-    preg_match("/check the manual that corresponds to your MySQL server version for the right syntax to use near '([^']+)'./", $db_error, $output_array);
+    preg_match(
+        "/check the manual that corresponds to your MySQL server version for the right syntax to use near '([^']+)'./",
+        $db_error,
+        $output_array);
+
     if (!empty($output_array[1])) {
         $fault = $output_array[1];
         $fault_quoted = preg_quote($fault);
 
 
-        $args = preg_replace(PREG_DELIMITER . "(\w*\s*)$fault_quoted" . PREG_DELIMITER, "<span class='fault'>\\1$fault</span>", $args);
+        $args = preg_replace($PREG_DELIMITER . "(\w*\s*)$fault_quoted" . $PREG_DELIMITER, "<span class='fault'>\\1$fault</span>", $args);
 
         $args = stripslashes($args);
     }
 
-
-    $location = "<b>$file</b><br><b>$line</b>: ";
+    $location = "<b>$file</b>:<b>$line</b> ";
     if (!empty($function)) {
 
-        $args = str_replace("SELECT", '<br>SELECT', $args);
+        $args = str_replace('\\"', '"', $args);
         $args = str_replace("\n", '<br>', $args);
         $args = str_replace("\t", '&nbsp;', $args);
 
-
         $code = "$function(<span style=\" font-family: monospace; ;padding:0; margin:0\">$args</span>)";
         $location .= "<span class=\"line-number-position\">&#x200b;<span class=\"line-number\">$code";
-
     }
-
 
     // Generate stack trace
-    $e = new Exception();
-    $trace = print_r(preg_replace('/#(\d+) \//', '#$1 ', str_replace(dirname(dirname(__FILE__)), '', $e->getTraceAsString())), 1);
-    $trace = nl2br(preg_replace('/(#1.*)\n/', "<b>$1</b>\n", $trace));
+    $trace = Backtrace::reformat(SpatieBacktrace::create()
+        ->applicationPath(dirname(__DIR__, 2))
+        ->withArguments()
+        ->frames());
 
-    $output = '<h1>Database error</h1>' .
-        '<p>' . $db_error . '</p>' .
-        '<p><h3>Location</h3> ' . $location . '<br>' .
-        '<p><h3>Stack trace</h3>' . $trace . '</p>';
+    $plainTextError = "Database error:\n$db_error\n$sql\nTrace:\n # " . implode("\n # ", $trace);
 
-
-    if (isset($_GET['ajax'])) {
-        ob_end_clean();
-        echo strip_tags($output);
-
-    } else {
-        $errors[] = $output;
-        require 'templates/error_template.php';
+    if (ENV == ENV_PRODUCTION) {
+        handleProductionError(new DatabaseException($plainTextError, $line, $file));
+        exit();
     }
 
-    die();
+    if (Request::isCli() || Request::isAjax()) {
+        exit($plainTextError);
+    } else {
+        $sqlInHtml = SqlFormatter::format($sql);
+        $htmlError = '<h1>Database error</h1>' .
+            '<p>' . $db_error . '</p>' .
+            '<p><h3>Location</h3> ' . $location . '<br>' .
+            ($sqlInHtml ? '<p><h3>SQL</h3> ' . $sqlInHtml . '<br>' : '') .
+            '<p><h3>Stack trace</h3>' . implode("<br>", $trace) . '</p>';
+
+        Response::showHtmlErrorPage($htmlError);
+    }
+
 
 }
 
 /**
  * @param $table string The name of the table to be inserted into.
  * @param $data array Array of data. For example: array('field1' => 'mystring', 'field2' => 3);
- * @param bool $onDuplicateKeyUpdate Whether or not to add ON DUPLICATE KEY UPDATE part.
  * @return bool|int Returns the ID of the inserted row or FALSE when fails.
+ * @throws Exception when parameters are invalid
  */
-function insert($table, $data = [], $onDuplicateKeyUpdate = false)
+function insert($table, $data): bool|int
 {
     global $db;
-    if ($table and is_array($data)) {
-        $values = implode(',', escape($data));
-        $onDuplicateKeyUpdate = $onDuplicateKeyUpdate ? "ON DUPLICATE KEY UPDATE {$values}" : '';
-        $values = $values ? "SET {$values} " . $onDuplicateKeyUpdate : '() VALUES()';
-        $sql = "INSERT INTO `{$table}` $values";
-        $q = mysqli_query($db, $sql) or db_error_out($sql);
-        $id = mysqli_insert_id($db);
-        return ($id > 0) ? $id : FALSE;
-    } else {
-        return FALSE;
+    if (!$table || !is_array($data) || empty($data)) {
+        throw new Exception("Invalid parameter(s)");
     }
+    $values = implode(',', escape($data));
+    $sql = "INSERT INTO `{$table}` SET {$values} ON DUPLICATE KEY UPDATE {$values}";
+    $q = mysqli_query($db, $sql) or db_error_out($sql);
+    $id = mysqli_insert_id($db);
+
+    return ($id > 0) ? $id : FALSE;
 }
 
-function update($table, array $data, $where)
+function update(string $table, array $data, string $where): int|string
 {
     global $db;
-    if ($table and is_array($data) and !empty($data)) {
-        $values = implode(',', escape($data));
-
-        if (!empty($where)) {
-            $sql = "UPDATE `{$table}` SET {$values} WHERE {$where}";
-        } else {
-            $sql = "UPDATE `{$table}` SET {$values}";
-        }
-        $id = mysqli_query($db, $sql) or db_error_out();
-        return ($id > 0) ? $id : FALSE;
-    } else {
-        return FALSE;
+    if (!$table || empty($data)) {
+        throw new Exception("Invalid parameter(s)");
     }
+    $values = implode(',', escape($data));
+
+    if (isset($where)) {
+        $sql = "UPDATE `{$table}` SET {$values} WHERE {$where}";
+    } else {
+        $sql = "UPDATE `{$table}` SET {$values}";
+    }
+    mysqli_query($db, $sql) or db_error_out($sql);
+
+    return mysqli_affected_rows($db);
 }
 
 function escape(array $data): array
 {
     $values = array();
-    $IN_regex = '/^\s*IN\s*\(/i'; // IN(foo, bar)
 
     if (!empty($data)) {
 
-        // Loop over all members of $data
+        // Todo: Test what happens if someone tries to submit data which starts with !, like a password.
         foreach ($data as $field => $value) {
-
-            // Escape field names containing database name
-            $field = str_replace('.', '`.`', $field);
-
-            // Skip escaping if field is numeric (user must escape)
-            if(is_numeric($field)){
-                $values[] = $value;
+            if ($value !== null && str_starts_with($value, '!')) {
+                $operator = '!=';
+                $value = substr($value, 1);
+            } else {
+                $operator = '=';
             }
-            // If value is supposed to be NULL
-            elseif ($value === NULL) {
-                $values[] = "`$field`=NULL";
 
-                // If value is array and has a member called no_escape then skip this member
+            if (!str_contains($field, '(') && !str_contains($field, '.')) {
+                $field = "`$field`";
+            }
+
+            // NULL
+            if ($value === NULL) {
+                $values[] = "$field $operator NULL";
+
+                // int
+            } elseif (is_numeric($value)) {
+                $values[] = "$field $operator " . addslashes($value);
+
+                // no_escape
             } elseif (is_array($value) && isset($value['no_escape'])) {
-                $values[] = "`$field`=" . addslashes($value['no_escape']);
+                $values[] = "$field $operator " . addslashes($value['no_escape']);
 
-                // If value begins with IN(, do not escape
-            } elseif (preg_match($IN_regex, $value)) {
+                // IN(foo,bar)
+            } elseif (preg_match('/^\s*IN\s*\(/i', $value)) {
                 $values[] = "`$field` " . $value;
 
                 // All other cases
             } else {
-                $values[] = "`$field`='" . addslashes($value) . "'";
+                $values[] = "$field $operator '" . addslashes($value) . "'";
             }
         }
     }
     return $values;
+}
+
+function delete(string $table, string $where): int|string
+{
+    global $db;
+    if (!$table) {
+        throw new Exception("Invalid parameter(s)");
+    }
+
+    if (!empty($where)) {
+        $deleted_data = get_all("SELECT * FROM $table WHERE $where");
+        $sql = "DELETE FROM `{$table}` WHERE {$where}";
+    } else {
+        $deleted_data = get_all("SELECT * FROM $table");
+        $sql = "DELETE FROM `{$table}`";
+    }
+
+    mysqli_query($db, $sql) or db_error_out($sql);
+
+
+    return mysqli_affected_rows($db);
 }
