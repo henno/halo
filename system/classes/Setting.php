@@ -10,7 +10,7 @@ class Setting
 
     public static function set(string $settingName, string $settingValue)
     {
-        insert('settings', [
+        Db::insert('settings', [
             'settingName' => $settingName,
             'settingValue' => $settingValue], true);
     }

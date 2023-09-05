@@ -129,11 +129,11 @@ function send_error_report($exception)
 {
 
     // Get user data from session
-    $auth = empty($_SESSION['user_id']) ? null : Db::getFirst("select * from users where user_id = $_SESSION[user_id]");
+    $auth = empty($_SESSION['userId']) ? null : App\Db::getFirst("select * from users where userId = ?", [$_SESSION['userId']]);
 
     // Add user data to Sentry
     configureScope(function (Scope $scope) use ($auth): void {
-        if (!empty($_SESSION['user_id'])) {
+        if (!empty($_SESSION['userId'])) {
             $scope->setUser([
                 'auth' => $auth ?? null,
                 'session' => $_SESSION ?? null,

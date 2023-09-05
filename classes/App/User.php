@@ -17,7 +17,7 @@ class User
         $data['userPassword'] = password_hash($userPassword, PASSWORD_DEFAULT);
 
         // Insert user into database
-        $userId = insert('users', $data);
+        $userId = Db::insert('users', $data);
 
         // Return new user's ID
         return $userId;
@@ -47,7 +47,7 @@ class User
             throw new \Exception('Invalid userId');
         }
 
-        update('users', $data, "userId = $userId");
+        Db::update('users', $data, "userId = $userId");
     }
 
     public static function delete(int $userId)
@@ -63,7 +63,7 @@ class User
 
         // If removing user did not work due to foreign key constraints then mark the user as deleted
         if(!$result){
-            update('users', [
+            Db::update('users', [
                 'userDeleted' => 1
             ], "userId=$userId");
         }

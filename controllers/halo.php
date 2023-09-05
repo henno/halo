@@ -48,8 +48,8 @@ class halo extends Controller
             // Print banner
 
             // Add 2 rows to database
-            insert($table_name, array($table_prefix . '_name' => $name_singular . " #1"));
-            insert($table_name, array($table_prefix . '_name' => $name_singular . " #2"));
+            Db::insert($table_name, array($table_prefix . '_name' => $name_singular . " #1"));
+            Db::insert($table_name, array($table_prefix . '_name' => $name_singular . " #2"));
 
             // Add controller from template (substituting module for controller's name)
             $content = file_get_contents('system/scaffolding/controller_template.php');

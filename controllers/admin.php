@@ -36,7 +36,7 @@ class admin extends Controller
             stop(400, "Invalid HTML");
         }
 
-        update('translations', [
+        Db::update('translations', [
             "translationIn$_POST[languageCode]" => $_POST['translation']
         ], "translationId = $_POST[translationId]");
     }

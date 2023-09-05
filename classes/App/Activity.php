@@ -10,7 +10,7 @@ class Activity
         $userId = $userId ? $userId : $_SESSION['userId'];
 
         // Insert the activity into DB
-        insert('activityLog', [
+        Db::insert('activityLog', [
             'userId' => $userId,
             'activityId' => $activityId,
             'activityLogTimestamp' => date('Y-m-d H:i:s')

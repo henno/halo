@@ -120,7 +120,7 @@ class Translation
 
                 // Update existing translations
                 foreach ($valuesToUpdate as $phrase) {
-                    update('translations', [
+                    Db::update('translations', [
                         'translationState' => 'existsInCode'
                     ], "translationPhrase = '$phrase'");
                 }
@@ -216,7 +216,7 @@ class Translation
             $data['translationSource'] = $dynamicSource;
         }
 
-        insert('translations', $data);
+        Db::insert('translations', $data);
 
         // Prevent gaps in translations.translation_id due to auto_increment increasing with ON DUPLICATE KEY UPDATE..
         $translations[$translationPhrase] = $translationPhrase;
@@ -308,7 +308,7 @@ class Translation
         for ($n = 0; $n < count($googleTranslated); $n++) {
 
             // Add translation to DB
-            update(
+            Db::update(
                 'translations', [
                 'translationIn' . ucfirst($language) => substr($googleTranslated[$n], 0, 765)
             ], "translationPhrase = '" . addslashes($untranslatedStrings[$n]) . "'");
