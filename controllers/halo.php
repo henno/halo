@@ -26,7 +26,7 @@ class halo extends Controller
         $table_name = $name_plural;
         $table_prefix = $name_singular;
 
-        if (q("SHOW TABLES LIKE '$table_name'")) {
+        if (Db::q("SHOW TABLES LIKE '$table_name'")) {
 
             // Show error
             echo '<div class="alert alert-danger">' . "The table $name_plural already existed. Aborting." . '</div>';
@@ -39,7 +39,7 @@ class halo extends Controller
             $table_prefix_escaped = mysqli_real_escape_string($db, $table_prefix);
 
             // Add table to database
-            q("CREATE TABLE `{$table_name_escaped}` (
+            Db::q("CREATE TABLE `{$table_name_escaped}` (
              `{$table_prefix_escaped}_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Autocreated',
              `{$table_prefix_escaped}_name` varchar(50) NOT NULL COMMENT 'Autocreated',
              PRIMARY KEY (`{$table_prefix_escaped}_id`)

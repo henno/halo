@@ -14,7 +14,7 @@ class Auth
     {
         if (isset($_SESSION['userId'])) {
             $this->logged_in = TRUE;
-            $user = get_first("SELECT *
+            $user = Db::getFirst("SELECT *
                                FROM users
                                WHERE userId = '{$_SESSION['userId']}'");
             $this->load_user_data($user);
@@ -65,7 +65,7 @@ class Auth
 
 
         // Attempt to retrieve user data from database
-        $user = get_first("SELECT * 
+        $user = Db::getFirst("SELECT * 
                            FROM users
                            WHERE userEmail = '$email'
                            AND userDeleted = 0");
