@@ -9,6 +9,9 @@ class Db
     private \mysqli $conn;
     public array $debugLog = [];
 
+    const GET_RESULT = 1;
+    const AFFECTED_ROWS = 2;
+
     private function __construct(string $host, string $user, string $password, string $dbname)
     {
         $this->conn = new \mysqli($host, $user, $password, $dbname);
@@ -134,7 +137,7 @@ class Db
     /**
      * @throws \Exception
      */
-    private function executePrepared($query, $params = []): bool|\mysqli_result
+    private function executePrepared($query, $params = [], $returnType = self::GET_RESULT): bool|\mysqli_result
     {
         $types = self::getTypeString($params);
         $debugQuery = $this->debugQuery($query, $params);
@@ -169,7 +172,12 @@ class Db
             throw new DatabaseException("Failed to execute query: " . $stmt->error, $debugQuery);
         }
 
-        return $stmt->get_result();
+        if ($returnType === self::AFFECTED_ROWS) {
+            return $stmt->affected_rows;
+        } else {
+            return $stmt->get_result();
+        }
+
     }
 
     /**
@@ -234,7 +242,7 @@ class Db
     public static function q($query, $params = [])
     {
         try {
-            self::getInstance()->executePrepared($query, $params);
+            return self::getInstance()->executePrepared($query, $params, self::AFFECTED_ROWS);
         } catch (\Exception $e) {
             throw new DatabaseException("Error in q: " . $e->getMessage(), $query);
         }
