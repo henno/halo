@@ -64,7 +64,6 @@ class Db
         $lastQuery = end(self::getInstance()->debugLog)['query'];
 
         // Get debug log
-
         $highlightedQuery = (new SqlFormatter())->format($lastQuery);
         echo("Error: $message<br><br><strong>Query:</strong><br><code>$highlightedQuery</code>");
 
@@ -280,6 +279,53 @@ class Db
         krsort($result);
 
         return $result;
+    }
+
+    public static function upsert($table, $data)
+    {
+        // Query the schema to determine the unique or primary key fields
+        $describeQuery = "SHOW INDEX FROM {$table} WHERE Key_name = 'PRIMARY' OR Non_unique = 0";
+        $uniqueFields = [];
+
+        try {
+            $columns = self::getAll($describeQuery);
+            foreach ($columns as $column) {
+                $uniqueFields[] = $column['Column_name'];
+            }
+        } catch (\Exception $e) {
+            self::displayError("Error in upsert describe: " . $e->getMessage(), $describeQuery);
+        }
+
+        if (empty($uniqueFields)) {
+            self::displayError("No primary or unique key found in table", $describeQuery);
+        }
+
+        // Prepare the WHERE clause and parameters based on unique fields
+        $whereClauseParts = [];
+        $whereParams = [];
+        foreach ($uniqueFields as $field) {
+            if (isset($data[$field])) {
+                $whereClauseParts[] = "{$field} = ?";
+                $whereParams[] = $data[$field];
+            }
+        }
+
+        $whereClause = implode(' OR ', $whereClauseParts);
+        $selectQuery = "SELECT COUNT(*) FROM {$table} WHERE {$whereClause}";
+
+        try {
+            $existingRowCount = self::getOne($selectQuery, $whereParams);
+        } catch (\Exception $e) {
+            self::displayError("Error in upsert select: " . $e->getMessage(), $selectQuery);
+        }
+
+        if ($existingRowCount === 0) {
+            return self::insert($table, $data);
+        } else {
+            // We'll use the first unique field for the where clause. For more complex
+            // scenarios, custom logic will be needed to determine which row(s) to update.
+            return self::update($table, $data, "{$uniqueFields[0]} = ?", [$data[$uniqueFields[0]]]);
+        }
     }
 
     public static function getTotalQueryTime(): float
