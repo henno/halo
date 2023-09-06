@@ -4,10 +4,23 @@ use JetBrains\PhpStorm\Pure;
 
 class CustomException extends \Exception
 {
-    #[Pure] public function __construct($message, $line, $file)
+    public $file;
+    public $line;
+
+    #[Pure]
+    public function __construct($message, $line = null, $file = null)
     {
         parent::__construct($message);
-        $this->file = $file;
-        $this->line = $line;
+        if ($file !== null) {
+            $this->file = $file;
+        }
+
+        if ($line !== null) {
+            $this->line = $line;
+        }
+    }
+
+    public function __toString() {
+        return "Exception: [{$this->code}] {$this->message} in {$this->file} on line {$this->line}";
     }
 }

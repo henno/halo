@@ -9,9 +9,7 @@ try {
 
     // Init composer auto-loading
     if (!@include_once("vendor/autoload.php")) {
-
         exit('Run composer install');
-
     }
 
     date_default_timezone_set(DEFAULT_TIMEZONE);
@@ -26,13 +24,18 @@ try {
     // Default env is development
     if (!defined('ENV')) define('ENV', ENV_DEVELOPMENT);
 
-
     // Load sentry
     require 'templates/partials/sentry.php';
 
     new Application;
 
-} catch (\Exception $e) {
+} catch (DatabaseException $e) { // Catch DatabaseException specifically
+
+    // Call displayError
+    // Replace `YourDatabaseClass` with the actual class that contains the displayError method
+    Db::displayError($e->errorMessage, $e->sqlQuery, $e->operation);
+
+} catch (\Exception $e) { // General exception handling
 
     // To see the error message in dev
     if (ENV == ENV_PRODUCTION) {
@@ -42,3 +45,4 @@ try {
 
     throw $e;
 }
+

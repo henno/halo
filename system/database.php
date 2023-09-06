@@ -57,7 +57,7 @@ class Db
         return $query;
     }
 
-    #[NoReturn] private static function displayError($message, $query): void
+    #[NoReturn] public static function displayError($message, $query): void
     {
 
         // Get the last query from the debug log
@@ -244,6 +244,20 @@ class Db
             self::displayError("Error in insert: " . $e->getMessage(), $query);
         }
     }
+
+    public static function delete($table, $whereClause, $whereParams = [])
+    {
+        // Prepare query
+        $query = "DELETE FROM {$table} WHERE {$whereClause}";
+
+        try {
+            self::getInstance()->executePrepared($query, $whereParams);
+            return self::getInstance()->conn->affected_rows;  // Return the number of affected rows
+        } catch (\Exception $e) {
+            self::displayError("Error in delete: " . $e->getMessage(), $query);
+        }
+    }
+
 
     public static function update($table, $data, $whereClause, $whereParams = [])
     {

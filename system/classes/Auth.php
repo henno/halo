@@ -43,14 +43,11 @@ class Auth
      */
     function require_auth()
     {
-        global $db;
-
 
         // If user has already logged in...
         if ($this->logged_in) {
             return TRUE;
         }
-
 
         // Not all credentials were provided
         if (!(isset($_POST['userEmail']) && isset($_POST['userPassword']))) {
@@ -61,7 +58,7 @@ class Auth
 
 
         // Prevent SQL injection
-        $email = mysqli_escape_string($db, $_POST['userEmail']);
+        $email = addslashes($_POST['userEmail']);
 
 
         // Attempt to retrieve user data from database

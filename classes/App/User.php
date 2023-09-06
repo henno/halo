@@ -52,14 +52,12 @@ class User
 
     public static function delete(int $userId)
     {
-        global $db;
-
         if(!is_numeric($userId) || $userId < 0){
             throw new \Exception('Invalid userId');
         }
 
         // Attempt to delete user from the database (works if user does not have related records in other tables)
-        $result = mysqli_query($db, "DELETE FROM users WHERE userId = $userId");
+        $result = Db::delete('users', 'userId = ?', [$userId]);
 
         // If removing user did not work due to foreign key constraints then mark the user as deleted
         if(!$result){
