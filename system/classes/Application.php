@@ -208,7 +208,7 @@ class Application
 
     private function init_db()
     {
-        require dirname(__FILE__) . '/../database.php';
+        require dirname(__FILE__) . '/../Db.php';
     }
 
     private function handle_routing()

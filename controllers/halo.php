@@ -33,17 +33,12 @@ class halo extends Controller
 
         } else {
 
-            // SQL injection protection
-            global $db;
-            $table_name_escaped = mysqli_real_escape_string($db, $table_name);
-            $table_prefix_escaped = mysqli_real_escape_string($db, $table_prefix);
-
             // Add table to database
-            Db::q("CREATE TABLE `{$table_name_escaped}` (
-             `{$table_prefix_escaped}_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Autocreated',
-             `{$table_prefix_escaped}_name` varchar(50) NOT NULL COMMENT 'Autocreated',
-             PRIMARY KEY (`{$table_prefix_escaped}_id`)
-           ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;");
+            Db::q("CREATE TABLE `?` (
+             `?_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Autocreated',
+             `?_name` varchar(50) NOT NULL COMMENT 'Autocreated',
+             PRIMARY KEY (`?_id`)
+           ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;",[$table_name, $table_prefix, $table_name, $table_name]);
 
             // Print banner
 

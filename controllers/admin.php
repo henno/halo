@@ -1,6 +1,5 @@
 <?php namespace App;
 
-use DateTime;
 use HTMLPurifier;
 use HTMLPurifier_Config;
 

@@ -13,6 +13,9 @@ class Db
     {
         $this->conn = new \mysqli($host, $user, $password, $dbname);
 
+        // Set error reporting level
+        $this->conn->report_mode = MYSQLI_REPORT_ALL;
+
         if ($this->conn->connect_error) {
             throw new \Exception("Connection failed: " . $this->conn->connect_error);
         }
@@ -57,8 +60,9 @@ class Db
         return $query;
     }
 
-    #[NoReturn] public static function displayError($message, $query): void
+    #[NoReturn] public static function displayError($message, $sqlQuery): void
     {
+        var_dump($sqlQuery);
 
         // Get the last query from the debug log
         $lastQuery = end(self::getInstance()->debugLog)['query'];
@@ -83,9 +87,6 @@ class Db
         }, $trace);
 
 
-
-
-
         echo '<br><br><strong>Stack trace:</strong><br>';
         echo '<pre>';
         foreach ($trace as $item) {
@@ -99,7 +100,6 @@ class Db
         echo '</pre>';
 
 
-
         // Display debug log
         echo '<br><br><strong>Debug log:</strong><br>';
 
@@ -110,8 +110,6 @@ class Db
         // Display total query time
         echo '<br><strong>Aggregate Query Execution Time:</strong> ' . self::getTotalQueryTime() . ' seconds<br>';
 
-
-        exit();
     }
 
     private static function getTypeString(array $params): string
@@ -138,7 +136,6 @@ class Db
      */
     private function executePrepared($query, $params = []): bool|\mysqli_result
     {
-
         $types = self::getTypeString($params);
         $debugQuery = $this->debugQuery($query, $params);
 
@@ -156,10 +153,10 @@ class Db
 
         $stmt = $this->conn->prepare($query);
         if (!$stmt) {
-            self::displayError("Failed to prepare statement: " . $this->conn->error, $debugQuery);
+            throw new DatabaseException("Failed to prepare statement: " . $this->conn->error, $debugQuery);
         }
         if ($newTypes && !$stmt->bind_param($newTypes, ...$newParams)) {
-            self::displayError("Failed to bind parameters: " . $stmt->error, $debugQuery);
+            throw new DatabaseException("Failed to bind parameters: " . $stmt->error, $debugQuery);
         }
 
         $startTime = microtime(true);
@@ -169,12 +166,15 @@ class Db
         $this->debugLog[$debugQuery]['cumulative_time'] += $timeTaken;
 
         if (!$executionSuccess) {
-            self::displayError("Failed to execute query: " . $stmt->error, $debugQuery);
+            throw new DatabaseException("Failed to execute query: " . $stmt->error, $debugQuery);
         }
 
         return $stmt->get_result();
     }
 
+    /**
+     * @throws DatabaseException
+     */
     public static function getOne($query, array $params = [])
     {
         $backtrace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 2);
@@ -182,10 +182,13 @@ class Db
         try {
             return self::getInstance()->executePrepared($query, $params, $callingFunction)->fetch_array(MYSQLI_NUM)[0] ?? null;
         } catch (\Exception $e) {
-            self::displayError("Error in getOne: " . $e->getMessage(), $query);
+            throw new DatabaseException("Error in getOne: " . $e->getMessage(), $query);
         }
     }
 
+    /**
+     * @throws DatabaseException
+     */
     public static function getCol($query, $params = [])
     {
         try {
@@ -194,19 +197,25 @@ class Db
             while ($row = $result->fetch_array(MYSQLI_NUM)) $output[] = $row[0];
             return $output;
         } catch (\Exception $e) {
-            self::displayError("Error in getCol: " . $e->getMessage(), $query);
+            throw new DatabaseException("Error in getCol: " . $e->getMessage(), $query);
         }
     }
 
+    /**
+     * @throws DatabaseException
+     */
     public static function getFirst($query, $params = [])
     {
         try {
             return self::getInstance()->executePrepared($query, $params)->fetch_assoc();
         } catch (\Exception $e) {
-            self::displayError("Error in getFirst: " . $e->getMessage(), $query);
+            throw new DatabaseException("Error in getFirst: " . $e->getMessage(), $query);
         }
     }
 
+    /**
+     * @throws DatabaseException
+     */
     public static function getAll($query, $params = [])
     {
         try {
@@ -215,19 +224,25 @@ class Db
             while ($row = $result->fetch_assoc()) $output[] = $row;
             return $output;
         } catch (\Exception $e) {
-            self::displayError("Error in getAll: " . $e->getMessage(), $query);
+            throw new DatabaseException("Error in getAll: " . $e->getMessage(), $query);
         }
     }
 
+    /**
+     * @throws DatabaseException
+     */
     public static function q($query, $params = [])
     {
         try {
             self::getInstance()->executePrepared($query, $params);
         } catch (\Exception $e) {
-            self::displayError("Error in q: " . $e->getMessage(), $query);
+            throw new DatabaseException("Error in q: " . $e->getMessage(), $query);
         }
     }
 
+    /**
+     * @throws DatabaseException
+     */
     public static function insert($table, $data)
     {
         // Build field and placeholder lists
@@ -241,10 +256,13 @@ class Db
             self::getInstance()->executePrepared($query, array_values($data));
             return self::getInstance()->conn->insert_id;  // Return last insert ID
         } catch (\Exception $e) {
-            self::displayError("Error in insert: " . $e->getMessage(), $query);
+            throw new DatabaseException("Error in insert: " . $e->getMessage(), $query);
         }
     }
 
+    /**
+     * @throws DatabaseException
+     */
     public static function delete($table, $whereClause, $whereParams = [])
     {
         // Prepare query
@@ -254,11 +272,14 @@ class Db
             self::getInstance()->executePrepared($query, $whereParams);
             return self::getInstance()->conn->affected_rows;  // Return the number of affected rows
         } catch (\Exception $e) {
-            self::displayError("Error in delete: " . $e->getMessage(), $query);
+            throw new DatabaseException("Error in delete: " . $e->getMessage(), $query);
         }
     }
 
 
+    /**
+     * @throws DatabaseException
+     */
     public static function update($table, $data, $whereClause, $whereParams = [])
     {
         // Building field updates
@@ -275,7 +296,7 @@ class Db
             self::getInstance()->executePrepared($query, $values);
             return self::getInstance()->conn->affected_rows;  // Return the number of affected rows
         } catch (\Exception $e) {
-            self::displayError("Error in update: " . $e->getMessage(), $query);
+            throw new DatabaseException("Error in update: " . $e->getMessage(), $query);
         }
     }
 
@@ -286,7 +307,7 @@ class Db
         foreach ($debugLog as $item) {
             $time = number_format($item['cumulative_time'], 4);
             $item['query'] = preg_replace('/\s+/', ' ', $item['query']);
-            $result[]="$item[count] x  $time $item[query]";
+            $result[] = "$item[count] x  $time $item[query]";
         }
 
         // Reverse sort result array so that the last query is on top
@@ -307,11 +328,11 @@ class Db
                 $uniqueFields[] = $column['Column_name'];
             }
         } catch (\Exception $e) {
-            self::displayError("Error in upsert describe: " . $e->getMessage(), $describeQuery);
+            throw new DatabaseException("Error in upsert describe: " . $e->getMessage(), $describeQuery);
         }
 
         if (empty($uniqueFields)) {
-            self::displayError("No primary or unique key found in table", $describeQuery);
+            throw new DatabaseException("No primary or unique key found in table", $describeQuery);
         }
 
         // Prepare the WHERE clause and parameters based on unique fields
@@ -330,7 +351,7 @@ class Db
         try {
             $existingRowCount = self::getOne($selectQuery, $whereParams);
         } catch (\Exception $e) {
-            self::displayError("Error in upsert select: " . $e->getMessage(), $selectQuery);
+            throw new DatabaseException("Error in upsert select: " . $e->getMessage(), $selectQuery);
         }
 
         if ($existingRowCount === 0) {

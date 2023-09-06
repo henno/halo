@@ -31,9 +31,13 @@ try {
 
 } catch (DatabaseException $e) { // Catch DatabaseException specifically
 
-    // Call displayError
-    // Replace `YourDatabaseClass` with the actual class that contains the displayError method
-    Db::displayError($e->errorMessage, $e->sqlQuery, $e->operation);
+    if (ENV == ENV_PRODUCTION) {
+        handleProductionError($e);
+    }else{
+        Db::displayError($e->errorMessage, $e->sqlQuery);
+    }
+
+    exit();
 
 } catch (\Exception $e) { // General exception handling
 
