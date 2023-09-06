@@ -1,5 +1,6 @@
 <?php
 
+use App\Db;
 use App\Request;
 use App\Translation;
 use Sentry\State\Scope;
@@ -129,7 +130,7 @@ function send_error_report($exception)
 {
 
     // Get user data from session
-    $auth = empty($_SESSION['userId']) ? null : App\Db::getFirst("select * from users where userId = ?", [$_SESSION['userId']]);
+    $auth = empty($_SESSION['userId']) ? null : Db::getFirst("select * from users where userId = ?", [$_SESSION['userId']]);
 
     // Add user data to Sentry
     configureScope(function (Scope $scope) use ($auth): void {

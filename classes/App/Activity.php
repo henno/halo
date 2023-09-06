@@ -6,7 +6,7 @@ class Activity
 
     public static function create($activityId, $userId = 0)
     {
-        // Use the currently logged in user's ID when not supplied
+        // Use the currently logged-in user's ID when not supplied
         $userId = $userId ? $userId : $_SESSION['userId'];
 
         // Insert the activity into DB
