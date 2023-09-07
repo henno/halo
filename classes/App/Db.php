@@ -50,7 +50,18 @@ class Db
 
         // If this query already exists in the debug log, update its count
         if (isset($this->debugLog[$query])) {
+
             $this->debugLog[$query]['count'] += 1;
+
+            // Store the existing debug info
+            $existingDebugInfo = $this->debugLog[$query];
+
+            // Remove the existing debug info to move it to the end
+            unset($this->debugLog[$query]);
+
+            // Re-add the debug info to move it to the end
+            $this->debugLog[$query] = $existingDebugInfo;
+
         } else {
             // If it's a new query, append to debug log
             $this->debugLog[$query] = [
@@ -63,22 +74,17 @@ class Db
         return $query;
     }
 
-    #[NoReturn] public static function displayError($message, $sqlQuery): void
+    #[NoReturn] public static function displayError($e): void
     {
-        var_dump($sqlQuery);
-
         // Get the last query from the debug log
         $lastQuery = end(self::getInstance()->debugLog)['query'];
 
         // Get debug log
         $highlightedQuery = (new SqlFormatter())->format($lastQuery);
-        echo("Error: $message<br><br><strong>Query:</strong><br><code>$highlightedQuery</code>");
+        echo("Error: {$e->getMessage()}<br><br><strong>Query:</strong><br><code>$highlightedQuery</code>");
 
         // Show full stack trace (HTML formatted)
-        $trace = debug_backtrace();
-
-        // Remove the first item from the trace (it's always this function)
-        $trace = array_slice($trace, 1);
+        $trace = $e->getTrace();
 
         // Get the directory of the project root
         $rootDir = dirname(__DIR__);
@@ -154,30 +160,26 @@ class Db
             }
         }
 
+        // Prepare the query
         $stmt = $this->conn->prepare($query);
-        if (!$stmt) {
-            throw new DatabaseException("Failed to prepare statement: " . $this->conn->error, $debugQuery);
-        }
-        if ($newTypes && !$stmt->bind_param($newTypes, ...$newParams)) {
-            throw new DatabaseException("Failed to bind parameters: " . $stmt->error, $debugQuery);
-        }
 
+        // Bind params if there are any
+        $newTypes && $stmt->bind_param($newTypes, ...$newParams);
+
+        // Start timer
         $startTime = microtime(true);
-        $executionSuccess = $stmt->execute();
+
+        // Execute the query
+        $stmt->execute();
+
+        // Stop timer
         $timeTaken = microtime(true) - $startTime;
 
+        // Log the time taken
         $this->debugLog[$debugQuery]['cumulative_time'] += $timeTaken;
 
-        if (!$executionSuccess) {
-            throw new DatabaseException("Failed to execute query: " . $stmt->error, $debugQuery);
-        }
-
-        if ($returnType === self::AFFECTED_ROWS) {
-            return $stmt->affected_rows;
-        } else {
-            return $stmt->get_result();
-        }
-
+        // Return the affected rows if requested, else return the result
+        return $returnType === self::AFFECTED_ROWS ? $stmt->affected_rows : $stmt->get_result();
     }
 
     /**
@@ -187,11 +189,7 @@ class Db
     {
         $backtrace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 2);
         $callingFunction = $backtrace[1]['function'] ?? 'Global Scope';
-        try {
-            return self::getInstance()->executePrepared($query, $params, $callingFunction)->fetch_array(MYSQLI_NUM)[0] ?? null;
-        } catch (\Exception $e) {
-            throw new DatabaseException("Error in getOne: " . $e->getMessage(), $query);
-        }
+        return self::getInstance()->executePrepared($query, $params, $callingFunction)->fetch_array(MYSQLI_NUM)[0] ?? null;
     }
 
     /**
@@ -199,14 +197,10 @@ class Db
      */
     public static function getCol($query, $params = [])
     {
-        try {
-            $result = self::getInstance()->executePrepared($query, $params);
-            $output = [];
-            while ($row = $result->fetch_array(MYSQLI_NUM)) $output[] = $row[0];
-            return $output;
-        } catch (\Exception $e) {
-            throw new DatabaseException("Error in getCol: " . $e->getMessage(), $query);
-        }
+        $result = self::getInstance()->executePrepared($query, $params);
+        $output = [];
+        while ($row = $result->fetch_array(MYSQLI_NUM)) $output[] = $row[0];
+        return $output;
     }
 
     /**
@@ -214,11 +208,7 @@ class Db
      */
     public static function getFirst($query, $params = [])
     {
-        try {
-            return self::getInstance()->executePrepared($query, $params)->fetch_assoc();
-        } catch (\Exception $e) {
-            throw new DatabaseException("Error in getFirst: " . $e->getMessage(), $query);
-        }
+        return self::getInstance()->executePrepared($query, $params)->fetch_assoc();
     }
 
     /**
@@ -226,14 +216,10 @@ class Db
      */
     public static function getAll($query, $params = [])
     {
-        try {
-            $result = self::getInstance()->executePrepared($query, $params);
-            $output = [];
-            while ($row = $result->fetch_assoc()) $output[] = $row;
-            return $output;
-        } catch (\Exception $e) {
-            throw new DatabaseException("Error in getAll: " . $e->getMessage(), $query);
-        }
+        $result = self::getInstance()->executePrepared($query, $params);
+        $output = [];
+        while ($row = $result->fetch_assoc()) $output[] = $row;
+        return $output;
     }
 
     /**
@@ -241,11 +227,7 @@ class Db
      */
     public static function q($query, $params = [])
     {
-        try {
-            return self::getInstance()->executePrepared($query, $params, self::AFFECTED_ROWS);
-        } catch (\Exception $e) {
-            throw new DatabaseException("Error in q: " . $e->getMessage(), $query);
-        }
+        return self::getInstance()->executePrepared($query, $params, self::AFFECTED_ROWS);
     }
 
     /**
@@ -260,12 +242,8 @@ class Db
         // Prepare query
         $query = "INSERT INTO {$table} ({$fields}) VALUES ({$placeholders})";
 
-        try {
-            self::getInstance()->executePrepared($query, array_values($data));
-            return self::getInstance()->conn->insert_id;  // Return last insert ID
-        } catch (\Exception $e) {
-            throw new DatabaseException("Error in insert: " . $e->getMessage(), $query);
-        }
+        self::getInstance()->executePrepared($query, array_values($data));
+        return self::getInstance()->conn->insert_id;  // Return last insert ID
     }
 
     /**
@@ -276,12 +254,8 @@ class Db
         // Prepare query
         $query = "DELETE FROM {$table} WHERE {$whereClause}";
 
-        try {
-            self::getInstance()->executePrepared($query, $whereParams);
-            return self::getInstance()->conn->affected_rows;  // Return the number of affected rows
-        } catch (\Exception $e) {
-            throw new DatabaseException("Error in delete: " . $e->getMessage(), $query);
-        }
+        self::getInstance()->executePrepared($query, $whereParams);
+        return self::getInstance()->conn->affected_rows;  // Return the number of affected rows
     }
 
 
@@ -300,12 +274,8 @@ class Db
         // Merging all values
         $values = array_merge(array_values($data), $whereParams);
 
-        try {
-            self::getInstance()->executePrepared($query, $values);
-            return self::getInstance()->conn->affected_rows;  // Return the number of affected rows
-        } catch (\Exception $e) {
-            throw new DatabaseException("Error in update: " . $e->getMessage(), $query);
-        }
+        self::getInstance()->executePrepared($query, $values);
+        return self::getInstance()->conn->affected_rows;  // Return the number of affected rows
     }
 
     public static function getDebugLog(): array
@@ -330,17 +300,9 @@ class Db
         $describeQuery = "SHOW INDEX FROM {$table} WHERE Key_name = 'PRIMARY' OR Non_unique = 0";
         $uniqueFields = [];
 
-        try {
-            $columns = self::getAll($describeQuery);
-            foreach ($columns as $column) {
-                $uniqueFields[] = $column['Column_name'];
-            }
-        } catch (\Exception $e) {
-            throw new DatabaseException("Error in upsert describe: " . $e->getMessage(), $describeQuery);
-        }
-
-        if (empty($uniqueFields)) {
-            throw new DatabaseException("No primary or unique key found in table", $describeQuery);
+        $columns = self::getAll($describeQuery);
+        foreach ($columns as $column) {
+            $uniqueFields[] = $column['Column_name'];
         }
 
         // Prepare the WHERE clause and parameters based on unique fields
@@ -356,11 +318,7 @@ class Db
         $whereClause = implode(' OR ', $whereClauseParts);
         $selectQuery = "SELECT COUNT(*) FROM {$table} WHERE {$whereClause}";
 
-        try {
-            $existingRowCount = self::getOne($selectQuery, $whereParams);
-        } catch (\Exception $e) {
-            throw new DatabaseException("Error in upsert select: " . $e->getMessage(), $selectQuery);
-        }
+        $existingRowCount = self::getOne($selectQuery, $whereParams);
 
         if ($existingRowCount === 0) {
             return self::insert($table, $data);

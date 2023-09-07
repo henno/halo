@@ -29,12 +29,12 @@ try {
 
     new Application;
 
-} catch (DatabaseException $e) { // Catch DatabaseException specifically
+} catch (\mysqli_sql_exception $e) { // Catch DatabaseException specifically
 
     if (ENV == ENV_PRODUCTION) {
         handleProductionError($e);
     }else{
-        Db::displayError($e->errorMessage, $e->sqlQuery);
+        Db::displayError($e);
     }
 
     exit();
