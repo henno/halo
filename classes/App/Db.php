@@ -3,6 +3,7 @@
 use Doctrine\SqlFormatter\SqlFormatter;
 use JetBrains\PhpStorm\NoReturn;
 
+
 class Db
 {
     private static ?Db $instance = null;
@@ -88,7 +89,7 @@ class Db
 
         // Get the directory of the project root
         $rootDir = dirname(__DIR__);
-
+        $rootDir = dirname($rootDir);
         // Remove the root directory from the file paths
         $trace = array_map(function ($item) use ($rootDir) {
             $item['file'] = str_replace($rootDir, '', $item['file']);
