@@ -77,6 +77,9 @@ class Db
 
     #[NoReturn] public static function displayError($e): void
     {
+        // Remove previous output
+        ob_clean();
+
         // Get the last query from the debug log
         $lastQuery = end(self::getInstance()->debugLog)['query'];
 
@@ -88,8 +91,8 @@ class Db
         $trace = $e->getTrace();
 
         // Get the directory of the project root
-        $rootDir = dirname(__DIR__);
-        $rootDir = dirname($rootDir);
+        $rootDir = dirname(__DIR__, 2);
+
         // Remove the root directory from the file paths
         $trace = array_map(function ($item) use ($rootDir) {
             $item['file'] = str_replace($rootDir, '', $item['file']);
@@ -105,7 +108,7 @@ class Db
             $function = $item['function'] ?? '';
             $class = $item['class'] ?? '';
             $type = $item['type'] ?? '';
-            echo "$file:$line $class$type$function<br>";
+            echo "$file:$line <b>$class$type$function</b>\n";
         }
         echo '</pre>';
 
