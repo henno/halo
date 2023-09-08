@@ -1,5 +1,6 @@
 <?php
 
+use App\Db;
 use App\Request;
 use App\Translation;
 use Sentry\State\Scope;
@@ -42,7 +43,7 @@ function get_translation_strings($lang)
     $translationColumn = !in_array($_SESSION['language'], Translation::languageCodesInUse(false))
         ? "NULL AS translationIn$lang" : "translationIn$lang";
 
-    $translations_raw = get_all("
+    $translations_raw = Db::getAll("
         SELECT translationPhrase, $translationColumn 
         FROM translations");
 
@@ -129,11 +130,11 @@ function send_error_report($exception)
 {
 
     // Get user data from session
-    $auth = empty($_SESSION['user_id']) ? null : get_first("select * from users where user_id = $_SESSION[user_id]");
+    $auth = empty($_SESSION['userId']) ? null : Db::getFirst("select * from users where userId = ?", [$_SESSION['userId']]);
 
     // Add user data to Sentry
     configureScope(function (Scope $scope) use ($auth): void {
-        if (!empty($_SESSION['user_id'])) {
+        if (!empty($_SESSION['userId'])) {
             $scope->setUser([
                 'auth' => $auth ?? null,
                 'session' => $_SESSION ?? null,

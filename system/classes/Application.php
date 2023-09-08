@@ -29,7 +29,6 @@ class Application
         session_start();
         ob_start();
 
-        $this->init_db();
         $this->set_language();
         $this->process_uri();
         $this->update_settings();
@@ -206,10 +205,6 @@ class Application
         }
     }
 
-    private function init_db()
-    {
-        require dirname(__FILE__) . '/../database.php';
-    }
 
     private function handle_routing()
     {

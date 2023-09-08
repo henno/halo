@@ -17,7 +17,7 @@ class User
         $data['userPassword'] = password_hash($userPassword, PASSWORD_DEFAULT);
 
         // Insert user into database
-        $userId = insert('users', $data);
+        $userId = Db::insert('users', $data);
 
         // Return new user's ID
         return $userId;
@@ -25,10 +25,10 @@ class User
 
     public static function get($criteria = null, $orderBy = null)
     {
-        
+
         $criteria = $criteria ? 'AND ' . implode("AND", $criteria) : '';
         $orderBy = $orderBy ? $orderBy : 'userName';
-        return get_all("
+        return Db::getAll("
             SELECT userId, userName, userEmail, userIsAdmin 
             FROM users
             WHERE userDeleted=0 $criteria 
@@ -43,31 +43,28 @@ class User
 
     public static function edit(int $userId, array $data)
     {
-        if(!is_numeric($userId) || $userId < 0){
+        if (!is_numeric($userId) || $userId < 0) {
             throw new \Exception('Invalid userId');
         }
 
-        update('users', $data, "userId = $userId");
+        Db::update('users', $data, "userId = $userId");
     }
 
     public static function delete(int $userId)
     {
-        global $db;
-
-        if(!is_numeric($userId) || $userId < 0){
+        if (!is_numeric($userId) || $userId < 0) {
             throw new \Exception('Invalid userId');
         }
 
         // Attempt to delete user from the database (works if user does not have related records in other tables)
-        $result = mysqli_query($db, "DELETE FROM users WHERE userId = $userId");
-
-        // If removing user did not work due to foreign key constraints then mark the user as deleted
-        if(!$result){
-            update('users', [
+        try {
+            Db::delete('users', 'userId = ?', [$userId]);
+        } catch (\Exception $e) {
+            // If removing user did not work due to foreign key constraints then mark the user as deleted
+            Db::update('users', [
                 'userDeleted' => 1
             ], "userId=$userId");
         }
-
     }
 
 }

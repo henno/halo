@@ -26,30 +26,25 @@ class halo extends Controller
         $table_name = $name_plural;
         $table_prefix = $name_singular;
 
-        if (q("SHOW TABLES LIKE '$table_name'")) {
+        if (Db::q("SHOW TABLES LIKE '$table_name'")) {
 
             // Show error
             echo '<div class="alert alert-danger">' . "The table $name_plural already existed. Aborting." . '</div>';
 
         } else {
 
-            // SQL injection protection
-            global $db;
-            $table_name_escaped = mysqli_real_escape_string($db, $table_name);
-            $table_prefix_escaped = mysqli_real_escape_string($db, $table_prefix);
-
             // Add table to database
-            q("CREATE TABLE `{$table_name_escaped}` (
-             `{$table_prefix_escaped}_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Autocreated',
-             `{$table_prefix_escaped}_name` varchar(50) NOT NULL COMMENT 'Autocreated',
-             PRIMARY KEY (`{$table_prefix_escaped}_id`)
-           ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;");
+            Db::q("CREATE TABLE `?` (
+             `?_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Autocreated',
+             `?_name` varchar(50) NOT NULL COMMENT 'Autocreated',
+             PRIMARY KEY (`?_id`)
+           ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;",[$table_name, $table_prefix, $table_name, $table_name]);
 
             // Print banner
 
             // Add 2 rows to database
-            insert($table_name, array($table_prefix . '_name' => $name_singular . " #1"));
-            insert($table_name, array($table_prefix . '_name' => $name_singular . " #2"));
+            Db::insert($table_name, array($table_prefix . '_name' => $name_singular . " #1"));
+            Db::insert($table_name, array($table_prefix . '_name' => $name_singular . " #2"));
 
             // Add controller from template (substituting module for controller's name)
             $content = file_get_contents('system/scaffolding/controller_template.php');

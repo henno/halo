@@ -12,7 +12,7 @@ class welcome extends Controller
     function index()
     {
 
-        $this->users = get_all("SELECT * FROM users");
+        $this->users = Db::getAll("SELECT * FROM users");
     }
 
     /**

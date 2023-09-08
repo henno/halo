@@ -30,7 +30,7 @@
         <code>$this</code>
         (so that you can later access it from the <i>view</i>).
         To access what is put after the action name on the URL (<code>3</code> in our example), use <code>$this->params[0]</code>.
-        An example: <code>$this->post = get_one("SELECT * FROM post WHERE id={$this->params[0]}");</code> (You would
+        An example: <code>$this->post = Db::getOne("SELECT * FROM post WHERE id={$this->params[0]}");</code> (You would
         have to create the <i>post</i> table in your database and add at least <i>id</i> field to it, of course)
     </li>
     <li>Create new folder <code>/views/posts</code></li>

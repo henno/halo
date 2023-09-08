@@ -26,7 +26,7 @@ class Translation
             return $capitalize ? self::$languageCodesInUse : array_map('strtolower', self::$languageCodesInUse);
         }
 
-        $languageColumns = get_all("SHOW COLUMNS FROM translations LIKE 'translationIn%'");
+        $languageColumns = Db::getAll("SHOW COLUMNS FROM translations LIKE 'translationIn%'");
         foreach ($languageColumns as $column) {
             $code = substr($column['Field'], 13);
             self::$languageCodesInUse[] = $code;
@@ -39,7 +39,7 @@ class Translation
     public static function get($criteria = null)
     {
         $where = SQL::getWhere($criteria);
-        $translations = get_all("SELECT * FROM translations $where ORDER BY translationPhrase");
+        $translations = Db::getAll("SELECT * FROM translations $where ORDER BY translationPhrase");
         ksort($translations);
         return $translations;
     }
@@ -59,7 +59,7 @@ class Translation
         $current_phrases = self::findPhrases($code_files);
 
         // Set all phrases as not existing in the code
-        q("UPDATE translations SET translationState = 'doesNotExist' WHERE translationState != 'dynamic'");
+        Db::q("UPDATE translations SET translationState = 'doesNotExist' WHERE translationState != 'dynamic'");
 
         if (!empty($current_phrases)) {
 
@@ -111,7 +111,7 @@ class Translation
                 $valuesToInsert = '(' . implode('),(', $valuesToInsert) . ')';
 
                 // Insert all strings to database
-                q("INSERT INTO translations (translationPhrase)
+                Db::q("INSERT INTO translations (translationPhrase)
                     VALUES $valuesToInsert");
 
 
@@ -120,7 +120,7 @@ class Translation
 
                 // Update existing translations
                 foreach ($valuesToUpdate as $phrase) {
-                    update('translations', [
+                    Db::update('translations', [
                         'translationState' => 'existsInCode'
                     ], "translationPhrase = '$phrase'");
                 }
@@ -128,7 +128,7 @@ class Translation
             }
 
             // Delete strings that do not exist any more
-            q("DELETE FROM translations WHERE translationState='doesNotExist'");
+            Db::q("DELETE FROM translations WHERE translationState='doesNotExist'");
 
             // Google translate new strings
             foreach ($languages as $language) {
@@ -216,7 +216,7 @@ class Translation
             $data['translationSource'] = $dynamicSource;
         }
 
-        insert('translations', $data);
+        Db::insert('translations', $data);
 
         // Prevent gaps in translations.translation_id due to auto_increment increasing with ON DUPLICATE KEY UPDATE..
         $translations[$translationPhrase] = $translationPhrase;
@@ -227,7 +227,7 @@ class Translation
         if (empty($language) || strlen($language) != 2) {
             throw new Exception('Invalid language');
         }
-        q("ALTER TABLE translations DROP COLUMN translationIn$language");
+        Db::q("ALTER TABLE translations DROP COLUMN translationIn$language");
     }
 
     public static function addLanguage($language)
@@ -239,7 +239,7 @@ class Translation
         // Re-format language
         $language = ucfirst(strtolower($language));
 
-        q("ALTER TABLE translations ADD COLUMN translationIn$language VARCHAR(765) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL");
+        Db::q("ALTER TABLE translations ADD COLUMN translationIn$language VARCHAR(765) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL");
     }
 
     /**
@@ -268,7 +268,7 @@ class Translation
 
         $payload = [];
 
-        $untranslatedStrings = get_col("SELECT translationPhrase FROM translations WHERE translationIn$language IS NULL");
+        $untranslatedStrings = Db::getCol("SELECT translationPhrase FROM translations WHERE translationIn$language IS NULL");
 
         // Build max 5000 char string
         foreach ($untranslatedStrings as $untranslatedString) {
@@ -308,7 +308,7 @@ class Translation
         for ($n = 0; $n < count($googleTranslated); $n++) {
 
             // Add translation to DB
-            update(
+            Db::update(
                 'translations', [
                 'translationIn' . ucfirst($language) => substr($googleTranslated[$n], 0, 765)
             ], "translationPhrase = '" . addslashes($untranslatedStrings[$n]) . "'");
@@ -338,7 +338,7 @@ class Translation
             $sums .= "SUM(IF(translationIn$language IS NULL, 1, 0)) As remainingIn$language,";
         }
 
-        $data = get_first("SELECT $sums COUNT(translationId) total FROM translations");
+        $data = Db::getFirst("SELECT $sums COUNT(translationId) total FROM translations");
 
         foreach ($languages as $language) {
             $result['total'] = $data['total'];
@@ -354,7 +354,7 @@ class Translation
 
         $languages = [];
         $where = SQL::getWhere($criteria);
-        $rows = get_all("SELECT translationLanguageName, translationLanguageCode FROM translationLanguages $where ORDER BY translationLanguageName");
+        $rows = Db::getAll("SELECT translationLanguageName, translationLanguageCode FROM translationLanguages $where ORDER BY translationLanguageName");
 
         foreach ($rows as $item) {
             $languages[$item['translationLanguageCode']] = $item["translationLanguageName"];
@@ -372,7 +372,7 @@ class Translation
 
     public static function deleteUnusedDynamicTranslations(): void
     {
-        $dynamicTranslations = get_all("SELECT * FROM translations WHERE translationState='dynamic'");
+        $dynamicTranslations = Db::getAll("SELECT * FROM translations WHERE translationState='dynamic'");
 
         foreach ($dynamicTranslations as $dynamicTranslation) {
 
@@ -390,15 +390,15 @@ class Translation
             list($table, $column) = $source;
 
             // Make sure specified table and column actually exist
-            if (q("show tables like '$table'") != 1 || q("show columns from $table like '$column'") != 1) {
+            if (Db::q("show tables like '$table'") != 1 || Db::q("show columns from $table like '$column'") != 1) {
                 continue;
             }
 
-            $values = get_col("SELECT $column FROM $table");
+            $values = Db::getCol("SELECT $column FROM $table");
 
             // Delete the translation if it's no longer in the database
             if (!in_array($dynamicTranslation['translationPhrase'], $values)) {
-                q("DELETE FROM translations WHERE translationId = '$dynamicTranslation[translationId]'");
+                Db::q("DELETE FROM translations WHERE translationId = '$dynamicTranslation[translationId]'");
             }
         }
     }

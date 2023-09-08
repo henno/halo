@@ -5,12 +5,12 @@ class Setting
     static function get($settingName)
     {
         $settingName = addslashes($settingName);
-        return get_one("SELECT settingValue from settings WHERE settingName = '$settingName'");
+        return Db::getOne("SELECT settingValue from settings WHERE settingName = '$settingName'");
     }
 
     public static function set(string $settingName, string $settingValue)
     {
-        insert('settings', [
+        Db::upsert('settings', [
             'settingName' => $settingName,
             'settingValue' => $settingValue], true);
     }

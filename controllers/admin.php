@@ -1,6 +1,5 @@
 <?php namespace App;
 
-use DateTime;
 use HTMLPurifier;
 use HTMLPurifier_Config;
 
@@ -36,7 +35,7 @@ class admin extends Controller
             stop(400, "Invalid HTML");
         }
 
-        update('translations', [
+        Db::update('translations', [
             "translationIn$_POST[languageCode]" => $_POST['translation']
         ], "translationId = $_POST[translationId]");
     }
@@ -154,7 +153,7 @@ class admin extends Controller
             stop(400, 'Invalid' . ' userId');
         }
 
-        stop(200, get_first("SELECT userIsAdmin,userEmail,userName FROM users WHERE userId = $_POST[userId]"));
+        stop(200, Db::getFirst("SELECT userIsAdmin,userEmail,userName FROM users WHERE userId = $_POST[userId]"));
     }
 
     public function htmlIsValid($html): bool

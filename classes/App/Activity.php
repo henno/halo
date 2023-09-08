@@ -6,11 +6,11 @@ class Activity
 
     public static function create($activityId, $userId = 0)
     {
-        // Use the currently logged in user's ID when not supplied
+        // Use the currently logged-in user's ID when not supplied
         $userId = $userId ? $userId : $_SESSION['userId'];
 
         // Insert the activity into DB
-        insert('activityLog', [
+        Db::insert('activityLog', [
             'userId' => $userId,
             'activityId' => $activityId,
             'activityLogTimestamp' => date('Y-m-d H:i:s')
@@ -21,13 +21,13 @@ class Activity
     {
         $userId = (int)$userId;
         $activityId = (int)$activityId;
-        return get_one("SELECT MAX(activityLogTimestamp) FROM activityLog WHERE userId = $userId and activityId = $activityId ORDER BY activityLogId");
+        return Db::getOne("SELECT MAX(activityLogTimestamp) FROM activityLog WHERE userId = $userId and activityId = $activityId ORDER BY activityLogId");
     }
 
     public static function logs($criteria = null)
     {
         $where = SQL::getWhere($criteria);
-        return get_all("
+        return Db::getAll("
             SELECT *, DATE_FORMAT(activityLogTimestamp, '%Y-%m-%d %H:%i') activityLogTimestamp 
             FROM activityLog JOIN users USING (userId) JOIN activities USING (activityId)
             $where");
