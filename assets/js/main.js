@@ -24,8 +24,9 @@ function ajax(url, options, callback_or_redirect_url, error_callback) {
 
     $.post(url, options)
         .fail(function (jqXHR, textStatus, errorThrown) {
+            debugger;
             console.log('Xhr error: ', jqXHR, textStatus, errorThrown);
-
+    debugger;
             let error;
             let json = tryToParseJSON(jqXHR.responseText);
             if (json === false) {
@@ -48,6 +49,7 @@ function ajax(url, options, callback_or_redirect_url, error_callback) {
         .done(function (response) {
             let json = tryToParseJSON(response);
 
+            console.log('.done');
             if (json === false) {
 
                 // Send error report
@@ -107,9 +109,10 @@ $('table.clickable-rows tr').on('click', function () {
 
 
 function show_error_modal(error, title = false) {
-    $(".error-modal-body").html(error);
-    if (title) {
-        $(".error-modal-title").html(title);
-    }
-    error_modal.modal('show');
+    // error_modal.modal({
+    //     title: 'title',
+    //     content: 'error',
+    //     classContent: 'centered',
+    //     class: 'small'
+    // }).modal('show');
 }

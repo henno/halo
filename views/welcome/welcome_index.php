@@ -2,28 +2,29 @@
     .result:empty {
         display: none;
     }
+
+    code{
+        background-color: #eee;
+        padding: 2px;
+        border-radius: 2px;
+    }
 </style>
-<h1>Welcome!</h1>
+<h1 class="ui header">Welcome!</h1>
 
+<p>This is the welcome controller's default view file. It is located at <code>/views/welcome/welcome_index.php</code>.</p>
 
-<p>This is the welcome controller's default view file. It is located at <code>/views/welcome/welcome_index.php</code>.
-</p>
-
-<h2>Examples</h2>
+<h2 class="ui header">Examples</h2>
 <p>Below are some examples how to use Halo</p>
 
-<h3>Adding pages</h3>
-<p>For example, to To have the URL localhost/halo/<span class="label label-primary">posts/view/3</span> working, visit
-    <a href="halo">Halo admin</a> and create a subpage there, or do it manually:</p>
+<h3 class="ui header">Adding pages</h3>
+<p>For example, to have the URL localhost/halo/<span class="ui label blue">posts/view/3</span> working, visit
+    <a class="ui link" href="halo">Halo admin</a> and create a subpage there, or do it manually:</p>
 
-<ol>
-    <li>Create new file <code>/controllers/<i>posts</i>.php</code></li>
-    <li>In that file create <code>class posts</code> (lower case letters) which <code>extends Controller</code>
-        (capitalized)
+<ol class="ui list">
+    <li>Create new file <code>/controllers/<i>posts</i>.php</code>
     </li>
-    <li>Create <code>function index()</code> within that class. This is the default action which will be called when no
-        action is specified (e.g. just /posts). There you can set all the variables your view will need.
-    </li>
+    <li>In that file create <code>class posts</code> (lower case letters) which <code>extends Controller</code> (capitalized)</li>
+    <li>Create <code>function index()</code> within that class. This is the default action which will be called when no action is specified (e.g. just /posts). There you can set all the variables your view will need.</li>
     <li>Create <code>function view()</code> within that class.
         This is the <i>action</i> that gets run when users access <code>posts/view...</code>.
         Here you usually make a database query and put its result into a variable that is preceded with
@@ -38,23 +39,21 @@
     <li>Place content to that file. You could <code>&lt;?php var_dump($post)?></code> for starters.</li>
 </ol>
 
-<h3>Sending data to server</h3>
-<h4>Ajax example</h4>
-Fill the name field below and click <i>submit form using ajax</i>.
+<h3 class="ui header">Sending data to server</h3>
+<h4 class="ui header">Ajax example</h4>
+<p>Fill the name field below and click <i>submit form using ajax</i>.</p>
 <form id="ajax-form">
-    Your name: <input type="text" placeholder="Write something here" name="name"/>
-    <a class="btn btn-success" onclick="success()">Submit form using ajax (success)</a>
-    <a class="btn btn-danger" onclick="error()">Submit form using ajax (error)</a><br/>
-
+    Your name: <input class="ui input" type="text" placeholder="Write something here" name="name"/>
+    <a class="ui button green" onclick="success()">Submit form using ajax (success)</a>
+    <a class="ui button red" onclick="error()">Submit form using ajax (error)</a>
 </form>
 
-The form containing the name field will be submitted to the
-server by jQuery and server's response will be written to the box below.
+<p>The form containing the name field will be submitted to the server by jQuery and server's response will be written to the box below.</p>
 
-<div class="alert alert-warning result"></div>
-
+<div class="ui warning message result"></div>
 
 <!-- Code for ajax -->
+
 <script type="text/javascript">
     function success() {
         ajax("welcome/success", $("#ajax-form").serialize(), function (json) {
