@@ -15,3 +15,6 @@
         <a class="nav-link" href="logout"><?= __('Logout') ?></a>
     </li>
 </ul>
+<h1>
+    HELLO WORLD
+</h1>

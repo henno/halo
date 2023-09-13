@@ -25,7 +25,6 @@ function ajax(url, options, callback_or_redirect_url, error_callback) {
     $.post(url, options)
         .fail(function (jqXHR, textStatus, errorThrown) {
             console.log('Xhr error: ', jqXHR, textStatus, errorThrown);
-
             let error;
             let json = tryToParseJSON(jqXHR.responseText);
             if (json === false) {
@@ -48,6 +47,7 @@ function ajax(url, options, callback_or_redirect_url, error_callback) {
         .done(function (response) {
             let json = tryToParseJSON(response);
 
+            console.log('.done');
             if (json === false) {
 
                 // Send error report
