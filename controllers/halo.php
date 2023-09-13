@@ -4,7 +4,7 @@ class halo extends Controller
 {
     public $requires_auth = true;
     public $requires_admin = true;
-    public $template = 'admin';
+    public $template = 'master';
 
     function index()
     {

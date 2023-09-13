@@ -105,11 +105,11 @@ $('table.clickable-rows tr').on('click', function () {
     window.location = $(this).data('href');
 });
 
-
 function show_error_modal(error, title = false) {
-    $(".error-modal-body").html(error);
-    if (title) {
-        $(".error-modal-title").html(title);
-    }
-    error_modal.modal('show');
+    error_modal.modal({
+        title: title ? title : '<?= __(\'Oops...\') ?>',
+        content: error,  // Assuming you want to display the error here
+        classContent: 'centered',
+        class: 'small'
+    }).modal('show');
 }

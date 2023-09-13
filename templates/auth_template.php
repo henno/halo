@@ -5,9 +5,14 @@
     <title><?= PROJECT_NAME ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css?<?=COMMIT_HASH?>">
-    <script src="node_modules/jquery/dist/jquery.min.js?<?=COMMIT_HASH?>"></script>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js?<?=COMMIT_HASH?>"></script>
+
+    <!-- Fomantic core CSS -->
+    <link href="node_modules/fomantic-ui-css/semantic.min.css?<?= COMMIT_HASH ?>" rel="stylesheet">
+    <!-- Site core CSS -->
+    <link href="assets/css/main.css?<?= COMMIT_HASH ?>" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script src="node_modules/jquery/dist/jquery.min.js?<?= COMMIT_HASH ?>"></script>
 
     <style>
         body {
@@ -71,48 +76,41 @@
 
 <body>
 
-<div class="container">
+<div class="ui container">
 
-    <form class="form-signin" method="post">
+    <form class="ui form segment" method="post">
 
-        <h2 class="form-signin-heading"><?= __('Please sign in') ?></h2>
+        <h2 class="ui header"><?= __('Please sign in') ?></h2>
 
         <?php if (isset($errors)) {
             foreach ($errors as $error): ?>
-                <div class="alert alert-danger">
+                <div class="ui negative message">
                     <?= $error ?>
                 </div>
             <?php endforeach;
         } ?>
 
-
-        <label for="user"><?= __('Email') ?></label>
-
-        <div class="input-group">
-            <span class="input-group-addon"><i class="icon-user"></i></span>
-            <input id="user" name="userEmail" type="text" class="form-control" placeholder="demo@example.com" autofocus>
+        <div class="field">
+            <label for="user"><?= __('Email') ?></label>
+            <div class="ui left icon input">
+                <input id="user" name="userEmail" type="text" placeholder="demo@example.com" autofocus>
+                <i class="user icon"></i>
+            </div>
         </div>
 
-        <br/>
-
-        <label for="pass"><?= __('Password') ?></label>
-
-        <div class="input-group">
-            <span class="input-group-addon"><i class="icon-key"></i></span>
-            <input id="pass" name="userPassword" type="password" class="form-control" placeholder="******">
+        <div class="field">
+            <label for="pass"><?= __('Password') ?></label>
+            <div class="ui left icon input">
+                <input id="pass" name="userPassword" type="password" placeholder="******">
+                <i class="lock icon"></i>
+            </div>
         </div>
 
-        <br/>
-
-        <button class="btn btn-lg btn-primary btn-block" type="submit"><?= __('Sign in') ?></button>
+        <button class="ui blue button" type="submit"><?= __('Sign in') ?></button>
     </form>
 
 </div>
-<!-- /container -->
-
-
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
+<script src="node_modules/fomantic-ui-css/semantic.min.js?<?= COMMIT_HASH ?>"></script>
+<script src="assets/js/main.js?<?= COMMIT_HASH ?>"></script>
 </body>
 </html>

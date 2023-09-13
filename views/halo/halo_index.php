@@ -7,7 +7,7 @@
         padding: 15px;
         display: none;
         border-radius: 5px;
-        border: 2px solid gray;
+        border: 2px solid rgb(128, 128, 128);
         margin: 10px;
     }
 
