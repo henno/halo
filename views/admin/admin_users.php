@@ -12,7 +12,6 @@
 
     #btn-add {
         width: 20%;
-        /*margin-top: 1em;*/
     }
 
     .ui.grid > .row {
@@ -103,105 +102,83 @@
         <?php endforeach ?>
     </table>
 <?php endif ?>
-
-<div class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header bg-primary text-white">
-                <h5 class="modal-title"><?= __('Edit user') ?></h5>
-                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+<div class="ui modal">
+    <i class="close icon"></i>
+    <div class="header">
+        <?= __('Edit user') ?>
+    </div>
+    <div class="content">
+        <form id="edit-user-form" class="ui form">
+            <input type="hidden" name="userId" />
+            <div class="field">
+                <label><?= __('Name') ?></label>
+                <input type="text" name="userName" placeholder="<?= __("User's new name") ?>">
             </div>
-            <div class="modal-body">
-                <form id="edit-user-form" class="form">
-                    <input type="hidden" name="userId">
-
-                    <!-- Form groups -->
-                    <div class="form-group">
-                        <label for="input-user-name"><?= __('Name') ?></label>
-                        <input value="" type="text" name="userName" class="form-control" placeholder="<?= __("User's new name") ?>" aria-label="user name">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="input-user-email"><?= __('Email') ?></label>
-                        <input value="" type="text" name="userEmail" class="form-control" placeholder="<?= __("User's new email") ?>" aria-label="user email">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="input-user-password"><?= __('Password') ?></label>
-                        <input value="" type="password" name="userPassword" class="form-control" placeholder="<?= __("User's new password (leave empty for unchanged)") ?>" aria-label="user password">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="input-user-isAdmin"><?= __('Admin') ?></label>
-                        <input value="" type="text" name="userIsAdmin" class="form-control" placeholder="<?= __("Set to 1 if user must be admin") ?>" aria-label="user is admin">
-                    </div>
-                </form>
+            <div class="field">
+                <label><?= __('Email') ?></label>
+                <input type="email" name="userEmail" placeholder="<?= __("User's new email") ?>">
             </div>
-
-            <!-- Modal footer -->
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary btn-save"><?= __('Save changes') ?></button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal"><?= __('Close') ?></button>
+            <div class="field">
+                <label><?= __('Password') ?></label>
+                <input type="password" name="userPassword" placeholder="<?= __("User's new password (leave empty for unchanged)") ?>">
             </div>
-        </div>
+            <div class="field">
+                <label><?= __('Admin') ?></label>
+                <input type="text" name="userIsAdmin" placeholder="<?= __("Set to 1 if user must be admin") ?>">
+            </div>
+        </form>
+    </div>
+    <div class="actions">
+        <button class="ui primary button btn-save"><?= __('Save changes') ?></button>
+        <button class="ui secondary button btn-close"><?= __('Close') ?></button>
     </div>
 </div>
 
+
 <script>
 
+    // Add User
     $('#btn-add').click(function () {
         ajax('admin/addUser', $('#new-user-form').serialize(), RELOAD)
     });
 
+    // Edit User
     $('.edit').click(function (e) {
+        e.preventDefault(); // Prevent from navigating away from the page
 
-        // Prevent from navigating away from the page
-        e.preventDefault()
+        let userId = $(this).closest('tr').data('userid'); // Get selected user's ID
 
-        // Get selected user's ID
-        let userId = $(this).closest('tr').data('userid');
+        $('#edit-user-form [name="userId"]').val(userId); // Store selected user's ID into the form for the back-end
 
-        // Store selected user's ID into form for the back-end
-        $('#edit-user-form [name="userId"]').val(userId)
+        $('#edit-user-form [name="userPassword"]').val(''); // Clear password from previous value
 
-        // Clear password from previous value
-        $('#edit-userPassword').val('')
+        ajax('admin/getUser', { userId }, function (res) { // Get selected user's data from the database
+            Object.keys(res.data).forEach(function (field) { // Fill modal fields with data from the database
+                $(`#edit-user-form [name="${field}"]`).val(res.data[field]);
+            });
 
-        // Get selected user's data from database
-        ajax('admin/getUser', {
-            userId
-        }, function (res) {
-
-            // Fill modal fields with data from database
-            Object.keys(res.data).forEach(function (field) {
-                $(`#edit-user-form [name="${field}"]`).val(res.data[field])
-            })
-
-        })
-
+            $('.ui.modal').modal('show'); // Open the modal manually using Semantic UI's modal component
+        });
     });
 
+    // Delete User
     $('.delete').click(function (e) {
+        e.preventDefault(); // Prevent from navigating away from the page
 
-        // Prevent from navigating away from the page
-        e.preventDefault()
-
-        //Send delete command to server, if user confirms
-        if (confirm('<?=__('Are you sure?');?>')) {
+        if (confirm('<?=__('Are you sure?');?>')) { // Send delete command to the server, if the user confirms
             ajax('admin/deleteUser', {
                 userId: $(this).closest('tr').data('userid')
-            }, RELOAD)
+            }, RELOAD);
         }
-
     });
 
+    // Save Changes in the Modal
     $('.btn-save').click(function () {
-
-        // Send modal contents to back-end and reload the page to update user's table on the screen
-        ajax('admin/editUser', $('#edit-user-form').serialize(), RELOAD)
+        ajax('admin/editUser', $('#edit-user-form').serialize(), RELOAD); // Send modal contents to the back-end and reload the page
     });
-
+    // This ensures the close button will close the modal
+    $(document).on('click', '.ui.secondary.button', function() {
+        $('.ui.modal').modal('hide');
+    });
 
 </script>
