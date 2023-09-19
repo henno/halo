@@ -1,4 +1,10 @@
 <?php use App\Translation;?>
+
+<style>
+    .nav-item{
+        margin-right: 10px;
+    }
+</style>
 <ul class="navbar-nav my-2 my-lg-0">
     <?php if(count($supported_languages) > 1): ?>
     <li class="nav-item dropdown">
@@ -15,6 +21,3 @@
         <a class="nav-link" href="logout"><?= __('Logout') ?></a>
     </li>
 </ul>
-<h1>
-    HELLO WORLD
-</h1>

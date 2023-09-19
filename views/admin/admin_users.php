@@ -1,76 +1,83 @@
 <script src="https://use.fontawesome.com/d37013578f.js"></script>
 
 <style>
-    .form-import .file-import {
-        display: none;
-    }
-
-    .input-box-place {
-        padding-bottom: -1px !important;
-        margin-bottom: -1px !important;
+    .form-container {
+        margin-top: 5rem;
+        margin-bottom: 2rem;
     }
 
     .form-group {
-        padding: 1px;
-        margin: 1px;
-    }
-
-    #userName {
-        width: 100%;
+        margin-bottom: 0.5em;
     }
 
     #btn-add {
-        width: 100%;
+        width: 20%;
+        /*margin-top: 1em;*/
     }
 
-    .input-group-append {
-        width: 100%;
-        padding: 1px !important;
-        margin: 1px !important;
+    .ui.grid > .row {
+        margin: 0.5rem !important; /* Remove the row margin */
+        padding: 0.1em !important; /* Add a little padding */
     }
 
+    .small-form .ui.labeled.input {
+        font-size: 0.8em;  /* Adjusts the text size */
+        width: 30%;        /* Adjusts the width */
+    }
+
+    .small-form input {
+        height: 2.8em;  /* Adjusts the height */
+    }
+
+    .form-control{
+        width: 20%;
+    }
 </style>
 
-<br>
-<div class="input-group mb-3">
-    <div class="container">
-        <form id="new-user-form">
-            <div class="row">
-                <div class="col-sm-3 col-md-3 m-0 p-1">
-                    <input type="text" class="form-control" name="userName"
-
-                           aria-label="New user's name">
-                </div>
-                <div class="col-sm-3 col-md-3  m-0 p-1">
-                    <input type="email" class="form-control" name="userEmail"
-
-                           aria-label="New user's email">
-                </div>
-                <div class="col-sm-4 col-md-3  m-0 p-1">
-                    <input type="password" class="form-control" name="userPassword"
-
-                           aria-label="New user's password">
-                </div>
-                <div class="col-sm-2  col-md-3 m-0 p-1">
-                    <button class="btn btn-success" id="btn-add"><?= __('Add') ?></button>
+<div class="ui container form-container small-form">
+    <form id="new-user-form" class="ui form">
+        <div class="ui grid">
+            <!-- Name Field -->
+            <div class="one column row">
+                <div class="column">
+                    <div class="ui labeled input form-group">
+                        <div class="ui label">
+                            <?= __('Name') ?>
+                        </div>
+                        <input type="text" name="userName" aria-label="New user's name">
+                    </div>
                 </div>
             </div>
-        </form>
-        <div class="row">
-            <div class="col-sm-3 col-md-3 text-muted">
-                <sup><?= __('Name') ?></sup>
+            <!-- Email Field -->
+            <div class="one column row">
+                <div class="column">
+                    <div class="ui labeled input form-group">
+                        <div class="ui label">
+                            <?= __('Email') ?>
+                        </div>
+                        <input type="email" name="userEmail" aria-label="New user's email">
+                    </div>
+                </div>
             </div>
-            <div class="col-sm-3 col-md-3  text-muted">
-                <sup><?= __('Email') ?></sup>
+            <!-- Password Field -->
+            <div class="one column row">
+                <div class="column">
+                    <div class="ui labeled input form-group">
+                        <div class="ui label">
+                            <?= __('Password') ?>
+                        </div>
+                        <input type="password" name="userPassword" aria-label="New user's password">
+                    </div>
+                </div>
             </div>
-            <div class="col-sm-4 col-md-3  text-muted">
-                <sup><?= __('Password') ?></sup>
-            </div>
-            <div class="col-sm-2 col-md-3 text-muted">
-                <sup></sup>
+            <!-- Add Button -->
+            <div class="one column row">
+                <div class="column">
+                    <button class="ui green button form-group" id="btn-add"><?= __('Add') ?></button>
+                </div>
             </div>
         </div>
-    </div>
+    </form>
 </div>
 
 <?php if (!empty($users)): ?>
@@ -97,62 +104,51 @@
     </table>
 <?php endif ?>
 
-<div class="modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
+<div class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header bg-primary text-white">
                 <h5 class="modal-title"><?= __('Edit user') ?></h5>
-                <button type="button" class="close"
-                        data-dismiss="modal"
-                        aria-label="Close">
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form id="edit-user-form">
-                    <input type="hidden" name="userId"/>
+                <form id="edit-user-form" class="form">
+                    <input type="hidden" name="userId">
+
+                    <!-- Form groups -->
                     <div class="form-group">
-                        <label class="mr-sm-2" for="input-user-name"><?= __('Name') ?></label>
-                        <input value="" type="text"
-                               name="userName"
-                               class="form-control"
-                               placeholder="<?= __("User's new name") ?>"
-                               aria-label="user name">
+                        <label for="input-user-name"><?= __('Name') ?></label>
+                        <input value="" type="text" name="userName" class="form-control" placeholder="<?= __("User's new name") ?>" aria-label="user name">
                     </div>
+
                     <div class="form-group">
-                        <label class="mr-sm-2" for="input-user-name"><?= __('Email') ?></label>
-                        <input value="" type="text"
-                               name="userEmail"
-                               class="form-control"
-                               placeholder="<?= __("User's new email") ?>"
-                               aria-label="user email">
+                        <label for="input-user-email"><?= __('Email') ?></label>
+                        <input value="" type="text" name="userEmail" class="form-control" placeholder="<?= __("User's new email") ?>" aria-label="user email">
                     </div>
+
                     <div class="form-group">
-                        <label class="mr-sm-2" for="input-user-name"><?= __('Password') ?></label>
-                        <input value="" type="text"
-                               name="userPassword"
-                               class="form-control"
-                               placeholder="<?= __("User's new password (leave empty for unchanged)") ?>"
-                               aria-label="user password">
+                        <label for="input-user-password"><?= __('Password') ?></label>
+                        <input value="" type="password" name="userPassword" class="form-control" placeholder="<?= __("User's new password (leave empty for unchanged)") ?>" aria-label="user password">
                     </div>
+
                     <div class="form-group">
-                        <label class="mr-sm-2" for="input-user-name"><?= __('Admin') ?></label>
-                        <input value="" type="text"
-                               name="userIsAdmin"
-                               class="form-control"
-                               placeholder="<?= __("Set to 1 if user must be admin") ?>"
-                               aria-label="user is admin">
+                        <label for="input-user-isAdmin"><?= __('Admin') ?></label>
+                        <input value="" type="text" name="userIsAdmin" class="form-control" placeholder="<?= __("Set to 1 if user must be admin") ?>" aria-label="user is admin">
                     </div>
                 </form>
             </div>
+
+            <!-- Modal footer -->
             <div class="modal-footer">
-                <button type="button"
-                        class="btn btn-primary btn-save"><?= __('Save changes') ?></button>
+                <button type="button" class="btn btn-primary btn-save"><?= __('Save changes') ?></button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal"><?= __('Close') ?></button>
             </div>
         </div>
     </div>
 </div>
+
 <script>
 
     $('#btn-add').click(function () {

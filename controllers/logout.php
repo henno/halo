@@ -16,4 +16,4 @@ class logout extends Controller
         header('Location: ' . BASE_URL);
         exit();
     }
-} 
+}
