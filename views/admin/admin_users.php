@@ -1,92 +1,62 @@
 <script src="https://use.fontawesome.com/d37013578f.js"></script>
-
 <style>
-    .form-container {
-        margin-top: 5rem;
-        margin-bottom: 2rem;
-    }
-
-    .form-group {
-        margin-bottom: 0.5em;
-    }
-
     #btn-add {
-        width: 20%;
+        height: 38px;
+        width: 100%;
     }
 
-    .ui.grid > .row {
-        margin: 0.5rem !important; /* Remove the row margin */
-        padding: 0.1em !important; /* Add a little padding */
+    /* Remove margin-left: 0 from form when in mobile mode */
+    @media (max-width: 767px) {
+        #new-user-form {
+            margin-left: auto;
+        }
     }
 
-    .small-form .ui.labeled.input {
-        font-size: 0.8em;  /* Adjusts the text size */
-        width: 30%;        /* Adjusts the width */
-    }
-
-    .small-form input {
-        height: 2.8em;  /* Adjusts the height */
-    }
-
-    .form-control{
-        width: 20%;
+    @media only screen and (max-width: 767.98px) {
+        body .ui:not(.segment):not(.grid) .ui.stackable.grid, body > .ui.stackable.grid {
+            margin-left: -15px !important;  /* Or whatever value you need */
+            margin-right: -15px !important;  /* Or whatever value you need */
+        }
     }
 </style>
 
-<div class="ui container form-container small-form">
-    <form id="new-user-form" class="ui form">
-        <div class="ui grid">
-            <!-- Name Field -->
-            <div class="one column row">
-                <div class="column">
-                    <div class="ui labeled input form-group">
-                        <div class="ui label">
-                            <?= __('Name') ?>
-                        </div>
-                        <input type="text" name="userName" aria-label="New user's name">
-                    </div>
-                </div>
-            </div>
-            <!-- Email Field -->
-            <div class="one column row">
-                <div class="column">
-                    <div class="ui labeled input form-group">
-                        <div class="ui label">
-                            <?= __('Email') ?>
-                        </div>
-                        <input type="email" name="userEmail" aria-label="New user's email">
-                    </div>
-                </div>
-            </div>
-            <!-- Password Field -->
-            <div class="one column row">
-                <div class="column">
-                    <div class="ui labeled input form-group">
-                        <div class="ui label">
-                            <?= __('Password') ?>
-                        </div>
-                        <input type="password" name="userPassword" aria-label="New user's password">
-                    </div>
-                </div>
-            </div>
-            <!-- Add Button -->
-            <div class="one column row">
-                <div class="column">
-                    <button class="ui green button form-group" id="btn-add"><?= __('Add') ?></button>
-                </div>
+<form class="ui form" id="new-user-form">
+    <div class="ui stackable four column grid">
+        <div class="column">
+            <div class="fluid input">
+                <label for="userName"><?= __('Name') ?></label>
+                <input type="text" name="userName" id="userName" placeholder="John Doe">
             </div>
         </div>
-    </form>
-</div>
+        <div class="column">
+            <div class="fluid input">
+                <label for="userEmail"><?= __('Email') ?></label>
+                <input type="text" name="userEmail" id="userEmail" placeholder="john@example.com">
+            </div>
+        </div>
+        <div class="column">
+            <div class="fluid input">
+                <label for="userPassword"><?= __('Password') ?></label>
+                <input type="password" name="userPassword" id="userPassword" placeholder="Secret">
+            </div>
+        </div>
+        <div class="column bottom aligned">
+            <button class="ui green button" id="btn-add" type="button">Add</button>
+        </div>
+    </div>
+</form>
 
 <?php if (!empty($users)): ?>
-    <table class="table table table-nonfluid table-bordered table-hover table-users bordered">
+    <table class="ui celled table unstackable table-users">
+        <thead>
         <tr>
             <?php foreach ($users[0] as $field => $value): ?>
                 <th><?= __(substr($field, 4)) ?></th>
             <?php endforeach ?>
             <th></th>
         </tr>
+        </thead>
+        <tbody>
         <?php foreach ($users as $user): ?>
             <tr data-userid="<?= $user['userId'] ?>">
                 <?php foreach ($user as $field => $value): ?>
@@ -100,8 +70,10 @@
                 </td>
             </tr>
         <?php endforeach ?>
+        </tbody>
     </table>
 <?php endif ?>
+
 <div class="ui modal">
     <i class="close icon"></i>
     <div class="header">
@@ -109,22 +81,24 @@
     </div>
     <div class="content">
         <form id="edit-user-form" class="ui form">
-            <input type="hidden" name="userId" />
+            <input type="hidden" name="userId"/>
             <div class="field">
-                <label><?= __('Name') ?></label>
-                <input type="text" name="userName" placeholder="<?= __("User's new name") ?>">
+                <label for="userName"><?= __('Name') ?></label>
+                <input type="text" name="userName" id="userName" placeholder="<?= __("User's new name") ?>">
             </div>
             <div class="field">
-                <label><?= __('Email') ?></label>
-                <input type="email" name="userEmail" placeholder="<?= __("User's new email") ?>">
+                <label for="userEmail"><?= __('Email') ?></label>
+                <input type="email" name="userEmail" id="userEmail" placeholder="<?= __("User's new email") ?>">
             </div>
             <div class="field">
-                <label><?= __('Password') ?></label>
-                <input type="password" name="userPassword" placeholder="<?= __("User's new password (leave empty for unchanged)") ?>">
+                <label for="userPassword"><?= __('Password') ?></label>
+                <input type="password" name="userPassword" id="userPassword"
+                       placeholder="<?= __("User's new password (leave empty for unchanged)") ?>">
             </div>
             <div class="field">
-                <label><?= __('Admin') ?></label>
-                <input type="text" name="userIsAdmin" placeholder="<?= __("Set to 1 if user must be admin") ?>">
+                <label for="userIsAdmin"><?= __('Admin') ?></label>
+                <input type="text" name="userIsAdmin" id="userIsAdmin"
+                       placeholder="<?= __("Set to 1 if user must be admin") ?>">
             </div>
         </form>
     </div>
@@ -152,7 +126,7 @@
 
         $('#edit-user-form [name="userPassword"]').val(''); // Clear password from previous value
 
-        ajax('admin/getUser', { userId }, function (res) { // Get selected user's data from the database
+        ajax('admin/getUser', {userId}, function (res) { // Get selected user's data from the database
             Object.keys(res.data).forEach(function (field) { // Fill modal fields with data from the database
                 $(`#edit-user-form [name="${field}"]`).val(res.data[field]);
             });
@@ -177,7 +151,7 @@
         ajax('admin/editUser', $('#edit-user-form').serialize(), RELOAD); // Send modal contents to the back-end and reload the page
     });
     // This ensures the close button will close the modal
-    $(document).on('click', '.ui.secondary.button', function() {
+    $(document).on('click', '.ui.secondary.button', function () {
         $('.ui.modal').modal('hide');
     });
 

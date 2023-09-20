@@ -126,7 +126,7 @@ function stop($code, $data = false)
     exit(json_encode($response));
 }
 
-function send_error_report($exception)
+function send_error_report($exception): ?\Sentry\EventId
 {
 
     // Get user data from session

@@ -1,14 +1,13 @@
 {
   "require": {
+    "php": ">=8",
     "phpmailer/phpmailer": "^6.8",
     "ext-mysqli": "*",
     "stichoza/google-translate-php": "^4.1",
     "ezyang/htmlpurifier": "^4.16",
-    "sentry/sdk": "^3.5",
     "ext-json": "*",
-    "jdorn/sql-formatter": "^1.2",
-    "spatie/backtrace": "^1.5",
-    "doctrine/sql-formatter": "^1.1"
+    "doctrine/sql-formatter": "^1.1",
+    "sentry/sdk": "^3.5"
   },
   "autoload": {
     "psr-4": {
