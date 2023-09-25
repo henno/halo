@@ -1,10 +1,16 @@
+<style>
+    th {
+        text-align: center;
+        background-color: #f5f5f5 !important;
+    }
+</style>
 <div class="row">
 
     <h1>Modules</h1>
 
     <div class="table-responsive">
 
-        <table class="table table-striped table-bordered">
+        <table class="ui celled table table-striped table-bordered">
 
 
             <tbody>

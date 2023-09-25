@@ -25,8 +25,10 @@ class halo extends Controller
         $name_singular = $_POST['name_singular'];
         $table_name = $name_plural;
         $table_prefix = $name_singular;
+        $name_plural_esc = addslashes($name_plural);
+        $name_singular_esc = addslashes($name_singular);
 
-        if (Db::q("SHOW TABLES LIKE '$table_name'")) {
+        if (!empty(Db::getAll("SHOW TABLES LIKE '$table_name'"))) {
 
             // Show error
             echo '<div class="alert alert-danger">' . "The table $name_plural already existed. Aborting." . '</div>';
@@ -34,11 +36,11 @@ class halo extends Controller
         } else {
 
             // Add table to database
-            Db::q("CREATE TABLE `?` (
-             `?_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Autocreated',
-             `?_name` varchar(50) NOT NULL COMMENT 'Autocreated',
-             PRIMARY KEY (`?_id`)
-           ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;",[$table_name, $table_prefix, $table_name, $table_name]);
+            Db::q("CREATE TABLE `$name_plural_esc` (
+             `{$name_singular_esc}_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Autocreated',
+             `{$name_singular_esc}_name` varchar(50) NOT NULL COMMENT 'Autocreated',
+             PRIMARY KEY (`{$name_singular_esc}_id`)
+           ) ENGINE=InnoDB AUTO_INCREMENT=1");
 
             // Print banner
 

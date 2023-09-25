@@ -3,8 +3,8 @@
     <h1>Modules</h1>
 
     <div class="table-responsive">
-
-        <table class="table table-striped table-bordered clickable-rows">
+        <!-- Fomantic UI table -->
+        <table class="ui celled table table-striped table-bordered">
 
             <thead>
 
