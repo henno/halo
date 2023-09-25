@@ -60,7 +60,11 @@
 <h4 class="ui header">Ajax example</h4>
 <p>Fill the name field below and click <i>submit form using ajax</i>.</p>
 <form id="ajax-form">
-    Your name: <input class="ui input" type="text" placeholder="Write something here" name="name"/>
+    Your name:
+    <!-- Fomantic input -->
+    <div class="ui input">
+        <input type="text" name="name" placeholder="Write something">
+    </div>
     <a class="ui button green" onclick="success()">Submit form using ajax (success)</a>
     <a class="ui button red" onclick="error()">Submit form using ajax (error)</a>
 </form>
