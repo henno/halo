@@ -30,7 +30,9 @@ class Activity
         return Db::getAll("
             SELECT *, DATE_FORMAT(activityLogTimestamp, '%Y-%m-%d %H:%i') activityLogTimestamp 
             FROM activityLog JOIN users USING (userId) JOIN activities USING (activityId)
-            $where");
+            $where
+            ORDER BY activityLogId DESC
+            ");
     }
 
 }

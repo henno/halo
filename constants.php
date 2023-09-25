@@ -19,3 +19,4 @@ const DEFAULT_TIMEZONE = 'Europe/Tallinn';
 const ENV_DEVELOPMENT = 0;
 const ENV_PRODUCTION = 1;
 const ACTIVITY_LOGIN = 1;
+const ACTIVITY_LOGOUT = 2;

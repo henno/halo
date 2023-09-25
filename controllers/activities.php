@@ -19,24 +19,4 @@ class activities extends Controller
         $this->activity = Db::getFirst("SELECT * FROM activities WHERE activityId = '{$activityId}'");
     }
 
-    function AJAX_create()
-    {
-        $activityId = (int)self::$activities[$this->params[0]];
-
-        // Validate activity
-        if ($activityId == 0) {
-            stop('Invalid activity');
-        }
-
-        // Only log video cursor position change once per minute
-        if ($activityId == ACTIVITY_VIDEO_PROGRESS || $activityId == ACTIVITY_VIDEO_TIMEUPDATE) {
-            $time = Activity::getUserLatestActivityTime($this->auth->userId, $activityId);
-            if (substr($time, 0, 16) == date('Y-m-d H:i')) {
-                return;
-            }
-        }
-
-        Activity::create(self::$activities[$this->params[0]]);
-    }
-
 }

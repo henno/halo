@@ -12,7 +12,9 @@ class logout extends Controller
 
     function index()
     {
+        $userId = $_SESSION['userId'];
         session_destroy();
+        Activity::create(ACTIVITY_LOGOUT, $userId);
         header('Location: ' . BASE_URL);
         exit();
     }
