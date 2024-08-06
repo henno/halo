@@ -17,6 +17,5 @@ class Deployment
             'deploymentCommitAuthor'=>$author
         ], true);
 
-
     }
 }
