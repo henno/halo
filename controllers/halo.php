@@ -16,9 +16,8 @@ class halo extends Controller
         }
     }
 
-    function POST_index()
+    function AJAX_create_module()
     {
-
         // Check if the controller's table already exists in the database
         // $table_names_are_singular = true; # currently plural names are not supported
         $name_plural = $_POST['name_plural'];
@@ -31,7 +30,7 @@ class halo extends Controller
         if (!empty(Db::getAll("SHOW TABLES LIKE '$table_name'"))) {
 
             // Show error
-            echo '<div class="alert alert-danger">' . "The table $name_plural already existed. Aborting." . '</div>';
+            stop(409,"The table $name_plural already existed. Aborting.");
 
         } else {
 
@@ -90,8 +89,7 @@ class halo extends Controller
             // Prevent git running under developer's user account having permission issues when commiting this file
             exec("chmod -R a+rwX *");
 
-
-            echo '<div class="alert alert-success">' . 'The module <a href="' . BASE_URL . $table_name . '">' . $table_name . '</a> was created.</div>';
+            stop(200, 'The module <a href="' . BASE_URL . $table_name . '">' . $table_name . '</a> was created.');
         }
 
     }
