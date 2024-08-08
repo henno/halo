@@ -10,8 +10,8 @@ class modules extends Controller
 
     function view()
     {
-        $module_id = $this->getId();
-        $this->module = Db::getFirst("SELECT * FROM modules WHERE module_id = '{$module_id}'");
+        $moduleId = $this->getId();
+        $this->module = Db::getFirst("SELECT * FROM modules WHERE moduleId = '{$moduleId}'");
     }
 
 }

@@ -18,9 +18,9 @@
             <tbody>
 
             <?php foreach ($modules as $module): ?>
-                <tr data-href="modules/<?= $module['module_id'] ?>">
-                    <td><?= $module['module_id'] ?></td>
-                    <td><?= $module['module_name'] ?></td>
+                <tr data-href="modules/<?= $module['moduleId'] ?>">
+                    <td><?= $module['moduleId'] ?></td>
+                    <td><?= $module['moduleName'] ?></td>
                 </tr>
             <?php endforeach; ?>
 
