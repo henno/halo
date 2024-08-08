@@ -10,6 +10,7 @@ Requirements
 ============
 - [A web server capable of url rewriting and a MySQL compatible database](https://en.wikipedia.org/wiki/XAMPP)
 - [Composer](https://getcomposer.org)
+- Npm (for installing front-end dependencies)
 
 Getting started
 ------
@@ -19,6 +20,3 @@ Getting started
 Reporting bugs
 ------
 If you've stumbled across a bug, please help us out by reporting the bug you have found using Github's Issue tracker. If you'd like to fix it yourself, feel free to fork the project on GitHub and submit a pull request!
-asd
-123
-bv
