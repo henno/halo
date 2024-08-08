@@ -17,11 +17,11 @@
 
             <tr>
                 <th>ID</th>
-                <td><?= $module['module_id'] ?></td>
+                <td><?= $module['moduleId'] ?></td>
             </tr>
             <tr>
                 <th><?= __('Module Name') ?></th>
-                <td><?= $module['module_name'] ?></td>
+                <td><?= $module['moduleName'] ?></td>
             </tr>
 
             </tbody>
