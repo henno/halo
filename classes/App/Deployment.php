@@ -12,7 +12,7 @@ class Deployment
         Db::insert('deployments',[
             'deploymentCommitDate'=>substr($commit_date, 0,19),
             'deploymentDate'=>date('Y-m-d H:i:s'),
-            'deploymentCommitMessage'=>substr($message, 0,19),
+            'deploymentCommitMessage'=>substr($message, 0,255),
             'deploymentCommitSha'=>$sha,
             'deploymentCommitAuthor'=>$author
         ], true);
