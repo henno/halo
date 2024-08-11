@@ -18,7 +18,7 @@ class Db
         $this->conn = new \mysqli($host, $user, $password, $dbname);
 
         // Set error reporting level
-        $this->conn->report_mode = MYSQLI_REPORT_ALL;
+        mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
         if ($this->conn->connect_error) {
             throw new \Exception("Connection failed: " . $this->conn->connect_error);
@@ -148,15 +148,24 @@ class Db
         $types = self::getTypeString($params);
         $debugQuery = $this->debugQuery($query, $params);
 
-        // Replace ? with NULL for null values and adjust types and params
+        // Adjust query for NULL values
         $newParams = [];
         $newTypes = '';
+        $placeholderIndex = 0;
+
         for ($i = 0, $len = strlen($types); $i < $len; ++$i) {
-            if ($types[$i] === 's' && $params[$i] === NULL) {
-                $query = preg_replace('/\?/', 'NULL', $query, 1);
+            if ($params[$i] === NULL) {
+                // Locate the correct placeholder
+                $placeholderIndex = strpos($query, '?', $placeholderIndex);
+                if ($placeholderIndex !== false) {
+                    // Replace the specific placeholder with NULL
+                    $query = substr_replace($query, 'NULL', $placeholderIndex, 1);
+                    $placeholderIndex += 4; // Move past the inserted 'NULL'
+                }
             } else {
                 $newParams[] = $params[$i];
                 $newTypes .= $types[$i];
+                $placeholderIndex = strpos($query, '?', $placeholderIndex) + 1;
             }
         }
 
@@ -164,7 +173,9 @@ class Db
         $stmt = $this->conn->prepare($query);
 
         // Bind params if there are any
-        $newTypes && $stmt->bind_param($newTypes, ...$newParams);
+        if ($newTypes) {
+            $stmt->bind_param($newTypes, ...$newParams);
+        }
 
         // Start timer
         $startTime = microtime(true);
