@@ -123,6 +123,9 @@ function stop($code, $data = false)
     // Change HTTP status code
     http_response_code($code);
 
+    // Add Content-Type header
+    header('Content-Type: application/json');
+
     exit(json_encode($response));
 }
 

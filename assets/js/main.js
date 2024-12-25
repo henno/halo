@@ -1,114 +1,56 @@
 const RELOAD = 33;
-var error_modal = $("#error-modal");
 
-function tryToParseJSON(jsonString) {
+/**
+ * Sends POST request expecting JSON response with "status" field
+ * @param {string} url - Server endpoint
+ * @param {Object} payload - Data to send
+ * @param {Function|string|number} onSuccessOrRedirect - Callback or redirect URL or RELOAD
+ * @param {Function} [onError] - Error callback
+ */
+async function ajax(url, payload, onSuccessOrRedirect, onError) {
     try {
-        var o = JSON.parse(jsonString);
-
-        // Handle non-exception-throwing cases:
-        // Neither JSON.parse(false) or JSON.parse(1234) throw errors, hence the type-checking,
-        // but... JSON.parse(null) returns null, and typeof null === "object",
-        // so we must check for that, too. Thankfully, null is falsey, so this suffices:
-        if (o && typeof o === "object") {
-            return o;
-        }
-    } catch (e) {
-    }
-
-    return false;
-}
-
-
-function ajax(url, options, callback_or_redirect_url, error_callback) {
-
-
-    $.post(url, options)
-        .fail(function (jqXHR, textStatus, errorThrown) {
-            console.log('Xhr error: ', jqXHR, textStatus, errorThrown);
-            let error;
-            let json = tryToParseJSON(jqXHR.responseText);
-            if (json === false) {
-                error = jqXHR.responseText;
-            } else {
-                if (typeof json.data === 'undefined') {
-                    error = `<pre>${JSON.stringify(json, null, 2)}</pre>`;
-                } else {
-                    error = json.data;
-                }
-            }
-
-            if (typeof error_callback === 'function') {
-                error_callback(error);
-            } else {
-                show_error_modal(error, errorThrown);
-            }
-
-        })
-        .done(function (response) {
-            let json = tryToParseJSON(response);
-
-            console.log('.done');
-            if (json === false) {
-
-                // Send error report
-                $.post('email/send_error_report', {
-                    javascript_received_json_payload_that_caused_the_error: response
-                });
-
-                show_error_modal(response);
-
-                return false;
-
-
-            } else if (json.status === 500) {
-
-                // Send error report
-                $.post('email/send_error_report', {
-                    javascript_received_json_payload_that_caused_the_error: json
-                });
-
-
-                if (typeof error_callback === 'function') {
-                    error_callback(json);
-                } else {
-                    show_error_modal(json.data);
-                }
-
-                return false;
-
-
-            } else if (json.status.toString()[0] !== '2') {
-
-                if (typeof error_callback === 'function') {
-                    error_callback(json);
-                } else {
-                    show_error_modal(json.data);
-                }
-
-            } else {
-
-                if (typeof callback_or_redirect_url === 'function') {
-                    callback_or_redirect_url(json);
-                } else if (typeof callback_or_redirect_url === 'string') {
-                    location.href = callback_or_redirect_url;
-                } else if (callback_or_redirect_url === RELOAD) {
-                    location.reload();
-                }
-
-            }
-
+        const res = await fetch(url, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json', 'X-Requested-With': 'XMLHttpRequest'},
+            body: JSON.stringify(payload)
         });
 
+        const text = await res.text();
+        if (!text.trim()) {
+            showModal('Error', 'Server returned an empty response');
+            return;
+        }
+
+        let json;
+        try {
+            json = JSON.parse(text);
+        } catch {
+            showModal(res.ok ? 'Error' : `Error ${res.status}`, text);
+            return;
+        }
+
+        const {status, data} = json;
+
+        if (+status >= 200 && +status < 300) {
+            if (typeof onSuccessOrRedirect === 'function') onSuccessOrRedirect(json);
+            else if (onSuccessOrRedirect === RELOAD) location.reload();
+            else if (typeof onSuccessOrRedirect === 'string') location.href = onSuccessOrRedirect;
+        } else onError?.(json) || showModal(res.ok ? 'Error' : `Error ${res.status}`, data || 'Unknown error');
+
+    } catch (err) {
+        showModal('Error', `Network error: ${err.message}`);
+        onError?.(err);
+    }
 }
 
-$('table.clickable-rows tr').on('click', function () {
-    window.location = $(this).data('href');
-});
+document.querySelectorAll('table.clickable-rows tr').forEach(row =>
+    row.addEventListener('click', () => window.location = row.dataset.href)
+);
 
-function show_error_modal(error, title = false) {
-    error_modal.modal({
-        title: title ? title : '<?= __(\'Oops...\') ?>',
-        content: error,  // Assuming you want to display the error here
+function showModal(title, content) {
+    $('#error-modal').modal({
+        title,
+        content,
         classContent: 'centered',
         class: 'small'
     }).modal('show');
