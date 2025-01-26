@@ -17,6 +17,9 @@ class Db
     {
         $this->conn = new \mysqli($host, $user, $password, $dbname);
 
+        // Make sure numbers are retrieved as numbers
+        $this->conn->options(MYSQLI_OPT_INT_AND_FLOAT_NATIVE, true);
+
         // Set error reporting level
         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
