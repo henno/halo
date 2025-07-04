@@ -54,7 +54,7 @@
           text: 'Alright, got it',
           class: 'green'
         }]}).modal('show');">Open temporary modal</a>
-    <a class="ui button" onclick="openCustomModal">Open custom modal</a>
+    <a class="ui button" onclick="openCustomModal()">Open custom modal</a>
 </p>
 <h3 class="ui header">Sending data to server</h3>
 <h4 class="ui header">Ajax example</h4>
@@ -89,8 +89,8 @@
         </div>
     </div>
     <div class="actions">
-        <div class="ui button">Cancel</div>
-        <div class="ui button">OK</div>
+        <div class="ui button cancel">Cancel</div>
+        <div class="ui button approve positive">OK</div>
     </div>
 </div>
 
@@ -99,7 +99,7 @@
 <script type="text/javascript">
 
     function openCustomModal() {
-        $('.ui.modal.custom').modal();
+        $('.ui.modal.custom').modal('show');
     }
 
     function success() {
